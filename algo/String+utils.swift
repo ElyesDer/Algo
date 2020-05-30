@@ -8,7 +8,25 @@
 
 import Foundation
 
+extension URL {
+    /// second-level domain [SLD]
+    ///
+    /// i.e. `msk.ru, spb.ru`
+    var SLD: String? {
+        return host?.components(separatedBy: ".").suffix(2).joined(separator: ".")
+    }
+}
+
 extension String {
+    
+    
+    func substring(from:Int, toSubstring s2 : String) -> Substring? {
+        guard let r = self.range(of:s2) else {return nil}
+        var s = self.prefix(upTo:r.lowerBound)
+        s = s.dropFirst(from)
+        return s
+    }
+    
     
     func matchingStrings(regex: String) -> [[String]] {
         guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return [] }

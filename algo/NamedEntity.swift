@@ -33,7 +33,10 @@ class NamedEntity {
         var matches = value.matchingStrings(regex: RecognitionTools.websiteRegex)
         matches.forEach { (item) in
             item.forEach { (subItem) in
-                holder.append(NamedEntity(value: subItem, type: .website) )
+                if(subItem.count > 3 && !subItem.existInArray(array: holder.map({$0.value}),level: 0.98)){
+                    holder.append(NamedEntity(value: subItem, type: .website) )
+                }
+                
             }
         }
         
@@ -149,9 +152,16 @@ class NamedEntity {
             if element.trimmedAndLowercased.existInArray(array: RecognitionTools.lowerCasejobTitles, level: 0.7)  {
                 //score -= 20
             }
+            
+            // GO EVEN DEEPER, anc substring THE VALUE ( in case of Full name ) and test it with first part of email
+           //print("TOKEN : \(element.replacingOccurrences(of: " ", with: "")) Existis in \(emails.map({$0.value.components(separatedBy: "@")[0] }))) ? : \(element.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) )")
+            if element.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) {
+                score += 20
+            }
+            
         }
         
-        print("Value : \(value.replacingOccurrences(of: " ", with: "")) Existis in \(emails.map({$0.value})) ? : \(value.replacingOccurrences(of: " ", with: "").existInArray(array: emails.map({$0.value}),preprocess: true , level: 0.8))")
+        //print("Value : \(value.replacingOccurrences(of: " ", with: "")) Existis in \(emails.map({$0.value.components(separatedBy: "@")[0] }))) ? : \(value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) )")
         
         
         // if it exists in first part only THAN BIGGER SCORE FOR FULL NAME else BIGGER SCORE FOR COMPANY
@@ -159,6 +169,8 @@ class NamedEntity {
         if value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) {
             score += 30
         }
+        
+        // GO EVEN DEEPER, anc substring THE VALUE ( in case of Full name ) and test it with first part of email
         
         if value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.8) {
             score -= 10
@@ -186,13 +198,13 @@ class NamedEntity {
         
          
         // extract email and website
-        let email = namedEntityHolder.filter { (namedEntity) -> Bool in
+        let emails = namedEntityHolder.filter { (namedEntity) -> Bool in
             namedEntity.type == .email
-            }.first?.value ?? ""
+        }
         
-        let website = namedEntityHolder.filter { (namedEntity) -> Bool in
-        namedEntity.type == .website
-        }.first?.value ?? ""
+        let websites = namedEntityHolder.filter { (namedEntity) -> Bool in
+            namedEntity.type == .website
+        }
         
         let tokensValue = value.components(separatedBy: " ")
         
@@ -205,20 +217,43 @@ class NamedEntity {
             return self
         }
         
+        if value.existInArray(array: namedEntityHolder.map({$0.value}),preprocess: true) {
+            // website , email  , less Full name , are accurate so
+            self.score -= 10
+        }
         
-        tokensValue.forEach({ (item) in
-            if item.existIn(container: website, level: 0.8) {
-                score += 40
-                return // todo : this does not break the loop
-            }
-        })
+        //testPrint(tag: "Company email compare", title: "\(value) exists in \(emails.map({$0.value.components(separatedBy: "@")[1] }))", content: value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.75) )
         
-        tokensValue.forEach({ (item) in
-            if item.existIn(container: email, level: 0.7) {
-                score += 40
-                return
-            }
-        })
+        if value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.75) {
+            score += 30
+        }
+        
+        //testPrint(tag: "Company websites compare", title: "\(value) exists in \(websites.map({$0.value }))", content: value.existInArray(array: websites.map({$0.value}), preprocess: true , level: 0.8) )
+        
+        if value.existInArray(array: websites.map({$0.value}), preprocess: true , level: 0.8) {
+            score += 30
+        }
+        
+        if tokensValue.count > 1 {
+            tokensValue.forEach({ (item) in
+                
+                if item.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) {
+                    score += 5
+                }
+                
+                // SECOND PART OF EMAIL WHERE WE GENERALLY FOUND COMPANY , SO HIGHER SCORE GOES HERE
+                if item.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.8) {
+                    score += 20
+                }
+                
+                
+                // website is hard to do "Contains" ; so adjust the level for the best results
+                if item.existInArray(array: websites.map({$0.value}), preprocess: false , level: 0.7) {
+                    score += 20
+                }
+                
+            })
+        }
         
         
         if value.isAllUpperCase(){
@@ -238,9 +273,61 @@ class NamedEntity {
             score -= 10
         }
         
+        if value.isPhoneNumber {
+            score -= 20
+        }
+        
         // TODO : EXIST IN PREMADE DATA
         
+        
+        
         return self
+    }
+    
+    
+    func computeCompanyFromWebsiteOrEmail(namedEntityHolder : [ NamedEntity ]) -> [NamedEntity] {
+        
+        // extract email and website
+        let emails = namedEntityHolder.filter { (namedEntity) -> Bool in
+            namedEntity.type == .email
+        }
+        
+        let websites = namedEntityHolder.filter { (namedEntity) -> Bool in
+            namedEntity.type == .website
+        }
+        
+        var results : [NamedEntity] = []
+        
+        emails.forEach { (emailEntity) in
+            let partTwo = emailEntity.value.components(separatedBy: "@")[1]
+            
+            if !partTwo.existInArray(array: RecognitionTools.emailsDomains,preprocess: true) {
+                // pretend its company website
+                let found = NamedEntity(value: partTwo.components(separatedBy: ".")[0], type: .website)
+                found.score = 35
+                results.append( found )
+                
+            }
+        }
+        
+        // lets try with website
+        websites.forEach { (webEntity) in
+
+            // replace ALL OCCURENCE OF HTTP:// HTTPS:// WWW. FTP://, .com , .fr ,.be , ......
+            
+            let urlString = webEntity.value
+            let url = URL(string: urlString)
+            if let host = url?.host {
+                let found = NamedEntity(value: host.components(separatedBy: ".")[0], type: .website)
+                found.score = 45
+                results.append(found)
+                //                if host.contains(".") {
+                //
+                //                }
+            }
+        }
+        // company name have vbeen extracted from email or website , so po them
+        return results
     }
     
     func computeTitle( namedEntityHolder : [ NamedEntity ])-> NamedEntity{
@@ -445,6 +532,8 @@ class NamedEntity {
 
 extension String {
     
+    /// Level 1 Seems a bit comfusin and no detecting exact match soo .. avoid
+    
     func existInArray (array : [String] , preprocess : Bool = false , level : Double = 0.9) -> Bool {
         
         var preprocessed = self
@@ -457,15 +546,13 @@ extension String {
         }
         
         
-        return array.first { (element) -> Bool in
-            
-            
+        return array.filter { (element) -> Bool in
             element
                 .trimmedAndLowercased
                 .replacingOccurrences(of: " ", with: "")
                 .replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: "")
                 .distanceJaroWinkler(between: preprocessed) > level
-            }?.count ?? 0 > 0
+        }.count > 0
     }
     
     func existInDictionnary(dictionnary : [EntityType : NamedEntity ], level : Double = 0.9) -> Bool {
