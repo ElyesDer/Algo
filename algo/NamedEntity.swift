@@ -21,27 +21,70 @@ class NamedEntity {
         self.value = value
     }
     
-    func computeFullName( namedEntityHolder : [EntityType : NamedEntity ] ) -> NamedEntity {
+    init(value : String, type : EntityType) {
+        self.value = value
+        self.type = type
+    }
+    
+    func computeWebsite(namedEntityHolder : [ NamedEntity ] , prefixes : [PrefixHolder] ) -> [NamedEntity] {
+        
+        var holder : [NamedEntity] = []
+        
+        var matches = value.matchingStrings(regex: RecognitionTools.websiteRegex)
+        matches.forEach { (item) in
+            item.forEach { (subItem) in
+                holder.append(NamedEntity(value: subItem, type: .website) )
+            }
+        }
+        
+        return holder
+    }
+    
+    // is array because one line can contain multiple emails
+    func computeEmails(namedEntityHolder : [ NamedEntity ] , prefixes : [PrefixHolder] ) -> [NamedEntity] {
+        
+        var holder : [NamedEntity] = []
+        
+        
+        var matches = value.matchingStrings(regex: RecognitionTools.emailRegex)
+        matches.forEach { (item) in
+            item.forEach { (subItem) in
+                if subItem.isValidEmail() {
+                    holder.append(NamedEntity(value: subItem, type: .email) )
+                }
+            }
+        }
+        
+        return holder
+    }
+    
+    func computeFullName( namedEntityHolder : [ NamedEntity ] ) -> NamedEntity {
         //resultHolder[value] = score
         
-        let email = namedEntityHolder[.email]?.value
-        let website = namedEntityHolder[.website]?.value
+        // extract email and website
+        let emails = namedEntityHolder.filter { (namedEntity) -> Bool in
+            namedEntity.type == .email
+        }
+        
+        let websites = namedEntityHolder.filter { (namedEntity) -> Bool in
+            namedEntity.type == .website
+        }
         
         var tokensValue = value.components(separatedBy: " ")
         
-        if value.count < 3 {
-            return self
-        }
         
         // remove white space so it detects correctly
         if  value.replacingOccurrences(of: " ", with: "").description.isAllNumber {
             return self
         }
         
+        if !value.lengthBetween(l1: 3, l2: 25) {
+            return self
+        }
         
         
         
-        if value.existInDictionnary(dictionnary: namedEntityHolder) {
+        if value.existInArray(array: namedEntityHolder.map({$0.value})) {
             return self
             /*
              Replaces :
@@ -55,10 +98,21 @@ class NamedEntity {
              */
         }
         
+        // this needs prefix to be removed
+        if 2...5 ~= tokensValue.count{
+            //print("2...3 ~= tokensValue.count")
+            //score += 10
+        } else {
+            return self
+        }
         
         // todo : check if email , is valid ...
         if value.isValidEmail() {
             return self
+        }
+        
+        if value.containsNumbers() {
+            score -= 30
         }
         
         // TODO : DONE need to check for DR. PROF. and remove them from string
@@ -68,15 +122,12 @@ class NamedEntity {
             score += 30
         }
         
-        // this needs prefix to be removed
-        if 2...5 ~= tokensValue.count{
-            //print("2...3 ~= tokensValue.count")
-            //score += 10
-        } else {
-            return self
-        }
+        
         
         for (index,element) in tokensValue.enumerated() {
+            if element.containsNumbers() {
+                score -= 10
+            }
             if index < 1 {
                 // first element
                 if element.beginsWithUpperCase(){
@@ -95,22 +146,28 @@ class NamedEntity {
                 }
             }
             
-            if RecognitionTools.lowerCasejobTitles.contains(element.trimmedAndLowercased)  {
-                score -= 20
+            if element.trimmedAndLowercased.existInArray(array: RecognitionTools.lowerCasejobTitles, level: 0.7)  {
+                //score -= 20
             }
         }
         
-        if value.existIn(container: email ?? "", level: 0.8) {
+        print("Value : \(value.replacingOccurrences(of: " ", with: "")) Existis in \(emails.map({$0.value})) ? : \(value.replacingOccurrences(of: " ", with: "").existInArray(array: emails.map({$0.value}),preprocess: true , level: 0.8))")
+        
+        
+        // if it exists in first part only THAN BIGGER SCORE FOR FULL NAME else BIGGER SCORE FOR COMPANY
+        
+        if value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) {
             score += 30
         }
         
-        if value.existIn(container: website ?? "", level: 0.8){
-            score += 20
+        if value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.8) {
+            score -= 10
         }
         
-        if value.containsNumbers() {
-            score -= 30
+        if value.existInArray(array: websites.map({$0.value}), preprocess: true , level: 0.7){
+            score -= 20
         }
+        
         
         
         value.forEach { (char) in
@@ -125,10 +182,17 @@ class NamedEntity {
         
     }
     
-    func computeCompany(namedEntityHolder : [EntityType : NamedEntity ] ) -> NamedEntity {
+    func computeCompany(namedEntityHolder : [ NamedEntity ] ) -> NamedEntity {
         
-        let email = namedEntityHolder[.email]?.value
-        let website = namedEntityHolder[.website]?.value
+         
+        // extract email and website
+        let email = namedEntityHolder.filter { (namedEntity) -> Bool in
+            namedEntity.type == .email
+            }.first?.value ?? ""
+        
+        let website = namedEntityHolder.filter { (namedEntity) -> Bool in
+        namedEntity.type == .website
+        }.first?.value ?? ""
         
         let tokensValue = value.components(separatedBy: " ")
         
@@ -143,14 +207,14 @@ class NamedEntity {
         
         
         tokensValue.forEach({ (item) in
-            if item.existIn(container: website ?? "", level: 0.8) {
+            if item.existIn(container: website, level: 0.8) {
                 score += 40
                 return // todo : this does not break the loop
             }
         })
         
         tokensValue.forEach({ (item) in
-            if item.existIn(container: email ?? "", level: 0.7) {
+            if item.existIn(container: email, level: 0.7) {
                 score += 40
                 return
             }
@@ -179,7 +243,7 @@ class NamedEntity {
         return self
     }
     
-    func computeTitle( namedEntityHolder : [EntityType : NamedEntity ])-> NamedEntity{
+    func computeTitle( namedEntityHolder : [ NamedEntity ])-> NamedEntity{
         
         let tokensValue = value.components(separatedBy: " ")
         
@@ -192,7 +256,7 @@ class NamedEntity {
             return self
         }
         
-        if value.existInDictionnary(dictionnary: namedEntityHolder) {
+        if value.existInArray(array: namedEntityHolder.map({$0.value})) {
             return self
         }
         
@@ -242,18 +306,21 @@ class NamedEntity {
     }
     
     /// AT THIS Stage : Title, Company , FullName, Email, Website, should have been removed from RAW and not process again
-    func computePhoneNumber(namedEntityHolder : [EntityType : NamedEntity] , prefixes : [PrefixHolder] , phoneNumberKit : PhoneNumberKit) -> [NamedEntity] {
+    func computePhoneNumber(namedEntityHolder : [ NamedEntity] , prefixes : [PrefixHolder] , phoneNumberKit : PhoneNumberKit) -> [NamedEntity] {
         
         //        var validatedPhones : [PhoneNumber] = []
         //        var invalidatedPotentialPhones : [PhoneNumber] = []
         
         var resultHolder : [NamedEntity] = []
         
+        
         if value.count < 4 {
+            self.score = -100
             return [self]
         }
         
         if !value.containsNumbers() {
+            self.score = -100
             return [self]
         }
         
@@ -298,6 +365,10 @@ class NamedEntity {
         // NOW THAT I GOT SOME GOOD and MAYBE BAD NUMBERS .. Process phone to get their types
         
         validatedPhones.forEach { (phoneNumber) in
+            
+            var phoneEntity : NamedEntity = NamedEntity(value: phoneNumber.numberString)
+            
+            
             if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
                 phoneNumber.numberString.existIn(container: prefixHolder.value)
             }) {
@@ -308,15 +379,15 @@ class NamedEntity {
                 //                foundInPrefix.key.existInArray(array: )
                 
                 if foundInPrefix.key.existInArray(array: RecognitionTools.directPrefixes) {
-                    self.type = .direct
+                    phoneEntity.type = .direct
                 }else if foundInPrefix.key.existInArray(array: RecognitionTools.phonePrefixes) {
-                    self.type = .phone
+                    phoneEntity.type = .phone
                 }else if foundInPrefix.key.existInArray(array: RecognitionTools.faxPrefixes) {
-                    self.type = .fax
+                    phoneEntity.type = .fax
                 }else if foundInPrefix.key.existInArray(array: RecognitionTools.mobilePrefixes) {
-                    self.type = .mobile
+                    phoneEntity.type = .mobile
                 }else {
-                    self.type = .unknown
+                    phoneEntity.type = .mobile
                 }
                 
                 
@@ -325,15 +396,38 @@ class NamedEntity {
                 
                 switch phoneNumber.type {
                 case .fixedLine:
-                    self.type = .fax
+                    phoneEntity.type = .fax
                 case .mobile:
-                    self.type = .mobile
+                    phoneEntity.type = .mobile
                 case .fixedOrMobile :
-                    self.type = .phone
+                    phoneEntity.type = .phone
                 default:
-                    self.type = .direct
+                    phoneEntity.type = .direct
                 }
                 
+            }
+            
+            resultHolder.append(phoneEntity)
+        }
+        
+        inValidatedPhones.forEach { (invalidatedPhone) in
+            var phoneEntity : NamedEntity = NamedEntity(value: invalidatedPhone.numberString)
+            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
+                invalidatedPhone.numberString.existIn(container: prefixHolder.value, level: 0.6) // found this malformed phone in extracted prefixes
+            }) {
+                if foundInPrefix.key.existInArray(array: RecognitionTools.directPrefixes) {
+                    phoneEntity.type = .direct
+                }else if foundInPrefix.key.existInArray(array: RecognitionTools.phonePrefixes) {
+                    phoneEntity.type = .phone
+                }else if foundInPrefix.key.existInArray(array: RecognitionTools.faxPrefixes) {
+                    phoneEntity.type = .fax
+                }else if foundInPrefix.key.existInArray(array: RecognitionTools.mobilePrefixes) {
+                    phoneEntity.type = .mobile
+                }else {
+                    phoneEntity.type = .unknown
+                }
+            }else{
+                phoneEntity.type = .mobile
             }
         }
         
@@ -343,7 +437,7 @@ class NamedEntity {
         
         // lets keep tryin extracting missing numbers.. MAYBE
         
-        return [self]
+        return resultHolder
     }
     
 }
@@ -351,9 +445,26 @@ class NamedEntity {
 
 extension String {
     
-    func existInArray (array : [String] , level : Double = 0.9) -> Bool {
+    func existInArray (array : [String] , preprocess : Bool = false , level : Double = 0.9) -> Bool {
+        
+        var preprocessed = self
+        
+        
+        if preprocess {
+            preprocessed = preprocessed.trimmedAndLowercased
+            preprocessed = preprocessed.replacingOccurrences(of: " ", with: "")
+            preprocessed = preprocessed.replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: "")
+        }
+        
+        
         return array.first { (element) -> Bool in
-            element.lowercased().distanceJaroWinkler(between: self) > level
+            
+            
+            element
+                .trimmedAndLowercased
+                .replacingOccurrences(of: " ", with: "")
+                .replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: "")
+                .distanceJaroWinkler(between: preprocessed) > level
             }?.count ?? 0 > 0
     }
     
