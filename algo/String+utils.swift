@@ -41,6 +41,11 @@ extension String {
         }
     }
     
+    var preprocess : String {
+        return self.trimmedAndLowercased
+        .replacingOccurrences(of: " ", with: "")
+    }
+    
     
     
     //validate PhoneNumber

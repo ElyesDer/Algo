@@ -14,6 +14,9 @@ class NamedEntity {
     var type : EntityType = .none
     var score = 0
     
+    var position : Int = 0
+    
+    
     var validatedPhones : [PhoneNumber] = []
     var inValidatedPhones : [PhoneNumber] = []
     
@@ -25,6 +28,13 @@ class NamedEntity {
         self.value = value
         self.type = type
     }
+    
+    init(value : String, type : EntityType, position : Int) {
+        self.value = value
+        self.type = type
+        self.position = position
+    }
+    
     
     func computeWebsite(namedEntityHolder : [ NamedEntity ] , prefixes : [PrefixHolder] ) -> [NamedEntity] {
         
@@ -217,7 +227,6 @@ class NamedEntity {
     
     func computeCompany(namedEntityHolder : [ NamedEntity ] ) -> NamedEntity {
         
-         
         // extract email and website
         let emails = namedEntityHolder.filter { (namedEntity) -> Bool in
             namedEntity.type == .email
@@ -355,6 +364,11 @@ class NamedEntity {
     
     func computeTitle( namedEntityHolder : [ NamedEntity ])-> NamedEntity{
         
+        
+        let fullNamePosition : Int = namedEntityHolder.first(where: {$0.type == .fullname})?.position ?? -1
+        
+        
+        
         let tokensValue = value.components(separatedBy: " ")
         
         if value.count < 2 {
@@ -420,7 +434,17 @@ class NamedEntity {
             
         }
         
+        let upperBound = score >= 50 ? 2 : 1
         
+        
+        
+        if fullNamePosition != -1 && 1...upperBound ~= abs(position-fullNamePosition)  {
+            score += 20
+        }
+ 
+//        if abs(position-fullNamePosition) == 1 {
+//            score += 20
+//        }
         
         
         return self
@@ -483,29 +507,48 @@ class NamedEntity {
             }
         }
         
+        
+        
+        
+        if value.preprocess.isPhoneNumber && !value.existInArray(array: validatedPhones.map({$0.numberString})) {
+            // we found a potential phone composed of 12398 + ()
+            //inValidatedPhones.append(value)
+        }
+        
+        
+        
+        
         // NOW THAT I GOT SOME GOOD and MAYBE BAD NUMBERS .. Process phone to get their types
         
         validatedPhones.forEach { (phoneNumber) in
             
-            var phoneEntity : NamedEntity = NamedEntity(value: phoneNumber.numberString)
+            let phoneEntity : NamedEntity = NamedEntity(value: phoneNumber.numberString)
             
+            // Wrong version
+//            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
+//                phoneNumber.numberString.existIn(container: prefixHolder.value)
+//            })
             
-            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
-                phoneNumber.numberString.existIn(container: prefixHolder.value)
-            }) {
+            if let foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
+                //                phoneNumber.numberString.existIn(container: prefixHolder.value, preprocess: true)
+                phoneNumber.numberString.stringEqual(container: prefixHolder.value, preprocess: true)
+            }).first{
                 // lets guess the phone type with our enum entity type
                 
                 //                let entityTypeStrings = EntityType.allCases.map($0.)
                 //
                 //                foundInPrefix.key.existInArray(array: )
                 
-                if foundInPrefix.key.existInArray(array: RecognitionTools.directPrefixes) {
+                // if PhoneNumberKit , is correctly validated , with a known type , take it , else
+                // do some process
+                
+                if foundInPrefix.key.existInArray(array: RecognitionTools.directPrefixes , preprocess: true, level: 0.8) {
                     phoneEntity.type = .direct
-                }else if foundInPrefix.key.existInArray(array: RecognitionTools.phonePrefixes) {
+                }else if foundInPrefix.key.existInArray(array: RecognitionTools.phonePrefixes , preprocess: true, level: 0.8) {
                     phoneEntity.type = .phone
-                }else if foundInPrefix.key.existInArray(array: RecognitionTools.faxPrefixes) {
+                }else if foundInPrefix.key.existInArray(array: RecognitionTools.faxPrefixes , preprocess: true, level: 0.8) {
                     phoneEntity.type = .fax
-                }else if foundInPrefix.key.existInArray(array: RecognitionTools.mobilePrefixes) {
+                }else if foundInPrefix.key.existInArray(array: RecognitionTools.mobilePrefixes , preprocess: true, level: 0.8) {
                     phoneEntity.type = .mobile
                 }else {
                     phoneEntity.type = .mobile
@@ -533,9 +576,15 @@ class NamedEntity {
         
         inValidatedPhones.forEach { (invalidatedPhone) in
             let phoneEntity : NamedEntity = NamedEntity(value: invalidatedPhone.numberString)
-            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
-                invalidatedPhone.numberString.existIn(container: prefixHolder.value, level: 0.6) // found this malformed phone in extracted prefixes
-            }) {
+            
+            
+            if let foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
+                invalidatedPhone.numberString.stringEqual(container: prefixHolder.value, preprocess: true)
+            }).first{
+            
+//            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
+//                invalidatedPhone.numberString.existIn(container: prefixHolder.value, preprocess: true, level: 0.8) // found this malformed phone in extracted prefixes
+//            }) {
                 if foundInPrefix.key.existInArray(array: RecognitionTools.directPrefixes) {
                     phoneEntity.type = .direct
                 }else if foundInPrefix.key.existInArray(array: RecognitionTools.phonePrefixes) {
@@ -587,13 +636,13 @@ extension String {
                 .trimmedAndLowercased
                 .replacingOccurrences(of: " ", with: "")
                 .replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: "")
-                .distanceJaroWinkler(between: preprocessed) > level
+                .distanceJaroWinkler(between: preprocessed) >= level
         }.count > 0
     }
     
     func existInDictionnary(dictionnary : [EntityType : NamedEntity ], level : Double = 0.9) -> Bool {
         let result = dictionnary.filter { (dkey, dvalue) in
-            dvalue.value.existIn(container: self, level: level)
+            dvalue.value.existIn(container: self, preprocess: true, level: level)
         }
         // already found in array, so we close and return
         if result.count > 0 {
@@ -658,8 +707,42 @@ extension String {
         }
     }
     
-    func existIn(container: String, level: Double = 0) -> Bool {
-        if self.lowercased() .distanceJaroWinkler(between: container.lowercased()) > level {
+    func existIn(container: String, preprocess: Bool , level: Double = 0.9) -> Bool {
+        
+        var preprocessed = self
+        
+        
+        if preprocess {
+            preprocessed = preprocessed.trimmedAndLowercased
+            preprocessed = preprocessed.replacingOccurrences(of: " ", with: "")
+            preprocessed = preprocessed.replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: "")
+        }
+        
+        if preprocessed.distanceJaroWinkler(between:
+            container.trimmedAndLowercased
+                .replacingOccurrences(of: " ", with: "")
+                .replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: "")
+            ) >= level {
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    func stringEqual(container: String, preprocess: Bool) -> Bool {
+        var preprocessed = self
+        
+        
+        if preprocess {
+            preprocessed = preprocessed.trimmedAndLowercased
+            preprocessed = preprocessed.replacingOccurrences(of: " ", with: "")
+            preprocessed = preprocessed.replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: "")
+        }
+        
+        if preprocessed.elementsEqual(container.trimmedAndLowercased
+        .replacingOccurrences(of: " ", with: "")
+        .replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: ""))
+        {
             return true
         }else{
             return false
