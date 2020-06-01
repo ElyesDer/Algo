@@ -19,6 +19,8 @@ var raw = "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCo
 raw = "Tel : 24608993 / 24 655 509"
 
 var raws = [
+    
+    /*
     "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCoworking Business Center - CBC\nAvenue de I'Environnement Zarzouna\n(+216) 23 40 41 79\n7021 - Bizerte - Tunisie\n2\nborhene@bizertesmartcity.com\ncontact@bizerte2050.com\nBizerte\nSmart City\nWe realize it\nwww.bizertesmartcity.com\n",
 
          "levio\nAFFAIRES ET TECHNOLOGIES\nJonathan Chouinard\nConseiller stratégique\n1015, Av Wilfrid-Pelletier, local 530\nChargé de projet\nQuébec (Québec) G1W 0C4\njonathan.chouinard@levio.ca\nT 418 914-3623\nwww.levio.ca\nC 418 931-8789\n",
@@ -47,8 +49,37 @@ var raws = [
 "Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
  
  
-    "JOE CHAHOUD\nGENERAL MANAGER/CTO\nmobile:\n+961 70 294 835\nSkype ID: joechahoud\nemail:\njchahoud@intech-mena.com\nTel/Fax:\n+961 213 414\nWebiste:\nwww.intech-mena.com\n","Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n","62A\nAdel Ghouma\nMENA Manager\n+48 791 046 584\nG2A.com\naghouma@g2a.com\nG2A.co\n","réinventez votre vie\nIlyes KHEMIRI\nDirecteur Commercial\nDéco-pierre\n23 Rue Feyrouz Cite El Fawz\nEnnasr 3 - Tunis\nFb: Déco-pierre\nTel.: 29 403 488\nE-mail:decopierre2013@gmail.com\n21 031 700\n","N\nSage\nIntégrateur\nNOVASOFT\nde Solutions\nElyes TALMOUDI\nGérant\nPortable: 20 279 500\nTél.: +(216) 71 860 636\nFax: +(216) 71 862 627\nAdresse: Bur B1,\nRésidence El Mouna\nRue du lac Malaren, les berges du lac, Tunis\nE-mail: elytal.bmda@topnet.tn\n","Maiborn\nWolff\nMenrl\"t\nSadok Chekir\nDiplom Ingenieur\nIT Architect\nsadok.chekir@maibornwolff.de\nMobil +49 151 544 22 153\nMaibornWolff GmbH\nTheresienhohe 13 - 80339 Munchen\nmaibornwolff.de\n","Techlimed\nINFORMATION LINGUISTICS TECHNOLOGY\nRamzi ABBES\nPresident & C.E.O.\n42, rue de 1'Université - 69007 Lyon France\nPhone : +33 (0)4 78 58 32 35\nMobile : +33 (0)6 22 47 28 74\nSkype : ramziabbes\nEmail: ramzi.abbes@techlimed.com\ntechlimed.com\n"
+    "JOE CHAHOUD\nGENERAL MANAGER/CTO\nmobile:\n+961 70 294 835\nSkype ID: joechahoud\nemail:\njchahoud@intech-mena.com\nTel/Fax:\n+961 213 414\nWebiste:\nwww.intech-mena.com\n",
+    
+    
+    
+    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    
+    
+    
+    
+    
+    
+    
+    "Maiborn\nWolff\nMenrl\"t\nSadok Chekir\nDiplom Ingenieur\nIT Architect\nsadok.chekir@maibornwolff.de\nMobil +49 151 544 22 153\nMaibornWolff GmbH\nTheresienhohe 13 - 80339 Munchen\nmaibornwolff.de\n",
+ 
+ 
+ 
+ 
+ "Techlimed\nINFORMATION LINGUISTICS TECHNOLOGY\nRamzi ABBES\nPresident & C.E.O.\n42, rue de 1'Université - 69007 Lyon France\nPhone : +33 (0)4 78 58 32 35\nMobile : +33 (0)6 22 47 28 74\nSkype : ramziabbes\nEmail: ramzi.abbes@techlimed.com\ntechlimed.com\n",
+ 
+ 
 
+ "N\nSage\nIntégrateur\nNOVASOFT\nde Solutions\nElyes TALMOUDI\nGérant\nPortable: 20 279 500\nTél.: +(216) 71 860 636\nFax: +(216) 71 862 627\nAdresse: Bur B1,\nRésidence El Mouna\nRue du lac Malaren, les berges du lac, Tunis\nE-mail: elytal.bmda@topnet.tn\n",
+ 
+ 
+ 
+ 
+ 
+ "réinventez votre vie\nIlyes KHEMIRI\nDirecteur Commercial\nDéco-pierre\n23 Rue Feyrouz Cite El Fawz\nEnnasr 3 - Tunis\nFb: Déco-pierre\nTel.: 29 403 488\nE-mail:decopierre2013@gmail.com\n21 031 700\n",
+*/
+ 
+ "62A\nAdel Ghouma\nMENA Manager\n+48 791 046 584\nG2A.com\naghouma@g2a.com\nG2A.co\n",
  
 ]
 
@@ -100,6 +131,10 @@ RecognitionTools.loadTitles(completion: {
             extractEmails(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
             extractWebsite(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
             
+            
+            // make it third
+            extractPhones(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
+            
             // lets preprocess data before continue
             RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
             
@@ -110,8 +145,6 @@ RecognitionTools.loadTitles(completion: {
             extractTitles(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
             
             
-            // make it third
-            extractPhones(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
             
             
             
@@ -170,7 +203,7 @@ func extractPhones( bcDataArray : [String] , namedEntityHolder : inout [NamedEnt
     }
     
     computeResultHolder.forEach { (named) in
-        print("Extracted \(named.value)  -- : \(named.score)    -- : \(named.type) ")
+        print("Extracted \(named.value)  -- : \(named.score)    -- : \(named.type)  -- ")
     }
 
     
@@ -183,25 +216,35 @@ func extractPhones( bcDataArray : [String] , namedEntityHolder : inout [NamedEnt
 func extractFullName( bcDataArray : [String] , namedEntityHolder : inout [ NamedEntity], prefixedEntities : [PrefixHolder]) -> Void {
     
     var computeResultHolder : [NamedEntity] = []
-    bcDataArray.forEach { (entity) in
-        let namedEntity = NamedEntity(value: entity.description , type: .fullname)
+    
+    for (index,entity) in bcDataArray.enumerated() {
+        let namedEntity = NamedEntity(value: entity.description , type: .fullname, position: index)
         computeResultHolder.append(namedEntity.computeFullName(namedEntityHolder: namedEntityHolder))
     }
+    
     
     postProcessResult(type: .fullname , result: computeResultHolder , namedEntityHolder: &namedEntityHolder)
      
     computeResultHolder.forEach { (named) in
-        print("Extracted \(named.value)  -- : \(named.score)    -- : \(named.type) ")
+        print("Extracted \(named.value)  -- : \(named.score)    -- : \(named.type)  -- AT POSITION : \(named.position) ")
     }
     // TODO : POST PROCESS Result,  * remove found fields from raw values etc..
 }
 
 func extractTitles( bcDataArray : [String] , namedEntityHolder : inout [NamedEntity], prefixedEntities : [PrefixHolder]) -> Void {
     var computeResultHolder : [NamedEntity] = []
-    bcDataArray.forEach { (entity) in
-        let namedEntity = NamedEntity(value: entity.description , type: .title)
+    
+    
+    for (index,line) in bcDataArray.enumerated() {
+        let namedEntity = NamedEntity(value: line.description, type: .title, position: index)
         computeResultHolder.append(namedEntity.computeTitle(namedEntityHolder: namedEntityHolder))
     }
+    
+    
+//    bcDataArray.forEach { (entity) in
+//        let namedEntity = NamedEntity(value: entity.description , type: .title)
+//        computeResultHolder.append(namedEntity.computeTitle(namedEntityHolder: namedEntityHolder))
+//    }
     
     computeResultHolder.forEach { (item) in
         print("TITLE Value : \(item.value)  -- Score : \(item.score)")
@@ -220,6 +263,7 @@ func extractCompany( bcDataArray : [String] , namedEntityHolder : inout [NamedEn
         let namedEntity = NamedEntity(value: entity.description, type: .company)
         computeResultHolder.append(namedEntity.computeCompany(namedEntityHolder: namedEntityHolder))
     }
+
     
     if computeResultHolder.filter({ (namedEntityCompany) -> Bool in
         namedEntityCompany.score > 30
@@ -244,28 +288,45 @@ func postProcessResult(type : EntityType, result : [NamedEntity], namedEntityHol
     //namedEntityHolder[type] = result.sorted(by: {$0.score > $1.score }).first
     
     switch type {
-    case .fullname: break
-        // process FIRST / / Last Name
-    // THEN IF SCORE AT +40 , remove it from RAW
         
-    case .company : do {
+    case .title : do {
+        // process titles with score SUPP TO : 50
+        result
+            .sorted(by: {$0.score > $1.score })
+            .filter({$0.score > 50})
+            .forEach { (proposedTitle) in
+                if namedEntityHolder.contains(where: {$0.type == .title}) {
+                    // we already have a title
+                    namedEntityHolder.append(NamedEntity(value: proposedTitle.value, type: .title2, position: proposedTitle.position))
+                }else{
+                    // we put it in title 2
+                    namedEntityHolder.append(NamedEntity(value: proposedTitle.value, type: .title, position: proposedTitle.position))
+                }
+        }
         
-    }
+        }
+        
+    case .phone : do {
+        namedEntityHolder.append(contentsOf: result)
+        }
     default:
+        namedEntityHolder.append(result.sorted(by: {$0.score > $1.score }).first ?? NamedEntity(value: ""))
         break
     }
     
-    if type != .phone {
-        namedEntityHolder.append(result.sorted(by: {$0.score > $1.score }).first ?? NamedEntity(value: ""))
-    }else{
-        // IS PHONE :
-        
-        namedEntityHolder.append(contentsOf: result)
-    }
-    let phoneCharsSepartors = [
-        "/",
-        "\\"
-    ]
+//    if type != .phone {
+//        namedEntityHolder.append(result.sorted(by: {$0.score > $1.score }).first ?? NamedEntity(value: ""))
+//    }else{
+//        // IS PHONE :
+//
+//        namedEntityHolder.append(contentsOf: result)
+//    }
+    
+    
+//    let phoneCharsSepartors = [
+//        "/",
+//        "\\"
+//    ]
     
     
     
@@ -309,6 +370,8 @@ class RecognitionTools {
             
             
             if namedEntityHolder.contains(where: {$0.value == line}) {
+                
+                array.append("")
 //            }
 //
 //
@@ -343,7 +406,7 @@ class RecognitionTools {
             
             // if prefix KEY found with empty VALUE , supress Take the next line as VALUE
             let separatorOccurenceByPoint = line.components(separatedBy:":")
-            testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
+            //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
             switch separatorOccurenceByPoint.count {
             case 2 : do {
                 // this is our best bet Key : Val
@@ -379,13 +442,15 @@ class RecognitionTools {
             
             // if prefix KEY found with empty VALUE , supress Take the next line as VALUE
             let separatorOccurenceBySpace = line.components(separatedBy:" ")
-            testPrint(tag: "Prefix ", title: "separation BY SPACE", content: separatorOccurenceBySpace)
+            //testPrint(tag: "Prefix ", title: "separation BY SPACE", content: separatorOccurenceBySpace)
             
             if separatorOccurenceBySpace.count > 1 {
                 if let firstElement = separatorOccurenceBySpace.first {
                     let removedFirst = separatorOccurenceBySpace.dropFirst()
                     if firstElement.lengthBetween(l1: 1, l2: 7)
-                        && firstElement.existInArray(array: RecognitionTools.businessCardPrefixes.flatMap({$0}) , preprocess: true) {
+                        && firstElement.existInArray(array: RecognitionTools.businessCardPrefixes.flatMap({$0}) , preprocess: true)
+                        && !firstElement.existInArray(array: prefixesEntities.map({$0.key}))
+                    {
                         // i guess wee found some prefix so lets pretend
                         
                         prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .unsafe))
@@ -481,14 +546,20 @@ class RecognitionTools {
     static var directPrefixes = [
         "d",
         "direct",
-        "dir."
+        "dir.",
+        "line",
+        "line."
     ]
     
     static var phonePrefixes = [
         "p",
         "phone",
         "phone.",
-        "p"
+        "p",
+        "tel.",
+        "tél.",
+        "t.",
+        "t"
     ]
     
     static var mobilePrefixes = [
@@ -496,12 +567,7 @@ class RecognitionTools {
         "mobile",
         "mobile.",
         "portable",
-        "portable.",
-        "tel.",
-        "t.",
-        "t",
-        "direct",
-        "line"
+        "portable."
     ]
     
     static var faxPrefixes = [
@@ -528,6 +594,8 @@ class RecognitionTools {
     
     static var numberPhoneRegexFromStringComplex = "(?:(?:\\+?([1-9]|[0-9][0-9]|[0-9][0-9][0-9])\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([0-9][1-9]|[0-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([0-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+))?"
     
+    
+    static var numberSinglePhoneRegexWithNoSpecial = "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$"
     
     static var businessCardPrefixes = [
         emailPrefixes,
