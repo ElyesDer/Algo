@@ -19,11 +19,11 @@ var raw = "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCo
 raw = "Tel : 24608993 / 24 655 509"
 
 var raws = [
-    
+    "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCoworking Business Center - CBC\nAvenue de I'Environnement Zarzouna\n(+216) 23 40 41 79\n7021 - Bizerte - Tunisie\n2\nborhene@bizertesmartcity.com\ncontact@bizerte2050.com\nBizerte\nSmart City\nWe realize it\nwww.bizertesmartcity.com\n",
 
          "levio\nAFFAIRES ET TECHNOLOGIES\nJonathan Chouinard\nConseiller stratégique\n1015, Av Wilfrid-Pelletier, local 530\nChargé de projet\nQuébec (Québec) G1W 0C4\njonathan.chouinard@levio.ca\nT 418 914-3623\nwww.levio.ca\nC 418 931-8789\n",
          
-         "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCoworking Business Center - CBC\nAvenue de I'Environnement Zarzouna\n(+216) 23 40 41 79\n7021 - Bizerte - Tunisie\n2\nborhene@bizertesmartcity.com\ncontact@bizerte2050.com\n",
+         
          
 
 
@@ -42,7 +42,7 @@ var raws = [
 
 "LAZHAR NSIRI\nSUBSIDIARY DIRECTOR\nWYPLAY TUNISIA\nInsiri@wyplay.com\nFrench Mobile +33 6 19 43 30 48\nTunisia +216 97 07 06 42\nwwpoy\n",
 
-"360\\nWael Mallek\nMEDLINK\nGeneral Manager of\nTunisian operations\nHealthcare\nMobile Applications\nwaelm@360medlink.com\nmobile. +216 98 70 92 14\noffice. +1 514 448 2175\nwww.360medlink.com\nMontreal - New York I Paris I Barcelona\nTunis\n",
+"nWael Mallek\nMEDLINK\nGeneral Manager of\nTunisian operations\nHealthcare\nMobile Applications\nwaelm@360medlink.com\nmobile. +216 98 70 92 14\noffice. +1 514 448 2175\nwww.360medlink.com\nMontreal - New York I Paris I Barcelona\nTunis\n",
 
 "Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
  
@@ -51,6 +51,20 @@ var raws = [
 
  
 ]
+
+
+//raws = [
+//
+//    "Edouard ALCAY\nAOCPATRIMOINE\n3, reu aubourg (faint Whore\no14‡43017\nz5008 ..\n#7. 133 trepho-tons\n.Mas.\n88\ne-mail: ealray2aocpatrimoine.com\n","Alexanommo.png\nFRANKLIN\nLAW FIRM\nStéphanie Alexandrino\nMember of the Bars of Paris\nand Luxembourg\n26, avenue Kléber 75116 Paris\nTel.: +33 (0]1 45 02 79 09\nFax: +33 (0]1 45 02 79 01\nwww.franklin-paris.com-salexandrino@n-pr.\n",
+//
+//    
+//    "WE\nCAPTURE\nWHAT\nMOVES\nDr Eric Angelini\nVP Global Regulatory Affairs\n& Products Safety\nMANE\nTel. direct line + 33 4 92 42 49 01\nFax + 33 4 93 42 54 25\nMobile + 33 6 82 93 81 75\n620, route de Grasse\nF-06620 Le Bar-sur-Loup\neric.angelini@mane.com\nwww.mane.com\n","ILY\ne\nA\nSearch\nBRYAN, GARNIER & Co\nFrancois Arpels\nManaging Director\nBryan, Garnier & Co\nCorporate Finance\n26, avenue des Champs-Elysees\n75008 Paris\nTel\n+33 (0)1 70 36 57 43\nFax\n+33 (011 56 66 75 21\nMobile: +33 (0)6 73 12 98 64\ne-mail - farpels@bryangarnier.com\n","DeM\nAsad Zahur\nChairman\naz@hnmglobal.co\n1603 Jumeirah Business Centre 4 ILT N cluster, PO BOX 454381 DUBAI, UAE\nTel: +9714-4304314, Fax: +9714-4304574\n","Michel Auclair\nAssocie\nco\nauclair dupont\nCONSEIL EN ENTREPRISES\nTel: (687) 24 10 30\nGrand Theatre\nFax: (687) 24 10 45\n0 u0 SIEN attes\nmail michelaudair@auclairdupont.nc\nanATo2 ess4s Noume Cece\nwww.aucairdupont.nc\n",
+//    
+//    
+//    "Ecole d e\nManagement\nStrasbourg\nUNIVERSITE DE STRASBOURG\nWilfrid AZAN\nMattre de conferences\nen Sciences de gestion\n61 avenue de la Foret-Noire\n67085 Strasbourg Cedex\nTel. -33 (013 68 85 89 25\nazancunistra.i\nwww.em-strasbourg.eu\n","WILL\nr. Droit Creatif - Azan & Associes\nWilliam Azan\nAvocat Associé\n92, Avenue de Saint-Mandé - 75012 PARIS\nTel.: 33(0)1 42 56 08 20 - Port. : 06 86 86 32 50 william.azan@uwill.fr\n","A\nCREDIT AGRICOLE\nNORD DE FRANCE\nBALLE-DERLY Carine\nResponsable dunite Contentleux entreprises, professionnels et agriculteurs\nDGA/CTX - CONTENTIEUX\n62000 ARRAS\nTel\n03 21 07 59 38-Fax 03 21 07.76.84\ncarna balie dedyfca nordoofrance.f\n","B Atelier Beaumarchals\nMailre Arlison Bollier 9\nCordonnier . Bottier . Maroquinier\nRéparation en Maroquinerie\n30 rue de Turbigo\nOuvert du lundi au samedi\n75003 Paris\nde 10:00 a 19:30\nTel: 01 44 93 51 15\n","will be group\nBernard Attali\nPrésident/Conseil en investissement financier\nMembre de la CNCIF D012068\nExpert financier membre de la CNCEF\nGOUVEINANCL & VALEUES\nbernard.attali@willbegroup.com\n+33(0)7 86 76 69 74\n+33(0)1 42 33 13 33\nChargé d'enseignement\nEDHEC (Lille)\nESSEC\nPARIS 22 RUE DE LARCADE\nIAE (Aix-en-Provence)\n75008 - T. 33(0)1 42 33 13 33\nParis 2 Panthéon ASSAS\nGENEVA RUE DE LATHENEE 40\n1206 - T 41(0) 22 588 65 30\nBRUSSELS 209A, AVENUE LOUISE\n1050 - T. • 32 (0) 2 627 55 70\ngouval.com\n","Pries\nGrégory Antoine\nConsultants Network\n+33 6 07 39 37 12 - contact@1001pommes.com\n","CAYMAN ISLANDS HELICOPTERS\nPL GENOT\nHELICOPTERE\nJerome Begot\nP.O. Box 738, Grand Cayman, KYI-1103,\nCayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR\ncihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n",
+//"alister\nAVOCATS\nProf. Dr. Jochen BAUERREIS\nAvocat & Rechtsanwalt\nAvocat spécialise en droit des relations internationales\nDirecteur du Magistere Juristes d'Affaires Franco-Allemands\n11, rue du Parc\n67205 Strasbourg. Oberhausbergen\nTel. : +33 (0)3 68 00 14 10\nFax : +33 (0)3 68 00 14 11\njochen.bauerreis@alister-avocats.com\n","IF\nTRADE\nENGINEERING\nMassimiliano Avogadri\nBusiness development bureau\nwww.ffengineerltd.com\nm.avogadri@ffengineerItd.com\nSkype: Massimiliano.avogadri\nF&F Engineering Ltd\n7th Floor 52-54 Gracechurch Street EC3V.OEH London (UK)\n","start inoost\nKevin Aserraf\nAnalyste\nkevin@startinpost.com\nTél. : +33 1011 70 60 90 36\nMob. +33 (0]6 66 85 89 26\nwww.startinpost.com\nTOUR CRISTAL\n11 QUAI ANDRE CITROEN- 75015 PARIS\n","TEAMLOG\nDEPARTEMENT MULTIMEDIA\nPASCAL ADAM\nINGENIEUR DAFFAIRES\n4, Allée Moulin Berger - 69130 Ecully\nTel. 04 72 52 25 52\nPortable 06 74 68 52 93 - Fax 04 72 52 25 50\nPascal.Adam@teamlog.fr"
+//]
+
 
 //var bcDataArray = raw.split(separator: "\n")
 
@@ -69,6 +83,9 @@ RecognitionTools.loadTitles(completion: {
             var prefixedEntities : [PrefixHolder] = []
             var mutableRaw = raw
             //var namedEntityResult : [NamedEntity] = []
+            
+            
+            // remove special remable chars
             
             testPrint(tag: "BC DATA BEFORE", title: " :: ", content: bcDataArray)
             
@@ -89,7 +106,11 @@ RecognitionTools.loadTitles(completion: {
             extractFullName(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
             RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
             extractCompany(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
+            
             extractTitles(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
+            
+            
+            // make it third
             extractPhones(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
             
             
@@ -142,15 +163,16 @@ func extractPhones( bcDataArray : [String] , namedEntityHolder : inout [NamedEnt
         return try? PhoneNumberKit.defaultMetadataCallback()
     }
     
-    testPrint(tag: "Extract phones", title: "Named entity", content: namedEntityHolder)
-    
-    testPrint(tag: "Extract phones", title: "prefixedEntities", content: prefixedEntities)
-    
     bcDataArray.forEach { (entity) in
         let namedEntity = NamedEntity(value: entity.description)
         
         computeResultHolder.append(contentsOf: namedEntity.computePhoneNumber(namedEntityHolder: namedEntityHolder, prefixes : prefixedEntities, phoneNumberKit: phoneNumberKit))
     }
+    
+    computeResultHolder.forEach { (named) in
+        print("Extracted \(named.value)  -- : \(named.score)    -- : \(named.type) ")
+    }
+
     
     // this needs review .phone , .mobile,... BECAUSE IT CONTAINS SCORE
     postProcessResult(type: .phone , result: computeResultHolder , namedEntityHolder: &namedEntityHolder)
@@ -233,9 +255,13 @@ func postProcessResult(type : EntityType, result : [NamedEntity], namedEntityHol
         break
     }
     
-    
-    namedEntityHolder.append(result.sorted(by: {$0.score > $1.score }).first ?? NamedEntity(value: ""))
-    
+    if type != .phone {
+        namedEntityHolder.append(result.sorted(by: {$0.score > $1.score }).first ?? NamedEntity(value: ""))
+    }else{
+        // IS PHONE :
+        
+        namedEntityHolder.append(contentsOf: result)
+    }
     let phoneCharsSepartors = [
         "/",
         "\\"
@@ -255,7 +281,7 @@ class RecognitionTools {
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         URLSession.shared.dataTask(with: request) {(data, response, error) in
-            if let error = error {
+            if let _ = error {
             }else if let response = response as? HTTPURLResponse {
                 
                 // todo : make it check for status code or data before continiuing
@@ -279,7 +305,7 @@ class RecognitionTools {
     static func preProcessRemoveExtracted(bcDataArray : inout [String] , namedEntityHolder: [ NamedEntity]) -> Void {
         // use namedEntityHolder remove from bcDataArra
         var array : [String] = []
-        for (index,line) in bcDataArray.enumerated() {
+        for (_,line) in bcDataArray.enumerated() {
             
             
             if namedEntityHolder.contains(where: {$0.value == line}) {
@@ -312,26 +338,24 @@ class RecognitionTools {
     ///This preprocess function only care about KEY : VALUE , where content of key value doesnt matter
     private static func preProcessPrefixes(raw : String , bcDataArray : inout [String], removeKeys: Bool ) -> [PrefixHolder] {
         var prefixesEntities : [PrefixHolder] = []
-        var indexesToRemove : [Int] = []
         for (index,line) in bcDataArray.enumerated() {
             // lets do the separation stuff BASED ON " : " Prefix
             
             // if prefix KEY found with empty VALUE , supress Take the next line as VALUE
             let separatorOccurenceByPoint = line.components(separatedBy:":")
-            testPrint(tag: "Prefix ", title: "separation BY POINT", content: separatorOccurenceByPoint)
+            testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
             switch separatorOccurenceByPoint.count {
             case 2 : do {
                 // this is our best bet Key : Val
                 if separatorOccurenceByPoint[1].count == 0 {
                     // we got empty VALUE so we grab it eye closes from next line
-                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first ?? "", value: String(bcDataArray[index+1])))
-                    line.replacingOccurrences(of: bcDataArray[index+1], with: "")
+                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first ?? "", value: String(bcDataArray[index+1]) , type: .safe))
+                    //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
                 }else{
-                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first ?? "", value: separatorOccurenceByPoint[1]))
-                    line.replacingOccurrences(of: separatorOccurenceByPoint[1], with: "")
+                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first ?? "", value: separatorOccurenceByPoint[1] , type: .safe))
                 }
                 
-                
+                 bcDataArray[index] = line.replacingOccurrences(of: separatorOccurenceByPoint[0], with: "")
                 
                 break
                 }
@@ -360,10 +384,11 @@ class RecognitionTools {
             if separatorOccurenceBySpace.count > 1 {
                 if let firstElement = separatorOccurenceBySpace.first {
                     let removedFirst = separatorOccurenceBySpace.dropFirst()
-                    if firstElement.lengthBetween(l1: 1, l2: 7) && firstElement.existInArray(array: RecognitionTools.businessCardPrefixes, preprocess: true) {
+                    if firstElement.lengthBetween(l1: 1, l2: 7)
+                        && firstElement.existInArray(array: RecognitionTools.businessCardPrefixes.flatMap({$0}) , preprocess: true) {
                         // i guess wee found some prefix so lets pretend
                         
-                        prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ")))
+                        prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .unsafe))
                     }
                     // else ignore
                 }
@@ -469,7 +494,14 @@ class RecognitionTools {
     static var mobilePrefixes = [
         "m",
         "mobile",
-        "mobile."
+        "mobile.",
+        "portable",
+        "portable.",
+        "tel.",
+        "t.",
+        "t",
+        "direct",
+        "line"
     ]
     
     static var faxPrefixes = [
@@ -481,7 +513,8 @@ class RecognitionTools {
     static var emailPrefixes = [
            "e",
            "email",
-           "e-mail"
+           "e-mail",
+           "mail"
        ]
     
     
@@ -496,12 +529,12 @@ class RecognitionTools {
     static var numberPhoneRegexFromStringComplex = "(?:(?:\\+?([1-9]|[0-9][0-9]|[0-9][0-9][0-9])\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([0-9][1-9]|[0-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([0-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+))?"
     
     
-    static var businessCardPrefixes : [String] = [
-        emailPrefixes.joined(),
-        faxPrefixes.joined(),
-        mobilePrefixes.joined(),
-        phonePrefixes.joined(),
-        directPrefixes.joined()
+    static var businessCardPrefixes = [
+        emailPrefixes,
+        faxPrefixes,
+        mobilePrefixes,
+        phonePrefixes,
+        directPrefixes
     ]
     
     static var removableNamesSpecial = [",","@","&"]
@@ -596,10 +629,15 @@ class RecognitionTools {
     
 }
 
+enum PrefixType {
+    case safe
+    case unsafe
+}
+
 struct PrefixHolder {
     var key : String
     var value : String
-    
+    var type : PrefixType = .unsafe
 }
 
 func testPrint<T>(tag : String, title : String, content : T){
