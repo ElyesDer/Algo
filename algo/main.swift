@@ -19,11 +19,11 @@ var raw = "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCo
 raw = "Tel : 24608993 / 24 655 509"
 
 var raws = [
+  /*
     
-    /*
     "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCoworking Business Center - CBC\nAvenue de I'Environnement Zarzouna\n(+216) 23 40 41 79\n7021 - Bizerte - Tunisie\n2\nborhene@bizertesmartcity.com\ncontact@bizerte2050.com\nBizerte\nSmart City\nWe realize it\nwww.bizertesmartcity.com\n",
 
-         "levio\nAFFAIRES ET TECHNOLOGIES\nJonathan Chouinard\nConseiller stratégique\n1015, Av Wilfrid-Pelletier, local 530\nChargé de projet\nQuébec (Québec) G1W 0C4\njonathan.chouinard@levio.ca\nT 418 914-3623\nwww.levio.ca\nC 418 931-8789\n",
+         
          
          
          
@@ -33,12 +33,11 @@ var raws = [
 
      "Crea\nCUISINE\n...et vos envies prennent vie\nHichem HARBAOUI\nGérant\nN'1 Rue Bechir Bachrouch, Khaznadar 2017\n-\n(+2161 71 515 470\n(+216) 23 559 990\nhichem.harbaoui@live.fr fl Créa Cuisine\n11216 52 490 435\n",
 
-     "Ahmed Ayed\nConsultant\nProfessional Services\naxefinance\n+216 71 963 229\nFocus • Expertise • Value\nE ahmed.ayed@axefinance.com\n",
+     
 
      "Ryosuke Nagao\nCEO\nnagao@impetus.jp\nLead Translator\nIMPETUS\nLinguistic Consultation\nImpetus Co.\n5-31-5-1004 Honkomagome,\nBunkyo-ku, Tokyo, JAPAN\n",
 
      
-"Seifeddine Khelifi\nExpert Senior\nDéveloppement des Ventes\nboredoo\nImmeuble Zenith, Les Jardins du Lac\n1053, Les Berges du Lac, Tunis, Tunisie\nM : +216 22 126 4661T : +216 36 126 466\nseifeddine.khelifi@ooredoo.tn\n",
 
 "6 Leb:\n961 9 213 414\nLeb:\n961 3 075791\nKSA: + 966556450046\nD Beirut - Lebanon & Riyadh - KSA\nS dkiame\nwww.intech-mena.com\ndkiame@intech-mena.com\n",
 
@@ -46,10 +45,10 @@ var raws = [
 
 "nWael Mallek\nMEDLINK\nGeneral Manager of\nTunisian operations\nHealthcare\nMobile Applications\nwaelm@360medlink.com\nmobile. +216 98 70 92 14\noffice. +1 514 448 2175\nwww.360medlink.com\nMontreal - New York I Paris I Barcelona\nTunis\n",
 
-"Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
+
  
  
-    "JOE CHAHOUD\nGENERAL MANAGER/CTO\nmobile:\n+961 70 294 835\nSkype ID: joechahoud\nemail:\njchahoud@intech-mena.com\nTel/Fax:\n+961 213 414\nWebiste:\nwww.intech-mena.com\n",
+   
     
     
     
@@ -72,14 +71,32 @@ var raws = [
 
  "N\nSage\nIntégrateur\nNOVASOFT\nde Solutions\nElyes TALMOUDI\nGérant\nPortable: 20 279 500\nTél.: +(216) 71 860 636\nFax: +(216) 71 862 627\nAdresse: Bur B1,\nRésidence El Mouna\nRue du lac Malaren, les berges du lac, Tunis\nE-mail: elytal.bmda@topnet.tn\n",
  
+ */
  
+ "Seifeddine Khelifi\nExpert Senior\nDéveloppement des Ventes\nboredoo\nImmeuble Zenith, Les Jardins du Lac\n1053, Les Berges du Lac, Tunis, Tunisie\nM : +216 22 126 4661T : +216 36 126 466\nseifeddine.khelifi@ooredoo.tn\n",
+
  
  
  
  "réinventez votre vie\nIlyes KHEMIRI\nDirecteur Commercial\nDéco-pierre\n23 Rue Feyrouz Cite El Fawz\nEnnasr 3 - Tunis\nFb: Déco-pierre\nTel.: 29 403 488\nE-mail:decopierre2013@gmail.com\n21 031 700\n",
-*/
+
  
  "62A\nAdel Ghouma\nMENA Manager\n+48 791 046 584\nG2A.com\naghouma@g2a.com\nG2A.co\n",
+ 
+ 
+ "Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
+ 
+ 
+ 
+  "JOE CHAHOUD\nGENERAL MANAGER/CTO\nmobile:\n+961 70 294 835\nSkype ID: joechahoud\nemail:\njchahoud@intech-mena.com\nTel/Fax:\n+961 213 414\nWebiste:\nwww.intech-mena.com\n",
+
+  
+  
+ "Ahmed Ayed\nConsultant\nProfessional Services\naxefinance\n+216 71 963 229\nFocus • Expertise • Value\nE ahmed.ayed@axefinance.com\n",
+ 
+ 
+ 
+ "levio\nAFFAIRES ET TECHNOLOGIES\nJonathan Chouinard\nConseiller stratégique\n1015, Av Wilfrid-Pelletier, local 530\nChargé de projet\nQuébec (Québec) G1W 0C4\njonathan.chouinard@levio.ca\nT 418 914-3623\nwww.levio.ca\nC 418 931-8789\n",
  
 ]
 

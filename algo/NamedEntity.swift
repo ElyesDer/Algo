@@ -509,12 +509,17 @@ class NamedEntity {
         
         
         
-        
         if value.preprocess.isPhoneNumber && !value.existInArray(array: validatedPhones.map({$0.numberString})) {
             // we found a potential phone composed of 12398 + ()
             //inValidatedPhones.append(value)
+            
+            do {
+                let phoneNumber = try phoneNumberKit.parse(value)
+                validatedPhones.append(phoneNumber)
+            } catch {
+                inValidatedPhones.append(PhoneNumber(numberString: value, countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
+            }
         }
-        
         
         
         
@@ -560,7 +565,7 @@ class NamedEntity {
                 
                 switch phoneNumber.type {
                 case .fixedLine:
-                    phoneEntity.type = .fax
+                    phoneEntity.type = .direct
                 case .mobile:
                     phoneEntity.type = .mobile
                 case .fixedOrMobile :
