@@ -78,16 +78,19 @@ class NamedEntity {
         
         // remove white space so it detects correctly
         if  value.replacingOccurrences(of: " ", with: "").description.isAllNumber {
+            self.score -= 100
             return self
         }
         
-        if !value.lengthBetween(l1: 3, l2: 25) {
+        if !value.lengthBetween(l1: 3, l2: 35) {
+            self.score -= 100
             return self
         }
         
         
         
         if value.existInArray(array: namedEntityHolder.map({$0.value})) {
+            self.score -= 100
             return self
             /*
              Replaces :
@@ -102,10 +105,24 @@ class NamedEntity {
         }
         
         // this needs prefix to be removed
-        if 2...5 ~= tokensValue.count{
+        if 2...5 ~= tokensValue.count {
             //print("2...3 ~= tokensValue.count")
             //score += 10
         } else {
+            self.score -= 100
+            return self
+        }
+        
+        
+        var notValid = false
+        tokensValue.forEach { (token) in
+            if token.count < 2 {
+                notValid = true
+            }
+        }
+        
+        if notValid {
+            self.score -= 100
             return self
         }
         
@@ -118,9 +135,13 @@ class NamedEntity {
             score -= 30
         }
         
-        // TODO : DONE need to check for DR. PROF. and remove them from string
-        if RecognitionTools.lowerCaseNamesPrefixes.contains(tokensValue.first?.trimmedAndLowercased ?? ""){
+        var containsNamePrefixes = false
+        while RecognitionTools.lowerCaseNamesPrefixes.contains(tokensValue.first?.trimmedAndLowercased ?? "") {
+            containsNamePrefixes.toggle()
             tokensValue.removeFirst()
+        }
+        // TODO : DONE need to check for DR. PROF. and remove them from string
+        if containsNamePrefixes {
             value = tokensValue.joined(separator: " ")
             score += 30
         }
@@ -149,8 +170,8 @@ class NamedEntity {
                 }
             }
             
-            if element.trimmedAndLowercased.existInArray(array: RecognitionTools.lowerCasejobTitles, level: 0.7)  {
-                //score -= 20
+            if element.trimmedAndLowercased.existInArray(array: RecognitionTools.lowerCasejobTitles, level: 0.8)  {
+                score -= 20
             }
             
             // GO EVEN DEEPER, anc substring THE VALUE ( in case of Full name ) and test it with first part of email
@@ -224,7 +245,7 @@ class NamedEntity {
         
         //testPrint(tag: "Company email compare", title: "\(value) exists in \(emails.map({$0.value.components(separatedBy: "@")[1] }))", content: value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.75) )
         
-        if value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.75) {
+        if value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.74) {
             score += 30
         }
         
@@ -278,6 +299,8 @@ class NamedEntity {
         }
         
         // TODO : EXIST IN PREMADE DATA
+        
+        
         
         
         
@@ -343,7 +366,7 @@ class NamedEntity {
             return self
         }
         
-        if value.existInArray(array: namedEntityHolder.map({$0.value})) {
+        if value.existInArray(array: namedEntityHolder.map({$0.value}),preprocess: true) {
             return self
         }
         
@@ -385,7 +408,18 @@ class NamedEntity {
             if RecognitionTools.lowerCasejobTitles.contains(element.trimmedAndLowercased)  {
                 score += 40
             }
+            
+//            if RecognitionTools.businessCardPrefixes.flatMap({$0}).contains(where: {$0 == element.trimmedAndLowercased}){
+//
+//            }
+            if element.existInArray(array: RecognitionTools.businessCardPrefixes.flatMap({$0}),preprocess: false,level: 0.85){
+                score -= 20
+            }
+            
+            
+            
         }
+        
         
         
         
@@ -403,12 +437,12 @@ class NamedEntity {
         
         if value.count < 4 {
             self.score = -100
-            return [self]
+            return []
         }
         
         if !value.containsNumbers() {
             self.score = -100
-            return [self]
+            return []
         }
         
         
@@ -498,7 +532,7 @@ class NamedEntity {
         }
         
         inValidatedPhones.forEach { (invalidatedPhone) in
-            var phoneEntity : NamedEntity = NamedEntity(value: invalidatedPhone.numberString)
+            let phoneEntity : NamedEntity = NamedEntity(value: invalidatedPhone.numberString)
             if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
                 invalidatedPhone.numberString.existIn(container: prefixHolder.value, level: 0.6) // found this malformed phone in extracted prefixes
             }) {
@@ -513,6 +547,8 @@ class NamedEntity {
                 }else {
                     phoneEntity.type = .unknown
                 }
+                
+                resultHolder.append(phoneEntity)
             }else{
                 phoneEntity.type = .mobile
             }
@@ -534,7 +570,7 @@ extension String {
     
     /// Level 1 Seems a bit comfusin and no detecting exact match soo .. avoid
     
-    func existInArray (array : [String] , preprocess : Bool = false , level : Double = 0.9) -> Bool {
+    func existInArray (array : [String] , preprocess : Bool = true , level : Double = 0.9) -> Bool {
         
         var preprocessed = self
         
