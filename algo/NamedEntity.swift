@@ -181,14 +181,19 @@ class NamedEntity {
                 }
             }
             
-            if element.trimmedAndLowercased.existInArray(array: RecognitionTools.lowerCasejobTitles, level: 0.8)  {
-                score -= 20
+            if element.trimmedAndLowercased.existInArray(array: RecognitionTools.lowerCasejobTitles, level: 0.85)  {
+                score -= 40
             }
             
             // GO EVEN DEEPER, anc substring THE VALUE ( in case of Full name ) and test it with first part of email
            //print("TOKEN : \(element.replacingOccurrences(of: " ", with: "")) Existis in \(emails.map({$0.value.components(separatedBy: "@")[0] }))) ? : \(element.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) )")
             if element.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) {
                 score += 20
+            }
+            
+            
+            if element.existInArray(array: websites.map({$0.value}), preprocess: true , level: 0.8) {
+                score -= 10
             }
             
         }
@@ -435,6 +440,9 @@ class NamedEntity {
                 score -= 20
             }
             
+            if element.isAllNumber {
+                score -= 5
+            }
             
             
         }
@@ -532,7 +540,7 @@ class NamedEntity {
         
         validatedPhones.forEach { (phoneNumber) in
             
-            let phoneEntity : NamedEntity = NamedEntity(value: phoneNumber.numberString)
+            let phoneEntity : NamedEntity = NamedEntity(value: phoneNumber.numberString, type: .phone, position: self.position)
             
             // Wrong version
 //            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
@@ -585,7 +593,7 @@ class NamedEntity {
         }
         
         inValidatedPhones.forEach { (invalidatedPhone) in
-            let phoneEntity : NamedEntity = NamedEntity(value: invalidatedPhone.numberString)
+            let phoneEntity : NamedEntity = NamedEntity(value: invalidatedPhone.numberString, type: .phone, position: self.position)
             
             
             if let foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
