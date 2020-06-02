@@ -19,7 +19,7 @@ var raw = "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCo
 raw = "Tel : 24608993 / 24 655 509"
 
 var raws = [
-  /*
+  
     
     "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCoworking Business Center - CBC\nAvenue de I'Environnement Zarzouna\n(+216) 23 40 41 79\n7021 - Bizerte - Tunisie\n2\nborhene@bizertesmartcity.com\ncontact@bizerte2050.com\nBizerte\nSmart City\nWe realize it\nwww.bizertesmartcity.com\n",
 
@@ -31,7 +31,7 @@ var raws = [
 
      "Med Cheker Amdouni\nGraphic Designer\nPixartprinting SpA\nImmeuble Les 2 Lacs, Bloc 9,\nRue du Lac de Constance,\norinting\nLes Berges du Lac 1053,\nTunis\nmedcheker.amdouni@pixartprinting.com\n8\n",
 
-     "Crea\nCUISINE\n...et vos envies prennent vie\nHichem HARBAOUI\nGérant\nN'1 Rue Bechir Bachrouch, Khaznadar 2017\n-\n(+2161 71 515 470\n(+216) 23 559 990\nhichem.harbaoui@live.fr fl Créa Cuisine\n11216 52 490 435\n",
+     
 
      
 
@@ -71,7 +71,7 @@ var raws = [
 
  "N\nSage\nIntégrateur\nNOVASOFT\nde Solutions\nElyes TALMOUDI\nGérant\nPortable: 20 279 500\nTél.: +(216) 71 860 636\nFax: +(216) 71 862 627\nAdresse: Bur B1,\nRésidence El Mouna\nRue du lac Malaren, les berges du lac, Tunis\nE-mail: elytal.bmda@topnet.tn\n",
  
- */
+ 
  
  "Seifeddine Khelifi\nExpert Senior\nDéveloppement des Ventes\nboredoo\nImmeuble Zenith, Les Jardins du Lac\n1053, Les Berges du Lac, Tunis, Tunisie\nM : +216 22 126 4661T : +216 36 126 466\nseifeddine.khelifi@ooredoo.tn\n",
 
@@ -92,11 +92,18 @@ var raws = [
 
   
   
- "Ahmed Ayed\nConsultant\nProfessional Services\naxefinance\n+216 71 963 229\nFocus • Expertise • Value\nE ahmed.ayed@axefinance.com\n",
- 
+
  
  
  "levio\nAFFAIRES ET TECHNOLOGIES\nJonathan Chouinard\nConseiller stratégique\n1015, Av Wilfrid-Pelletier, local 530\nChargé de projet\nQuébec (Québec) G1W 0C4\njonathan.chouinard@levio.ca\nT 418 914-3623\nwww.levio.ca\nC 418 931-8789\n",
+ 
+ 
+ 
+ "Crea\nCUISINE\n...et vos envies prennent vie\nHichem HARBAOUI\nGérant\nN'1 Rue Bechir Bachrouch, Khaznadar 2017\n-\n(+2161 71 515 470\n(+216) 23 559 990\nhichem.harbaoui@live.fr fl Créa Cuisine\n11216 52 490 435\n",
+ 
+    
+ "Ahmed Ayed\nConsultant\nProfessional Services\naxefinance\n+216 71 963 229\nFocus • Expertise • Value\nE ahmed.ayed@axefinance.com\n",
+ 
  
 ]
 
@@ -161,6 +168,8 @@ RecognitionTools.loadTitles(completion: {
             
             extractTitles(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
             
+            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+            
             
             
             
@@ -168,6 +177,8 @@ RecognitionTools.loadTitles(completion: {
             namedEntityHolder.forEach { (named) in
                 print("Extracted \(named.type) : \(named.value)  - \(named.score)")
             }
+            
+            testPrint(tag: "DATA ARRAY", title: "DAATA", content: bcDataArray)
             
             
             testPrint(tag: "", title: "OPERATION END", content: "")
@@ -219,8 +230,16 @@ func extractPhones( bcDataArray : [String] , namedEntityHolder : inout [NamedEnt
         computeResultHolder.append(contentsOf: namedEntity.computePhoneNumber(namedEntityHolder: namedEntityHolder, prefixes : prefixedEntities, phoneNumberKit: phoneNumberKit))
     }
     
+    var phoneExtracted = prefixedEntities.filter({ (prefixOfTypePhone) -> Bool in
+        return prefixOfTypePhone.type == .phone && prefixOfTypePhone.value.preprocess.isPhoneNumber
+    })
+    
+    if computeResultHolder.count < phoneExtracted.count  {
+        computeResultHolder.append(contentsOf: phoneExtracted.map({NamedEntity(value: $0.value, type: $0.type )}))
+    }
+    
     computeResultHolder.forEach { (named) in
-        print("Extracted \(named.value)  -- : \(named.score)    -- : \(named.type)  -- ")
+        print("Extracted PHONES \(named.value)  -- : \(named.score)    -- : \(named.type)  -- ")
     }
 
     
@@ -243,7 +262,7 @@ func extractFullName( bcDataArray : [String] , namedEntityHolder : inout [ Named
     postProcessResult(type: .fullname , result: computeResultHolder , namedEntityHolder: &namedEntityHolder)
      
     computeResultHolder.forEach { (named) in
-        print("Extracted \(named.value)  -- : \(named.score)    -- : \(named.type)  -- AT POSITION : \(named.position) ")
+        print("Extracted \(named.value)  --   : \(named.score)    --   : \(named.type)  -- AT POSITION : \(named.position) ")
     }
     // TODO : POST PROCESS Result,  * remove found fields from raw values etc..
 }
@@ -321,9 +340,28 @@ func postProcessResult(type : EntityType, result : [NamedEntity], namedEntityHol
                 }
         }
         
+        
+        // TODO Fix minimal score
+        if !namedEntityHolder.contains(where: { (namedEntity) -> Bool in
+            namedEntity.type == .title
+        }) {
+            // NO TITLE SORTED
+            
+            let sortedTitle = result
+            .sorted(by: {$0.score > $1.score })
+                .first
+            
+            namedEntityHolder.append(NamedEntity(value: sortedTitle?.value ?? "", type: .title))
+        }
+        
+        
+        
         }
         
     case .phone : do {
+        
+        
+        
         namedEntityHolder.append(contentsOf: result)
         }
     default:
@@ -420,6 +458,12 @@ class RecognitionTools {
         var prefixesEntities : [PrefixHolder] = []
         for (index,line) in bcDataArray.enumerated() {
             // lets do the separation stuff BASED ON " : " Prefix
+            var mutableLine = line
+        
+            
+            // TODO : DONE  ANOTHER CASE HERE : -->>  M : +216 22 126 466 (/ , | , separtor) +216 36 126 466
+            // DOOOOO NOT SEPARATE WITH PHONE SEPARATORS  : - , () , ..
+            
             
             // if prefix KEY found with empty VALUE , supress Take the next line as VALUE
             let separatorOccurenceByPoint = line.components(separatedBy:":")
@@ -429,19 +473,145 @@ class RecognitionTools {
                 // this is our best bet Key : Val
                 if separatorOccurenceByPoint[1].count == 0 {
                     // we got empty VALUE so we grab it eye closes from next line
-                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first ?? "", value: String(bcDataArray[index+1]) , type: .safe))
+                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .unknown))
                     //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
                 }else{
-                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first ?? "", value: separatorOccurenceByPoint[1] , type: .safe))
+                    
+                    // here its not the end , we need to processs string , if it contains , some special phone separtors like : "/" , " | "  "," maybe
+                    
+                    var separatorPosition = -1
+                    
+                    
+                    RecognitionTools.bcPhoneSeparators.forEach { (separator) in
+                        if line.contains(separator){
+                            // its important to get the last index , and not first index ( prefix can contain / )
+                            separatorPosition = line.lastIndexInt(of: Character(separator)) ?? -1
+                        }
+                    }
+                    
+                    if separatorPosition > -1 {
+                        // we found some content with separtor
+                            // lets loop and add them one by one
+                        // suppose line can contain ONLY ONE VALUE / SEPARATOR
+                        
+                        var prefixedSeparatedByPoints = line.prefix(separatorPosition).components(separatedBy: ":")
+                        // PREFIX , CONTAIN FOR SUUUUURE THE SEPARTOR ":"
+                        
+                        prefixesEntities.append(PrefixHolder(key: prefixedSeparatedByPoints.first?.trimmed ?? "", value: prefixedSeparatedByPoints[1] , type: .phone))
+                        
+                        // suffix , begin counting from end of the string
+                        // PREFIX , CONTAIN FOR SUUUUURE THE SEPARTOR ":"
+                        
+                        prefixesEntities.append(PrefixHolder(key: prefixedSeparatedByPoints.first?.trimmed ?? "", value: String(line.suffix(line.count - separatorPosition + 1)) , type: .phone))
+                        
+                        
+                        
+                    }else {
+                        
+                        prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .phone))
+                    }
                 }
                 
-                 bcDataArray[index] = line.replacingOccurrences(of: separatorOccurenceByPoint[0], with: "")
+                 bcDataArray[index] = line.replacingOccurrences(of: separatorOccurenceByPoint[0], with: " ")
                 
                 break
                 }
                 
             case let val where val > 2 : do {
                 // this is strange case , contains more than 2 separtor
+                
+                // exemple : TEL : 2323232 ABC : 232323232 or T : 2323233X: 232322
+                
+                // remove prefix from string , try to obtain separator from the long string
+                
+                // lets look for another separation between THE ORGINAL STRING which can be : (PREFIX : ), / , \ , | , ....
+                // we got more than 1 prefixes ..
+                
+                // separator " : " , means theres a string prefix , so , lets separate them by space , and look for it's position
+                
+                // lets grabs the : position , and back off until we found the prefix
+                
+                let position : Int = line.lastIndexInt(of: ":") ?? 0 // this should not create index out of range
+                var prefixeBuilder = ""
+                
+                for index in stride(from: position, through: 0, by: -1)  {
+                    
+                    if !line[index].isNumber {
+                        // build the prefix until not a number
+                        prefixeBuilder.append(line[index])
+                    }else {
+                        // maybe stop the looping , no neeeed to continue alll the way back
+                        break
+                    }
+                    
+                }
+                // once stopped , ( we found a new prefix
+                
+                prefixeBuilder = String(prefixeBuilder.reversed())
+                
+                // separate the original by founded prefix
+                if prefixeBuilder.count > 0 {
+                    
+                    
+                    // FOR PREFIX
+                    var newSeparation = line.prefix(position - prefixeBuilder.count)
+                    
+                    // reprocess using ":" Code duplication Warning
+                    
+                    var separatorOccurenceByPoint = newSeparation.components(separatedBy:":")
+                    //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
+                    if separatorOccurenceByPoint.count == 2 { // this time we should have only TWO
+                        // this is our best bet Key : Val
+                        if separatorOccurenceByPoint[1].count == 0 {
+                            // we got empty VALUE so we grab it eye closes from next line
+                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .phone))
+                            //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
+                            
+                            bcDataArray[index] = ""
+                            bcDataArray.append(String(bcDataArray[index+1]))
+                            
+                        }else{
+                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .phone))
+                        
+                            bcDataArray[index] = ""
+                            bcDataArray.append(separatorOccurenceByPoint[1])
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    // FOR SUFFIX
+                    newSeparation = line.suffix(position - prefixeBuilder.count)
+                    separatorOccurenceByPoint = newSeparation.components(separatedBy:":")
+                    //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
+                    if separatorOccurenceByPoint.count == 2 { // this time we should have only TWO
+                        // this is our best bet Key : Val
+                        if separatorOccurenceByPoint[1].count == 0 {
+                            // we got empty VALUE so we grab it eye closes from next line
+                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .phone))
+                            //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
+                        
+                            bcDataArray[index] = ""
+                            bcDataArray.append(String(bcDataArray[index+1]))
+                            
+                        }else{
+                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .phone))
+                            
+                            bcDataArray[index] = ""
+                            bcDataArray.append(separatorOccurenceByPoint[1])
+                        }
+                        
+                    //    mutableLine = mutableLine.replacingOccurrences(of: prefixeBuilder, with: "/n")
+                    
+                    }else{
+                        // strange case , not processing anymore
+                    }
+                    
+                                        
+                    
+                }// else sorry i tried every think
+                
                 }
                 
                 
@@ -464,13 +634,16 @@ class RecognitionTools {
             if separatorOccurenceBySpace.count > 1 {
                 if let firstElement = separatorOccurenceBySpace.first {
                     let removedFirst = separatorOccurenceBySpace.dropFirst()
+                    
                     if firstElement.lengthBetween(l1: 1, l2: 7)
-                        && firstElement.existInArray(array: RecognitionTools.businessCardPrefixes.flatMap({$0}) , preprocess: true)
                         && !firstElement.existInArray(array: prefixesEntities.map({$0.key}))
                     {
-                        // i guess wee found some prefix so lets pretend
-                        
-                        prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .unsafe))
+                        if firstElement.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}) , preprocess: true) {
+                            prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .phone))
+                        }else if firstElement.existInArray(array: RecognitionTools.bcEntityPrefixes.flatMap({$0}) , preprocess: true) {
+                            // i guess wee found some prefix so lets pretend
+                            prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .unknown))
+                        }
                     }
                     // else ignore
                 }
@@ -560,6 +733,25 @@ class RecognitionTools {
         "yahoo", "hotmail", "outlook", "uol", "bol", "terra", "ig", "itelefonica", "r7", "zipmail", "globo", "globomail", "oi"
     ]
     
+    static var bcPhoneSeparators = [
+    "/",
+    "\\",
+       "|"
+    ]
+    
+    
+    static var bcPhonesPrefixes = [
+        directPrefixes,
+        phonePrefixes,
+        mobilePrefixes,
+        faxPrefixes
+        
+    ]
+    
+    static var bcEntityPrefixes = [
+        emailPrefixes
+    ]
+    
     static var directPrefixes = [
         "d",
         "direct",
@@ -576,7 +768,9 @@ class RecognitionTools {
         "tel.",
         "tél.",
         "t.",
-        "t"
+        "t",
+       
+        
     ]
     
     static var mobilePrefixes = [
@@ -584,7 +778,9 @@ class RecognitionTools {
         "mobile",
         "mobile.",
         "portable",
-        "portable."
+        "portable.",
+        "c",
+        "c.",
     ]
     
     static var faxPrefixes = [
@@ -722,7 +918,7 @@ enum PrefixType {
 struct PrefixHolder {
     var key : String
     var value : String
-    var type : PrefixType = .unsafe
+    var type : EntityType = .unknown
 }
 
 func testPrint<T>(tag : String, title : String, content : T){

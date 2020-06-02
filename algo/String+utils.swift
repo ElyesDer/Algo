@@ -17,7 +17,21 @@ extension URL {
     }
 }
 
+extension StringProtocol {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
+}
+
 extension String {
+    
+    func lastIndexInt(of char: Character) -> Int? {
+        return lastIndex(of: char)?.utf16Offset(in: self)
+    }
+    
+    func firstIndexInt(of char: Character) -> Int? {
+        return firstIndex(of: char)?.utf16Offset(in: self)
+    }
     
     
     func substring(from:Int, toSubstring s2 : String) -> Substring? {
@@ -44,6 +58,7 @@ extension String {
     var preprocess : String {
         return self.trimmedAndLowercased
         .replacingOccurrences(of: " ", with: "")
+        .replacingOccurrences(of: "-", with: "")
     }
     
     

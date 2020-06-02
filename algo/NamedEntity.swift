@@ -99,7 +99,7 @@ class NamedEntity {
         
         
         
-        if value.existInArray(array: namedEntityHolder.map({$0.value})) {
+        if value.existInArray(array: namedEntityHolder.map({$0.value}),level: 0.9 ) {
             self.score -= 100
             return self
             /*
@@ -138,6 +138,7 @@ class NamedEntity {
         
         // todo : check if email , is valid ...
         if value.isValidEmail() {
+            self.score -= 100
             return self
         }
         
@@ -255,17 +256,21 @@ class NamedEntity {
         //testPrint(tag: "Company email compare", title: "\(value) exists in \(emails.map({$0.value.components(separatedBy: "@")[1] }))", content: value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.75) )
         
         if value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.74) {
-            score += 30
+            score += 40
         }
         
         //testPrint(tag: "Company websites compare", title: "\(value) exists in \(websites.map({$0.value }))", content: value.existInArray(array: websites.map({$0.value}), preprocess: true , level: 0.8) )
         
         if value.existInArray(array: websites.map({$0.value}), preprocess: true , level: 0.8) {
-            score += 30
+            score += 40
         }
         
         if tokensValue.count > 1 {
             tokensValue.forEach({ (item) in
+                
+                if item.isValidEmail() {
+                    score -= 100
+                }
                 
                 if item.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) {
                     score += 5
@@ -624,7 +629,7 @@ extension String {
     
     /// Level 1 Seems a bit comfusin and no detecting exact match soo .. avoid
     
-    func existInArray (array : [String] , preprocess : Bool = true , level : Double = 0.9) -> Bool {
+    func existInArray (array : [String] , preprocess : Bool = true , level : Double = 0.8) -> Bool {
         
         var preprocessed = self
         
@@ -674,11 +679,21 @@ extension String {
     }
     
     func isUppercased(at: Index) -> Bool {
+        
+        if self.count < 1 {
+            return false
+        }
+        
         let range = at..<self.index(after: at)
         return self.rangeOfCharacter(from: .uppercaseLetters, options: [], range: range) != nil
     }
     
     func isLowercased(at: Index) -> Bool {
+        
+        if self.count < 1 {
+            return false
+        }
+        
         let range = at..<self.index(after: at)
         return self.rangeOfCharacter(from: .lowercaseLetters, options: [], range: range) != nil
     }
