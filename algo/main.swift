@@ -168,16 +168,16 @@ RecognitionTools.loadTitles(completion: {
             testPrint(tag: "preProcessRaw", title: "RESULT", content: prefixedEntities)
 
             testPrint(tag: "BC DATA AFTER", title: " :: ", content: bcDataArray)
-//
-//            extractEmails(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
-//            extractWebsite(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
-//
-//
-//            // make it third
-//
-//            // TODO : MAKE SURE YOU SPLIT PREFIXES FROM VALUES , FOR BVETTER RESULT
-//            extractPhones(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
-//
+
+            extractEmails(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
+            extractWebsite(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
+
+
+            // make it third
+
+            // TODO : MAKE SURE YOU SPLIT PREFIXES FROM VALUES , FOR BVETTER RESULT
+            extractPhones(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
+
 //            // lets preprocess data before continue
 //            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
 //
@@ -189,8 +189,8 @@ RecognitionTools.loadTitles(completion: {
 //            extractTitles(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
 //
 //            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
-//
-//
+
+
             
             ///////////////////////////////// @ ZONE
             var addressNamedEntity : AddressNamedEntity = AddressNamedEntity(value: "")
