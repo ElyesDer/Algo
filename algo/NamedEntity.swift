@@ -11,6 +11,17 @@ import Foundation
 
 class PhoneNumberNamedEntity: NamedEntity {
     var phoneNumber : PhoneNumber?
+    
+    
+    override init(value: String, type: EntityType, position: Int) {
+        super.init(value: value, type: type, position: position)
+    }
+    
+    init(value: String, type: EntityType, position: Int , phoneNumber : PhoneNumber) {
+        super.init(value: value, type: type, position: position)
+        self.phoneNumber = phoneNumber
+    }
+    
 }
 
 
@@ -500,12 +511,12 @@ class NamedEntity {
     }
     
     /// AT THIS Stage : Title, Company , FullName, Email, Website, should have been removed from RAW and not process again
-    func computePhoneNumber(namedEntityHolder : [ NamedEntity] , prefixes : [PrefixHolder] , phoneNumberKit : PhoneNumberKit) -> [NamedEntity] {
+    func computePhoneNumber(namedEntityHolder : [ NamedEntity] , prefixes : [PrefixHolder] , phoneNumberKit : PhoneNumberKit) -> [PhoneNumberNamedEntity] {
         
         //        var validatedPhones : [PhoneNumber] = []
         //        var invalidatedPotentialPhones : [PhoneNumber] = []
         
-        var resultHolder : [NamedEntity] = []
+        var resultHolder : [PhoneNumberNamedEntity] = []
         
         
         if value.count < 4 {
@@ -576,7 +587,8 @@ class NamedEntity {
         
         validatedPhones.forEach { (phoneNumber) in
             
-            let phoneEntity : NamedEntity = NamedEntity(value: phoneNumber.numberString, type: .phone, position: self.position)
+            let phoneEntity : PhoneNumberNamedEntity = PhoneNumberNamedEntity(value: phoneNumber.numberString, type: .phone, position: self.position)
+            
             
             // Wrong version
 //            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
@@ -625,17 +637,21 @@ class NamedEntity {
                 
             }
             
+            phoneEntity.phoneNumber = phoneNumber
+            
             resultHolder.append(phoneEntity)
         }
         
         inValidatedPhones.forEach { (invalidatedPhone) in
-            let phoneEntity : NamedEntity = NamedEntity(value: invalidatedPhone.numberString, type: .phone, position: self.position)
+            let phoneEntity : PhoneNumberNamedEntity = PhoneNumberNamedEntity(value: invalidatedPhone.numberString, type: .phone, position: self.position)
             
             
             if let foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
-                invalidatedPhone.numberString.stringEqual(container: prefixHolder.value, preprocess: true)
-            }).first{
+                invalidatedPhone.numberString.stringContains(container: prefixHolder.value, preprocess: true)
+            }).first{ // TODO  GRABBING THE FIRST WITH PREFIX , COULD LEAD TO AN ERROR EXTRACTING TYPE ..
             
+                
+                
 //            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
 //                invalidatedPhone.numberString.existIn(container: prefixHolder.value, preprocess: true, level: 0.8) // found this malformed phone in extracted prefixes
 //            }) {
@@ -651,7 +667,10 @@ class NamedEntity {
                     phoneEntity.type = .unknown
                 }
                 
+                phoneEntity.phoneNumber = invalidatedPhone
                 resultHolder.append(phoneEntity)
+            
+            
             }else{
                 phoneEntity.type = .mobile
             }
@@ -661,7 +680,7 @@ class NamedEntity {
         
         // Potential phones not validated by phoneKit
         
-        // lets keep tryin extracting missing numbers.. MAYBE
+        //TODO : lets keep tryin extracting missing numbers.. FROM PREFIX HOLDER / MAYBE PROCESSSSS THE PREFIX DATA ARRAY BECAUSE ITS RETURNING BETTER RESULT , AND REGEX PHONES ARE CAUSING ERRORS
         
         return resultHolder
     }
@@ -813,6 +832,43 @@ extension String {
             return false
         }
     }
+    
+    func stringContains(container: String, preprocess: Bool) -> Bool {
+        var preprocessed = self
+        
+        
+        if preprocess {
+            preprocessed = preprocessed.trimmedAndLowercased
+            preprocessed = preprocessed.replacingOccurrences(of: " ", with: "")
+            preprocessed = preprocessed.replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: "")
+        }
+        
+        
+        // TODOOOOO : FIX ; THE ONE WITH MORE LENGTH SHOULD .CONTAINS ( the lower length )
+        
+        let container = container.trimmedAndLowercased
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: "")
+        
+        if preprocessed.count > container.count {
+            if preprocessed.contains(container)
+            {
+                return true
+            }else{
+                return false
+            }
+        }else {
+            if container.contains(preprocessed)
+            {
+                return true
+            }else{
+                return false
+            }
+        }
+        
+        
+    }
+    
     
     func countWords(separtedBy : String = " ") -> Int {
         return self.components(separatedBy: separtedBy).count
