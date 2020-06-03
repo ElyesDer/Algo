@@ -9,6 +9,35 @@
 import Foundation
 
 
+class PhoneNumberNamedEntity: NamedEntity {
+    var phoneNumber : PhoneNumber?
+}
+
+
+class AddressNamedEntity: NamedEntity {
+    var city : String = ""
+    var state : String = ""
+    var zip : String = ""
+    var country :String = ""
+    var street : String = ""
+    var adress_second : String = ""
+    var latitude : String = ""
+    var longitude : String = ""
+    
+    
+    var site_zip : String = ""
+    
+    var country_prefix : String = ""
+    
+    public func toString() -> String{
+        
+        return "street : \(street) \n address-Second : \(adress_second) \n city : \(city) \n State : \(state)  \n Zip : \(zip)  \n Coundtry \(country)"
+        
+    }
+    
+    
+}
+
 class NamedEntity {
     var value : String = ""
     var type : EntityType = .none
@@ -185,21 +214,19 @@ class NamedEntity {
                 score -= 40
             }
             
-            // GO EVEN DEEPER, anc substring THE VALUE ( in case of Full name ) and test it with first part of email
-           //print("TOKEN : \(element.replacingOccurrences(of: " ", with: "")) Existis in \(emails.map({$0.value.components(separatedBy: "@")[0] }))) ? : \(element.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) )")
             if element.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) {
                 score += 20
             }
             
             
+            // po "www.em-strasbourg.eu".contains("strasbourg") does respond with true , but exist in array return false
             if element.existInArray(array: websites.map({$0.value}), preprocess: true , level: 0.8) {
                 score -= 10
             }
             
         }
         
-        //print("Value : \(value.replacingOccurrences(of: " ", with: "")) Existis in \(emails.map({$0.value.components(separatedBy: "@")[0] }))) ? : \(value.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) )")
-        
+ 
         
         // if it exists in first part only THAN BIGGER SCORE FOR FULL NAME else BIGGER SCORE FOR COMPANY
         
@@ -411,6 +438,7 @@ class NamedEntity {
             score -= 30
         }
         
+        var equalUpperCases = false
         for (index,element) in tokensValue.enumerated() {
             if index < 1 {
                 // first element
@@ -419,8 +447,16 @@ class NamedEntity {
                 }else{
                     score -= 20
                 }
+                
+                equalUpperCases = value.isAllUpperCase()
+                
             }else {
                 // rest of element
+                
+                if equalUpperCases != element.isAllUpperCase() {
+                    score -= 10
+                }
+                
                 if element.isAllUpperCase(){
                     score += 5
                 } else if element.beginsWithUpperCase(){
@@ -629,6 +665,7 @@ class NamedEntity {
         
         return resultHolder
     }
+    
     
 }
 
