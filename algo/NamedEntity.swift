@@ -42,8 +42,8 @@ class PhoneNumberNamedEntity: NamedEntity {
 
 
 class AddressNamedEntity: NamedEntity {
-    var city : [String] = []
-    var state : [String] = []
+    var city : String = ""
+    var state : String = ""
     var zip : String = ""
     var country : String = ""
     var street : String = ""
@@ -186,18 +186,39 @@ class AddressNamedEntity: NamedEntity {
                         let matches = line.matchingStrings(regex: countryRegex)
                         matches.forEach { (item) in
                             item.forEach { (subItem) in
-                                
+                                self.street = line
+                                self.country = countryNamedEntity.countryEntity?.countryName ?? ""
+                                self.country_code = countryNamedEntity.countryEntity?.countryPrefix
                                 self.zip = subItem
                             }
                         }
-                    }//sorry no regex
-                    if let foundCountry = countryNamedEntity.countryEntity?.countryName {
-                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: foundCountry, with: "")
-                        //}
                     }
+                    // WE WILL DO THIS FROM computeAndress
+                    //sorry no regex
+//                    if let foundCountry = countryNamedEntity.countryEntity?.countryName {
+//                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: foundCountry.trimmedAndLowercased, with: "" , options: .caseInsensitive )
+//                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: countryNamedEntity.countryEntity!.countryPrefix.trimmedAndLowercased, with: "" , options: .caseInsensitive)
+//                        //}
+//                    }
+                    
+                    
+                    
+                    // WE WILL DO THIS FROM computeAndress
+//                    // lets clean bcDataarray
+//                    if self.zip.count > 0 {
+//                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: self.zip, with: "", options: .caseInsensitive)
+//                    }
+//
+//                    if self.country.count > 0 {
+//                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: self.country, with: "" , options: .caseInsensitive)
+//                    }
+                    
                 }
-                self.country = countryNamedEntity.countryEntity?.countryName ?? ""
-                self.country_code = countryNamedEntity.countryEntity?.countryPrefix
+                
+                if self.country.isEmpty {
+                    self.country = countryNamedEntity.countryEntity?.countryName ?? ""
+                    self.country_code = countryNamedEntity.countryEntity?.countryPrefix
+                }
             }
             
         }
@@ -218,6 +239,96 @@ class AddressNamedEntity: NamedEntity {
         return zipCodeFound
     }
 
+    
+    public func extractAddress(bcDataArray : inout [String], namedEntityHolder : inout [ NamedEntity ] , prefixes : [PrefixHolder] ) {
+        // bcDataArray should contain our data
+        
+        // first thing first ; clean up the array , and pretend the current @ is already a true
+        
+        
+        if !self.street.isEmpty {
+            
+            if !self.street.stringContains(container: "po box", preprocess: true) {
+                if self.street.contains(self.zip){
+                    self.street = self.street.replacingOccurrences(of: self.zip, with: "", options: .caseInsensitive)
+                }
+            }
+            
+            
+            if self.street.contains(self.city) {
+                self.street = self.street.replacingOccurrences(of: self.city, with: "", options: .caseInsensitive)
+            }
+            
+            
+            if self.street.contains(self.state) {
+                self.street = self.street.replacingOccurrences(of: self.state, with: "", options: .caseInsensitive)
+            }
+            
+            
+            if self.street.contains(self.country) {
+                self.street = self.street.replacingOccurrences(of: self.country, with: "", options: .caseInsensitive)
+            }
+            
+            
+            // now try with PO BOX and if found , put IT in alterv
+            
+            var poBoxAddr = self.street.getPOBoxAddress()
+            if poBoxAddr.count > 1 {
+                poBoxAddr = poBoxAddr.filter({
+                    if $0.count > 2 {
+                        if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
+                            poBoxAddr.remove(at: dataIndex)
+                            return true
+                        }
+                    }else{
+                        return false
+                    }
+                    return false
+                })
+            }
+            
+            poBoxAddr.forEach { (poBoxElement) in
+                 self.street = self.street.replacingOccurrences(of: poBoxElement, with: "",options: .caseInsensitive)
+            }
+        }
+        
+        
+        for (index, potentialAddress) in bcDataArray.enumerated() {
+            let fetchAddressPrefixes = RecognitionTools.addressNamesSuffix.filter({potentialAddress.trimmedAndLowercased.contains($0.trimmedAndLowercased)})
+            
+            print("\(fetchAddressPrefixes)")
+            
+            // now try with PO BOX and if found , put IT in alterv
+            
+            var poBoxAddr = potentialAddress.getPOBoxAddress()
+            if poBoxAddr.count > 1 {
+                poBoxAddr = poBoxAddr.filter({
+                    if $0.count > 2 {
+                        if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
+                            poBoxAddr.remove(at: dataIndex)
+                            return true
+                        }
+                    }else{
+                        return false
+                    }
+                    return false
+                })
+            }
+            
+            poBoxAddr.forEach { (poBoxElement) in
+                bcDataArray[index] = self.street.replacingOccurrences(of: poBoxElement, with: "",options: .caseInsensitive)
+            }
+            
+            if self.street.distance(between: potentialAddress) > 0.7 {
+                // we already jave the same lets put it in self.second add
+                self.adress_second = potentialAddress
+            } else if self.street.isEmpty{
+                // IDK
+                self.street = potentialAddress
+            }
+        }
+    }
+    
     
     public func extractCityORNDState(bcDataArray : inout [String], namedEntityHolder : inout [ NamedEntity ] , prefixes : [PrefixHolder] , completion : @escaping (Bool) -> ()) {
         // do the request stuf and load from servr
@@ -248,9 +359,9 @@ class AddressNamedEntity: NamedEntity {
                             //if RecognitionTools.citiesWithPrefix.joined(separator: "\n").stringContains(container: element, preprocess: true) {
                             
                             if element.existInArray(array: RecognitionTools.citiesWithPrefix, preprocess: true, level: 0.9) { // level need to be high
-                                let newLine = line.replacingOccurrences(of: element, with: "")
+                                let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
                                 bcDataArrayCopy[index] = newLine
-                                self.city.append(" \(element)")
+                                self.city.append("\(element) ")
                             }
                         }
                     }
@@ -270,9 +381,9 @@ class AddressNamedEntity: NamedEntity {
                         decompose.forEach { (element) in
                             //if RecognitionTools.citiesWithPrefix.joined(separator: "\n").stringContains(container: element, preprocess: true) {
                             if element.existInArray(array: RecognitionTools.statesWithPrefix, preprocess: true, level:  0.9) { // level need to be high
-                                let newLine = line.replacingOccurrences(of: element, with: "")
+                                let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
                                 bcDataArrayCopy[index] = newLine
-                                self.state.append(" \(element)")
+                                self.state.append("\(element) ")
                             }
                         }
                     }
@@ -323,6 +434,13 @@ class NamedEntity {
     }
     
     
+    init(value : String, type : EntityType, score : Int) {
+        self.value = value
+        self.type = type
+        self.score = score
+    }
+    
+    
     func computeWebsite(namedEntityHolder : [ NamedEntity ] , prefixes : [PrefixHolder] ) -> [NamedEntity] {
         
         var holder : [NamedEntity] = []
@@ -333,7 +451,6 @@ class NamedEntity {
                 if(subItem.count > 3 && !subItem.existInArray(array: holder.map({$0.value}),level: 0.98)){
                     holder.append(NamedEntity(value: subItem, type: .website) )
                 }
-                
             }
         }
         
@@ -351,6 +468,18 @@ class NamedEntity {
             item.forEach { (subItem) in
                 if subItem.isValidEmail() {
                     holder.append(NamedEntity(value: subItem, type: .email) )
+                }
+            }
+        }
+        
+        if holder.isEmpty {
+            
+            let lastChanceEmail = value.trimmedAndLowercased.components(separatedBy: " ")
+            
+            for item in lastChanceEmail {
+                if item.isValidEmail() {
+                    // yes this could be an eamil
+                    holder.append(NamedEntity(value: item, type: .email))
                 }
             }
         }
@@ -482,9 +611,12 @@ class NamedEntity {
             }
             
             
+            
             // po "www.em-strasbourg.eu".contains("strasbourg") does respond with true , but exist in array return false
-            if element.existInArray(array: websites.map({$0.value}), preprocess: true , level: 0.8) {
-                score -= 10
+            //if element.existInArray(array: websites.map({$0.value}), preprocess: true , level: 0.8) {
+            
+            if websites.compactMap({$0.value}).filter({$0.contains(element.trimmedAndLowercased)}).first != nil{
+                score -= 15
             }
             
         }
@@ -630,14 +762,16 @@ class NamedEntity {
         
         var results : [NamedEntity] = []
         
+        var entityFound : NamedEntity  = NamedEntity(value: "" , type: .company , score: -100)
+        
         emails.forEach { (emailEntity) in
             let partTwo = emailEntity.value.components(separatedBy: "@")[1]
             
             if !partTwo.existInArray(array: RecognitionTools.emailsDomains,preprocess: true) {
                 // pretend its company website
-                let found = NamedEntity(value: partTwo.components(separatedBy: ".")[0], type: .website)
-                found.score = 35
-                results.append( found )
+                entityFound = NamedEntity(value: partTwo.components(separatedBy: ".")[0], type: .company)
+                entityFound.score += 35
+                results.append( entityFound )
                 
             }
         }
@@ -650,12 +784,13 @@ class NamedEntity {
             let urlString = webEntity.value
             let url = URL(string: urlString)
             if let host = url?.host {
-                let found = NamedEntity(value: host.components(separatedBy: ".")[0], type: .website)
-                found.score = 45
-                results.append(found)
-                //                if host.contains(".") {
-                //
-                //                }
+                if host.existInArray(array: results.map({$0.value})) {
+                    entityFound.score += 45
+                }else{
+                    entityFound = NamedEntity(value: host , type: .company , score: 45)
+                }
+                
+                results.append(entityFound)
             }
         }
         // company name have vbeen extracted from email or website , so po them
@@ -740,18 +875,35 @@ class NamedEntity {
             }
             
             if element.isAllNumber {
-                score -= 5
+                score -= 10
             }
             
+            if element.count > 5 {
+                
+                //RecognitionTools.lowerCasejobTitles.filter({$0.stringEqualityDistance(container: element.trimmedAndLowercased, preprocess: true, ratio: 0.3)})
+                    //(element.trimmedAndLowercased)})
+                        // HEAVY PROCESSSS
+//                if RecognitionTools.lowerCasejobTitles.filter({$0.stringEqualityDistance(container: element, preprocess: true, ratio: 0.5)}).first != nil{
+//                    score += 10
+//                }else{
+//                    score -= 5
+//                }
+            }
             
         }
         
+        
+        // HEAVY PROCESSSS
+//        if value.existInArray(array: RecognitionTools.lowerCasejobTitles){
+//            score += 40
+//        }
+        
+        
+        
         let upperBound = score >= 50 ? 2 : 1
         
-        
-        
         if fullNamePosition != -1 && 1...upperBound ~= abs(position-fullNamePosition)  {
-            score += 20
+            score += 30
         }
  
 //        if abs(position-fullNamePosition) == 1 {

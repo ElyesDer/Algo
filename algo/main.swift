@@ -22,9 +22,35 @@ raw = "Tel : 24608993 / 24 655 509"
 var raws = [
     
     
-    "will be group\nBernard Attali\nPrésident/Conseil en investissement financier\nMembre de la CNCIF D012068\nExpert financier membre de la CNCEF\nGOUVEINANCL & VALEUES\nbernard.attali@willbegroup.com\n+33(0)7 86 76 69 74\n+33(0)1 42 33 13 33\nChargé d'enseignement\nEDHEC (Lille)\nESSEC\nPARIS 22 RUE DE LARCADE\nIAE (Aix-en-Provence)\n75008 - T. 33(0)1 42 33 13 33\nParis 2 Panthéon ASSAS\nGENEVA RUE DE LATHENEE 40\n1206 - T 41(0) 22 588 65 30\nBRUSSELS 209A, AVENUE LOUISE\n1050 - T. • 32 (0) 2 627 55 70\ngouval.com\n",
+    "DeM\nAsad Zahur\nChairman\naz@hnmglobal.co\n1603 Jumeirah Business Centre 4 ILT N cluster, PO BOX 454381 DUBAI, UAE\nTel: +9714-4304314, Fax: +9714-4304574\n",
+    
+    
+    "Med Cheker Amdouni\nGraphic Designer\nPixartprinting SpA\nImmeuble Les 2 Lacs, Bloc 9,\nRue du Lac de Constance,\norinting\nLes Berges du Lac 1053,\nTunis\nmedcheker.amdouni@pixartprinting.com\n8\n",
+    
+    "WE\nCAPTURE\nWHAT\nMOVES\nDr Eric Angelini\nVP Global Regulatory Affairs\n& Products Safety\nMANE\nTel. direct line + 33 4 92 42 49 01\nFax + 33 4 93 42 54 25\nMobile + 33 6 82 93 81 75\n620, route de Grasse\nF-06620 Le Bar-sur-Loup\neric.angelini@mane.com\nwww.mane.com\n",
+    
+     "alister\nAVOCATS\nProf. Dr. Jochen BAUERREIS\nAvocat & Rechtsanwalt\nAvocat spécialise en droit des relations internationales\nDirecteur du Magistere Juristes d'Affaires Franco-Allemands\n11, rue du Parc\n67205 Strasbourg. Oberhausbergen\nTel. : +33 (0)3 68 00 14 10\nFax : +33 (0)3 68 00 14 11\njochen.bauerreis@alister-avocats.com\n",
     
     "Ecole d e\nManagement\nStrasbourg\nUNIVERSITE DE STRASBOURG\nWilfrid AZAN\nMattre de conferences\nen Sciences de gestion\n61 avenue de la Foret-Noire\n67085 Strasbourg Cedex\nTel. +33 (0)3 68 85 89 25\nazancunistra.i\nwww.em-strasbourg.eu\n",
+    
+    
+    "Seifeddine Khelifi\nExpert Senior\nDéveloppement des Ventes\nboredoo\nImmeuble Zenith, Les Jardins du Lac\n1053, Les Berges du Lac, Tunis, Tunisie\nM : +216 22 126 4661T : +216 36 126 466\nseifeddine.khelifi@ooredoo.tn\n",
+    
+    "will be group\nBernard Attali\nPrésident/Conseil en investissement financier\nMembre de la CNCIF D012068\nExpert financier membre de la CNCEF\nGOUVEINANCL & VALEUES\nbernard.attali@willbegroup.com\n+33(0)7 86 76 69 74\n+33(0)1 42 33 13 33\nChargé d'enseignement\nEDHEC (Lille)\nESSEC\nPARIS 22 RUE DE LARCADE\nIAE (Aix-en-Provence)\n75008 - T. 33(0)1 42 33 13 33\nParis 2 Panthéon ASSAS\nGENEVA RUE DE LATHENEE 40\n1206 - T 41(0) 22 588 65 30\nBRUSSELS 209A, AVENUE LOUISE\n1050 - T. • 32 (0) 2 627 55 70\ngouval.com\n",
+    
+    
+    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    
+    
+    
+    
+    "IF\nTRADE\nENGINEERING\nMassimiliano Avogadri\nBusiness development bureau\nwww.ffengineerltd.com\nm.avogadri@ffengineerItd.com\nSkype: Massimiliano.avogadri\nF&F Engineering Ltd\n7th Floor 52-54 Gracechurch Street EC3V.OEH London (UK)\n",
+    
+    
+    
+    
+    
+    
     
     
     "TEAMLOG\nDEPARTEMENT MULTIMEDIA\nPASCAL ADAM\nINGENIEUR DAFFAIRES\n4, Allée Moulin Berger - 69130 Ecully\nTel. 04 72 52 25 52\nPortable 06 74 68 52 93 - Fax 04 72 52 25 50\nPascal.Adam@teamlog.fr",
@@ -45,7 +71,7 @@ var raws = [
     
     
     
-    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    
     
     
     "nWael Mallek\nMEDLINK\nGeneral Manager of\nTunisian operations\nHealthcare\nMobile Applications\nwaelm@360medlink.com\nmobile. +216 98 70 92 14\noffice. +1 514 448 2175\nwww.360medlink.com\nMontreal - New York I Paris I Barcelona\nTunis\n",
@@ -55,10 +81,10 @@ var raws = [
     "WILL\nr. Droit Creatif - Azan & Associes\nWilliam Azan\nAvocat Associé\n92, Avenue de Saint-Mandé - 75012 PARIS\nTel.: 33(0)1 42 56 08 20 - Port. : 06 86 86 32 50 william.azan@uwill.fr\n",
     
     
-    "WE\nCAPTURE\nWHAT\nMOVES\nDr Eric Angelini\nVP Global Regulatory Affairs\n& Products Safety\nMANE\nTel. direct line + 33 4 92 42 49 01\nFax + 33 4 93 42 54 25\nMobile + 33 6 82 93 81 75\n620, route de Grasse\nF-06620 Le Bar-sur-Loup\neric.angelini@mane.com\nwww.mane.com\n",
     
     
-    "DeM\nAsad Zahur\nChairman\naz@hnmglobal.co\n1603 Jumeirah Business Centre 4 ILT N cluster, PO BOX 454381 DUBAI, UAE\nTel: +9714-4304314, Fax: +9714-4304574\n",
+    
+    
     
     "Michel Auclair\nAssocie\nco\nauclair dupont\nCONSEIL EN ENTREPRISES\nTel: (687) 24 10 30\nGrand Theatre\nFax: (687) 24 10 45\n0 u0 SIEN attes\nmail michelaudair@auclairdupont.nc\nanATo2 ess4s Noume Cece\nwww.aucairdupont.nc\n",
     
@@ -87,7 +113,7 @@ var raws = [
     "Med Cheker Amdouni\nGraphic Designer\nPixartprinting SpA\nImmeuble Les 2 Lacs, Bloc 9,\nRue du Lac de Constance,\norinting\nLes Berges du Lac 1053,\nTunis\nmedcheker.amdouni@pixartprinting.com\n8\n",
     
     
-    
+    /*
     
     
     "Ryosuke Nagao\nCEO\nnagao@impetus.jp\nLead Translator\nIMPETUS\nLinguistic Consultation\nImpetus Co.\n5-31-5-1004 Honkomagome,\nBunkyo-ku, Tokyo, JAPAN\n",
@@ -141,7 +167,7 @@ var raws = [
     
     
     
-    "Seifeddine Khelifi\nExpert Senior\nDéveloppement des Ventes\nboredoo\nImmeuble Zenith, Les Jardins du Lac\n1053, Les Berges du Lac, Tunis, Tunisie\nM : +216 22 126 4661T : +216 36 126 466\nseifeddine.khelifi@ooredoo.tn\n",
+    
     
     
       
@@ -155,11 +181,19 @@ var raws = [
       
        
        "Pries\nGrégory Antoine\nConsultants Network\n+33 6 07 39 37 12 - contact@1001pommes.com\n",
-       "alister\nAVOCATS\nProf. Dr. Jochen BAUERREIS\nAvocat & Rechtsanwalt\nAvocat spécialise en droit des relations internationales\nDirecteur du Magistere Juristes d'Affaires Franco-Allemands\n11, rue du Parc\n67205 Strasbourg. Oberhausbergen\nTel. : +33 (0)3 68 00 14 10\nFax : +33 (0)3 68 00 14 11\njochen.bauerreis@alister-avocats.com\n","IF\nTRADE\nENGINEERING\nMassimiliano Avogadri\nBusiness development bureau\nwww.ffengineerltd.com\nm.avogadri@ffengineerItd.com\nSkype: Massimiliano.avogadri\nF&F Engineering Ltd\n7th Floor 52-54 Gracechurch Street EC3V.OEH London (UK)\n","start inoost\nKevin Aserraf\nAnalyste\nkevin@startinpost.com\nTél. : +33 1011 70 60 90 36\nMob. +33 (0)6 66 85 89 26\nwww.startinpost.com\nTOUR CRISTAL\n11 QUAI ANDRE CITROEN- 75015 PARIS\n",
        
        
        
        
+       
+       
+       
+       
+       "start inoost\nKevin Aserraf\nAnalyste\nkevin@startinpost.com\nTél. : +33 1011 70 60 90 36\nMob. +33 (0)6 66 85 89 26\nwww.startinpost.com\nTOUR CRISTAL\n11 QUAI ANDRE CITROEN- 75015 PARIS\n",
+       
+       
+       
+       */
        
        
  
@@ -247,7 +281,7 @@ RecognitionTools.loadTitles(completion: {
             testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
             
 
-            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
             ///////////////////////////////// @ ZONE
             // THIS IS MOVED HERE , BECASE WE NEED TO WORK ON ENTIRE BCDATA ARRAY
             var addressNamedEntity : AddressNamedEntity = AddressNamedEntity(value: "")
@@ -263,6 +297,9 @@ RecognitionTools.loadTitles(completion: {
                 dispatchGroup.leave()
             })
             
+            // now lets compute @
+            addressNamedEntity.extractAddress(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities)
+            
             
             _ = dispatchGroup.wait()
             dispatchGroup.notify(queue: .main){
@@ -272,63 +309,13 @@ RecognitionTools.loadTitles(completion: {
             print("<HZHHZ")
             print(addressNamedEntity.state)
             print(addressNamedEntity.city)
-            /*
-             RecognitionTools.detectFullAddress(dataArray: &bcDataArray, addressEntityHolder: &addressNamedEntity)
-             
-             //RecognitionTools.detectZipCode(
-             
-             // list of countries From Address
-             let countriesFromText =  RecognitionTools.detectCountryFromText(dataArray: &bcDataArray, addressEntityHolder: &addressNamedEntity)
-             
-             // list of countries from phone
-             let countriesFromPhone =  RecognitionTools.detectCountryFromPhonePrefix(dataArray: &bcDataArray, addressEntityHolder: &addressNamedEntity)
-             
-             //list of countries from website
-             let countriesFromWebsite =  RecognitionTools.detectCountryFromWebsite(dataArray: &bcDataArray, namedEntityHolder: namedEntityHolder, addressEntityHolder: &addressNamedEntity)
-             
-             let countriesFromDataTail = RecognitionTools.detectCountryFromTail(dataArray: bcDataArray)
-             
-             if !countriesFromText.isEmpty && !countriesFromPhone.isEmpty && !countriesFromWebsite.isEmpty {
-                 let firstOutput = countriesFromPhone.filter(countriesFromText.contains)
-                 let finalOutput = firstOutput.filter(countriesFromWebsite.contains)
-                 if finalOutput.count > 0 {
-                     if let country = finalOutput.first {
-                         if let foundedCountry = RecognitionTools.countryPhonePrefix.filter({$0.countryName.trimmedAndLowercased == country.trimmedAndLowercased }).first {
-                             addressNamedEntity.country = foundedCountry.countryName
-                             addressNamedEntity.country_prefix = foundedCountry.countryPrefix
-                         }
-                     }
-                 }
-             }
-             
-             let totalArray = countriesFromPhone + countriesFromWebsite + countriesFromText + countriesFromDataTail
-             if totalArray.count > 0 {
-                 let filtredCountries = Dictionary(grouping: totalArray, by: {$0}).filter { $1.count > 1 }.keys
-                 print(filtredCountries)
-                 if filtredCountries.count > 0 {
-                     if let country = filtredCountries.first , let foundedCountry = RecognitionTools.countryPhonePrefix.filter({$0.countryName.trimmedAndLowercased == country.trimmedAndLowercased }).first {
-                         addressNamedEntity.country = foundedCountry.countryName
-                         addressNamedEntity.country_prefix = foundedCountry.countryPrefix
-                     }
-                 }else if let country = totalArray.first {
-                     if let foundedCountry = RecognitionTools.countryPhonePrefix.filter({$0.countryName.trimmedAndLowercased == country.trimmedAndLowercased }).first {
-                         addressNamedEntity.country = foundedCountry.countryName
-                         addressNamedEntity.country_prefix = foundedCountry.countryPrefix
-                     }
-                 }
-             }
-             
-             
-             if !addressNamedEntity.country_prefix.isEmpty {
-                 //loadCitiesFromCountryPrefix(countryPrefix: countryPrefix)
-                 //loadStatesFromCountryPrefix(countryPrefix: countryPrefix)
-             }
-             
-             RecognitionTools.detectZipCode(dataArray: &bcDataArray, addressEntityHolder: &addressNamedEntity)
-             */
+            print(addressNamedEntity.street)
+            print(addressNamedEntity.country_code)
             
-            //            testPrint(tag: "ADDRESS EXTRACTION",title: "STREET & SECOND",content: addressNamedEntity.toString())
-
+            print(addressNamedEntity.country)
+            
+            
+           
             
             ///////////////////////////////// END @ ZONZ
             
@@ -360,6 +347,8 @@ func extractWebsite(raw : inout String, bcDataArray : [String] , namedEntityHold
         let namedEntity = NamedEntity(value: line, type: .website)
         computeResultHolder.append(contentsOf: namedEntity.computeWebsite(namedEntityHolder: namedEntityHolder, prefixes : prefixedEntities))
     }
+    
+    
     
     namedEntityHolder.append(contentsOf: computeResultHolder)
     // TODO : Preprocessing will use email if website not found with this OR NO NEED , bcz our regex is baddass that extract from email by his own
@@ -456,8 +445,6 @@ func extractTitles( bcDataArray : [String] , namedEntityHolder : inout [NamedEnt
     }
     
     postProcessResult(type: .title , result: computeResultHolder, namedEntityHolder: &namedEntityHolder)
-    testPrint(tag : "Result TITLE", title : "", content : namedEntityHolder)
-    //testPrint(tag : "Result TITLE", title : "", content : namedEntityHolder)
     
 }
 
@@ -474,7 +461,7 @@ func extractCompany( bcDataArray : [String] , namedEntityHolder : inout [NamedEn
         namedEntityCompany.score > 30
     }).count < 1 {
         // considered LoW
-        // IF SCORE IS CONSIDERED LOW - / 30 , then maybe process email and title to get something from them
+        // IF SCORE IS CONSIDERED LOW - / 30 , then maybe process email and website to get something from them
         let namedEntity = NamedEntity(value: "" , type: .company)
         computeResultHolder.append(contentsOf: namedEntity.computeCompanyFromWebsiteOrEmail(namedEntityHolder: namedEntityHolder))
     }
@@ -671,10 +658,10 @@ class RecognitionTools {
         }.resume()
     }
     
-    static func preProcessRemoveExtracted(bcDataArray : inout [String] , namedEntityHolder: [ NamedEntity]) -> Void {
+    static func preProcessRemoveExtracted(bcDataArray : inout [String] , namedEntityHolder: [ NamedEntity], forceRemove : Bool = false ) -> Void {
         // use namedEntityHolder remove from bcDataArra
         var array : [String] = []
-        for (_,line) in bcDataArray.enumerated() {
+        for (index,line) in bcDataArray.enumerated() {
             
             //            if namedEntityHolder.contains(where: {$0.value == line}) {
             if line.existInArray(array: namedEntityHolder.map({$0.value}), preprocess: true, level : 0.9) || line.trimmedAndLowercased.count < 2 {
@@ -691,6 +678,35 @@ class RecognitionTools {
                 // need to remove
                 //print("Removing INDEX \(index)")
                 //bcDataArray.remove(at: index)
+            }else if forceRemove{
+                
+                // advanced remove
+                
+                //print("Removing WITH ITs POSITION : \()  FROM \(line)")
+                
+                if (namedEntityHolder.filter({$0.position == index}).first != nil) {
+                    
+                    
+                    if let foundInString = namedEntityHolder.filter({$0.value.stringEqualityDistance(container: line, preprocess: true, ratio: 0.6)}).first {
+                        array.append(
+                            line
+                                .replacingOccurrences(of: " ", with: "")
+                                .replacingOccurrences(of: "-", with: "")
+                                .replacingOccurrences(of: "+", with: "")
+                                .replacingOccurrences(of: foundInString.value
+                                    .replacingOccurrences(of: " ", with: "")
+                                    .replacingOccurrences(of: "-", with: "")
+                                    .replacingOccurrences(of: "+", with: "")
+                                    , with: "", options: .caseInsensitive))
+                        
+                        print("Force removing \(foundInString.value)  FROM \(line)  ---- RESULT : \(line.preprocess.replacingOccurrences(of: "+", with: "").replacingOccurrences(of: foundInString.value.preprocess.replacingOccurrences(of: "+", with: ""), with: ""))")
+                        
+                    }else {
+                        array.append(line)
+                    }
+                }else {
+                    array.append(line)
+                }
             }else{
                 array.append(line)
             }
@@ -707,561 +723,6 @@ class RecognitionTools {
         testPrint(tag: "Prerpcess ", title: "Extracted prefixedEntities", content: prefixedEntities)
         
     }
-    
-    /*
-    
-    static func detectFullAddress(dataArray : inout [String] , addressEntityHolder : inout AddressNamedEntity) {
-        
-        let dataArrayAligned = dataArray.joined(separator: "\n")
-        
-        var addressArray : [String] = []
-        
-        let fetchAddressPrefixes = addressNamesSuffix.filter({dataArrayAligned.trimmedAndLowercased.contains($0.trimmedAndLowercased)})
-        var poBoxFull = ""
-        var poBoxAddr = dataArrayAligned.getPOBoxAddress()
-        if poBoxAddr.count > 1 {
-            poBoxAddr = poBoxAddr.filter({
-                
-                if $0.count > 2 {
-                    if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
-                        poBoxAddr.remove(at: dataIndex)
-                        return true
-                    }
-                }else{
-                    return false
-                }
-                return false
-            })
-        }
-        if fetchAddressPrefixes.count > 0 {
-            for data in dataArray {
-                let newdataArray = data.split(separator: " ")
-                if let _ = fetchAddressPrefixes.filter({
-                    let pref = $0
-                    if let _ = newdataArray.filter({String($0).trimmedAndLowercased == pref.trimmedAndLowercased}).first {
-                        return true
-                    }
-                    return false
-                }).first {
-                    addressArray.append(String(data))
-                }
-            }
-        }
-        
-        if addressArray.count > 1 {
-            for (index , addr) in addressArray.enumerated() {
-                if let poBox = poBoxAddr.last , addr.trimmedAndLowercased.contains(poBox.trimmedAndLowercased) {
-                    poBoxFull = addr
-                    addressArray.remove(at: index)
-                }
-            }
-            if poBoxFull.isEmpty {
-                for (index , addr ) in addressArray.enumerated() {
-                    if index == 0 {
-                        addressEntityHolder.street = addr
-                    }else{
-                        addressEntityHolder.adress_second += "\(addr) "
-                    }
-                }
-            }else {
-                addressEntityHolder.street = addressArray.joined(separator: " ")
-                addressEntityHolder.adress_second = poBoxFull
-            }
-        }else if addressArray.count == 1  {
-            if let address = addressArray.first , let poBox = poBoxAddr.last , String(address).trimmedAndLowercased.contains(poBox.trimmedAndLowercased) {
-                if let rangeToDelete = address.trimmedAndLowercased.range(of: poBox.trimmedAndLowercased) {
-                    addressEntityHolder.street = String(address[..<rangeToDelete.lowerBound])
-                    addressEntityHolder.adress_second = String(address[rangeToDelete.lowerBound...])
-                }
-            }else {
-                if let address = addressArray.first {
-                    addressEntityHolder.street = address
-                }
-            }
-        }
-        
-        // if let address = tempbc.street {
-        if !addressEntityHolder.street.isEmpty {
-            if let data = dataArray.filter({String($0).trimmedAndLowercased.contains(addressEntityHolder.street.trimmedAndLowercased)}).first {
-                if let indexDataArray = dataArray.firstIndex(of: data) {
-                    dataArray.remove(at: indexDataArray)
-                }
-            }
-        }
-        
-        if !addressEntityHolder.adress_second.isEmpty {
-            if let data = dataArray.filter({String($0).trimmedAndLowercased.contains(addressEntityHolder.adress_second.trimmedAndLowercased)}).first {
-                if let indexDataArray = dataArray.firstIndex(of: data) {
-                    dataArray.remove(at: indexDataArray)
-                }
-            }
-        }
-    }
-    
-    
-    static func detectZipCode (dataArray : inout [String] , addressEntityHolder : inout AddressNamedEntity) {
-        
-        let countryPrefix = addressEntityHolder.country_prefix
-        
-        if !countryPrefix.isEmpty {
-            var found = false
-            if let regZipCode = pmZipCode.filter({$0.countryPrefix == countryPrefix}).first {
-                
-                var address  = addressEntityHolder.street
-                
-                if !address.isEmpty {
-                    if let rangeAD = address.range(of: regZipCode.zipREX , options: .regularExpression)  {
-                        
-                        let zipCode = address[rangeAD].description
-                        addressEntityHolder.site_zip = zipCode.trimmed
-                        addressEntityHolder.street = address.replacingOccurrences(of: zipCode, with: "")
-                        found = true
-                    }
-                }
-                
-                address = addressEntityHolder.adress_second
-                
-                if !address.isEmpty {
-                    if let rangeAD = address.range(of: regZipCode.zipREX , options: .regularExpression) , !found  {
-                        let zipCode = address[rangeAD].description
-                        //addressEntityHolder.adress_second
-                        addressEntityHolder.site_zip = zipCode.trimmed
-                        addressEntityHolder.adress_second = address.replacingOccurrences(of: zipCode, with: "")
-                        found = true
-                    }
-                }
-                if !found  {
-                    let address = dataArray.joined(separator: " ")
-                    if let rangeAD = address.range(of: regZipCode.zipREX , options: .regularExpression) , !found  {
-                        let zipCode = address[rangeAD].description
-                        addressEntityHolder.site_zip = zipCode.trimmed
-                        found = true
-                    }
-                }
-            }
-            
-        }
-    }
-    
-    static func detectStates(dataArray :  [String] , addressEntityHolder : inout AddressNamedEntity ){
-        
-        //        let address = "something "
-        
-        let address = addressEntityHolder.street
-        
-        if let states = countriesWithStates {
-            var statesFound : [String] = []
-            let addressArray = address.filter("abcdeéfghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ- ".contains).split(separator: " ")
-            if let _ = addressArray.filter({
-                let ad = $0
-                if let founded = states.filter({String(ad).trimmedAndLowercased.distanceJaroWinkler(between: $0.name.trimmedAndLowercased) > 0.9 }).first {
-                    statesFound.append(founded.name)
-                    return true
-                }
-                return false
-            }).first {
-                if let city = statesFound.first {
-                    addressEntityHolder.state = city
-                }
-            }
-        }
-        // second try
-        
-        let state = addressEntityHolder.state
-        
-        
-        if !state.isEmpty {
-            var address = addressEntityHolder.adress_second
-            if !address.isEmpty {
-                if let states = countriesWithStates {
-                    var statesFound : [String] = []
-                    let addressArray = address.filter("abcdeéfghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ- ".contains).split(separator: " ")
-                    if let _ = addressArray.filter({
-                        let ad = $0
-                        if let founded = states.filter({String(ad).trimmedAndLowercased.distanceJaroWinkler(between: $0.name.trimmedAndLowercased) > 0.9 }).first {
-                            statesFound.append(founded.name)
-                            return true
-                        }
-                        return false
-                    }).first {
-                        if let state = statesFound.first {
-                            addressEntityHolder.state = state
-                        }
-                    }
-                }
-            }
-            
-            address = dataArray.joined(separator: " ")
-            if let states = countriesWithStates {
-                var statesFound : [String] = []
-                let addressArray = address.filter("abcdeéfghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ- ".contains).split(separator: " ")
-                if let _ = addressArray.filter({
-                    let ad = $0
-                    if let founded = states.filter({String(ad).trimmedAndLowercased.distanceJaroWinkler(between: $0.name.trimmedAndLowercased) > 0.9 }).first {
-                        statesFound.append(founded.name)
-                        return true
-                    }
-                    return false
-                }).first {
-                    if let state = statesFound.first {
-                        addressEntityHolder.state = state
-                    }
-                }
-            }
-            
-        }
-    }
-    
-    static func detectCities(address : String ,dataArray :  [String], addressEntityHolder : inout AddressNamedEntity){
-        if let cities = countriesWithCities {
-            var citiesFound : [String] = []
-            let addressArray = address.filter("abcdeéfghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ- ".contains).split(separator: " ")
-            if let _ = addressArray.filter({
-                let ad = $0
-                if let founded = cities.filter({String(ad).trimmedAndLowercased.distanceJaroWinkler(between: $0.name.trimmedAndLowercased) > 0.9 }).first {
-                    citiesFound.append(founded.name)
-                    return true
-                }
-                return false
-            }).first {
-                if let city = citiesFound.first {
-                    addressEntityHolder.city = city
-                }
-            }
-        }
-        // second try
-        
-        let city = addressEntityHolder.city
-        
-        if !city.isEmpty {
-            var address = addressEntityHolder.adress_second
-            if !address.isEmpty {
-                if let cities = countriesWithCities {
-                    var citiesFound : [String] = []
-                    let addressArray = address.filter("abcdeéfghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ- ".contains).split(separator: " ")
-                    if let _ = addressArray.filter({
-                        let ad = $0
-                        if let founded = cities.filter({String(ad).trimmedAndLowercased.distanceJaroWinkler(between: $0.name.trimmedAndLowercased) > 0.8 }).first {
-                            citiesFound.append(founded.name)
-                            return true
-                        }
-                        return false
-                    }).first {
-                        if let city = citiesFound.first {
-                            addressEntityHolder.city = city
-                        }
-                    }
-                }
-            }
-            
-            // third try
-            address = dataArray.joined(separator: " ")
-            if let cities = countriesWithCities {
-                var citiesFound : [String] = []
-                let addressArray = address.filter("abcdeéfghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ- ".contains).split(separator: " ")
-                if let _ = addressArray.filter({
-                    let ad = $0
-                    if let founded = cities.filter({String(ad).trimmedAndLowercased.distanceJaroWinkler(between: $0.name.trimmedAndLowercased) > 0.8 }).first {
-                        citiesFound.append(founded.name)
-                        return true
-                    }
-                    return false
-                }).first {
-                    if let city = citiesFound.first {
-                        addressEntityHolder.city = city
-                    }
-                }
-            }
-            
-            
-        }
-        
-        
-    }
-    
-    static func deleteCitiesStatesFromAddress(addressEntityHolder : inout AddressNamedEntity){
-        
-        
-        let city = addressEntityHolder.city
-        
-        if !city.isEmpty {
-            var address = addressEntityHolder.street
-            if !address.isEmpty {
-                var addressArray = address.split(separator: " ")
-                for (index ,ad ) in addressArray.enumerated() {
-                    if String(ad).trimmedAndLowercased.distanceJaroWinkler(between: city.trimmedAndLowercased) > 0.8 {
-                        addressArray.remove(at: index)
-                    }
-                }
-                addressEntityHolder.street = String(addressArray.joined(separator: " "))
-            }
-            
-            address = addressEntityHolder.adress_second
-            if !address.isEmpty {
-                var addressArray = address.split(separator: " ")
-                for (index ,ad ) in addressArray.enumerated() {
-                    if String(ad).trimmedAndLowercased.distanceJaroWinkler(between: city.trimmedAndLowercased) > 0.8 && addressArray.indices.contains(index) {
-                        addressArray.remove(at: index)
-                    }
-                }
-                addressEntityHolder.adress_second = String(addressArray.joined(separator: " "))
-            }
-        }
-        let state = addressEntityHolder.state
-        if state.isEmpty {
-            var address = addressEntityHolder.street
-            if !address.isEmpty {
-                var addressArray = address.split(separator: " ")
-                for (index ,ad ) in addressArray.enumerated() {
-                    if String(ad).trimmedAndLowercased.distanceJaroWinkler(between: state.trimmedAndLowercased) > 0.8 {
-                        addressArray.remove(at: index)
-                    }
-                }
-                addressEntityHolder.street = String(addressArray.joined(separator: " "))
-            }
-            
-            address = addressEntityHolder.adress_second
-            if address.isEmpty {
-                var addressArray = address.split(separator: " ")
-                for (index ,ad ) in addressArray.enumerated() {
-                    if String(ad).trimmedAndLowercased.distanceJaroWinkler(between: state.trimmedAndLowercased) > 0.8 {
-                        addressArray.remove(at: index)
-                    }
-                }
-                addressEntityHolder.adress_second = String(addressArray.joined(separator: " "))
-            }
-        }
-        
-        let country = addressEntityHolder.country
-        
-        if !country.isEmpty {
-            
-            var address = addressEntityHolder.street
-            
-            if !address.isEmpty {
-                var addressArray = address.split(separator: " ")
-                for (index ,ad ) in addressArray.enumerated() {
-                    if String(ad).trimmedAndLowercased.distanceJaroWinkler(between: country.trimmedAndLowercased) > 0.8 {
-                        addressArray.remove(at: index)
-                    }
-                }
-                addressEntityHolder.street = String(addressArray.joined(separator: " "))
-            }
-            
-            address = addressEntityHolder.adress_second
-            
-            if !address.isEmpty {
-                var addressArray = address.split(separator: " ")
-                for (index ,ad ) in addressArray.enumerated() {
-                    if String(ad).trimmedAndLowercased.distanceJaroWinkler(between: country.trimmedAndLowercased) > 0.8 {
-                        addressArray.remove(at: index)
-                    }
-                }
-                addressEntityHolder.adress_second = String(addressArray.joined(separator: " "))
-            }
-        }
-        
-    }
-    
-    static func detectCountryFromTail(dataArray :  [String]) -> [String] {
-        
-        var countries : [String] = []
-        
-        var dataForCountries = dataArray.joined(separator: " ")
-        
-        dataForCountries = dataForCountries.filter("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ".contains)
-        
-        let countryArray = dataForCountries.split(separator: " ")
-        
-        for country in countryArray {
-            
-            if let foundCountry = countryPhonePrefix.filter({ String(country).trimmedAndLowercased == $0.countryName.trimmedAndLowercased}).first {
-                countries.append(foundCountry.countryName)
-            }
-        }
-        return countries
-    }
-    
-    
-    static func detectCountryFromText(dataArray : inout [String] , addressEntityHolder : inout AddressNamedEntity ) -> [String] {
-        var countries : [String] = []
-        
-        let street = addressEntityHolder.street.replacingOccurrences(of: ",", with: " ")
-        
-        if !street.isEmpty  {
-            let streetArray = street.split(separator: " ")
-            for preCountry in streetArray {
-                if let foundCountry = countryPhonePrefix.filter({ String(preCountry).trimmedAndLowercased == $0.countryName.trimmedAndLowercased}).first {
-                    countries.append(foundCountry.countryName)
-                }
-            }
-        }
-        
-        
-        let secondStreet = addressEntityHolder.adress_second.replacingOccurrences(of: ",", with: " ")
-        
-        if !secondStreet.isEmpty {
-            let secondStreetArray = secondStreet.split(separator: " ")
-            for preCountry in secondStreetArray {
-                if let foundCountry = countryPhonePrefix.filter({String(preCountry).trimmedAndLowercased == $0.countryName.trimmedAndLowercased || ( String(preCountry).trimmedAndLowercased == $0.countryPrefix.trimmedAndLowercased && detectedLanguage(for: secondStreet)?.trimmedAndLowercased != "french") }).first {
-                    countries.append(foundCountry.countryName)
-                }
-            }
-        }
-        
-        return countries
-    }
-    
-    
-    
-    static func detectCountryFromPhonePrefix(dataArray : inout [String] , addressEntityHolder : inout AddressNamedEntity ) -> [String] {
-        var numbers : [String] = []
-        var dataWithNumbers : [String] = []
-        var countries : [String] = []
-        
-        
-        
-        for data in dataArray {
-            if !data.filter("+()0123456789".contains).isEmpty && data.filter("+()0123456789".contains).isPhoneNumber && data.filter("+()0123456789".contains).count > 5   {
-                
-                
-                // data in need to bee processed , ex (+abc) will not pass for +abc
-                var processedPhoneString =  data.replacingOccurrences(of: "(", with: "")
-                processedPhoneString = processedPhoneString.replacingOccurrences(of: ")", with: "")
-                
-                // maybe treat some other cases like / , or watever
-                
-                // this is ZEYDA
-                dataWithNumbers.append(String(processedPhoneString))
-                numbers.append(String(processedPhoneString))
-            }
-        }
-        /// using 00 or +
-        let existPlus = numbers.filter({ $0.starts(with: "+")})
-        let existDoubleZero = numbers.filter({$0.starts(with: "00")})
-        
-        if existPlus.count > 0 {
-            if let foundPrefix = countryPhonePrefix.filter({
-                let phone = $0
-                if let _ = existPlus.filter({$0.starts(with: "+\(phone.phonePrefix)")}).first {
-                    return true
-                }
-                return false
-            }).first {
-                countries.append(foundPrefix.countryName)
-            }
-        }
-        if existDoubleZero.count > 0 {
-            if let foundPrefix = countryPhonePrefix.filter({
-                let phone = $0
-                if let _ = existDoubleZero.filter({$0.starts(with: "+\(phone.phonePrefix)")}).first {
-                    return true
-                }
-                return false
-            }).first {
-                countries.append(foundPrefix.countryName)
-            }
-        }
-        
-        if existPlus.isEmpty && existDoubleZero.isEmpty {
-            if let foundNumberWithParentheses = numbers.filter({ $0.contains("(") && $0.contains(")") }).first {
-                if let foundPrefix = countryPhonePrefix.filter({foundNumberWithParentheses.starts(with: "(\($0.phonePrefix))")}).first {
-                    countries.append(foundPrefix.countryName)
-                }
-            }
-        }
-        print(numbers)
-        return countries
-    }
-    
-    
-    static func detectCountryFromWebsite(dataArray : inout [String], namedEntityHolder : [NamedEntity], addressEntityHolder : inout AddressNamedEntity ) -> [String] {
-        var countries : [String] = []
-        
-        
-        let website = namedEntityHolder.first { (namedEntity) -> Bool in
-            namedEntity.type == .website
-        }
-        
-        if let website = website?.value {
-            if let lastDotIndex = website.lastIndex(of: ".") {
-                let webPref = website[lastDotIndex...].replacingOccurrences(of: ".", with: "")
-                if let foundCountry = countryPhonePrefix.filter({ $0.countryPrefix.trimmedAndLowercased == webPref.trimmedAndLowercased}).first {
-                    countries.append(foundCountry.countryName)
-                }
-            }
-        }
-        return countries
-    }
-    
-    
-    static func detectedLanguage(for string: String) -> String? {
-        let recognizer = NLLanguageRecognizer()
-        recognizer.processString(string)
-        guard let languageCode = recognizer.dominantLanguage?.rawValue else { return nil }
-        let detectedLanguage = Locale.current.localizedString(forIdentifier: languageCode)
-        return detectedLanguage
-    }
-    
-    
-//
-//        static func detectCitiesStatesCoordinates(dataArray : inout [String.SubSequence] , dataArrayHead : inout [String.SubSequence] , dataArrayTail : inout [String.SubSequence] ,tempBC : TemporaryBusinessCard? , completion : @escaping () -> Void){
-//            let dataTail = dataArrayTail
-//            let dataHead = dataArrayHead
-//            let datas = dataArray
-//            let geocoder = CLGeocoder() // aint available here
-//            if let address = tempBC?.street {
-//                geocoder.geocodeAddressString(address) { (placemarks, error) in
-//                    self.detectCities(address: address, dataArray: datas , dataArrayHead: dataHead , dataArrayTail: dataTail, tempBC: tempBC)
-//                    self.detectStates(address: address, dataArray: datas, dataArrayHead: dataHead, dataArrayTail: dataTail, tempBC: tempBC)
-//                    self.deleteCitiesStatesFromAddress(tempBC: tempBC)
-//                    if let placemark = placemarks?.first , let lat = placemark.location?.coordinate.latitude , let lon = placemark.location?.coordinate.longitude {
-//                        convertLatLongToAddress(latitude: lat , longitude: lon, tempBC: tempBC, dataArray: datas)
-//                        tempBC?.site_latitude = lat.description
-//                        tempBC?.site_longitude = lon.description
-//                        tempBC?.lantitude = lat.description
-//                        tempBC?.longitude = lon.description
-//
-//
-//                    }
-//                    completion()
-//                }
-//            }else{
-//                if let countryName = tempBC?.country_name {
-//                    geocoder.geocodeAddressString(countryName) { (placemarks, error) in
-//                        if let address = tempBC?.street {
-//                            self.detectCities(address: address, dataArray: datas , dataArrayHead: dataHead , dataArrayTail: dataTail, tempBC: tempBC)
-//                            self.detectStates(address: address, dataArray: datas, dataArrayHead: dataHead, dataArrayTail: dataTail, tempBC: tempBC)
-//                        }
-//                        self.deleteCitiesStatesFromAddress(tempBC: tempBC)
-//                        if let placemark = placemarks?.first , let lat = placemark.location?.coordinate.latitude , let lon = placemark.location?.coordinate.longitude {
-//                            convertLatLongToAddress(latitude: lat , longitude: lon, tempBC: tempBC, dataArray: datas)
-//                            tempBC?.site_latitude = lat.description
-//                            tempBC?.site_longitude = lon.description
-//                            tempBC?.lantitude = lat.description
-//                            tempBC?.longitude = lon.description
-//                        }
-//                        completion()
-//
-//                    }
-//                }
-//            }
-//
-//        }
-//
-//
-    
-    
-    
-    */
-    
-    
-    
-    
-    
-    
-    
-    
     
     ///This preprocess function only care about KEY : VALUE , where content of key value doesnt matter
     private static func preProcessPrefixes(raw : String , bcDataArray : inout [String], removeKeys: Bool ) -> [PrefixHolder] {
@@ -1589,7 +1050,6 @@ class RecognitionTools {
         phonePrefixes,
         mobilePrefixes,
         faxPrefixes
-        
     ]
     
     static var bcEntityPrefixes = [
@@ -1599,7 +1059,6 @@ class RecognitionTools {
     static var directPrefixes = [
         "d",
         "direct",
-        "dir.",
         "line",
         "line."
     ]
@@ -1613,8 +1072,6 @@ class RecognitionTools {
         "tél.",
         "t.",
         "t",
-        
-        
     ]
     
     static var mobilePrefixes = [
