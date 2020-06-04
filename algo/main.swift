@@ -21,7 +21,61 @@ raw = "Tel : 24608993 / 24 655 509"
 
 var raws = [
     
-    /*
+    
+    "will be group\nBernard Attali\nPrésident/Conseil en investissement financier\nMembre de la CNCIF D012068\nExpert financier membre de la CNCEF\nGOUVEINANCL & VALEUES\nbernard.attali@willbegroup.com\n+33(0)7 86 76 69 74\n+33(0)1 42 33 13 33\nChargé d'enseignement\nEDHEC (Lille)\nESSEC\nPARIS 22 RUE DE LARCADE\nIAE (Aix-en-Provence)\n75008 - T. 33(0)1 42 33 13 33\nParis 2 Panthéon ASSAS\nGENEVA RUE DE LATHENEE 40\n1206 - T 41(0) 22 588 65 30\nBRUSSELS 209A, AVENUE LOUISE\n1050 - T. • 32 (0) 2 627 55 70\ngouval.com\n",
+    
+    "Ecole d e\nManagement\nStrasbourg\nUNIVERSITE DE STRASBOURG\nWilfrid AZAN\nMattre de conferences\nen Sciences de gestion\n61 avenue de la Foret-Noire\n67085 Strasbourg Cedex\nTel. +33 (0)3 68 85 89 25\nazancunistra.i\nwww.em-strasbourg.eu\n",
+    
+    
+    "TEAMLOG\nDEPARTEMENT MULTIMEDIA\nPASCAL ADAM\nINGENIEUR DAFFAIRES\n4, Allée Moulin Berger - 69130 Ecully\nTel. 04 72 52 25 52\nPortable 06 74 68 52 93 - Fax 04 72 52 25 50\nPascal.Adam@teamlog.fr",
+    
+    
+    "Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
+    
+    
+    
+    "Maiborn\nWolff\nMenrl\"t\nSadok Chekir\nDiplom Ingenieur\nIT Architect\nsadok.chekir@maibornwolff.de\nMobil +49 151 544 22 153\nMaibornWolff GmbH\nTheresienhohe 13 - 80339 Munchen\nmaibornwolff.de\n",
+    
+    "levio\nAFFAIRES ET TECHNOLOGIES\nJonathan Chouinard\nConseiller stratégique\n1015, Av Wilfrid-Pelletier, local 530\nChargé de projet\nQuébec (Québec) G1W 0C4\njonathan.chouinard@levio.ca\nT 418 914-3623\nwww.levio.ca\nC 418 931-8789\n",
+    
+    
+    "CAYMAN ISLANDS HELICOPTERS\nPL GENOT\nHELICOPTERE\nJerome Begot\nP.O. Box 738, Grand Cayman, KYI-1103,\nCayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR\ncihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n",
+    
+    
+    
+    
+    
+    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    
+    
+    "nWael Mallek\nMEDLINK\nGeneral Manager of\nTunisian operations\nHealthcare\nMobile Applications\nwaelm@360medlink.com\nmobile. +216 98 70 92 14\noffice. +1 514 448 2175\nwww.360medlink.com\nMontreal - New York I Paris I Barcelona\nTunis\n",
+    
+    
+    
+    "WILL\nr. Droit Creatif - Azan & Associes\nWilliam Azan\nAvocat Associé\n92, Avenue de Saint-Mandé - 75012 PARIS\nTel.: 33(0)1 42 56 08 20 - Port. : 06 86 86 32 50 william.azan@uwill.fr\n",
+    
+    
+    "WE\nCAPTURE\nWHAT\nMOVES\nDr Eric Angelini\nVP Global Regulatory Affairs\n& Products Safety\nMANE\nTel. direct line + 33 4 92 42 49 01\nFax + 33 4 93 42 54 25\nMobile + 33 6 82 93 81 75\n620, route de Grasse\nF-06620 Le Bar-sur-Loup\neric.angelini@mane.com\nwww.mane.com\n",
+    
+    
+    "DeM\nAsad Zahur\nChairman\naz@hnmglobal.co\n1603 Jumeirah Business Centre 4 ILT N cluster, PO BOX 454381 DUBAI, UAE\nTel: +9714-4304314, Fax: +9714-4304574\n",
+    
+    "Michel Auclair\nAssocie\nco\nauclair dupont\nCONSEIL EN ENTREPRISES\nTel: (687) 24 10 30\nGrand Theatre\nFax: (687) 24 10 45\n0 u0 SIEN attes\nmail michelaudair@auclairdupont.nc\nanATo2 ess4s Noume Cece\nwww.aucairdupont.nc\n",
+    
+    
+    
+    
+    "A\nCREDIT AGRICOLE\nNORD DE FRANCE\nBALLE-DERLY Carine\nResponsable dunite Contentleux entreprises, professionnels et agriculteurs\nDGA/CTX - CONTENTIEUX\n62000 ARRAS\nTel\n03 21 07 59 38-Fax 03 21 07.76.84\ncarna balie dedyfca nordoofrance.f\n",
+    
+    "B Atelier Beaumarchals\nMailre Arlison Bollier 9\nCordonnier . Bottier . Maroquinier\nRéparation en Maroquinerie\n30 rue de Turbigo\nOuvert du lundi au samedi\n75003 Paris\nde 10:00 a 19:30\nTel: 01 44 93 51 15\n",
+    
+    
+     
+     
+      "ILY\ne\nA\nSearch\nBRYAN, GARNIER & Co\nFrancois Arpels\nManaging Director\nBryan, Garnier & Co\nCorporate Finance\n26, avenue des Champs-Elysees\n75008 Paris\nTel\n+33 (0)1 70 36 57 43\nFax\n+33 (011 56 66 75 21\nMobile: +33 (0)6 73 12 98 64\ne-mail - farpels@bryangarnier.com\n",
+     
+     
+     
     "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCoworking Business Center - CBC\nAvenue de I'Environnement Zarzouna\n(+216) 23 40 41 79\n7021 - Bizerte - Tunisie\n2\nborhene@bizertesmartcity.com\ncontact@bizerte2050.com\nBizerte\nSmart City\nWe realize it\nwww.bizertesmartcity.com\n",
     
     
@@ -44,24 +98,6 @@ var raws = [
     
     "LAZHAR NSIRI\nSUBSIDIARY DIRECTOR\nWYPLAY TUNISIA\nInsiri@wyplay.com\nFrench Mobile +33 6 19 43 30 48\nTunisia +216 97 07 06 42\nwwpoy\n",
     
-    "nWael Mallek\nMEDLINK\nGeneral Manager of\nTunisian operations\nHealthcare\nMobile Applications\nwaelm@360medlink.com\nmobile. +216 98 70 92 14\noffice. +1 514 448 2175\nwww.360medlink.com\nMontreal - New York I Paris I Barcelona\nTunis\n",
-    
-    
-    
-    
-    
-    
-    
-    
-    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
-    
-    
-    
-    
-    
-    
-    
-    "Maiborn\nWolff\nMenrl\"t\nSadok Chekir\nDiplom Ingenieur\nIT Architect\nsadok.chekir@maibornwolff.de\nMobil +49 151 544 22 153\nMaibornWolff GmbH\nTheresienhohe 13 - 80339 Munchen\nmaibornwolff.de\n",
     
     
     
@@ -83,7 +119,7 @@ var raws = [
     
     
     
-    "levio\nAFFAIRES ET TECHNOLOGIES\nJonathan Chouinard\nConseiller stratégique\n1015, Av Wilfrid-Pelletier, local 530\nChargé de projet\nQuébec (Québec) G1W 0C4\njonathan.chouinard@levio.ca\nT 418 914-3623\nwww.levio.ca\nC 418 931-8789\n",
+    
     
     
     
@@ -91,9 +127,9 @@ var raws = [
     
     
     "Ahmed Ayed\nConsultant\nProfessional Services\naxefinance\n+216 71 963 229\nFocus • Expertise • Value\nE ahmed.ayed@axefinance.com\n",
-    */
     
-    "Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
+    
+    
     
     
     
@@ -112,6 +148,22 @@ var raws = [
        
        
        "JOE CHAHOUD\nGENERAL MANAGER/CTO\nmobile:\n+961 70 294 835\nSkype ID: joechahoud\nemail:\njchahoud@intech-mena.com\nTel/Fax:\n+961 213 414\nWebiste:\nwww.intech-mena.com\n",
+       
+       "Edouard ALCAY\nAOCPATRIMOINE\n3, reu aubourg (faint Whore\no14‡43017\nz5008 ..\n#7. 133 trepho-tons\n.Mas.\n88\ne-mail: ealray2aocpatrimoine.com\n","Alexanommo.png\nFRANKLIN\nLAW FIRM\nStéphanie Alexandrino\nMember of the Bars of Paris\nand Luxembourg\n26, avenue Kléber 75116 Paris\nTel.: +33 (0)1 45 02 79 09\nFax: +33 (0)1 45 02 79 01\nwww.franklin-paris.com-salexandrino@n-pr.\n",
+       
+       
+      
+       
+       "Pries\nGrégory Antoine\nConsultants Network\n+33 6 07 39 37 12 - contact@1001pommes.com\n",
+       "alister\nAVOCATS\nProf. Dr. Jochen BAUERREIS\nAvocat & Rechtsanwalt\nAvocat spécialise en droit des relations internationales\nDirecteur du Magistere Juristes d'Affaires Franco-Allemands\n11, rue du Parc\n67205 Strasbourg. Oberhausbergen\nTel. : +33 (0)3 68 00 14 10\nFax : +33 (0)3 68 00 14 11\njochen.bauerreis@alister-avocats.com\n","IF\nTRADE\nENGINEERING\nMassimiliano Avogadri\nBusiness development bureau\nwww.ffengineerltd.com\nm.avogadri@ffengineerItd.com\nSkype: Massimiliano.avogadri\nF&F Engineering Ltd\n7th Floor 52-54 Gracechurch Street EC3V.OEH London (UK)\n","start inoost\nKevin Aserraf\nAnalyste\nkevin@startinpost.com\nTél. : +33 1011 70 60 90 36\nMob. +33 (0)6 66 85 89 26\nwww.startinpost.com\nTOUR CRISTAL\n11 QUAI ANDRE CITROEN- 75015 PARIS\n",
+       
+       
+       
+       
+       
+       
+ 
+ 
     
 ]
 
@@ -175,32 +227,51 @@ RecognitionTools.loadTitles(completion: {
 
             // make it third
 
-            // TODO : MAKE SURE YOU SPLIT PREFIXES FROM VALUES , FOR BVETTER RESULT
+            // TODO : DONE - MAKE SURE YOU SPLIT PREFIXES FROM VALUES , FOR BVETTER RESULT
+            // TODO : MAYBBEE REMOVE PHONES FROM DATA ARRAY
             extractPhones(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
-
-//            // lets preprocess data before continue
-//            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
-//
-//            extractFullName(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
-//
-//            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
-//            extractCompany(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
-//
-//            extractTitles(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
-//
-//            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
-
-
             
+            
+            // lets preprocess data before continue
+            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+
+            extractFullName(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
+
+            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+            extractCompany(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
+
+            extractTitles(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
+
+            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+
+            testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
+            
+
+            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
             ///////////////////////////////// @ ZONE
+            // THIS IS MOVED HERE , BECASE WE NEED TO WORK ON ENTIRE BCDATA ARRAY
             var addressNamedEntity : AddressNamedEntity = AddressNamedEntity(value: "")
             
+            // we have NamedEntityHolder which contains , Validated PHONES , so lets extract Country in those phones and put dem in add
+            
+            addressNamedEntity.extractZipCode(bcDataArray: &bcDataArray, namedEntityHolder: &namedEntityHolder, prefixes: prefixedEntities)
+            
+            let dispatchGroup = DispatchGroup()
+            dispatchGroup.enter()
+            addressNamedEntity.extractCityORNDState(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities, completion: {success in
+                print("City & states extraction done")
+                dispatchGroup.leave()
+            })
             
             
+            _ = dispatchGroup.wait()
+            dispatchGroup.notify(queue: .main){
+                print ("MAIN : Every tink done will not return")
+            }
             
-            
-            
-            
+            print("<HZHHZ")
+            print(addressNamedEntity.state)
+            print(addressNamedEntity.city)
             /*
              RecognitionTools.detectFullAddress(dataArray: &bcDataArray, addressEntityHolder: &addressNamedEntity)
              
@@ -270,6 +341,9 @@ RecognitionTools.loadTitles(completion: {
             
             testPrint(tag: "", title: "OPERATION END", content: "")
         }
+        
+        
+        
         
         
         
@@ -457,7 +531,7 @@ func postProcessResult(type : EntityType, result : [NamedEntity], namedEntityHol
         namedEntityHolder.append(contentsOf: result)
         }
     default:
-        namedEntityHolder.append(result.sorted(by: {$0.score > $1.score }).first ?? NamedEntity(value: ""))
+        namedEntityHolder.append(result.sorted(by: { $0.score > $1.score && $0.score > 0 }).first ?? NamedEntity(value: ""))
         break
     }
     
@@ -496,6 +570,73 @@ func extractAdress(bcDataArray : inout [String] , namedEntityHolder : inout [Nam
 
 class RecognitionTools {
     
+    
+    static func loadStatesWithPrefix(prefix : String, completion : @escaping (_ : Bool) -> ()) {
+        let url = URL(string: "http://api.abracardabra.test-360.net/states/\(prefix)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let _ = error {
+                completion(false)
+            }else if let response = response as? HTTPURLResponse {
+                
+                // todo : make it check for status code or data before continiuing
+                if response.statusCode == 200 {
+                    do {
+                        let decoder = JSONDecoder()
+                        let citiesResponse = try decoder.decode(StatesWithPrefixSuccess.self, from: data!)
+                        
+                        statesWithPrefix.append(contentsOf: citiesResponse.success.data.map({$0.name.trimmedAndLowercased}))
+                            completion(true)
+                        
+                        
+                    } catch _ {
+                          completion(false)
+                       
+                    }
+                }else{
+                     completion(false)
+                }
+                
+            }
+        }.resume()
+    }
+    
+    static func loadCitiesWithPrefix(prefix : String, completion : @escaping (_ : Bool) -> ()) {
+        let url = URL(string: "http://api.abracardabra.test-360.net/cities/\(prefix)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let _ = error {
+                 completion(false)
+            }else if let response = response as? HTTPURLResponse {
+                print("WA DA HECK")
+                // todo : make it check for status code or data before continiuing
+                if response.statusCode == 200 {
+                    do {
+                        let decoder = JSONDecoder()
+                        let citiesResponse = try decoder.decode(CitiesWithPrefixSuccess.self, from: data!)
+                        
+                        citiesWithPrefix.append(contentsOf: citiesResponse.success.data.map({$0.name.trimmedAndLowercased}))
+                        
+                       
+                            completion(true)
+                       
+                        
+                    } catch _ {
+                             completion(false)
+                        
+                    }
+                }else{
+                     completion(false)
+                }
+            }
+        }.resume()
+    }
+    
+    
     static func loadTitles(completion : @escaping (_ : Bool) -> ()) {
         let url = URL(string: "http://api.abracardabra.test-360.net/titles")!
         var request = URLRequest(url: url)
@@ -503,6 +644,7 @@ class RecognitionTools {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         URLSession.shared.dataTask(with: request) {(data, response, error) in
             if let _ = error {
+                completion(false)
             }else if let response = response as? HTTPURLResponse {
                 
                 // todo : make it check for status code or data before continiuing
@@ -512,11 +654,17 @@ class RecognitionTools {
                         let citiesResponse = try decoder.decode(titlesPMSuccess.self, from: data!)
                         
                         lowerCasejobTitles.append(contentsOf: citiesResponse.success.data.map({$0.title_name.trimmedAndLowercased}))
-                        completion( true)
+                        DispatchQueue.main.async() {
+                            completion( true)
+                        }
                         
                     } catch _ {
-                        completion(false)
+                        DispatchQueue.main.async() {
+                            completion(false)
+                        }
                     }
+                }else{
+                     completion(false)
                 }
                 
             }
@@ -529,7 +677,7 @@ class RecognitionTools {
         for (_,line) in bcDataArray.enumerated() {
             
             //            if namedEntityHolder.contains(where: {$0.value == line}) {
-            if line.existInArray(array: namedEntityHolder.map({$0.value})) || line.trimmedAndLowercased.count < 2 {
+            if line.existInArray(array: namedEntityHolder.map({$0.value}), preprocess: true, level : 0.9) || line.trimmedAndLowercased.count < 2 {
                 
                 //array.append("")
                 
@@ -1120,7 +1268,6 @@ class RecognitionTools {
         var prefixesEntities : [PrefixHolder] = []
         for (index,line) in bcDataArray.enumerated() {
             // lets do the separation stuff BASED ON " : " Prefix
-            _ = line
             
             
             // TODO : DONE  ANOTHER CASE HERE : -->>  M : +216 22 126 466 (/ , | , separtor) +216 36 126 466
@@ -1216,7 +1363,7 @@ class RecognitionTools {
                     
                     
                     // FOR PREFIX
-                    var newSeparation = line.prefix(position - prefixeBuilder.count)
+                    var newSeparation = line.prefix(position - prefixeBuilder.count + 1)
                     
                     // reprocess using ":" Code duplication Warning
                     
@@ -1244,7 +1391,7 @@ class RecognitionTools {
                     
                     
                     // FOR SUFFIX
-                    newSeparation = line.suffix(position - prefixeBuilder.count)
+                    newSeparation = line.suffix(position - prefixeBuilder.count - 1)
                     separatorOccurenceByPoint = newSeparation.components(separatedBy:":")
                     //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
                     if separatorOccurenceByPoint.count == 2 { // this time we should have only TWO
@@ -1294,17 +1441,52 @@ class RecognitionTools {
             //testPrint(tag: "Prefix ", title: "separation BY SPACE", content: separatorOccurenceBySpace)
             
             if separatorOccurenceBySpace.count > 1 {
+                
                 if let firstElement = separatorOccurenceBySpace.first {
                     let removedFirst = separatorOccurenceBySpace.dropFirst()
                     
-                    if firstElement.lengthBetween(l1: 1, l2: 7)
+                    if firstElement.lengthBetween(l1: 1, l2: 8)
                         && !firstElement.existInArray(array: prefixesEntities.map({$0.key}))
                     {
+                        
                         if firstElement.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}) , preprocess: true) {
-                            prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .phone))
+                            
+                            if let foundAnotherPrefix = removedFirst.filter({ (element) -> Bool in
+                                element.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}))
+                            }).first {
+                             
+                                // split by that prefix
+                                let secondSeparation = removedFirst.joined(separator: " ").components(separatedBy: foundAnotherPrefix)
+                                
+                                prefixesEntities.append(PrefixHolder(key: firstElement, value: secondSeparation[0] , type: .phone))
+                                prefixesEntities.append(PrefixHolder(key: foundAnotherPrefix, value: secondSeparation[1] , type: .phone))
+                                
+                            } else {
+                                // i think we are good to put the value as it is
+                                
+                                prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .phone))
+                                bcDataArray[index] = bcDataArray[index].replacingFirstOccurrenceOf(target: firstElement, withString: "")
+                            }
+                            
                         }else if firstElement.existInArray(array: RecognitionTools.bcEntityPrefixes.flatMap({$0}) , preprocess: true) {
-                            // i guess wee found some prefix so lets pretend
-                            prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .unknown))
+                            
+                            if let foundAnotherPrefix = removedFirst.filter({ (element) -> Bool in
+                                element.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}))
+                            }).first {
+                             
+                                // split by that prefix
+                                let secondSeparation = removedFirst.joined(separator: " ").components(separatedBy: foundAnotherPrefix)
+                                
+                                prefixesEntities.append(PrefixHolder(key: firstElement, value: secondSeparation[0] , type: .unknown))
+                                prefixesEntities.append(PrefixHolder(key: foundAnotherPrefix, value: secondSeparation[1] , type: .unknown))
+                                
+                            }else {
+                                // i guess wee found some prefix so lets pretend
+                                prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .unknown))
+                                //bcDataArray[index] = bcDataArray[index].replacingFirstOccurrenceOf(target: firstElement, withString: "")
+                            }
+                            
+                            
                         }
                     }
                     // else ignore
@@ -2477,236 +2659,238 @@ class RecognitionTools {
         "STSGT"
     ]
     /// Country Phone prefix helper
-    static  var countryPhonePrefix = [
-        CountryPhonePrefix(countryPrefix: "AF", phonePrefix: "93", countryName: "Afghanistan"),
-        CountryPhonePrefix(countryPrefix:"AL", phonePrefix: "355", countryName: "Albania"),
-        CountryPhonePrefix(countryPrefix:"DZ", phonePrefix: "213", countryName: "Algeria"),
-        CountryPhonePrefix(countryPrefix:"AS", phonePrefix: "1684", countryName: "American Samoa"),
-        CountryPhonePrefix(countryPrefix:"AD", phonePrefix: "376", countryName: "Andorra"),
-        CountryPhonePrefix(countryPrefix:"AO", phonePrefix: "244", countryName: "Angola"),
-        CountryPhonePrefix(countryPrefix:"AI", phonePrefix: "1264", countryName: "Anguilla"),
-        CountryPhonePrefix(countryPrefix:"AQ", phonePrefix: "672", countryName: "Antarctica"),
-        CountryPhonePrefix(countryPrefix:"AG", phonePrefix: "1268", countryName: "Antigua and Barbuda"),
-        CountryPhonePrefix(countryPrefix:"AR", phonePrefix: "54", countryName: "Argentina"),
-        CountryPhonePrefix(countryPrefix:"AM", phonePrefix: "374", countryName: "Armenia"),
-        CountryPhonePrefix(countryPrefix:"AW", phonePrefix: "297", countryName: "Aruba"),
-        CountryPhonePrefix(countryPrefix:"AU", phonePrefix: "61", countryName: "Australian"),
-        CountryPhonePrefix(countryPrefix:"AT", phonePrefix: "43", countryName: "Austria"),
-        CountryPhonePrefix(countryPrefix:"AZ", phonePrefix: "994", countryName: "Azerbaijan"),
-        CountryPhonePrefix(countryPrefix:"BS", phonePrefix: "1242", countryName: "Bahamas"),
-        CountryPhonePrefix(countryPrefix:"BH", phonePrefix: "973", countryName: "Bahrain"),
-        CountryPhonePrefix(countryPrefix:"BD", phonePrefix: "880", countryName: "Bangladesh"),
-        CountryPhonePrefix(countryPrefix:"BB", phonePrefix: "246", countryName: "Barbados"),
-        CountryPhonePrefix(countryPrefix:"BY", phonePrefix: "375", countryName: "Belarus"),
-        CountryPhonePrefix(countryPrefix:"BE", phonePrefix: "32", countryName: "Belgium"),
-        CountryPhonePrefix(countryPrefix:"BZ", phonePrefix: "501", countryName: "Belize"),
-        CountryPhonePrefix(countryPrefix:"BJ", phonePrefix: "229", countryName: "Benin"),
-        CountryPhonePrefix(countryPrefix:"BM", phonePrefix: "1441", countryName: "Bermuda"),
-        CountryPhonePrefix(countryPrefix:"BT", phonePrefix: "975", countryName: "Bhutan"),
-        CountryPhonePrefix(countryPrefix:"BA", phonePrefix: "387", countryName: "Bosnia and Herzegovina"),
-        CountryPhonePrefix(countryPrefix:"BW", phonePrefix: "267", countryName: "Botswana"),
-        CountryPhonePrefix(countryPrefix:"BR", phonePrefix: "55", countryName: "Brazil"),
-        CountryPhonePrefix(countryPrefix:"BG", phonePrefix: "359", countryName: "Bulgaria"),
-        CountryPhonePrefix(countryPrefix:"BF", phonePrefix: "226", countryName: "Burkina Faso"),
-        CountryPhonePrefix(countryPrefix:"BI", phonePrefix: "257", countryName: "Burundi"),
-        CountryPhonePrefix(countryPrefix:"KH", phonePrefix: "855", countryName: "Cambodia"),
-        CountryPhonePrefix(countryPrefix:"CM", phonePrefix: "237", countryName: "Cameroon"),
-        CountryPhonePrefix(countryPrefix:"CA", phonePrefix: "1", countryName: "Canada"),
-        CountryPhonePrefix(countryPrefix:"CV", phonePrefix: "238", countryName: "Cape Verde"),
-        CountryPhonePrefix(countryPrefix:"KY", phonePrefix: "345", countryName: "Cayman Islands"),
-        CountryPhonePrefix(countryPrefix:"CF", phonePrefix: "236", countryName: "Central African Republic"),
-        CountryPhonePrefix(countryPrefix:"TD", phonePrefix: "235", countryName: "Chad"),
-        CountryPhonePrefix(countryPrefix:"CL", phonePrefix: "56", countryName: "Chile"),
-        CountryPhonePrefix(countryPrefix:"CN", phonePrefix: "86", countryName: "China"),
-        CountryPhonePrefix(countryPrefix:"CX", phonePrefix: "61", countryName: "Christmas Island"),
-        CountryPhonePrefix(countryPrefix:"CO", phonePrefix: "57", countryName: "Colombia"),
-        CountryPhonePrefix(countryPrefix:"KM", phonePrefix: "269", countryName: "Comoros"),
-        CountryPhonePrefix(countryPrefix:"CG", phonePrefix: "242", countryName: "Republic of the Congo"),
-        CountryPhonePrefix(countryPrefix:"CK", phonePrefix: "682", countryName: "Cook Islands"),
-        CountryPhonePrefix(countryPrefix:"CR", phonePrefix: "506", countryName: "Costa Rica"),
-        CountryPhonePrefix(countryPrefix:"HR", phonePrefix: "385", countryName: "Croatia"),
-        CountryPhonePrefix(countryPrefix:"CU", phonePrefix: "53", countryName: "Cuba"),
-        CountryPhonePrefix(countryPrefix:"CY", phonePrefix: "537", countryName: "Cyprus"),
-        CountryPhonePrefix(countryPrefix:"CZ", phonePrefix: "420", countryName: "Czech Republic"),
-        CountryPhonePrefix(countryPrefix:"DK", phonePrefix: "45", countryName: "Denmark"),
-        CountryPhonePrefix(countryPrefix:"DJ", phonePrefix: "253", countryName: "Djibouti"),
-        CountryPhonePrefix(countryPrefix:"DM", phonePrefix: "1767", countryName: "Dominica"),
-        CountryPhonePrefix(countryPrefix:"DO", phonePrefix: "1", countryName: "Dominican Republic"),
-        CountryPhonePrefix(countryPrefix:"EC", phonePrefix: "593", countryName: "Ecuador"),
-        CountryPhonePrefix(countryPrefix:"EG", phonePrefix: "20", countryName: "Egypt"),
-        CountryPhonePrefix(countryPrefix:"SV", phonePrefix: "503", countryName: "El Salvador"),
-        CountryPhonePrefix(countryPrefix:"GQ", phonePrefix: "240", countryName: "Equatorial Guinea"),
-        CountryPhonePrefix(countryPrefix:"ER", phonePrefix: "291", countryName: "Eritrea"),
-        CountryPhonePrefix(countryPrefix:"EE", phonePrefix: "372", countryName: "Estonia"),
-        CountryPhonePrefix(countryPrefix:"ET", phonePrefix: "251", countryName: "Ethiopia"),
-        CountryPhonePrefix(countryPrefix:"FO", phonePrefix: "298", countryName: "The Faroe Islands"),
-        CountryPhonePrefix(countryPrefix:"FJ", phonePrefix: "679", countryName: "Fiji"),
-        CountryPhonePrefix(countryPrefix:"FI", phonePrefix: "358", countryName: "Finland"),
-        CountryPhonePrefix(countryPrefix:"FR", phonePrefix: "33", countryName: "France"),
-        CountryPhonePrefix(countryPrefix:"GF", phonePrefix: "594", countryName: "French Guiana"),
-        CountryPhonePrefix(countryPrefix:"PF", phonePrefix: "689", countryName: "French Polynesia"),
-        CountryPhonePrefix(countryPrefix:"GA", phonePrefix: "241", countryName: "Gabon"),
-        CountryPhonePrefix(countryPrefix:"GM", phonePrefix: "220", countryName: "Gambia"),
-        CountryPhonePrefix(countryPrefix:"GE", phonePrefix: "995", countryName: "Georgia"),
-        CountryPhonePrefix(countryPrefix:"DE", phonePrefix: "49", countryName: "Germany"),
-        CountryPhonePrefix(countryPrefix:"GH", phonePrefix: "233", countryName: "Ghana"),
-        CountryPhonePrefix(countryPrefix:"GI", phonePrefix: "350", countryName: "Gibraltar"),
-        CountryPhonePrefix(countryPrefix:"GR", phonePrefix: "30", countryName: "Greece"),
-        CountryPhonePrefix(countryPrefix:"GL", phonePrefix: "299", countryName: "Greenland"),
-        CountryPhonePrefix(countryPrefix:"GD", phonePrefix: "1473", countryName: "Grenada"),
-        CountryPhonePrefix(countryPrefix:"GP", phonePrefix: "590", countryName: "Saint Barthelemy"),
-        CountryPhonePrefix(countryPrefix:"GU", phonePrefix: "1671", countryName: "Guam"),
-        CountryPhonePrefix(countryPrefix:"GT", phonePrefix: "502", countryName: "Guatemala"),
-        CountryPhonePrefix(countryPrefix:"GN", phonePrefix: "224", countryName: "Guinea"),
-        CountryPhonePrefix(countryPrefix:"GW", phonePrefix: "245", countryName: "Guinea-Bissau"),
-        CountryPhonePrefix(countryPrefix:"GY", phonePrefix: "595", countryName: "Paraguay"),
-        CountryPhonePrefix(countryPrefix:"HT", phonePrefix: "509", countryName: "Haiti"),
-        CountryPhonePrefix(countryPrefix:"HN", phonePrefix: "504", countryName: "Honduras"),
-        CountryPhonePrefix(countryPrefix:"HU", phonePrefix: "36", countryName: "Hungary"),
-        CountryPhonePrefix(countryPrefix:"IS", phonePrefix: "354", countryName: "Iceland"),
-        CountryPhonePrefix(countryPrefix:"IN", phonePrefix: "91", countryName: "India"),
-        CountryPhonePrefix(countryPrefix:"ID", phonePrefix: "62", countryName: "Indonesia"),
-        CountryPhonePrefix(countryPrefix:"IQ", phonePrefix: "964", countryName: "Iraq"),
-        CountryPhonePrefix(countryPrefix:"IE", phonePrefix: "353", countryName: "Ireland"),
-        CountryPhonePrefix(countryPrefix:"IL", phonePrefix: "972", countryName: "Israel"),
-        CountryPhonePrefix(countryPrefix:"IT", phonePrefix: "39", countryName: "Italy"),
-        CountryPhonePrefix(countryPrefix:"JM", phonePrefix: "1876", countryName: "Jamaica"),
-        CountryPhonePrefix(countryPrefix:"JP", phonePrefix: "81", countryName: "Japan"),
-        CountryPhonePrefix(countryPrefix:"JO", phonePrefix: "962", countryName: "Jordan"),
-        CountryPhonePrefix(countryPrefix:"KZ", phonePrefix: "77", countryName: "Kazakhstan"),
-        CountryPhonePrefix(countryPrefix:"KE", phonePrefix: "254", countryName: "Kenya"),
-        CountryPhonePrefix(countryPrefix:"KI", phonePrefix: "686", countryName: "Kiribati"),
-        CountryPhonePrefix(countryPrefix:"KW", phonePrefix: "965", countryName: "Kuwait"),
-        CountryPhonePrefix(countryPrefix:"KG", phonePrefix: "996", countryName: "Kyrgyzstan"),
-        CountryPhonePrefix(countryPrefix:"LV", phonePrefix: "371", countryName: "Latvia"),
-        CountryPhonePrefix(countryPrefix:"LB", phonePrefix: "961", countryName: "Lebanon"),
-        CountryPhonePrefix(countryPrefix:"LS", phonePrefix: "266", countryName: "Lesotho"),
-        CountryPhonePrefix(countryPrefix:"LR", phonePrefix: "231", countryName: "Liberia"),
-        CountryPhonePrefix(countryPrefix:"LI", phonePrefix: "423", countryName: "Liechtenstein"),
-        CountryPhonePrefix(countryPrefix:"LT", phonePrefix: "370", countryName: "Lithuania"),
-        CountryPhonePrefix(countryPrefix:"LU", phonePrefix: "352", countryName: "Luxembourg"),
-        CountryPhonePrefix(countryPrefix:"MG", phonePrefix: "261", countryName: "Madagascar"),
-        CountryPhonePrefix(countryPrefix:"MW", phonePrefix: "265", countryName: "Malawi"),
-        CountryPhonePrefix(countryPrefix:"MY", phonePrefix: "60", countryName: "Malaysia"),
-        CountryPhonePrefix(countryPrefix:"MV", phonePrefix: "960", countryName: "Maldives"),
-        CountryPhonePrefix(countryPrefix:"ML", phonePrefix: "223", countryName: "Mali"),
-        CountryPhonePrefix(countryPrefix:"MT", phonePrefix: "356", countryName: "Malta"),
-        CountryPhonePrefix(countryPrefix:"MH", phonePrefix: "692", countryName: "Marshall Islands"),
-        CountryPhonePrefix(countryPrefix:"MQ", phonePrefix: "596", countryName: "Martinique"),
-        CountryPhonePrefix(countryPrefix:"MR", phonePrefix: "222", countryName: "Mauritania"),
-        CountryPhonePrefix(countryPrefix:"MU", phonePrefix: "230", countryName: "Mauritius"),
-        CountryPhonePrefix(countryPrefix:"MX", phonePrefix: "52", countryName: "Mexico"),
-        CountryPhonePrefix(countryPrefix:"MC", phonePrefix: "377", countryName: "Monaco"),
-        CountryPhonePrefix(countryPrefix:"MN", phonePrefix: "976", countryName: "Mongolia"),
-        CountryPhonePrefix(countryPrefix:"ME", phonePrefix: "382", countryName: "Montenegro"),
-        CountryPhonePrefix(countryPrefix:"MS", phonePrefix: "1664", countryName: "Montserrat"),
-        CountryPhonePrefix(countryPrefix:"MA", phonePrefix: "212", countryName: "Morocco"),
-        CountryPhonePrefix(countryPrefix:"MM", phonePrefix: "95", countryName: "Myanmar"),
-        CountryPhonePrefix(countryPrefix:"NA", phonePrefix: "264", countryName: "Namibia"),
-        CountryPhonePrefix(countryPrefix:"NR", phonePrefix: "674", countryName: "Nauru"),
-        CountryPhonePrefix(countryPrefix:"NP", phonePrefix: "977", countryName: "Nepal"),
-        CountryPhonePrefix(countryPrefix:"NL", phonePrefix: "31", countryName: "Netherlands"),
-        CountryPhonePrefix(countryPrefix: "AN", phonePrefix: "599", countryName: "Netherlands Antilles"),
-        CountryPhonePrefix(countryPrefix:"NC", phonePrefix: "687", countryName: "New Caledonia"),
-        CountryPhonePrefix(countryPrefix:"NZ", phonePrefix: "64", countryName: "New Zealand"),
-        CountryPhonePrefix(countryPrefix:"NI", phonePrefix: "505", countryName: "Nicaragua"),
-        CountryPhonePrefix(countryPrefix:"NE", phonePrefix: "227", countryName: "Niger"),
-        CountryPhonePrefix(countryPrefix:"NG", phonePrefix: "234", countryName: "Nigeria"),
-        CountryPhonePrefix(countryPrefix:"NU", phonePrefix: "683", countryName: "Niue"),
-        CountryPhonePrefix(countryPrefix:"NF", phonePrefix: "672", countryName: "Norfolk Island"),
-        CountryPhonePrefix(countryPrefix:"MP", phonePrefix: "1670", countryName: "Northern Mariana Islands"),
-        CountryPhonePrefix(countryPrefix:"NO", phonePrefix: "47", countryName: "Norway"),
-        CountryPhonePrefix(countryPrefix:"OM", phonePrefix: "968", countryName: "Oman"),
-        CountryPhonePrefix(countryPrefix:"PK", phonePrefix: "92", countryName: "Pakistan"),
-        CountryPhonePrefix(countryPrefix:"PW", phonePrefix: "680", countryName: "Palau"),
-        CountryPhonePrefix(countryPrefix:"PA", phonePrefix: "507", countryName: "Panama"),
-        CountryPhonePrefix(countryPrefix:"PG", phonePrefix: "675", countryName: "Papua New Guinea"),
-        CountryPhonePrefix(countryPrefix:"PY", phonePrefix: "595", countryName: "Paraguay"),
-        CountryPhonePrefix(countryPrefix:"PE", phonePrefix: "51", countryName: "Peru"),
-        CountryPhonePrefix(countryPrefix:"PH", phonePrefix: "63", countryName: "Philippines"),
-        CountryPhonePrefix(countryPrefix:"PL", phonePrefix: "48", countryName: "Poland"),
-        CountryPhonePrefix(countryPrefix:"PT", phonePrefix: "351", countryName: "Portugal"),
-        CountryPhonePrefix(countryPrefix:"PR", phonePrefix: "1787", countryName: "Puerto Rico"),
-        CountryPhonePrefix(countryPrefix:"QA", phonePrefix: "974", countryName: "Qatar"),
-        CountryPhonePrefix(countryPrefix:"RO", phonePrefix: "40", countryName: "Romania"),
-        CountryPhonePrefix(countryPrefix:"RW", phonePrefix: "250", countryName: "Rwanda"),
-        CountryPhonePrefix(countryPrefix:"WS", phonePrefix: "685", countryName: "Samoa"),
-        CountryPhonePrefix(countryPrefix:"SM", phonePrefix: "378", countryName: "San Marino"),
-        CountryPhonePrefix(countryPrefix:"SA", phonePrefix: "966", countryName: "Saudi Arabia"),
-        CountryPhonePrefix(countryPrefix:"SN", phonePrefix: "221", countryName: "Senegal"),
-        CountryPhonePrefix(countryPrefix:"RS", phonePrefix: "381", countryName: "Serbia"),
-        CountryPhonePrefix(countryPrefix:"SC", phonePrefix: "248", countryName: "Seychelles"),
-        CountryPhonePrefix(countryPrefix:"SL", phonePrefix: "232", countryName: "Sierra Leone"),
-        CountryPhonePrefix(countryPrefix:"SG", phonePrefix: "65", countryName: "Singapore"),
-        CountryPhonePrefix(countryPrefix:"SK", phonePrefix: "421", countryName: "Slovakia"),
-        CountryPhonePrefix(countryPrefix:"SI", phonePrefix: "386", countryName: "Slovenia"),
-        CountryPhonePrefix(countryPrefix:"SB", phonePrefix: "677", countryName: "Solomon Islands"),
-        CountryPhonePrefix(countryPrefix:"ZA", phonePrefix: "27", countryName: "South Africa"),
-        CountryPhonePrefix(countryPrefix:"GS", phonePrefix: "500", countryName: "Falkland Islands"),
-        CountryPhonePrefix(countryPrefix:"ES", phonePrefix: "34", countryName: "Spain"),
-        CountryPhonePrefix(countryPrefix:"LK", phonePrefix: "94", countryName: "Sri Lanka"),
-        CountryPhonePrefix(countryPrefix:"SD", phonePrefix: "249", countryName: "Sudan"),
-        CountryPhonePrefix(countryPrefix:"SR", phonePrefix: "597", countryName: "Suriname"),
-        CountryPhonePrefix(countryPrefix:"SZ", phonePrefix: "268", countryName: "Swaziland"),
-        CountryPhonePrefix(countryPrefix:"SE", phonePrefix: "46", countryName: "Sweden"),
-        CountryPhonePrefix(countryPrefix:"CH", phonePrefix: "41", countryName: "Switzerland"),
-        CountryPhonePrefix(countryPrefix:"TJ", phonePrefix: "992", countryName: "Tajikistan"),
-        CountryPhonePrefix(countryPrefix:"TH", phonePrefix: "66", countryName: "Thailand"),
-        CountryPhonePrefix(countryPrefix:"TG", phonePrefix: "228", countryName: "Togo"),
-        CountryPhonePrefix(countryPrefix:"TK", phonePrefix: "690", countryName: "Tokelau"),
-        CountryPhonePrefix(countryPrefix:"TO", phonePrefix: "676", countryName: "Tonga"),
-        CountryPhonePrefix(countryPrefix:"TT", phonePrefix: "1", countryName: "Trinidad and Tobago"),
-        CountryPhonePrefix(countryPrefix:"TN", phonePrefix: "216", countryName: "Tunisia"),
-        CountryPhonePrefix(countryPrefix:"TR", phonePrefix: "90", countryName: "Turkey"),
-        CountryPhonePrefix(countryPrefix:"TM", phonePrefix: "993", countryName: "Turkmenistan"),
-        CountryPhonePrefix(countryPrefix:"TC", phonePrefix: "1649", countryName: "Turks and Caicos Islands"),
-        CountryPhonePrefix(countryPrefix:"TV", phonePrefix: "688", countryName: "Tuvalu"),
-        CountryPhonePrefix(countryPrefix:"UG", phonePrefix: "256", countryName: "Uganda"),
-        CountryPhonePrefix(countryPrefix:"UA", phonePrefix: "380", countryName: "Ukraine"),
-        CountryPhonePrefix(countryPrefix:"AE", phonePrefix: "971", countryName: "United Arab Emirates"),
-        CountryPhonePrefix(countryPrefix:"GB", phonePrefix: "44", countryName: "United Kingdom"),
-        CountryPhonePrefix(countryPrefix:"US", phonePrefix: "1", countryName: "United States"),
-        CountryPhonePrefix(countryPrefix:"UY", phonePrefix: "598", countryName: "Uruguay"),
-        CountryPhonePrefix(countryPrefix:"UZ", phonePrefix: "998", countryName: "Uzbekistan"),
-        CountryPhonePrefix(countryPrefix:"VU", phonePrefix: "678", countryName: "Vanuatu"),
-        CountryPhonePrefix(countryPrefix:"WF", phonePrefix: "681", countryName: "Wallis and Futuna"),
-        CountryPhonePrefix(countryPrefix:"YE", phonePrefix: "967", countryName: "Yemen"),
-        CountryPhonePrefix(countryPrefix:"ZM", phonePrefix: "260", countryName: "Zambia"),
-        CountryPhonePrefix(countryPrefix:"ZW", phonePrefix: "263", countryName: "Zimbabwe"),
-        CountryPhonePrefix(countryPrefix:"BO", phonePrefix: "591", countryName: "Bolivia"),
-        CountryPhonePrefix(countryPrefix:"BN", phonePrefix: "673", countryName: "Brunei"),
-        CountryPhonePrefix(countryPrefix:"CD", phonePrefix: "243", countryName: "Democratic Republic of the Congo"),
-        CountryPhonePrefix(countryPrefix:"CI", phonePrefix: "225", countryName: "Ivory Coast"),
-        CountryPhonePrefix(countryPrefix:"VA", phonePrefix: "379", countryName: "Vatican"),
-        CountryPhonePrefix(countryPrefix:"HK", phonePrefix: "852", countryName: "Hong Kong"),
-        CountryPhonePrefix(countryPrefix:"IR", phonePrefix: "98", countryName: "Iran"),
-        CountryPhonePrefix(countryPrefix:"KP", phonePrefix: "850", countryName: "North Korea"),
-        CountryPhonePrefix(countryPrefix:"KR", phonePrefix: "82", countryName: "South Korea"),
-        CountryPhonePrefix(countryPrefix:"LA", phonePrefix: "856", countryName: "Laos"),
-        CountryPhonePrefix(countryPrefix:"LY", phonePrefix: "218", countryName: "Libya"),
-        CountryPhonePrefix(countryPrefix:"MO", phonePrefix: "853", countryName: "Macau"),
-        CountryPhonePrefix(countryPrefix:"MK", phonePrefix: "389", countryName: "Macedonia"),
-        CountryPhonePrefix(countryPrefix:"FM", phonePrefix: "691", countryName: "Micronesia"),
-        CountryPhonePrefix(countryPrefix:"MD", phonePrefix: "373", countryName: "Moldova"),
-        CountryPhonePrefix(countryPrefix:"MZ", phonePrefix: "258", countryName: "Mozambique"),
-        CountryPhonePrefix(countryPrefix:"PS", phonePrefix: "970", countryName: "Palestine"),
-        CountryPhonePrefix(countryPrefix:"PN", phonePrefix: "872", countryName: "Pitcairn Islands"),
-        CountryPhonePrefix(countryPrefix:"RE", phonePrefix: "262", countryName: "Reunion"),
-        CountryPhonePrefix(countryPrefix:"RU", phonePrefix: "7", countryName: "Russia"),
-        CountryPhonePrefix(countryPrefix:"BL", phonePrefix: "590", countryName: "Saint Barthelemy"),
-        CountryPhonePrefix(countryPrefix:"SH", phonePrefix: "290", countryName: "Saint Helena"),
-        CountryPhonePrefix(countryPrefix:"PM", phonePrefix: "508", countryName: "Saint Pierre and Miquelon"),
-        CountryPhonePrefix(countryPrefix:"ST", phonePrefix: "239", countryName: "Sao Tome and Principe"),
-        CountryPhonePrefix(countryPrefix:"SO", phonePrefix: "252", countryName: "Somalia"),
-        CountryPhonePrefix(countryPrefix:"SJ", phonePrefix: "47", countryName: "Norway"),
-        CountryPhonePrefix(countryPrefix:"SY", phonePrefix: "963", countryName: "Syria"),
-        CountryPhonePrefix(countryPrefix:"TW", phonePrefix: "886", countryName: "Taiwan"),
-        CountryPhonePrefix(countryPrefix:"TZ", phonePrefix: "255", countryName: "Tanzania"),
-        CountryPhonePrefix(countryPrefix:"TL", phonePrefix: "670", countryName: "Northern Mariana Islands"),
-        CountryPhonePrefix(countryPrefix:"VE", phonePrefix: "58", countryName: "Venezuela"),
-        CountryPhonePrefix(countryPrefix:"VN", phonePrefix: "84", countryName: "Vietnam"),
-        CountryPhonePrefix(countryPrefix:"VG", phonePrefix: "284", countryName: "British Virgin Islands"),
-        CountryPhonePrefix(countryPrefix:"VI", phonePrefix: "340", countryName: "U.S. Virgin Islands"),
+    static var countryPhonePrefix = [
+        
+        CountryPhonePrefix(countryPrefix:"AF", phonePrefix: "93", countryName: "Afghanistan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AL", phonePrefix: "355", countryName: "Albania",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"DZ", phonePrefix: "213", countryName: "Algeria",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AS", phonePrefix: "1684", countryName: "American Samoa",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AD", phonePrefix: "376", countryName: "Andorra",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AO", phonePrefix: "244", countryName: "Angola",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AI", phonePrefix: "1264", countryName: "Anguilla",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AQ", phonePrefix: "672", countryName: "Antarctica",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AG", phonePrefix: "1268", countryName: "Antigua and Barbuda",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AR", phonePrefix: "54", countryName: "Argentina",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AM", phonePrefix: "374", countryName: "Armenia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AW", phonePrefix: "297", countryName: "Aruba",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AU", phonePrefix: "61", countryName: "Australian",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AT", phonePrefix: "43", countryName: "Austria",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AZ", phonePrefix: "994", countryName: "Azerbaijan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BS", phonePrefix: "1242", countryName: "Bahamas",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BH", phonePrefix: "973", countryName: "Bahrain",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BD", phonePrefix: "880", countryName: "Bangladesh",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BB", phonePrefix: "246", countryName: "Barbados",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BY", phonePrefix: "375", countryName: "Belarus",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BE", phonePrefix: "32", countryName: "Belgium",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BZ", phonePrefix: "501", countryName: "Belize",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BJ", phonePrefix: "229", countryName: "Benin",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BM", phonePrefix: "1441", countryName: "Bermuda",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BT", phonePrefix: "975", countryName: "Bhutan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BA", phonePrefix: "387", countryName: "Bosnia and Herzegovina",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BW", phonePrefix: "267", countryName: "Botswana",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BR", phonePrefix: "55", countryName: "Brazil",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BG", phonePrefix: "359", countryName: "Bulgaria",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BF", phonePrefix: "226", countryName: "Burkina Faso",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BI", phonePrefix: "257", countryName: "Burundi",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"KH", phonePrefix: "855", countryName: "Cambodia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CM", phonePrefix: "237", countryName: "Cameroon",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CA", phonePrefix: "1", countryName: "Canada",zipREX: "[ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z][ ]?\\d[ABCEGHJ-NPRSTV-Z]\\d"),
+        CountryPhonePrefix(countryPrefix:"CV", phonePrefix: "238", countryName: "Cape Verde",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"KY", phonePrefix: "345", countryName: "Cayman Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CF", phonePrefix: "236", countryName: "Central African Republic",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TD", phonePrefix: "235", countryName: "Chad",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CL", phonePrefix: "56", countryName: "Chile",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CN", phonePrefix: "86", countryName: "China",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CX", phonePrefix: "61", countryName: "Christmas Island",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CO", phonePrefix: "57", countryName: "Colombia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"KM", phonePrefix: "269", countryName: "Comoros",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CG", phonePrefix: "242", countryName: "Republic of the Congo",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CK", phonePrefix: "682", countryName: "Cook Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CR", phonePrefix: "506", countryName: "Costa Rica",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"HR", phonePrefix: "385", countryName: "Croatia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CU", phonePrefix: "53", countryName: "Cuba",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CY", phonePrefix: "537", countryName: "Cyprus",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CZ", phonePrefix: "420", countryName: "Czech Republic",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"DK", phonePrefix: "45", countryName: "Denmark",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"DJ", phonePrefix: "253", countryName: "Djibouti",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"DM", phonePrefix: "1767", countryName: "Dominica",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"DO", phonePrefix: "1", countryName: "Dominican Republic",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"EC", phonePrefix: "593", countryName: "Ecuador",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"EG", phonePrefix: "20", countryName: "Egypt",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SV", phonePrefix: "503", countryName: "El Salvador",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GQ", phonePrefix: "240", countryName: "Equatorial Guinea",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"ER", phonePrefix: "291", countryName: "Eritrea",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"EE", phonePrefix: "372", countryName: "Estonia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"ET", phonePrefix: "251", countryName: "Ethiopia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"FO", phonePrefix: "298", countryName: "The Faroe Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"FJ", phonePrefix: "679", countryName: "Fiji",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"FI", phonePrefix: "358", countryName: "Finland",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"FR", phonePrefix: "33", countryName: "France",zipREX: "\\d{2}[ ]?\\d{3}"),
+        CountryPhonePrefix(countryPrefix:"GF", phonePrefix: "594", countryName: "French Guiana",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PF", phonePrefix: "689", countryName: "French Polynesia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GA", phonePrefix: "241", countryName: "Gabon",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GM", phonePrefix: "220", countryName: "Gambia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GE", phonePrefix: "995", countryName: "Georgia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"DE", phonePrefix: "49", countryName: "Germany",zipREX: "\\d{5}"),
+        CountryPhonePrefix(countryPrefix:"GH", phonePrefix: "233", countryName: "Ghana",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GI", phonePrefix: "350", countryName: "Gibraltar",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GR", phonePrefix: "30", countryName: "Greece",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GL", phonePrefix: "299", countryName: "Greenland",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GD", phonePrefix: "1473", countryName: "Grenada",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GP", phonePrefix: "590", countryName: "Saint Barthelemy",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GU", phonePrefix: "1671", countryName: "Guam",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GT", phonePrefix: "502", countryName: "Guatemala",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GN", phonePrefix: "224", countryName: "Guinea",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GW", phonePrefix: "245", countryName: "Guinea-Bissau",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GY", phonePrefix: "595", countryName: "Paraguay",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"HT", phonePrefix: "509", countryName: "Haiti",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"HN", phonePrefix: "504", countryName: "Honduras",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"HU", phonePrefix: "36", countryName: "Hungary",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"IS", phonePrefix: "354", countryName: "Iceland",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"IN", phonePrefix: "91", countryName: "India",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"ID", phonePrefix: "62", countryName: "Indonesia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"IQ", phonePrefix: "964", countryName: "Iraq",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"IE", phonePrefix: "353", countryName: "Ireland",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"IL", phonePrefix: "972", countryName: "Israel",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"IT", phonePrefix: "39", countryName: "Italy",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"JM", phonePrefix: "1876", countryName: "Jamaica",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"JP", phonePrefix: "81", countryName: "Japan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"JO", phonePrefix: "962", countryName: "Jordan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"KZ", phonePrefix: "77", countryName: "Kazakhstan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"KE", phonePrefix: "254", countryName: "Kenya",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"KI", phonePrefix: "686", countryName: "Kiribati",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"KW", phonePrefix: "965", countryName: "Kuwait",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"KG", phonePrefix: "996", countryName: "Kyrgyzstan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"LV", phonePrefix: "371", countryName: "Latvia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"LB", phonePrefix: "961", countryName: "Lebanon",zipREX: "(\\d{4}([ ]?\\d{4})?)?"),
+        CountryPhonePrefix(countryPrefix:"LS", phonePrefix: "266", countryName: "Lesotho",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"LR", phonePrefix: "231", countryName: "Liberia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"LI", phonePrefix: "423", countryName: "Liechtenstein",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"LT", phonePrefix: "370", countryName: "Lithuania",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"LU", phonePrefix: "352", countryName: "Luxembourg",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MG", phonePrefix: "261", countryName: "Madagascar",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MW", phonePrefix: "265", countryName: "Malawi",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MY", phonePrefix: "60", countryName: "Malaysia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MV", phonePrefix: "960", countryName: "Maldives",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"ML", phonePrefix: "223", countryName: "Mali",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MT", phonePrefix: "356", countryName: "Malta",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MH", phonePrefix: "692", countryName: "Marshall Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MQ", phonePrefix: "596", countryName: "Martinique",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MR", phonePrefix: "222", countryName: "Mauritania",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MU", phonePrefix: "230", countryName: "Mauritius",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MX", phonePrefix: "52", countryName: "Mexico",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MC", phonePrefix: "377", countryName: "Monaco",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MN", phonePrefix: "976", countryName: "Mongolia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"ME", phonePrefix: "382", countryName: "Montenegro",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MS", phonePrefix: "1664", countryName: "Montserrat",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MA", phonePrefix: "212", countryName: "Morocco",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MM", phonePrefix: "95", countryName: "Myanmar",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"NA", phonePrefix: "264", countryName: "Namibia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"NR", phonePrefix: "674", countryName: "Nauru",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"NP", phonePrefix: "977", countryName: "Nepal",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"NL", phonePrefix: "31", countryName: "Netherlands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AN", phonePrefix: "599", countryName: "Netherlands Antilles",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"NC", phonePrefix: "687", countryName: "New Caledonia",zipREX: "988\\d{2}"),
+        CountryPhonePrefix(countryPrefix:"NZ", phonePrefix: "64", countryName: "New Zealand",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"NI", phonePrefix: "505", countryName: "Nicaragua",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"NE", phonePrefix: "227", countryName: "Niger",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"NG", phonePrefix: "234", countryName: "Nigeria",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"NU", phonePrefix: "683", countryName: "Niue",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"NF", phonePrefix: "672", countryName: "Norfolk Island",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MP", phonePrefix: "1670", countryName: "Northern Mariana Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"NO", phonePrefix: "47", countryName: "Norway",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"OM", phonePrefix: "968", countryName: "Oman",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PK", phonePrefix: "92", countryName: "Pakistan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PW", phonePrefix: "680", countryName: "Palau",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PA", phonePrefix: "507", countryName: "Panama",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PG", phonePrefix: "675", countryName: "Papua New Guinea",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PY", phonePrefix: "595", countryName: "Paraguay",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PE", phonePrefix: "51", countryName: "Peru",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PH", phonePrefix: "63", countryName: "Philippines",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PL", phonePrefix: "48", countryName: "Poland",zipREX: "\\d{2}-\\d{3}"),
+        CountryPhonePrefix(countryPrefix:"PT", phonePrefix: "351", countryName: "Portugal",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PR", phonePrefix: "1787", countryName: "Puerto Rico",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"QA", phonePrefix: "974", countryName: "Qatar",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"RO", phonePrefix: "40", countryName: "Romania",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"RW", phonePrefix: "250", countryName: "Rwanda",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"WS", phonePrefix: "685", countryName: "Samoa",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SM", phonePrefix: "378", countryName: "San Marino",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SA", phonePrefix: "966", countryName: "Saudi Arabia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SN", phonePrefix: "221", countryName: "Senegal",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"RS", phonePrefix: "381", countryName: "Serbia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SC", phonePrefix: "248", countryName: "Seychelles",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SL", phonePrefix: "232", countryName: "Sierra Leone",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SG", phonePrefix: "65", countryName: "Singapore",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SK", phonePrefix: "421", countryName: "Slovakia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SI", phonePrefix: "386", countryName: "Slovenia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SB", phonePrefix: "677", countryName: "Solomon Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"ZA", phonePrefix: "27", countryName: "South Africa",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"GS", phonePrefix: "500", countryName: "Falkland Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"ES", phonePrefix: "34", countryName: "Spain",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"LK", phonePrefix: "94", countryName: "Sri Lanka",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SD", phonePrefix: "249", countryName: "Sudan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SR", phonePrefix: "597", countryName: "Suriname",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SZ", phonePrefix: "268", countryName: "Swaziland",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SE", phonePrefix: "46", countryName: "Sweden",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CH", phonePrefix: "41", countryName: "Switzerland",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TJ", phonePrefix: "992", countryName: "Tajikistan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TH", phonePrefix: "66", countryName: "Thailand",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TG", phonePrefix: "228", countryName: "Togo",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TK", phonePrefix: "690", countryName: "Tokelau",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TO", phonePrefix: "676", countryName: "Tonga",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TT", phonePrefix: "1", countryName: "Trinidad and Tobago",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TN", phonePrefix: "216", countryName: "Tunisia",zipREX: "\\d{4}"),
+        CountryPhonePrefix(countryPrefix:"TR", phonePrefix: "90", countryName: "Turkey",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TM", phonePrefix: "993", countryName: "Turkmenistan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TC", phonePrefix: "1649", countryName: "Turks and Caicos Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TV", phonePrefix: "688", countryName: "Tuvalu",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"UG", phonePrefix: "256", countryName: "Uganda",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"UA", phonePrefix: "380", countryName: "Ukraine",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"AE", phonePrefix: "971", countryName: "United Arab Emirates",zipREX: "\\d{5}"),
+        CountryPhonePrefix(countryPrefix:"GB", phonePrefix: "44", countryName: "United Kingdom",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"US", phonePrefix: "1", countryName: "United States",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"UY", phonePrefix: "598", countryName: "Uruguay",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"UZ", phonePrefix: "998", countryName: "Uzbekistan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"VU", phonePrefix: "678", countryName: "Vanuatu",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"WF", phonePrefix: "681", countryName: "Wallis and Futuna",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"YE", phonePrefix: "967", countryName: "Yemen",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"ZM", phonePrefix: "260", countryName: "Zambia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"ZW", phonePrefix: "263", countryName: "Zimbabwe",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BO", phonePrefix: "591", countryName: "Bolivia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BN", phonePrefix: "673", countryName: "Brunei",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CD", phonePrefix: "243", countryName: "Democratic Republic of the Congo",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"CI", phonePrefix: "225", countryName: "Ivory Coast",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"VA", phonePrefix: "379", countryName: "Vatican",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"HK", phonePrefix: "852", countryName: "Hong Kong",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"IR", phonePrefix: "98", countryName: "Iran",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"KP", phonePrefix: "850", countryName: "North Korea",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"KR", phonePrefix: "82", countryName: "South Korea",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"LA", phonePrefix: "856", countryName: "Laos",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"LY", phonePrefix: "218", countryName: "Libya",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MO", phonePrefix: "853", countryName: "Macau",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MK", phonePrefix: "389", countryName: "Macedonia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"FM", phonePrefix: "691", countryName: "Micronesia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MD", phonePrefix: "373", countryName: "Moldova",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"MZ", phonePrefix: "258", countryName: "Mozambique",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PS", phonePrefix: "970", countryName: "Palestine",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PN", phonePrefix: "872", countryName: "Pitcairn Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"RE", phonePrefix: "262", countryName: "Reunion",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"RU", phonePrefix: "7", countryName: "Russia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"BL", phonePrefix: "590", countryName: "Saint Barthelemy",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SH", phonePrefix: "290", countryName: "Saint Helena",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"PM", phonePrefix: "508", countryName: "Saint Pierre and Miquelon",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"ST", phonePrefix: "239", countryName: "Sao Tome and Principe",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SO", phonePrefix: "252", countryName: "Somalia",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SJ", phonePrefix: "47", countryName: "Norway",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"SY", phonePrefix: "963", countryName: "Syria",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TW", phonePrefix: "886", countryName: "Taiwan",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TZ", phonePrefix: "255", countryName: "Tanzania",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"TL", phonePrefix: "670", countryName: "Northern Mariana Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"VE", phonePrefix: "58", countryName: "Venezuela",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"VN", phonePrefix: "84", countryName: "Vietnam",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"VG", phonePrefix: "284", countryName: "British Virgin Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"VI", phonePrefix: "340", countryName: "U.S. Virgin Islands",zipREX: ""),
+        
     ]
     
     ///Zip Code REX helper
@@ -2875,8 +3059,11 @@ class RecognitionTools {
     
     
     
-    static var countriesWithCities : [CountriesWithCities]?
-    static var countriesWithStates : [CountriesWithCities]?
+    static var statesWithPrefix : [String] = []
+    static var citiesWithPrefix : [String] = []
+    
+    static var countriesWithCities : [CountriesWithCities] = []
+    static var countriesWithStates : [CountriesWithCities] = []
     static var phonePrefixs : [PhonePrefixes]?
     static var countries : [Countries]?
     static var titles : [titlesPM]?
@@ -2920,6 +3107,7 @@ struct CountryPhonePrefix {
     let countryPrefix : String
     let phonePrefix : String
     let countryName : String
+    let zipREX : String?
 }
 
 class CountriesWithCities : Codable{
