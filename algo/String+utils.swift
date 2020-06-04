@@ -25,6 +25,26 @@ extension StringProtocol {
 
 extension String {
     
+    var preprocessPhoneKit : String {
+        return self.trimmedAndLowercased
+        .replacingOccurrences(of: " ", with: "")
+        .replacingOccurrences(of: "-", with: "")
+        .replacingOccurrences(of: "+ ", with: "+")
+    }
+    
+    func replacingFirstOccurrenceOf(
+            target: String, withString replaceString: String) -> String
+    {
+        if let range = self.range(of: target) {
+            return self.replacingCharacters(in: range, with: replaceString)
+        }
+        return self
+    }
+    
+    mutating func insert(string:String,ind:Int) {
+        self.insert(contentsOf: string, at:self.index(self.startIndex, offsetBy: ind) )
+    }
+    
     func lastIndexInt(of char: Character) -> Int? {
         return lastIndex(of: char)?.utf16Offset(in: self)
     }
