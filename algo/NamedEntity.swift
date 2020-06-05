@@ -57,6 +57,8 @@ class AddressNamedEntity: NamedEntity {
     var site_zip : String = ""
     var country_prefix : [String] = []
     
+    var zipRegex : String = ""
+    
     public func toString() -> String{
         
         return "street : \(street) \n address-Second : \(adress_second) \n city : \(city) \n State : \(state)  \n Zip : \(zip)  \n Coundtry \(country)"
@@ -195,23 +197,23 @@ class AddressNamedEntity: NamedEntity {
                     }
                     // WE WILL DO THIS FROM computeAndress
                     //sorry no regex
-//                    if let foundCountry = countryNamedEntity.countryEntity?.countryName {
-//                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: foundCountry.trimmedAndLowercased, with: "" , options: .caseInsensitive )
-//                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: countryNamedEntity.countryEntity!.countryPrefix.trimmedAndLowercased, with: "" , options: .caseInsensitive)
-//                        //}
-//                    }
+                    //                    if let foundCountry = countryNamedEntity.countryEntity?.countryName {
+                    //                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: foundCountry.trimmedAndLowercased, with: "" , options: .caseInsensitive )
+                    //                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: countryNamedEntity.countryEntity!.countryPrefix.trimmedAndLowercased, with: "" , options: .caseInsensitive)
+                    //                        //}
+                    //                    }
                     
                     
                     
                     // WE WILL DO THIS FROM computeAndress
-//                    // lets clean bcDataarray
-//                    if self.zip.count > 0 {
-//                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: self.zip, with: "", options: .caseInsensitive)
-//                    }
-//
-//                    if self.country.count > 0 {
-//                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: self.country, with: "" , options: .caseInsensitive)
-//                    }
+                    //                    // lets clean bcDataarray
+                    //                    if self.zip.count > 0 {
+                    //                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: self.zip, with: "", options: .caseInsensitive)
+                    //                    }
+                    //
+                    //                    if self.country.count > 0 {
+                    //                        bcDataArray[index] = line.trimmedAndLowercased.replacingOccurrences(of: self.country, with: "" , options: .caseInsensitive)
+                    //                    }
                     
                 }
                 
@@ -222,14 +224,14 @@ class AddressNamedEntity: NamedEntity {
             }
             
         }
-            
-//
-//
-//
-//        }else {
-//            // nothing more we can do
-//            zipCodeFound = false
-//        }
+        
+        //
+        //
+        //
+        //        }else {
+        //            // nothing more we can do
+        //            zipCodeFound = false
+        //        }
         
         
         // WE CAN ALWAYS TREAT CASE OF NOOOO EMAILS , NO VALID PHONES , NO WEBSITES , --> LOOP THROUGH LINES AND EXTRACT NUMBERS FROM STRING once we have an empty data arrat
@@ -238,7 +240,73 @@ class AddressNamedEntity: NamedEntity {
         
         return zipCodeFound
     }
-
+    
+    
+    private func processStreet () {
+        
+        if !self.street.stringContains(container: "po box", preprocess: true) {
+            if self.street.contains(self.zip){
+                self.street = self.street.replacingOccurrences(of: self.zip, with: "", options: .caseInsensitive)
+            }
+        }
+        
+        if !self.adress_second.stringContains(container: "po box", preprocess: true) {
+            if self.adress_second.contains(self.zip){
+                self.adress_second = self.street.replacingOccurrences(of: self.zip, with: "", options: .caseInsensitive)
+            }
+        }
+        
+        
+        if self.street.contains(self.city) {
+            self.street = self.street.replacingOccurrences(of: self.city, with: "", options: .caseInsensitive)
+        }
+        
+        if self.adress_second.contains(self.city) {
+            self.adress_second = self.adress_second.replacingOccurrences(of: self.city, with: "", options: .caseInsensitive)
+        }
+        
+        
+        if self.street.contains(self.state) {
+            self.street = self.street.replacingOccurrences(of: self.state, with: "", options: .caseInsensitive)
+        }
+        
+        if self.adress_second.contains(self.state) {
+            self.adress_second = self.adress_second.replacingOccurrences(of: self.state, with: "", options: .caseInsensitive)
+        }
+        
+        
+        if self.street.contains(self.country) {
+            self.street = self.street.replacingOccurrences(of: self.country, with: "", options: .caseInsensitive)
+        }
+        
+        if self.adress_second.contains(self.country) {
+            self.adress_second = self.adress_second.replacingOccurrences(of: self.country, with: "", options: .caseInsensitive)
+        }
+        
+        
+        // now try with PO BOX and if found , put IT in alterv
+        
+        var poBoxAddr = self.street.getPOBoxAddress()
+        if poBoxAddr.count > 1 {
+            poBoxAddr = poBoxAddr.filter({
+                if $0.count > 2 {
+                    if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
+                        poBoxAddr.remove(at: dataIndex)
+                        return true
+                    }
+                }else{
+                    return false
+                }
+                return false
+            })
+        }
+        
+        poBoxAddr.forEach { (poBoxElement) in
+            self.street = self.street.replacingOccurrences(of: poBoxElement, with: "" ,options: .caseInsensitive)
+            self.adress_second = poBoxElement
+        }
+    }
+    
     
     public func extractAddress(bcDataArray : inout [String], namedEntityHolder : inout [ NamedEntity ] , prefixes : [PrefixHolder] ) {
         // bcDataArray should contain our data
@@ -246,94 +314,128 @@ class AddressNamedEntity: NamedEntity {
         // first thing first ; clean up the array , and pretend the current @ is already a true
         
         
-        if !self.street.isEmpty {
-            
-            if !self.street.stringContains(container: "po box", preprocess: true) {
-                if self.street.contains(self.zip){
-                    self.street = self.street.replacingOccurrences(of: self.zip, with: "", options: .caseInsensitive)
+        //processStreet()
+        
+        // 2nd try to find @ , country and the rest
+        
+        
+        if self.country.isEmpty {
+            for (index, line) in bcDataArray.enumerated() {
+                for (_, element) in line.components(separatedBy: " ").enumerated() {
+                    
+                    if let country = RecognitionTools.countryPhonePrefix.filter({$0.countryName.existIn(container: element, preprocess: true , level : 0.9 )}).first {
+                        self.country = country.countryName
+                        self.country_prefix = [country.countryPrefix]
+                        self.country_code = country.countryPrefix
+                        self.zipRegex = country.zipREX ?? ""
+                        
+                        //remove it from stirng
+                        bcDataArray[index] = bcDataArray[index].replacingOccurrences(of: self.country, with: "",options: .caseInsensitive)
+                        // lets request zip regex, city and states
+                        
+                        
+                        let dispatchGroup = DispatchGroup()
+                        dispatchGroup.enter()
+                        var immutableArrayElement = [element]
+                        self.extractCityORNDState(bcDataArray : &immutableArrayElement, completion: {success in
+                            print("City & states extraction done")
+                            dispatchGroup.leave()
+                        })
+                        break;
+                    }
+                    
+                    if !self.country.isEmpty {
+                        break
+                    }
                 }
             }
+            // now that we have country // process again til we found zip state ,city
             
             
-            if self.street.contains(self.city) {
-                self.street = self.street.replacingOccurrences(of: self.city, with: "", options: .caseInsensitive)
-            }
-            
-            
-            if self.street.contains(self.state) {
-                self.street = self.street.replacingOccurrences(of: self.state, with: "", options: .caseInsensitive)
-            }
-            
-            
-            if self.street.contains(self.country) {
-                self.street = self.street.replacingOccurrences(of: self.country, with: "", options: .caseInsensitive)
-            }
-            
-            
-            // now try with PO BOX and if found , put IT in alterv
-            
-            var poBoxAddr = self.street.getPOBoxAddress()
-            if poBoxAddr.count > 1 {
-                poBoxAddr = poBoxAddr.filter({
-                    if $0.count > 2 {
-                        if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
-                            poBoxAddr.remove(at: dataIndex)
-                            return true
-                        }
-                    }else{
-                        return false
-                    }
-                    return false
-                })
-            }
-            
-            poBoxAddr.forEach { (poBoxElement) in
-                 self.street = self.street.replacingOccurrences(of: poBoxElement, with: "",options: .caseInsensitive)
-            }
+        }else{
+            processStreet()
         }
         
         
+        // looooop to find country
+        // country empty === no zip no nothing
+        
+        
+        // 3RD TRY // No country found to find @ , lets just look for @s in string
+        
+        
+        // now lets loop to find zip
+        if self.zip.isEmpty{
+            if !self.zipRegex.isEmpty{
+                // loop to find element with regex
+                for (_, line) in bcDataArray.enumerated()  {
+                    let matches = line.matchingStrings(regex: self.zipRegex)
+                    matches.forEach { (item) in
+                        item.forEach { (subItem) in
+                            //self.street = line
+//                            self.country = countryNamedEntity.countryEntity?.countryName ?? ""
+//                            self.country_code = countryNamedEntity.countryEntity?.countryPrefix
+                            self.zip = subItem
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+        // this treat the case of second address // OR EMPTY STREET
         for (index, potentialAddress) in bcDataArray.enumerated() {
             let fetchAddressPrefixes = RecognitionTools.addressNamesSuffix.filter({potentialAddress.trimmedAndLowercased.contains($0.trimmedAndLowercased)})
             
             print("\(fetchAddressPrefixes)")
             
-            // now try with PO BOX and if found , put IT in alterv
-            
-            var poBoxAddr = potentialAddress.getPOBoxAddress()
-            if poBoxAddr.count > 1 {
-                poBoxAddr = poBoxAddr.filter({
-                    if $0.count > 2 {
-                        if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
-                            poBoxAddr.remove(at: dataIndex)
-                            return true
+            // now try to extract POBOX FROM POTENTIAL with PO BOX and if found , put IT in alterv
+            if fetchAddressPrefixes.count > 0 {
+                var poBoxAddr = potentialAddress.getPOBoxAddress()
+                if poBoxAddr.count > 1 {
+                    poBoxAddr = poBoxAddr.filter({
+                        if $0.count > 2 {
+                            if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
+                                poBoxAddr.remove(at: dataIndex)
+                                return true
+                            }
+                        }else{
+                            return false
                         }
-                    }else{
                         return false
-                    }
-                    return false
-                })
-            }
-            
-            poBoxAddr.forEach { (poBoxElement) in
-                bcDataArray[index] = self.street.replacingOccurrences(of: poBoxElement, with: "",options: .caseInsensitive)
-            }
-            
-            if self.street.distance(between: potentialAddress) > 0.7 {
-                // we already jave the same lets put it in self.second add
-                self.adress_second = potentialAddress
-            } else if self.street.isEmpty{
-                // IDK
-                self.street = potentialAddress
+                    })
+                }
+                
+                poBoxAddr.forEach { (poBoxElement) in
+                    bcDataArray[index] = potentialAddress.replacingOccurrences(of: poBoxElement, with: "",options: .caseInsensitive)
+                    self.adress_second = poBoxElement
+                }
+                
+                
+                if self.street.distance(between: potentialAddress) > 0.7 {
+                    // we already jave the same lets put it in self.second add
+                    
+                    if self.adress_second.isEmpty {
+                        self.adress_second = potentialAddress
+                    } // else // no place for it
+                    
+                    
+                } else if self.street.isEmpty {
+                    // IDK
+                    self.street = potentialAddress
+                }else {
+                    // street is already take
+                    self.adress_second = potentialAddress
+                }
+                
+                processStreet()
             }
         }
     }
     
     
-    public func extractCityORNDState(bcDataArray : inout [String], namedEntityHolder : inout [ NamedEntity ] , prefixes : [PrefixHolder] , completion : @escaping (Bool) -> ()) {
+    public func extractCityORNDState(bcDataArray : inout [String] , completion : @escaping (Bool) -> ()) {
         // do the request stuf and load from servr
-    
-        
         
         if let countryCode = self.country_code {
             
@@ -357,19 +459,31 @@ class AddressNamedEntity: NamedEntity {
                         decompose.forEach { (element) in
                             
                             //if RecognitionTools.citiesWithPrefix.joined(separator: "\n").stringContains(container: element, preprocess: true) {
-                            
+                            // TODO : CHANGES THIS , GRAB VALUES FROM PREMADE
                             if element.existInArray(array: RecognitionTools.citiesWithPrefix, preprocess: true, level: 0.9) { // level need to be high
                                 let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
                                 bcDataArrayCopy[index] = newLine
                                 self.city.append("\(element) ")
                             }
+                            
+                            
+                            if let cityElement = RecognitionTools.citiesWithPrefix.filter({
+                                $0.existIn(container: element, preprocess: true)
+                            }).first {
+                                let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
+                                bcDataArrayCopy[index] = newLine
+                                self.city = element
+                            }
                         }
+                        
                     }
-                    
                 }
                 dispatchGroup.leave()
-                
             }
+            
+            
+            
+            
             
             dispatchGroup.enter()
             RecognitionTools.loadStatesWithPrefix(prefix: countryCode) { (success) in
@@ -383,7 +497,7 @@ class AddressNamedEntity: NamedEntity {
                             if element.existInArray(array: RecognitionTools.statesWithPrefix, preprocess: true, level:  0.9) { // level need to be high
                                 let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
                                 bcDataArrayCopy[index] = newLine
-                                self.state.append("\(element) ")
+                                self.state = element
                             }
                         }
                     }
@@ -401,7 +515,7 @@ class AddressNamedEntity: NamedEntity {
             // else // sorry no Country code
             completion(false)
         }
-    
+        
         
     }
     
@@ -621,7 +735,7 @@ class NamedEntity {
             
         }
         
- 
+        
         
         // if it exists in first part only THAN BIGGER SCORE FOR FULL NAME else BIGGER SCORE FOR COMPANY
         
@@ -778,7 +892,7 @@ class NamedEntity {
         
         // lets try with website
         websites.forEach { (webEntity) in
-
+            
             // replace ALL OCCURENCE OF HTTP:// HTTPS:// WWW. FTP://, .com , .fr ,.be , ......
             
             let urlString = webEntity.value
@@ -867,9 +981,9 @@ class NamedEntity {
                 score += 40
             }
             
-//            if RecognitionTools.businessCardPrefixes.flatMap({$0}).contains(where: {$0 == element.trimmedAndLowercased}){
-//
-//            }
+            //            if RecognitionTools.businessCardPrefixes.flatMap({$0}).contains(where: {$0 == element.trimmedAndLowercased}){
+            //
+            //            }
             if element.existInArray(array: RecognitionTools.businessCardPrefixes.flatMap({$0}),preprocess: false,level: 0.85){
                 score -= 20
             }
@@ -881,22 +995,22 @@ class NamedEntity {
             if element.count > 5 {
                 
                 //RecognitionTools.lowerCasejobTitles.filter({$0.stringEqualityDistance(container: element.trimmedAndLowercased, preprocess: true, ratio: 0.3)})
-                    //(element.trimmedAndLowercased)})
-                        // HEAVY PROCESSSS
-//                if RecognitionTools.lowerCasejobTitles.filter({$0.stringEqualityDistance(container: element, preprocess: true, ratio: 0.5)}).first != nil{
-//                    score += 10
-//                }else{
-//                    score -= 5
-//                }
+                //(element.trimmedAndLowercased)})
+                // HEAVY PROCESSSS
+                //                if RecognitionTools.lowerCasejobTitles.filter({$0.stringEqualityDistance(container: element, preprocess: true, ratio: 0.5)}).first != nil{
+                //                    score += 10
+                //                }else{
+                //                    score -= 5
+                //                }
             }
             
         }
         
         
         // HEAVY PROCESSSS
-//        if value.existInArray(array: RecognitionTools.lowerCasejobTitles){
-//            score += 40
-//        }
+        //        if value.existInArray(array: RecognitionTools.lowerCasejobTitles){
+        //            score += 40
+        //        }
         
         
         
@@ -905,10 +1019,10 @@ class NamedEntity {
         if fullNamePosition != -1 && 1...upperBound ~= abs(position-fullNamePosition)  {
             score += 30
         }
- 
-//        if abs(position-fullNamePosition) == 1 {
-//            score += 20
-//        }
+        
+        //        if abs(position-fullNamePosition) == 1 {
+        //            score += 20
+        //        }
         
         
         return self
@@ -938,40 +1052,40 @@ class NamedEntity {
         // THIS IS NEEDED ONLY FOR REGEXXXX RUNNING
         value = value.replacingOccurrences(of: "+", with: " + ")
         
-//        // NEW PRAGMA : LOOP THROUGH PREFIXES , and if we found something VERY similar , we grab it , and return it
-//
-//        if let foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
-//            prefixHolder.value.stringEqualityDistance(container: value, preprocess: true, ratio: 0.5)
-//            }).first {
-//            // we found it in prefix , lets grab it from prefix
-//
-//            do {
-//
-//                //                    // GO EVEN FURTHER // IF IT DOESNT CONTAIN + , then EYE CLOSED ADD " + "
-//                //                    if !firstPhoneNumber.starts(with: "+") && !firstPhoneNumber.starts(with: "(") && firstPhoneNumber.preprocess.count > 8
-//                //                    {
-//                //                        // it doent start with + nor ( -> force insert +
-//                //                        firstPhoneNumber.insert(string: "+", ind: 0)
-//                //
-//                //                    }
-//
-//                let phoneNumber = try phoneNumberKit.parse(foundInPrefix.value)
-//
-//                if phoneNumber.notParsed() {
-//                    inValidatedPhones.append(PhoneNumber(numberString: foundInPrefix.value, countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
-//                }else{
-//                    validatedPhones.append(phoneNumber)
-//
-//
-//                    // lets keeeeep on with type extraction
-//
-//
-//                }
-//            } catch {
-//
-//                inValidatedPhones.append(PhoneNumber(numberString: foundInPrefix.value, countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
-//            }
-//        }
+        //        // NEW PRAGMA : LOOP THROUGH PREFIXES , and if we found something VERY similar , we grab it , and return it
+        //
+        //        if let foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
+        //            prefixHolder.value.stringEqualityDistance(container: value, preprocess: true, ratio: 0.5)
+        //            }).first {
+        //            // we found it in prefix , lets grab it from prefix
+        //
+        //            do {
+        //
+        //                //                    // GO EVEN FURTHER // IF IT DOESNT CONTAIN + , then EYE CLOSED ADD " + "
+        //                //                    if !firstPhoneNumber.starts(with: "+") && !firstPhoneNumber.starts(with: "(") && firstPhoneNumber.preprocess.count > 8
+        //                //                    {
+        //                //                        // it doent start with + nor ( -> force insert +
+        //                //                        firstPhoneNumber.insert(string: "+", ind: 0)
+        //                //
+        //                //                    }
+        //
+        //                let phoneNumber = try phoneNumberKit.parse(foundInPrefix.value)
+        //
+        //                if phoneNumber.notParsed() {
+        //                    inValidatedPhones.append(PhoneNumber(numberString: foundInPrefix.value, countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
+        //                }else{
+        //                    validatedPhones.append(phoneNumber)
+        //
+        //
+        //                    // lets keeeeep on with type extraction
+        //
+        //
+        //                }
+        //            } catch {
+        //
+        //                inValidatedPhones.append(PhoneNumber(numberString: foundInPrefix.value, countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
+        //            }
+        //        }
         
         
         // FROM https://zapier.com/blog/extract-links-email-phone-regex/
@@ -1058,9 +1172,9 @@ class NamedEntity {
             
             
             // Wrong version
-//            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
-//                phoneNumber.numberString.existIn(container: prefixHolder.value)
-//            })
+            //            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
+            //                phoneNumber.numberString.existIn(container: prefixHolder.value)
+            //            })
             
             if let foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
                 //                phoneNumber.numberString.existIn(container: prefixHolder.value, preprocess: true)
@@ -1116,10 +1230,10 @@ class NamedEntity {
             if var foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
                 invalidatedPhone.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0.5 )
             }).first{ // TODO  GRABBING THE FIRST WITH PREFIX , COULD LEAD TO AN ERROR EXTRACTING TYPE ..
-            
                 
                 
-            // POTENTIAL INVALID PHONES , CAN BE VALIDATED HERE , BUT WE ARE NOT RUNNING PHONE KIT TO EXTRACT COUNTRY FROM SO ..
+                
+                // POTENTIAL INVALID PHONES , CAN BE VALIDATED HERE , BUT WE ARE NOT RUNNING PHONE KIT TO EXTRACT COUNTRY FROM SO ..
                 // we found the phone in prefix
                 
                 //var validatedPhoneFromPrefix : PhoneNumber? = nil
@@ -1141,9 +1255,9 @@ class NamedEntity {
                     // no need to do a think
                 }
                 
-//            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
-//                invalidatedPhone.numberString.existIn(container: prefixHolder.value, preprocess: true, level: 0.8) // found this malformed phone in extracted prefixes
-//            }) {
+                //            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
+                //                invalidatedPhone.numberString.existIn(container: prefixHolder.value, preprocess: true, level: 0.8) // found this malformed phone in extracted prefixes
+                //            }) {
                 if foundInPrefix.key.existInArray(array: RecognitionTools.directPrefixes) {
                     phoneEntity.type = .direct
                 }else if foundInPrefix.key.existInArray(array: RecognitionTools.phonePrefixes) {
@@ -1160,8 +1274,8 @@ class NamedEntity {
                 
                 phoneEntity.phoneNumber = invalidatedPhone
                 resultHolder.append(phoneEntity)
-            
-            
+                
+                
             }else{
                 
                 // TODO : MAYBE REMOVE THIS BCZ RETURNING SOME BULLSHIT
@@ -1317,8 +1431,8 @@ extension String {
         }
         
         if preprocessed.elementsEqual(container.trimmedAndLowercased
-        .replacingOccurrences(of: " ", with: "")
-        .replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: ""))
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: ""))
         {
             return true
         }else{
@@ -1357,25 +1471,25 @@ extension String {
         
         /*
          if preprocessed.count > container.count {
-             if preprocessed.contains(container)
-             {
-                 return true
-             }else{
-                 return false
-             }
+         if preprocessed.contains(container)
+         {
+         return true
+         }else{
+         return false
+         }
          }else {
-             if container.contains(preprocessed)
-             {
-                 return true
-             }else{
-                 return false
-             }
+         if container.contains(preprocessed)
+         {
+         return true
+         }else{
+         return false
+         }
          }
          */
         
         
     }
-   
+    
     
     func stringContains(container: String, preprocess: Bool) -> Bool {
         var preprocessed = self

@@ -243,14 +243,14 @@ RecognitionTools.loadTitles(completion: {
             
             
             // remove special remable chars
-            
+
             testPrint(tag: "BC DATA BEFORE", title: " :: ", content: bcDataArray)
-            
+
             testPrint(tag: "", title: "OPERATION BEGIN", content: "")
-            
+
             // TODO : MAKE SURE YOU SPLIT PREFIXES FROM VALUES , FOR BVETTER RESULT
             RecognitionTools.preProcessRaw(raw: &mutableRaw , prefixedEntities : &prefixedEntities , bcDataArray: &bcDataArray, remove : true)
-            
+
             testPrint(tag: "preProcessRaw", title: "RESULT", content: prefixedEntities)
 
             testPrint(tag: "BC DATA AFTER", title: " :: ", content: bcDataArray)
@@ -264,8 +264,8 @@ RecognitionTools.loadTitles(completion: {
             // TODO : DONE - MAKE SURE YOU SPLIT PREFIXES FROM VALUES , FOR BVETTER RESULT
             // TODO : MAYBBEE REMOVE PHONES FROM DATA ARRAY
             extractPhones(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
-            
-            
+
+
             // lets preprocess data before continue
             RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
 
@@ -279,25 +279,27 @@ RecognitionTools.loadTitles(completion: {
             RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
 
             testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
-            
+
 
             RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
             ///////////////////////////////// @ ZONE
             // THIS IS MOVED HERE , BECASE WE NEED TO WORK ON ENTIRE BCDATA ARRAY
             var addressNamedEntity : AddressNamedEntity = AddressNamedEntity(value: "")
-            
+
             // we have NamedEntityHolder which contains , Validated PHONES , so lets extract Country in those phones and put dem in add
-            
+
             addressNamedEntity.extractZipCode(bcDataArray: &bcDataArray, namedEntityHolder: &namedEntityHolder, prefixes: prefixedEntities)
-            
+
             let dispatchGroup = DispatchGroup()
             dispatchGroup.enter()
-            addressNamedEntity.extractCityORNDState(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities, completion: {success in
+            addressNamedEntity.extractCityORNDState(bcDataArray : &bcDataArray , completion: {success in
                 print("City & states extraction done")
                 dispatchGroup.leave()
             })
             
             // now lets compute @
+             
+            
             addressNamedEntity.extractAddress(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities)
             
             
@@ -310,6 +312,7 @@ RecognitionTools.loadTitles(completion: {
             print(addressNamedEntity.state)
             print(addressNamedEntity.city)
             print(addressNamedEntity.street)
+            print(addressNamedEntity.adress_second)
             print(addressNamedEntity.country_code)
             
             print(addressNamedEntity.country)
