@@ -75,7 +75,7 @@ class AddressNamedEntity: NamedEntity {
         // lets Grab PHONES from namedEntity
         let phones = namedEntityHolder
             .filter({$0.type == .phone || $0.type == .mobile || $0.type == .fax || $0.type == .direct })
-            .map({$0 as! PhoneNumberNamedEntity}) // hope this does not CRASH
+            .map({$0 as? PhoneNumberNamedEntity}) // hope this does not CRASH
         // this should be of type [PhoneNamedEntity]
         
         // as precaution : lets search for prefix , in PrefixHolder // IGNORE THIS 4 NOW
@@ -89,7 +89,7 @@ class AddressNamedEntity: NamedEntity {
         
         phones.forEach { (phoneNumber) in
             
-            if let phoneNumberKit = phoneNumber.phoneNumber {
+            if let phoneNumberKit = phoneNumber?.phoneNumber {
                 if !phoneNumberKit.notParsed() {
                     // we got a parsed value , lets get phone prefix
                     //countryCode.append(phoneNumberKit.countryCode)
@@ -191,6 +191,7 @@ class AddressNamedEntity: NamedEntity {
                                 self.street = line
                                 self.country = countryNamedEntity.countryEntity?.countryName ?? ""
                                 self.country_code = countryNamedEntity.countryEntity?.countryPrefix
+                                self.zipRegex = countryNamedEntity.countryEntity?.zipREX ?? ""
                                 self.zip = subItem
                             }
                         }
@@ -220,6 +221,7 @@ class AddressNamedEntity: NamedEntity {
                 if self.country.isEmpty {
                     self.country = countryNamedEntity.countryEntity?.countryName ?? ""
                     self.country_code = countryNamedEntity.countryEntity?.countryPrefix
+                    self.zipRegex = countryNamedEntity.countryEntity?.zipREX ?? ""
                 }
             }
             
@@ -257,54 +259,59 @@ class AddressNamedEntity: NamedEntity {
         }
         
         
-        if self.street.contains(self.city) {
+        if self.street.stringContains(container:self.city, preprocess: true){
             self.street = self.street.replacingOccurrences(of: self.city, with: "", options: .caseInsensitive)
         }
         
-        if self.adress_second.contains(self.city) {
+        if self.adress_second.stringContains(container:self.city, preprocess: true){
             self.adress_second = self.adress_second.replacingOccurrences(of: self.city, with: "", options: .caseInsensitive)
         }
         
         
-        if self.street.contains(self.state) {
+        if self.street.stringContains(container:self.state, preprocess: true){
             self.street = self.street.replacingOccurrences(of: self.state, with: "", options: .caseInsensitive)
         }
         
-        if self.adress_second.contains(self.state) {
+        if self.adress_second.stringContains(container:self.state, preprocess: true){
             self.adress_second = self.adress_second.replacingOccurrences(of: self.state, with: "", options: .caseInsensitive)
         }
         
         
-        if self.street.contains(self.country) {
+        if self.street.stringContains(container:self.country, preprocess: true){
             self.street = self.street.replacingOccurrences(of: self.country, with: "", options: .caseInsensitive)
         }
         
-        if self.adress_second.contains(self.country) {
+        if self.adress_second.stringContains(container: self.country, preprocess: true){
             self.adress_second = self.adress_second.replacingOccurrences(of: self.country, with: "", options: .caseInsensitive)
         }
         
         
-        // now try with PO BOX and if found , put IT in alterv
-        
-        var poBoxAddr = self.street.getPOBoxAddress()
-        if poBoxAddr.count > 1 {
-            poBoxAddr = poBoxAddr.filter({
-                if $0.count > 2 {
-                    if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
-                        poBoxAddr.remove(at: dataIndex)
-                        return true
-                    }
-                }else{
-                    return false
-                }
-                return false
-            })
+        if self.street.stringContains(container: self.adress_second, preprocess: true){
+            self.street = self.street.replacingOccurrences(of: self.adress_second, with: "", options: .caseInsensitive)
         }
         
-        poBoxAddr.forEach { (poBoxElement) in
-            self.street = self.street.replacingOccurrences(of: poBoxElement, with: "" ,options: .caseInsensitive)
-            self.adress_second = poBoxElement
-        }
+        
+//        // now try with PO BOX and if found , put IT in alterv
+//
+//        var poBoxAddr = self.street.getPOBoxAddress()
+//        if poBoxAddr.count > 1 {
+//            poBoxAddr = poBoxAddr.filter({
+//                if $0.count > 2 {
+//                    if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
+//                        poBoxAddr.remove(at: dataIndex)
+//                        return true
+//                    }
+//                }else{
+//                    return false
+//                }
+//                return false
+//            })
+//        }
+//
+//        poBoxAddr.forEach { (poBoxElement) in
+//            self.street = self.street.replacingOccurrences(of: poBoxElement, with: "" ,options: .caseInsensitive)
+//            self.adress_second = poBoxElement
+//        }
     }
     
     
@@ -385,50 +392,76 @@ class AddressNamedEntity: NamedEntity {
         
         // this treat the case of second address // OR EMPTY STREET
         for (index, potentialAddress) in bcDataArray.enumerated() {
-            let fetchAddressPrefixes = RecognitionTools.addressNamesSuffix.filter({potentialAddress.trimmedAndLowercased.contains($0.trimmedAndLowercased)})
             
-            print("\(fetchAddressPrefixes)")
             
-            // now try to extract POBOX FROM POTENTIAL with PO BOX and if found , put IT in alterv
-            if fetchAddressPrefixes.count > 0 {
-                var poBoxAddr = potentialAddress.getPOBoxAddress()
-                if poBoxAddr.count > 1 {
-                    poBoxAddr = poBoxAddr.filter({
-                        if $0.count > 2 {
-                            if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
-                                poBoxAddr.remove(at: dataIndex)
-                                return true
+            let fetchAddressPrefixes = RecognitionTools.addressNamesSuffix.filter({potentialAddress.trimmedAndLowercased.starts(with : $0.trimmedAndLowercased)})
+            
+            
+            potentialAddress.components(separatedBy: " ").filter({$0.existInArray(array : namedEntityHolder.map({$0.value}))})
+            
+            //RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: firstElement, preprocess: true, ratio: 0.2)})
+            let phoneTest = potentialAddress.matchingStrings(regex: RecognitionTools.numberPhoneRegexFromString)
+                .first?.sorted(by: {$0.count > $1.count }).first(where: {$0.count > 8})
+            
+            if potentialAddress.isAllNumber || potentialAddress.countWords() < 2 && potentialAddress.count < 2 || potentialAddress.matchingStrings(regex: RecognitionTools.emailRegex).count > 0 && potentialAddress.matchingStrings(regex: RecognitionTools.websiteRegex).count > 0 ||
+                //( potentialAddress.existInArray(array: RecognitionTools.lowerCasejobTitles))
+                //potentialAddress.components(separatedBy: " ").filter({$0.existInArray(array: RecognitionTools.lowerCasejobTitles , level: 0.85)}).count > 0
+                potentialAddress.components(separatedBy: " ").filter({$0.existInArray(array : namedEntityHolder.map({$0.value}))}).count > 0 ||
+                phoneTest != nil
+            
+            {
+                
+                print("VALUE : \(potentialAddress)   NOT VALID ADDRESS")
+            
+            }else{
+                
+                
+                print("\(fetchAddressPrefixes)")
+                
+                // now try to extract POBOX FROM POTENTIAL with PO BOX and if found , put IT in alterv
+                if fetchAddressPrefixes.count > 0 || potentialAddress.contains(self.country) || potentialAddress.contains(self.city) || potentialAddress.contains(self.state) || potentialAddress.contains(self.zip) {
+                    var poBoxAddr = potentialAddress.getAdvancedPOBoxAddress()
+                    if poBoxAddr.count > 0 {
+                        poBoxAddr = poBoxAddr.filter({
+                            if $0.count > 2 && $0.containsNumbers() {
+                                if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
+                                    poBoxAddr.remove(at: dataIndex)
+                                    return true
+                                }
+                            }else{
+                                return false
                             }
-                        }else{
                             return false
+                        })
+                    }
+                    
+
+                    poBoxAddr.forEach { (poBoxElement) in
+                        if poBoxElement.count > 3 {
+                            bcDataArray[index] = potentialAddress.replacingOccurrences(of: poBoxElement, with: "",options: .caseInsensitive)
+                            self.adress_second = poBoxElement
                         }
-                        return false
-                    })
-                }
-                
-                poBoxAddr.forEach { (poBoxElement) in
-                    bcDataArray[index] = potentialAddress.replacingOccurrences(of: poBoxElement, with: "",options: .caseInsensitive)
-                    self.adress_second = poBoxElement
-                }
-                
-                
-                if self.street.distance(between: potentialAddress) > 0.7 {
-                    // we already jave the same lets put it in self.second add
+                    }
                     
-                    if self.adress_second.isEmpty {
+                    
+                    if self.street.distance(between: potentialAddress) > 0.7 {
+                        // we already jave the same lets put it in self.second add
+                        
+                        if self.adress_second.isEmpty {
+                            self.adress_second = potentialAddress
+                        } // else // no place for it
+                        
+                        
+                    } else if self.street.isEmpty {
+                        // IDK
+                        self.street = potentialAddress
+                    }else if self.adress_second.isEmpty {
+                        // street is already take
                         self.adress_second = potentialAddress
-                    } // else // no place for it
+                    }
                     
-                    
-                } else if self.street.isEmpty {
-                    // IDK
-                    self.street = potentialAddress
-                }else {
-                    // street is already take
-                    self.adress_second = potentialAddress
+                    processStreet()
                 }
-                
-                processStreet()
             }
         }
     }
@@ -644,6 +677,10 @@ class NamedEntity {
              */
         }
         
+        if 0...5 ~= position {
+            score += 10
+        }
+        
         // this needs prefix to be removed
         if 2...5 ~= tokensValue.count {
             //print("2...3 ~= tokensValue.count")
@@ -678,13 +715,13 @@ class NamedEntity {
         
         var containsNamePrefixes = false
         while RecognitionTools.lowerCaseNamesPrefixes.contains(tokensValue.first?.trimmedAndLowercased ?? "") {
-            containsNamePrefixes.toggle()
+            containsNamePrefixes = true
             tokensValue.removeFirst()
         }
         // TODO : DONE need to check for DR. PROF. and remove them from string
         if containsNamePrefixes {
             value = tokensValue.joined(separator: " ")
-            score += 30
+            score += 40
         }
         
         
@@ -1176,9 +1213,9 @@ class NamedEntity {
             //                phoneNumber.numberString.existIn(container: prefixHolder.value)
             //            })
             
-            if let foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
+            if var foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
                 //                phoneNumber.numberString.existIn(container: prefixHolder.value, preprocess: true)
-                phoneNumber.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0.5)
+                phoneNumber.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0.2)
             }).first{
                 // lets guess the phone type with our enum entity type
                 
@@ -1188,6 +1225,16 @@ class NamedEntity {
                 
                 // if PhoneNumberKit , is correctly validated , with a known type , take it , else
                 // do some process
+                
+                
+                
+                let anotherTryPreciseTry = prefixes.filter({ (prefixHolder) -> Bool in
+                    phoneNumber.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0)
+                }).first
+                
+                if anotherTryPreciseTry != nil {
+                    foundInPrefix = anotherTryPreciseTry ?? foundInPrefix
+                }
                 
                 if foundInPrefix.key.existInArray(array: RecognitionTools.directPrefixes , preprocess: true, level: 0.8) {
                     phoneEntity.type = .direct

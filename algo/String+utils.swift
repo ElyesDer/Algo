@@ -9,9 +9,6 @@
 import Foundation
 
 extension URL {
-    /// second-level domain [SLD]
-    ///
-    /// i.e. `msk.ru, spb.ru`
     var SLD: String? {
         return host?.components(separatedBy: ".").suffix(2).joined(separator: ".")
     }
@@ -24,6 +21,27 @@ extension StringProtocol {
 }
 
 extension String {
+    
+    
+    var stripped: String {
+        let okayChars =
+            CharacterSet.alphanumerics
+            .union(CharacterSet.alphanumerics)
+            .union(CharacterSet.capitalizedLetters)
+            .union(CharacterSet.whitespacesAndNewlines)
+            .union(CharacterSet.uppercaseLetters)
+//            .union(CharacterSet.punctuationCharacters)
+            .union(CharacterSet(charactersIn: ":/-_\\+,;()&\"."))
+        return String(self.unicodeScalars.filter{okayChars.contains($0) })
+        
+        //rangeOfCharacter(from: CharacterSet.decimalDigits.inverted)
+//        return rangeOfCharacter(from: okayChars) == nil
+    }
+    
+    
+    var withoutSpecialCharacters: String {
+        return self.components(separatedBy: CharacterSet.symbols).joined(separator: "")
+    }
     
     var preprocessPhoneKit : String {
         return self.trimmedAndLowercased
@@ -136,6 +154,29 @@ extension String {
     }
     func getPOBoxAddress() -> [String]  {
         if let regex = try? NSRegularExpression(pattern: "([p|P][\\s]*[o|O][\\s]*[b|B][\\s]*[o|O][\\s]*[x|X][\\s]*[a-zA-Z0-9]*|\\b[P|p]+(OST|ost|o|O)?\\.?\\s*[O|o|0]+(ffice|FFICE)?\\.?\\s*[B|b][O|o|0]?[X|x]|\\b[(B|b)|(BO|Bo|bo)|(Box|box)]*[p|P|Postal|postal]+\\.?\\s+[#]?(\\d+)*(\\D+))", options: .caseInsensitive)
+        {
+            let string = self as NSString
+            
+            return regex.matches(in: self, options: [], range: NSRange(location: 0, length: string.length)).map {
+                string.substring(with: $0.range).replacingOccurrences(of: "", with: "").lowercased()
+            }
+        }
+        return []
+    }
+    
+    
+    func getAdvancedPOBoxAddress() -> [String]  {
+        
+        /*
+         V1 : "(?i)^\\s*(.*((p|post)[-.\\s]*(o|off|office)[-.\\s]*(b|box|bin)[-.\\s]*)|.*((p|post)[-.\\s]*(o|off|office)[-.\\s]*)|.*((p|post)[-.\\s]*(b|box|bin)[-.\\s]*)|(box|bin)[-.\\s]*)(#|n|num|number)?\\s*\\d+"
+         
+         
+    V2 : Enhanced , remove string from stirng
+         (((p|post)[-.\s]*(o|off|office)[-.\s]*(b|box|bin)[-.\s]*)|.*((p|post)[-.\s]*(o|off|office)[-.\s]*)|.*((p|post)[-.\s]*(b|box|bin)[-.\s]*)|(box|bin)[-.\s]*)(#|n|num|number)?\s*\d+
+        */
+        
+        
+        if let regex = try? NSRegularExpression(pattern: "(((p|post)[-.\\s]*(o|off|office)[-.\\s]*(b|box|bin)[-.\\s]*)|.*((p|post)[-.\\s]*(o|off|office)[-.\\s]*)|.*((p|post)[-.\\s]*(b|box|bin)[-.\\s]*)|(box|bin)[-.\\s]*)(#|n|num|number)?\\s*\\d+", options: .caseInsensitive)
         {
             let string = self as NSString
             
