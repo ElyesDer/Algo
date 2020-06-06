@@ -21,20 +21,56 @@ raw = "Tel : 24608993 / 24 655 509"
 
 var raws = [
     
+    "~ Inceptio\nKarim BAHI\nCoach de groupes\n& organisations\n5, Rue 7214 - EI Menzah 9 A - 1013 Tunis - Tunisie\n+ 216 21 57 85 57• E-mail : kbahi@inceptio.tn",
+    
+    "ELECTRIFY\nHaythem Chedid\nNETWORK\nCOO\n+33 7 58 17 16 53\n+216 25 99 66 93\nwww.electrify.network\nhaythem.chedid@electrify.network\n65 Boulevard Vaugirard, PARIS, FRANCE",
+    
+    
+    "SERCO\nSocieté d' expertise, de revision comptable et d'organisation\nMembre de 'Ordre des Experts Comptables de Tunisie\nKais ZOUARI\nkais.zouari@serco.tn\nPartner\nSERCO Tunis\n11, rue d'irak,\nSERCO Stax\n1002 Tunis - Tunisie\nImmeuble\nEl Borj - Rue Ennacirio, B2-2\n3027 Sfax El\nJodida - Tunisie\nPhone : +216 71 84 94 47\nPhone : +216 74 40 05 24\nMob. : +216 98 32 05 66\nMob. : +216 98 32 05 66\nFox: +216 71 792 021\nFax : +216 74 40 05 23\nwww.serco.in",
+    
+    
+    "TEAMLOG\nDEPARTEMENT MULTIMEDIA\nPASCAL ADAM\nINGENIEUR DAFFAIRES\n4, Allée Moulin Berger - 69130 Ecully\nTel. 04 72 52 25 52\nPortable 06 74 68 52 93 - Fax 04 72 52 25 50\nPascal.Adam@teamlog.fr",
+    
+    
+    "WE\nCAPTURE\nWHAT\nMOVES\nDr Eric Angelini\nVP Global Regulatory Affairs\n& Products Safety\nMANE\nTel. direct line + 33 4 92 42 49 01\nFax + 33 4 93 42 54 25\nMobile + 33 6 82 93 81 75\n620, route de Grasse\nF-06620 Le Bar-sur-Loup\neric.angelini@mane.com\nwww.mane.com\n",
+    
+    
+    "CAYMAN ISLANDS HELICOPTERS\nPL GENOT\nHELICOPTERE\nJerome Begot\nP.O. Box 738, Grand Cayman, KY1-1103,\nCayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR\ncihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n",
+    
+    "Med Cheker Amdouni\nGraphic Designer\nPixartprinting SpA\nImmeuble Les 2 Lacs, Bloc 9,\nRue du Lac de Constance,\norinting\nLes Berges du Lac 1053,\nTunis\nmedcheker.amdouni@pixartprinting.com\n8\n",
+    
+    "alister\nAVOCATS\nProf. Dr. Jochen BAUERREIS\nAvocat & Rechtsanwalt\nAvocat spécialise en droit des relations internationales\nDirecteur du Magistere Juristes d'Affaires Franco-Allemands\n11, rue du Parc\n67205 Strasbourg. Oberhausbergen\nTel. : +33 (0)3 68 00 14 10\nFax : +33 (0)3 68 00 14 11\njochen.bauerreis@alister-avocats.com\n",
+    
     
     "DeM\nAsad Zahur\nChairman\naz@hnmglobal.co\n1603 Jumeirah Business Centre 4 ILT N cluster, PO BOX 454381 DUBAI, UAE\nTel: +9714-4304314, Fax: +9714-4304574\n",
     
     
-    "Med Cheker Amdouni\nGraphic Designer\nPixartprinting SpA\nImmeuble Les 2 Lacs, Bloc 9,\nRue du Lac de Constance,\norinting\nLes Berges du Lac 1053,\nTunis\nmedcheker.amdouni@pixartprinting.com\n8\n",
     
-    "WE\nCAPTURE\nWHAT\nMOVES\nDr Eric Angelini\nVP Global Regulatory Affairs\n& Products Safety\nMANE\nTel. direct line + 33 4 92 42 49 01\nFax + 33 4 93 42 54 25\nMobile + 33 6 82 93 81 75\n620, route de Grasse\nF-06620 Le Bar-sur-Loup\neric.angelini@mane.com\nwww.mane.com\n",
+    "Seifeddine Khelifi\nExpert Senior\nDéveloppement des Ventes\nboredoo\nImmeuble Zenith, Les Jardins du Lac\n1053, Les Berges du Lac, Tunis, Tunisie\nM : +216 22 126 4661T : +216 36 126 466\nseifeddine.khelifi@ooredoo.tn\n",
     
-     "alister\nAVOCATS\nProf. Dr. Jochen BAUERREIS\nAvocat & Rechtsanwalt\nAvocat spécialise en droit des relations internationales\nDirecteur du Magistere Juristes d'Affaires Franco-Allemands\n11, rue du Parc\n67205 Strasbourg. Oberhausbergen\nTel. : +33 (0)3 68 00 14 10\nFax : +33 (0)3 68 00 14 11\njochen.bauerreis@alister-avocats.com\n",
+    
+    
+    
+    
+    
+    "nWael Mallek\nMEDLINK\nGeneral Manager of\nTunisian operations\nHealthcare\nMobile Applications\nwaelm@360medlink.com\nmobile. +216 98 70 92 14\noffice. +1 514 448 2175\nwww.360medlink.com\nMontreal - New York I Paris I Barcelona\nTunis\n",
+    
+    "Michel Auclair\nAssocie\nco\nauclair dupont\nCONSEIL EN ENTREPRISES\nTel: (687) 24 10 30\nGrand Theatre\nFax: (687) 24 10 45\n0 u0 SIEN attes\nmail michelaudair@auclairdupont.nc\nanATo2 ess4s Noume Cece\nwww.aucairdupont.nc\n",
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
     
     "Ecole d e\nManagement\nStrasbourg\nUNIVERSITE DE STRASBOURG\nWilfrid AZAN\nMattre de conferences\nen Sciences de gestion\n61 avenue de la Foret-Noire\n67085 Strasbourg Cedex\nTel. +33 (0)3 68 85 89 25\nazancunistra.i\nwww.em-strasbourg.eu\n",
     
     
-    "Seifeddine Khelifi\nExpert Senior\nDéveloppement des Ventes\nboredoo\nImmeuble Zenith, Les Jardins du Lac\n1053, Les Berges du Lac, Tunis, Tunisie\nM : +216 22 126 4661T : +216 36 126 466\nseifeddine.khelifi@ooredoo.tn\n",
+    
     
     "will be group\nBernard Attali\nPrésident/Conseil en investissement financier\nMembre de la CNCIF D012068\nExpert financier membre de la CNCEF\nGOUVEINANCL & VALEUES\nbernard.attali@willbegroup.com\n+33(0)7 86 76 69 74\n+33(0)1 42 33 13 33\nChargé d'enseignement\nEDHEC (Lille)\nESSEC\nPARIS 22 RUE DE LARCADE\nIAE (Aix-en-Provence)\n75008 - T. 33(0)1 42 33 13 33\nParis 2 Panthéon ASSAS\nGENEVA RUE DE LATHENEE 40\n1206 - T 41(0) 22 588 65 30\nBRUSSELS 209A, AVENUE LOUISE\n1050 - T. • 32 (0) 2 627 55 70\ngouval.com\n",
     
@@ -53,7 +89,6 @@ var raws = [
     
     
     
-    "TEAMLOG\nDEPARTEMENT MULTIMEDIA\nPASCAL ADAM\nINGENIEUR DAFFAIRES\n4, Allée Moulin Berger - 69130 Ecully\nTel. 04 72 52 25 52\nPortable 06 74 68 52 93 - Fax 04 72 52 25 50\nPascal.Adam@teamlog.fr",
     
     
     "Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
@@ -65,17 +100,6 @@ var raws = [
     "levio\nAFFAIRES ET TECHNOLOGIES\nJonathan Chouinard\nConseiller stratégique\n1015, Av Wilfrid-Pelletier, local 530\nChargé de projet\nQuébec (Québec) G1W 0C4\njonathan.chouinard@levio.ca\nT 418 914-3623\nwww.levio.ca\nC 418 931-8789\n",
     
     
-    "CAYMAN ISLANDS HELICOPTERS\nPL GENOT\nHELICOPTERE\nJerome Begot\nP.O. Box 738, Grand Cayman, KYI-1103,\nCayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR\ncihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n",
-    
-    
-    
-    
-    
-    
-    
-    
-    "nWael Mallek\nMEDLINK\nGeneral Manager of\nTunisian operations\nHealthcare\nMobile Applications\nwaelm@360medlink.com\nmobile. +216 98 70 92 14\noffice. +1 514 448 2175\nwww.360medlink.com\nMontreal - New York I Paris I Barcelona\nTunis\n",
-    
     
     
     "WILL\nr. Droit Creatif - Azan & Associes\nWilliam Azan\nAvocat Associé\n92, Avenue de Saint-Mandé - 75012 PARIS\nTel.: 33(0)1 42 56 08 20 - Port. : 06 86 86 32 50 william.azan@uwill.fr\n",
@@ -86,7 +110,7 @@ var raws = [
     
     
     
-    "Michel Auclair\nAssocie\nco\nauclair dupont\nCONSEIL EN ENTREPRISES\nTel: (687) 24 10 30\nGrand Theatre\nFax: (687) 24 10 45\n0 u0 SIEN attes\nmail michelaudair@auclairdupont.nc\nanATo2 ess4s Noume Cece\nwww.aucairdupont.nc\n",
+    
     
     
     
@@ -235,7 +259,8 @@ RecognitionTools.loadTitles(completion: {
     success in
     if success {
         raws.forEach { (raw) in
-            var bcDataArray = raw.split(separator: "\n").map { String($0) }
+            var bcDataArray = raw.split(separator: "\n").map { String($0).stripped }
+            
             var namedEntityHolder : [NamedEntity] = []
             var prefixedEntities : [PrefixHolder] = []
             var mutableRaw = raw
@@ -314,19 +339,25 @@ RecognitionTools.loadTitles(completion: {
             print(addressNamedEntity.street)
             print(addressNamedEntity.adress_second)
             print(addressNamedEntity.country_code)
-            
             print(addressNamedEntity.country)
             
             
            
             
             ///////////////////////////////// END @ ZONZ
-            
+            testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
             namedEntityHolder.forEach { (named) in
                 print("Extracted \(named.type) : \(named.value)  - \(named.score)")
             }
             
-            testPrint(tag: "DATA ARRAY", title: "DAATA", content: bcDataArray)
+            
+            RecognitionTools.postProcessResult (bcDataArray : &bcDataArray, namedEntityHolder : &namedEntityHolder)
+            
+            
+            testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
+            namedEntityHolder.forEach { (named) in
+                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
+            }
             
             
             testPrint(tag: "", title: "OPERATION END", content: "")
@@ -559,6 +590,31 @@ func extractAdress(bcDataArray : inout [String] , namedEntityHolder : inout [Nam
 //******************************       PROCESS         ******************************//
 
 class RecognitionTools {
+    
+    
+    
+    static func postProcessResult (bcDataArray : inout [String] , namedEntityHolder: inout [ NamedEntity]){
+        var resultEntityHolder : [ NamedEntity] = []
+        // remove duplicate
+        
+        namedEntityHolder.forEach { (resultEntity) in
+            if resultEntity.score > -10 && !resultEntityHolder.contains(where: {$0.value == resultEntity.value}){
+                
+                
+                resultEntity.value = resultEntity.value.trimmingCharacters(in: .punctuationCharacters)
+                resultEntity.value = resultEntity.value.trimmed
+                
+                
+                resultEntityHolder.append(resultEntity)
+            }
+        }
+        
+        namedEntityHolder = resultEntityHolder
+        
+        // entity with score < - 10 should be removed
+        
+    }
+    
     
     
     static func loadStatesWithPrefix(prefix : String, completion : @escaping (_ : Bool) -> ()) {
@@ -855,7 +911,11 @@ class RecognitionTools {
                     
                     
                     // FOR SUFFIX
-                    newSeparation = line.suffix(position - prefixeBuilder.count - 1)
+                    if (position > prefixeBuilder.count - 1) {
+                        newSeparation = line.suffix(position - prefixeBuilder.count - 1)
+                    }else{
+                        newSeparation = line.suffix(prefixeBuilder.count - position)
+                    }
                     separatorOccurenceByPoint = newSeparation.components(separatedBy:":")
                     //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
                     if separatorOccurenceByPoint.count == 2 { // this time we should have only TWO
@@ -913,7 +973,7 @@ class RecognitionTools {
                         && !firstElement.existInArray(array: prefixesEntities.map({$0.key}))
                     {
                         
-                        if firstElement.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}) , preprocess: true) {
+                        if RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: firstElement, preprocess: true, ratio: 0.2)}) {
                             
                             if let foundAnotherPrefix = removedFirst.filter({ (element) -> Bool in
                                 element.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}))
@@ -932,7 +992,7 @@ class RecognitionTools {
                                 bcDataArray[index] = bcDataArray[index].replacingFirstOccurrenceOf(target: firstElement, withString: "")
                             }
                             
-                        }else if firstElement.existInArray(array: RecognitionTools.bcEntityPrefixes.flatMap({$0}) , preprocess: true) {
+                        }else if RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: firstElement, preprocess: true, ratio: 0.2)}) {
                             
                             if let foundAnotherPrefix = removedFirst.filter({ (element) -> Bool in
                                 element.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}))
@@ -1108,11 +1168,21 @@ class RecognitionTools {
     static var numberSinglePhoneRegexWithNoSpecial = "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$"
     
     static var businessCardPrefixes = [
-        emailPrefixes,
+        bcEmailPrefixes,
         faxPrefixes,
         mobilePrefixes,
         phonePrefixes,
         directPrefixes
+    ]
+    
+    static var bcEmailPrefixes = [
+        "e",
+        "email",
+        "e-mail",
+        "mail",
+        "e:",
+        "m:",
+        "contact"
     ]
     
     static var removableNamesSpecial = [",","@","&"]
@@ -1727,10 +1797,6 @@ class RecognitionTools {
     ]
     
     static var emailPrefixes = [
-        "e",
-        "email",
-        "e-mail",
-        "mail",
         "sales",
         "info",
         "enquiries",
@@ -2156,7 +2222,7 @@ class RecognitionTools {
         CountryPhonePrefix(countryPrefix:"CM", phonePrefix: "237", countryName: "Cameroon",zipREX: ""),
         CountryPhonePrefix(countryPrefix:"CA", phonePrefix: "1", countryName: "Canada",zipREX: "[ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z][ ]?\\d[ABCEGHJ-NPRSTV-Z]\\d"),
         CountryPhonePrefix(countryPrefix:"CV", phonePrefix: "238", countryName: "Cape Verde",zipREX: ""),
-        CountryPhonePrefix(countryPrefix:"KY", phonePrefix: "345", countryName: "Cayman Islands",zipREX: ""),
+        CountryPhonePrefix(countryPrefix:"KY", phonePrefix: "345", countryName: "Cayman Islands",zipREX: "KY[1-3]-\\d{4}"),
         CountryPhonePrefix(countryPrefix:"CF", phonePrefix: "236", countryName: "Central African Republic",zipREX: ""),
         CountryPhonePrefix(countryPrefix:"TD", phonePrefix: "235", countryName: "Chad",zipREX: ""),
         CountryPhonePrefix(countryPrefix:"CL", phonePrefix: "56", countryName: "Chile",zipREX: ""),
