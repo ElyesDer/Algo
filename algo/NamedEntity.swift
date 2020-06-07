@@ -554,12 +554,17 @@ class AddressNamedEntity: NamedEntity {
     
 }
 
-class NamedEntity {
+class NamedEntity : Equatable {
+    static func == (lhs: NamedEntity, rhs: NamedEntity) -> Bool {
+        return lhs.position == rhs.position
+    }
+    
     var value : String = ""
     var type : EntityType = .none
     var score = 0
     
     var position : Int = 0
+    var removed = false
     
     
     var validatedPhones : [PhoneNumber] = []
@@ -596,7 +601,7 @@ class NamedEntity {
         matches.forEach { (item) in
             item.forEach { (subItem) in
                 if(subItem.count > 3 && !subItem.existInArray(array: holder.map({$0.value}),level: 0.98)){
-                    holder.append(NamedEntity(value: subItem, type: .website) )
+                    holder.append(NamedEntity(value: subItem, type: .website , position: position) )
                 }
             }
         }
@@ -614,7 +619,7 @@ class NamedEntity {
         matches.forEach { (item) in
             item.forEach { (subItem) in
                 if subItem.isValidEmail() {
-                    holder.append(NamedEntity(value: subItem, type: .email) )
+                    holder.append(NamedEntity(value: subItem, type: .email , position: position ) )
                 }
             }
         }
@@ -626,7 +631,7 @@ class NamedEntity {
             for item in lastChanceEmail {
                 if item.isValidEmail() {
                     // yes this could be an eamil
-                    holder.append(NamedEntity(value: item, type: .email))
+                    holder.append(NamedEntity(value: item, type: .email , position: position))
                 }
             }
         }
@@ -655,12 +660,15 @@ class NamedEntity {
             return self
         }
         
-        if !value.lengthBetween(l1: 3, l2: 35) {
-            self.score -= 100
-            return self
+        if !value.lengthBetween(l1: 3, l2: 30) {
+            self.score -= 10
+            //return self
         }
         
-        
+        if value.count > 50 {
+            self.score -= 10
+            return self
+        }
         
         if value.existInArray(array: namedEntityHolder.map({$0.value}),level: 0.9 ) {
             self.score -= 100
@@ -748,8 +756,13 @@ class NamedEntity {
                 }
             }
             
-            if element.trimmedAndLowercased.existInArray(array: RecognitionTools.lowerCasejobTitles, level: 0.85)  {
-                score -= 40
+//            if element.trimmedAndLowercased.existInArray(array: RecognitionTools.lowerCasejobTitles, level: 0.85)  {
+//                score -= 40
+//            }
+            if element.count > 4 {
+                if element.stringExistsInArray(array: RecognitionTools.lowerCasejobTitles) {
+                    score -= 30
+                }
             }
             
             if element.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) {
@@ -957,22 +970,45 @@ class NamedEntity {
         
         let tokensValue = value.components(separatedBy: " ")
         
+        
+        
         if value.count < 2 {
+            score -= 100
             return self
         }
         
         // remove white space so it detects correctly
         if  value.replacingOccurrences(of: " ", with: "").description.isAllNumber {
+            score -= 100
             return self
         }
         
         if value.existInArray(array: namedEntityHolder.map({$0.value}),preprocess: true) {
+            score -= 100
             return self
         }
         
         // todo : check if email , is valid ...
         if value.isValidEmail() {
+            score -= 100
             return self
+        }
+        
+        
+        
+        let howManySeparation = value.countWords(separtedBy: ",")
+        if howManySeparation > 3 {
+            score -= 100
+            return self // dealing with @ // not vali
+        }else{
+            score -= 20
+        }
+        
+        
+        if value.containsNumbers() {
+            score -= 50
+            // NOT ELIMINATING BCZ OCR COULD READ WRONT
+            // BUT HELP TO ELIMINTATE FROM SECOND TITLE
         }
         
         switch tokensValue.count {
@@ -1014,9 +1050,18 @@ class NamedEntity {
                 // second part can be lower case
             }
             
-            if RecognitionTools.lowerCasejobTitles.contains(element.trimmedAndLowercased)  {
-                score += 40
+            
+            if element.count > 4 {
+                if element.stringExistsInArray(array: RecognitionTools.lowerCasejobTitles) {
+                    score += 40
+                }else{
+                    score -= 20
+                }
             }
+            
+//            if RecognitionTools.lowerCasejobTitles.contains(element.trimmedAndLowercased)  {
+//                score += 40
+//            }
             
             //            if RecognitionTools.businessCardPrefixes.flatMap({$0}).contains(where: {$0 == element.trimmedAndLowercased}){
             //
@@ -1050,8 +1095,8 @@ class NamedEntity {
         //        }
         
         
-        
-        let upperBound = score >= 50 ? 2 : 1
+        // TODO , get position of last title , if this is next , than probablty a title
+        let upperBound = score >= 30 ? 2 : 1
         
         if fullNamePosition != -1 && 1...upperBound ~= abs(position-fullNamePosition)  {
             score += 30
@@ -1128,12 +1173,14 @@ class NamedEntity {
         // FROM https://zapier.com/blog/extract-links-email-phone-regex/
         
         // more robust extraction between special chars : (?:(?:\+?([1-9]|[0-9][0-9]|[0-9][0-9][0-9])\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([0-9][1-9]|[0-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?
+        
+        value = value.trimmingCharacters(in: .punctuationCharacters)
+        value = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         var matches = value.matchingStrings(regex: RecognitionTools.numberPhoneRegexFromString)
         matches.forEach { (arrayOfString) in
-            print("Validating \(arrayOfString)")
             
             var firstPhoneNumber = arrayOfString[0]
-            
             
             if firstPhoneNumber.count > 2 {
                 do {
@@ -1148,14 +1195,13 @@ class NamedEntity {
                     /*
                      WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
                      */
-                    
+                    print("Validating \(firstPhoneNumber.preprocessPhoneKit)")
                     let phoneNumber = try phoneNumberKit.parse(firstPhoneNumber.preprocessPhoneKit)
                     
                     if phoneNumber.notParsed() {
                         inValidatedPhones.append(PhoneNumber(numberString: arrayOfString[0], countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
                     }else{
                         validatedPhones.append(phoneNumber)
-                        
                     }
                 } catch {
                     
@@ -1172,9 +1218,10 @@ class NamedEntity {
                 if !validatedPhones.contains(where: { (phoneNumber) -> Bool in
                     phoneNumber.numberString == item
                 }) {
-                    print("Second Validating \(item)")
+                    
                     if item.count > 2 {
                         do {
+                            print("Second Validating \(item.preprocessPhoneKit)")
                             let phoneNumber = try phoneNumberKit.parse(item.preprocessPhoneKit)
                             validatedPhones.append(phoneNumber)
                         } catch {
@@ -1190,7 +1237,7 @@ class NamedEntity {
         if value.preprocess.isPhoneNumber && !value.existInArray(array: validatedPhones.map({$0.numberString})) {
             // we found a potential phone composed of 12398 + ()
             //inValidatedPhones.append(value)
-            
+            // this enters when Phone is valid , but mal formatted : +33(01156667521
             do {
                 let phoneNumber = try phoneNumberKit.parse(value.preprocessPhoneKit)
                 validatedPhones.append(phoneNumber)
@@ -1199,60 +1246,28 @@ class NamedEntity {
             }
         }
         
+        // process value and check if it contains some prefixes
         
-        
+        let prefixHolderFromValue = processPrefixPhoneNumber()
         // NOW THAT I GOT SOME GOOD and MAYBE BAD NUMBERS .. Process phone to get their types
         
-        validatedPhones.forEach { (phoneNumber) in
+        validatedPhones.enumerated().forEach { (index) in
             
-            let phoneEntity : PhoneNumberNamedEntity = PhoneNumberNamedEntity(value: phoneNumber.numberString, type: .phone, position: self.position,  phoneNumber: phoneNumber)
+            let phoneEntity : PhoneNumberNamedEntity = PhoneNumberNamedEntity(value: index.element.numberString, type: .unknown, position: self.position,  phoneNumber: index.element)
             
-            
-            // Wrong version
-            //            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
-            //                phoneNumber.numberString.existIn(container: prefixHolder.value)
-            //            })
-            
-            if var foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
-                //                phoneNumber.numberString.existIn(container: prefixHolder.value, preprocess: true)
-                phoneNumber.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0.2)
-            }).first{
-                // lets guess the phone type with our enum entity type
-                
-                //                let entityTypeStrings = EntityType.allCases.map($0.)
-                //
-                //                foundInPrefix.key.existInArray(array: )
-                
-                // if PhoneNumberKit , is correctly validated , with a known type , take it , else
-                // do some process
-                
-                
-                
-                let anotherTryPreciseTry = prefixes.filter({ (prefixHolder) -> Bool in
-                    phoneNumber.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0)
-                }).first
-                
-                if anotherTryPreciseTry != nil {
-                    foundInPrefix = anotherTryPreciseTry ?? foundInPrefix
+            var counter = index.offset
+//            var found = false
+            while counter <= prefixHolderFromValue.count && counter > -1 {
+                if let prefixElement = prefixHolderFromValue[exist: counter] {
+                    phoneEntity.type = prefixElement.entityType
+                    break
+                }else{
+                    counter -= 1
                 }
-                
-                if foundInPrefix.key.existInArray(array: RecognitionTools.directPrefixes , preprocess: true, level: 0.8) {
-                    phoneEntity.type = .direct
-                }else if foundInPrefix.key.existInArray(array: RecognitionTools.phonePrefixes , preprocess: true, level: 0.8) {
-                    phoneEntity.type = .phone
-                }else if foundInPrefix.key.existInArray(array: RecognitionTools.faxPrefixes , preprocess: true, level: 0.8) {
-                    phoneEntity.type = .fax
-                }else if foundInPrefix.key.existInArray(array: RecognitionTools.mobilePrefixes , preprocess: true, level: 0.8) {
-                    phoneEntity.type = .mobile
-                }else {
-                    phoneEntity.type = .mobile
-                }
-                
-                
-            }else{
-                // lets juste pick wat phoneKit suggests us
-                
-                switch phoneNumber.type {
+            }
+            // if out of looop and still no type
+            if phoneEntity.type == .unknown {
+                switch phoneEntity.phoneNumber?.type {
                 case .fixedLine:
                     phoneEntity.type = .direct
                 case .mobile:
@@ -1262,73 +1277,149 @@ class NamedEntity {
                 default:
                     phoneEntity.type = .direct
                 }
-                
             }
             
-            phoneEntity.phoneNumber = phoneNumber
+            // else // Process PHONE KIT
             
+            
+//            // phone is validated , lets try to get the prefix from string
+//            print(phoneNumber)
+//
+//
+//
+//
+//            if var foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
+//                phoneNumber.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0.2)
+//            }).first{
+//
+//
+//                let anotherTryPreciseTry = prefixes.filter({ (prefixHolder) -> Bool in
+//                    phoneNumber.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0)
+//                }).first
+//
+//                if anotherTryPreciseTry != nil {
+//                    foundInPrefix = anotherTryPreciseTry ?? foundInPrefix
+//                }
+//
+//                if foundInPrefix.key.existInArray(array: RecognitionTools.directPrefixes , preprocess: true, level: 0.8) {
+//                    phoneEntity.type = .direct
+//                }else if foundInPrefix.key.existInArray(array: RecognitionTools.phonePrefixes , preprocess: true, level: 0.8) {
+//                    phoneEntity.type = .phone
+//                }else if foundInPrefix.key.existInArray(array: RecognitionTools.faxPrefixes , preprocess: true, level: 0.8) {
+//                    phoneEntity.type = .fax
+//                }else if foundInPrefix.key.existInArray(array: RecognitionTools.mobilePrefixes , preprocess: true, level: 0.8) {
+//                    phoneEntity.type = .mobile
+//                }else {
+//                    phoneEntity.type = .mobile
+//                }
+//
+//
+//            }else{
+//                // lets juste pick wat phoneKit suggests us
+//
+//                switch phoneNumber.type {
+//                case .fixedLine:
+//                    phoneEntity.type = .direct
+//                case .mobile:
+//                    phoneEntity.type = .mobile
+//                case .fixedOrMobile :
+//                    phoneEntity.type = .phone
+//                default:
+//                    phoneEntity.type = .direct
+//                }
+//
+//            }
+            
+            
+            // THOSE TWO NEED TO BE UNCOMMENTED
+            phoneEntity.phoneNumber = index.element
+
             resultHolder.append(phoneEntity)
         }
         
-        inValidatedPhones.forEach { (invalidatedPhone) in
-            var phoneEntity : PhoneNumberNamedEntity = PhoneNumberNamedEntity(value: invalidatedPhone.numberString, type: .phone, position: self.position)
+        inValidatedPhones.enumerated().forEach { (invalidatedPhone) in
+            var phoneEntity : PhoneNumberNamedEntity = PhoneNumberNamedEntity(value: invalidatedPhone.element.numberString, type: .unknown, position: self.position)
             
-            
-            if var foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
-                invalidatedPhone.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0.5 )
-            }).first{ // TODO  GRABBING THE FIRST WITH PREFIX , COULD LEAD TO AN ERROR EXTRACTING TYPE ..
+            if !resultHolder.contains(where: {$0.value == invalidatedPhone.element.numberString}){
                 
-                
-                
-                // POTENTIAL INVALID PHONES , CAN BE VALIDATED HERE , BUT WE ARE NOT RUNNING PHONE KIT TO EXTRACT COUNTRY FROM SO ..
-                // we found the phone in prefix
-                
-                //var validatedPhoneFromPrefix : PhoneNumber? = nil
-                
-                do {
-                    // TODO : ANOTHER CASE : IF BEGIN WITH 00 / REPLACE WITH +
-                    // GO EVEN FURTHER // IF IT DOESNT CONTAIN + , then EYE CLOSED ADD " + "
-                    if !foundInPrefix.value.starts(with: "+") && !foundInPrefix.value.starts(with: "(") && foundInPrefix.value.preprocess.count > 8
-                    {
-                        // it doent start with + nor ( -> force insert +
-                        foundInPrefix.value.insert(string: "+", ind: 0)
+                if var foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
+                    invalidatedPhone.element.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0.5 )
+                }).first{ // TODO  GRABBING THE FIRST WITH PREFIX , COULD LEAD TO AN ERROR EXTRACTING TYPE ..
+                    
+                    
+                    
+                    // POTENTIAL INVALID PHONES , CAN BE VALIDATED HERE , BUT WE ARE NOT RUNNING PHONE KIT TO EXTRACT COUNTRY FROM SO ..
+                    // we found the phone in prefix
+                    
+                    do {
+                        // TODO : ANOTHER CASE : IF BEGIN WITH 00 / REPLACE WITH +
+                        // GO EVEN FURTHER // IF IT DOESNT CONTAIN + , then EYE CLOSED ADD " + "
+                        if !foundInPrefix.value.starts(with: "+") && !foundInPrefix.value.starts(with: "(") && foundInPrefix.value.preprocess.count > 8
+                        {
+                            // it doent start with + nor ( -> force insert +
+                            foundInPrefix.value.insert(string: "+", ind: 0)
+                        }
                         
+                        let phoneNumber = try phoneNumberKit.parse(foundInPrefix.value.preprocessPhoneKit)
+                        phoneEntity = PhoneNumberNamedEntity(value: phoneNumber.numberString, type: .phone, position: self.position, phoneNumber: phoneNumber)
+                    } catch {
+                        // no need to do a think
                     }
                     
                     
-                    let phoneNumber = try phoneNumberKit.parse(foundInPrefix.value.preprocessPhoneKit)
-                    phoneEntity = PhoneNumberNamedEntity(value: phoneNumber.numberString, type: .phone, position: self.position, phoneNumber: phoneNumber)
-                } catch {
-                    // no need to do a think
+                    // process type from PrefixKeys OR Better from prefixHolderFromValue
+                    var counter = invalidatedPhone.offset
+                    //            var found = false
+                    while counter <= prefixHolderFromValue.count && counter > -1 {
+                        if let prefixElement = prefixHolderFromValue[exist: counter] {
+                            phoneEntity.type = prefixElement.entityType
+                            break
+                        }else{
+                            counter -= 1
+                        }
+                    }
+                    
+                    
+                    if phoneEntity.type == .unknown {
+                        if RecognitionTools.directPrefixes.compactMap({$0}).contains(where: {$0.stringEqualityDistance(container: foundInPrefix.key, preprocess: true, ratio: 0.3)}) {
+                            phoneEntity.type = .direct
+                        }else if RecognitionTools.phonePrefixes.compactMap({$0}).contains(where: {$0.stringEqualityDistance(container: foundInPrefix.key, preprocess: true, ratio: 0.3)}) {
+                            phoneEntity.type = .phone
+                        }else if RecognitionTools.faxPrefixes.compactMap({$0}).contains(where: {$0.stringEqualityDistance(container: foundInPrefix.key, preprocess: true, ratio: 0.3)}) {
+                            phoneEntity.type = .fax
+                        }else if RecognitionTools.mobilePrefixes.compactMap({$0}).contains(where: {$0.stringEqualityDistance(container: foundInPrefix.key, preprocess: true, ratio: 0.3)}) {
+                            phoneEntity.type = .mobile
+                        }else {
+                            phoneEntity.type = .mobile
+                        }
+                        
+                    }
+                    
+                    if phoneEntity.type == .unknown {
+                        phoneEntity.type = .mobile
+                    }
+                    
+                    
+                    
+                    phoneEntity.phoneNumber = invalidatedPhone.element
+                    resultHolder.append(phoneEntity)
+                    
+                    
+                }else{
+                    // TODO : MAYBE REMOVE THIS BCZ RETURNING SOME BULLSHIT
+                    
+                    // if contains , some valid phone stuff like + ./ () / count > 5
+                    // add it to array
+                    
+                    if phoneEntity.value.preprocess.isPhoneNumber && phoneEntity.value.count > 5 && ( phoneEntity.value.contains("+") || phoneEntity.value.contains("(")) {
+                        phoneEntity.type = .unknownPhone
+                        resultHolder.append(phoneEntity)
+                    }
+                    
                 }
-                
-                //            if let foundInPrefix = prefixes.first(where: { (prefixHolder) -> Bool in
-                //                invalidatedPhone.numberString.existIn(container: prefixHolder.value, preprocess: true, level: 0.8) // found this malformed phone in extracted prefixes
-                //            }) {
-                if foundInPrefix.key.existInArray(array: RecognitionTools.directPrefixes) {
-                    phoneEntity.type = .direct
-                }else if foundInPrefix.key.existInArray(array: RecognitionTools.phonePrefixes) {
-                    phoneEntity.type = .phone
-                }else if foundInPrefix.key.existInArray(array: RecognitionTools.faxPrefixes) {
-                    phoneEntity.type = .fax
-                }else if foundInPrefix.key.existInArray(array: RecognitionTools.mobilePrefixes) {
-                    phoneEntity.type = .mobile
-                }else {
-                    phoneEntity.type = .mobile
-                }
-                
-                
-                
-                phoneEntity.phoneNumber = invalidatedPhone
-                resultHolder.append(phoneEntity)
-                
-                
-            }else{
-                
-                // TODO : MAYBE REMOVE THIS BCZ RETURNING SOME BULLSHIT
-                phoneEntity.type = .unknown
             }
         }
+        
         
         // One row can contain multiple , so we may need to return ARRAY of [NamedEntity]
         
@@ -1339,11 +1430,118 @@ class NamedEntity {
         return resultHolder
     }
     
+    func processPrefixPhoneNumber() -> [Prefix] {
+        
+        
+        var prefixResult = value.stripAllNonLetterWithDash.trimmedAndLowercased.condenseWhitespace.components(separatedBy: " ").enumerated().filter({!$0.element.isEmpty}).map({
+            return Prefix(value: $0.element, position: $0.offset , entityType: .unknown)
+        })
+        
+        // process prefexis and attriyte them a Entity type
+        
+        for (index, element) in prefixResult.enumerated() {
+            if RecognitionTools.phonePrefixes.compactMap({$0}).contains(where: {$0.stringEqualityDistance(container: element.value, preprocess: true, ratio: 0.3)}) {
+                prefixResult[index].entityType = .phone
+            } else if RecognitionTools.directPrefixes.compactMap({$0}).contains(where: {$0.stringEqualityDistance(container: element.value, preprocess: true, ratio: 0.3)}) {
+                prefixResult[index].entityType = .direct
+            } else if RecognitionTools.mobilePrefixes.compactMap({$0}).contains(where: {$0.stringEqualityDistance(container: element.value, preprocess: true, ratio: 0.3)}) {
+                prefixResult[index].entityType = .mobile
+            } else if RecognitionTools.faxPrefixes.compactMap({$0}).contains(where: {$0.stringEqualityDistance(container: element.value, preprocess: true, ratio: 0.3)}) {
+                prefixResult[index].entityType = .fax
+            } else {
+                
+                print("ALERT : Unknow phone entity \(element.value) should be added to premade")
+            }
+        }
+        
+        return prefixResult
+    }
     
+    
+}
+
+struct Prefix {
+    var value = ""
+    var position = -1
+    var entityType : EntityType = .none
+}
+
+extension Collection where Indices.Iterator.Element == Index {
+    subscript (exist index: Index) -> Iterator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+
+
+extension StringProtocol {
+    func index<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
+        range(of: string, options: options)?.lowerBound
+    }
+    func endIndex<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
+        range(of: string, options: options)?.upperBound
+    }
+    func indices<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> [Index] {
+        var indices: [Index] = []
+        var startIndex = self.startIndex
+        while startIndex < endIndex,
+            let range = self[startIndex...]
+                .range(of: string, options: options) {
+                indices.append(range.lowerBound)
+                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return indices
+    }
+    func ranges<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> [Range<Index>] {
+        var result: [Range<Index>] = []
+        var startIndex = self.startIndex
+        while startIndex < endIndex,
+            let range = self[startIndex...]
+                .range(of: string, options: options) {
+                result.append(range)
+                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return result
+    }
 }
 
 
 extension String {
+    
+    
+    func stringExistsInArray(array : [String]) -> Bool {
+        
+        RecognitionTools.lowerCasejobTitles.filter { (element) -> Bool in
+            let pattern = #"\b\#(self)\b"#
+            if element.range(of: pattern, options: [.regularExpression, .caseInsensitive]) != nil {
+                return true
+            }else{return false}
+        }.count > 0
+    }
+    
+    
+    func stringExistInArray(array : [String] , preprocess : Bool = true) -> Bool {
+        var preprocessed = self
+        
+        
+        if preprocess {
+            preprocessed = preprocessed.trimmedAndLowercased
+            preprocessed = preprocessed.replacingOccurrences(of: " ", with: "")
+            preprocessed = preprocessed.replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: "")
+        }
+        
+        return array.filter { (element) -> Bool in
+            element
+                .trimmedAndLowercased
+                .replacingOccurrences(of: " ", with: "")
+                .replacingOccurrences(of: preprocessed.filter({RecognitionTools.removeableChars.contains($0)}), with: "")
+                
+                .contains(preprocessed)// is not goood bcz for "med" --> "medical" is true
+        }.count > 0
+        
+    }
+    
     
     /// Level 1 Seems a bit comfusin and no detecting exact match soo .. avoid
     
@@ -1549,7 +1747,7 @@ extension String {
         }
         
         
-        // TODOOOOO : FIX ; THE ONE WITH MORE LENGTH SHOULD .CONTAINS ( the lower length )
+        // TODOOOOO : DONE FIX ; THE ONE WITH MORE LENGTH SHOULD .CONTAINS ( the lower length )
         
         let container = container.trimmedAndLowercased
             .replacingOccurrences(of: " ", with: "")
