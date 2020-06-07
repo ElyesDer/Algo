@@ -26,6 +26,19 @@ extension String {
         let components = self.components(separatedBy: .whitespacesAndNewlines)
         return components.filter { !$0.isEmpty }.joined(separator: " ")
     }
+    
+    
+    var stripAllNonNumbers : String {
+            let okayChars =
+                        CharacterSet.alphanumerics
+    //                    .union(CharacterSet.alphanumerics)
+    //                    .union(CharacterSet.capitalizedLetters)
+//                        .union(CharacterSet.whitespacesAndNewlines)
+//                        .union(CharacterSet.lowercaseLetters)
+            //            .union(CharacterSet.punctuationCharacters)
+    //                        .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@"))
+                    return String(self.unicodeScalars.filter{okayChars.contains($0) })
+        }
    
     
     var stripAllNonLetterWithDash : String {
@@ -48,7 +61,7 @@ extension String {
             .union(CharacterSet.whitespacesAndNewlines)
             .union(CharacterSet.uppercaseLetters)
 //            .union(CharacterSet.punctuationCharacters)
-                .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@"))
+                .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@'"))
         return String(self.unicodeScalars.filter{okayChars.contains($0) })
         
         //rangeOfCharacter(from: CharacterSet.decimalDigits.inverted)
@@ -63,6 +76,7 @@ extension String {
     var preprocessPhoneKit : String {
         return self.trimmedAndLowercased
         .replacingOccurrences(of: " ", with: "")
+        .replacingOccurrences(of: ":", with: "")
         .replacingOccurrences(of: "-", with: "")
         .replacingOccurrences(of: "+ ", with: "+")
     }
@@ -153,6 +167,10 @@ extension String {
     
     var trimmedAndLowercased : String {
         return self.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    var trimmedAndUppercased : String {
+        return self.uppercased().trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     var trimmed:String {

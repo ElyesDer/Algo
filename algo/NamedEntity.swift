@@ -50,19 +50,58 @@ class AddressNamedEntity: NamedEntity {
     var adress_second : String = ""
     var latitude : String = ""
     var longitude : String = ""
-    
+    var pobox : String = ""
     
     var country_code : String?
-    
     var site_zip : String = ""
     var country_prefix : [String] = []
-    
     var zipRegex : String = ""
     
-    public func toString() -> String{
+    private var cityPosition = -1
+    private var statePosition = -1
+    private var zipPosition = -1
+    private var adressPosition = -1
+    private var countryPosition = -1
+    
+    
+    public func toString() -> String {
         
         return "street : \(street) \n address-Second : \(adress_second) \n city : \(city) \n State : \(state)  \n Zip : \(zip)  \n Coundtry \(country)"
         
+    }
+    
+    
+    public func postProcessYourSelf(){
+        // remove occurent of country , state , zip , .. from self
+        self.street = processAdressString(potentialString: self.street)
+        
+        
+        
+        if !self.pobox.isEmpty{
+            self.adress_second = self.pobox
+            
+        }else{
+            self.adress_second = processAdressString(potentialString: self.adress_second)
+        }
+        
+//        self.street = processAdressString(potentialString: self.street)
+        
+        
+    }
+    
+    private func processInvalidPhone(invalidPhone : String) -> CountryPhonePrefix? {
+        
+        // begin with STRIPPP STRING and let only numbers
+        
+        let cleanedPhone = invalidPhone.stripAllNonNumbers
+        
+        // now that i got a phone number with prefix --- phone lets look for prefix in CountryPrefixes
+        
+        if let foundCountry = RecognitionTools.countryPhonePrefix.filter({cleanedPhone.starts(with: $0.phonePrefix)}).first {
+            return foundCountry
+        }
+        
+        return nil
     }
     
     ////THIS DOES , TAKES ALL ARRAYS , PROCESS IN THEM , and RETURN FOUND OR NOT
@@ -70,12 +109,12 @@ class AddressNamedEntity: NamedEntity {
         
         
         
-        var zipCodeFound = false
+        let zipCodeFound = false
         
         // lets Grab PHONES from namedEntity
         let phones = namedEntityHolder
             .filter({$0.type == .phone || $0.type == .mobile || $0.type == .fax || $0.type == .direct })
-            .map({$0 as? PhoneNumberNamedEntity}) // hope this does not CRASH
+            .map({$0 as? PhoneNumberNamedEntity}) // TODO hope this does not CRASH // FIXED
         // this should be of type [PhoneNamedEntity]
         
         // as precaution : lets search for prefix , in PrefixHolder // IGNORE THIS 4 NOW
@@ -98,6 +137,18 @@ class AddressNamedEntity: NamedEntity {
                     }else {
                         prefixCodes.append(String(phoneNumberKit.countryCode))
                     }
+                }else{
+                    //nothing can be extrate from phonenumber
+                    print("Invalid Phone number for zip\(phoneNumber?.value)")
+                    if let foundInInvalidatedPhone = processInvalidPhone(invalidPhone: phoneNumber?.value ?? ""){
+                        countries.append(CountryNamedEntity(value: foundInInvalidatedPhone.countryName, type: .country, position: -1, countryPhonePrefix: foundInInvalidatedPhone))
+                    }
+                }
+            }else{
+                //nothing can be extrate from phonenumber
+                print("Invalid Phone number for zip\(phoneNumber?.value)")
+                if let foundInInvalidatedPhone = processInvalidPhone(invalidPhone: phoneNumber?.value ?? ""){
+                    countries.append(CountryNamedEntity(value: foundInInvalidatedPhone.countryName, type: .country, position: -1, countryPhonePrefix: foundInInvalidatedPhone))
                 }
             }
             // else we go nil
@@ -188,11 +239,12 @@ class AddressNamedEntity: NamedEntity {
                         let matches = line.matchingStrings(regex: countryRegex)
                         matches.forEach { (item) in
                             item.forEach { (subItem) in
-                                self.street = line
+//                                self.street = line // BAD LOGIK , HAPPENS TO BE TRUE , BUT ITS A BAD LOGIK
                                 self.country = countryNamedEntity.countryEntity?.countryName ?? ""
                                 self.country_code = countryNamedEntity.countryEntity?.countryPrefix
                                 self.zipRegex = countryNamedEntity.countryEntity?.zipREX ?? ""
                                 self.zip = subItem
+                                self.zipPosition = index
                             }
                         }
                     }
@@ -312,6 +364,267 @@ class AddressNamedEntity: NamedEntity {
 //            self.street = self.street.replacingOccurrences(of: poBoxElement, with: "" ,options: .caseInsensitive)
 //            self.adress_second = poBoxElement
 //        }
+    }
+    
+    public func processAdressString(potentialString : String) -> String{
+        
+        var preprocessed = potentialString
+        
+        //        if potentialString.stringContains(container: self.city, preprocess: true){
+        preprocessed = preprocessed.replacingOccurrences(of: self.city, with: "",options: .caseInsensitive)
+        //        }
+        
+        //        if potentialString.stringContains(container: self.state, preprocess: true){
+        preprocessed = preprocessed.replacingOccurrences(of: self.state, with: "",options: .caseInsensitive)
+        //        }
+        
+        //        if potentialString.stringContains(container: self.zip, preprocess: true){
+        preprocessed = preprocessed.replacingOccurrences(of: self.zip, with: "",options: .caseInsensitive)
+        //        }
+        
+        preprocessed = preprocessed.replacingOccurrences(of: self.country, with: "",options: .caseInsensitive)
+        
+        preprocessed = preprocessed.replacingOccurrences(of: self.pobox, with: "",options: .caseInsensitive)
+        
+        return preprocessed.trimmed.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+        
+    }
+    
+    public func computeAddress(bcDataArray : inout [String], namedEntityHolder : inout [ NamedEntity ] , prefixes : [PrefixHolder] ) {
+        
+        if self.country.isEmpty {
+            for (index, line) in bcDataArray.enumerated() {
+                for (index, element) in line.components(separatedBy: " ").enumerated() {
+                      
+                    // TODO , THIS NEEDS TO BE MORE PRECISee , -- HONDA will get us Honduras
+                    if let country = RecognitionTools.countryPhonePrefix.filter({$0.countryName.existIn(container: element, preprocess: true , level : 0.9 )}).first {
+                        self.country = country.countryName
+                        self.country_prefix = [country.countryPrefix]
+                        self.country_code = country.countryPrefix
+                        self.zipRegex = country.zipREX ?? ""
+                        
+                        self.countryPosition = index
+                        
+                        
+                        
+                        // new method dont do it here
+                        //remove it from stirng
+                        //bcDataArray[index] = bcDataArray[index].replacingOccurrences(of: self.country, with: "",options: .caseInsensitive)
+                       
+                        
+                        let dispatchGroup = DispatchGroup()
+                        dispatchGroup.enter()
+                        var immutableArrayElement = [element]
+                        self.extractCityORNDState(bcDataArray : &immutableArrayElement, completion: {success in
+                            print("City & states extraction done")
+                            dispatchGroup.leave()
+                        })
+                        break;
+                    }
+                    
+                    if !self.country.isEmpty {
+                        break
+                    }
+                }
+            }
+            // now that we have country // process again til we found zip state ,city
+            
+            
+        }else{
+            print("I GOT COUNTRY, NO NEED TO SEARCH FOR , LETS WAIT FOR INSTRUCTION")
+        }
+        
+        
+        
+        // if no phones , no emails , // we could be here WITH : COUNTRY but NO ZIP Code ; so lets try to get zip code
+        
+        // looooop to find country
+        // country empty === no zip no nothing
+        
+        
+        // 3RD TRY // No country found to find @ , lets just look for @s in string
+        
+        
+        // now lets loop to find zip
+        if self.zip.isEmpty{
+            if !self.zipRegex.isEmpty{
+                // loop to find element with regex
+                for (index, line) in bcDataArray.enumerated()  {
+                    let matches = line.matchingStrings(regex: self.zipRegex)
+                    matches.forEach { (item) in
+                        item.forEach { (subItem) in
+                            //self.street = line
+                            //                            self.country = countryNamedEntity.countryEntity?.countryName ?? ""
+                            //                            self.country_code = countryNamedEntity.countryEntity?.countryPrefix
+                            self.zip = subItem
+                            self.zipPosition = index
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+        
+        
+        // NOW THAT COUNTRY , CODE , STATE , CITY , ZIP EXTRACTED, and HAVE THEIR POSITION
+        // i have an array which contains @ and String NON @ .
+        // loop throu data array , compute score , than proceed if valid
+        
+        
+        var potentialAddresses : [NamedEntity] = []
+        
+        for (index, element) in bcDataArray.enumerated() {
+            var elementScore = 0
+            
+            let preprocessElement = element.trimmedAndLowercased
+            
+            if preprocessElement.count < 4 {
+                print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(score)")
+                continue
+            }
+            
+            if preprocessElement.countWords() < 2 {
+                print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(score)")
+                continue
+            }
+            
+            
+            if preprocessElement.isAllNumber || preprocessElement.matchingStrings(regex: RecognitionTools.emailRegex).count > 0 && preprocessElement.matchingStrings(regex: RecognitionTools.websiteRegex).count > 0 {
+                print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(score)")
+                continue
+            }
+            
+            
+            
+//            preprocessElement.components(separatedBy: " ").filter({$0.existInArray(array : namedEntityHolder.map({$0.value}))})
+            
+            //RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: firstElement, preprocess: true, ratio: 0.2)})
+            let phoneTest = preprocessElement.matchingStrings(regex: RecognitionTools.numberSinglePhoneRegexWithNoSpecial)
+                .first?.sorted(by: {$0.count > $1.count }).first(where: {$0.count > 8})
+            
+            if preprocessElement.isAllNumber || preprocessElement.countWords() < 2 && preprocessElement.count < 2 || preprocessElement.matchingStrings(regex: RecognitionTools.emailRegex).count > 0 && preprocessElement.matchingStrings(regex: RecognitionTools.websiteRegex).count > 0 ||
+                phoneTest != nil
+            
+            {
+                
+                print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(elementScore)")
+                continue
+            
+            }
+            
+            if preprocessElement.beginsWithNumber(){
+                elementScore += 10
+            }
+            
+            if preprocessElement.contains(","){
+                elementScore += 5
+            }
+            
+            if preprocessElement.stringContains(container: self.state, preprocess: true) {
+                elementScore += 20
+            }
+            
+            if preprocessElement.stringContains(container: self.city, preprocess: true) {
+                elementScore += 20
+            }
+            
+            if preprocessElement.stringContains(container: self.country, preprocess: true) {
+                elementScore += 20
+            }
+            
+//            if preprocessElement.stringContains(container: self.country_code ?? "$$$$$", preprocess: true) {
+//                score += 20
+//            }
+            
+            if preprocessElement.stringContains(container: self.zip, preprocess: true) {
+                elementScore += 20
+            }
+            
+            // if element.stringExistsInArray(array: RecognitionTools.lowerCasejobTitles) {
+            
+            // todo implemetn this to add more score
+//            if RecognitionTools.addressNamesSuffix.filter({element.trimmedAndLowercased.starts(with : $0)}).first != nil {
+//                elementScore += 30
+//            }
+            
+            if element.stringContains(container: "PO", preprocess: true) || element.stringContains(container: "BOX", preprocess: true) {
+                elementScore += 20
+            }
+            
+            element.components(separatedBy: " ").forEach { (component) in
+                if component.count > 1 && component.trimmedAndUppercased.stringExistsInArray(array: RecognitionTools.addressNamesSuffix) {
+                    elementScore += 15
+                }
+            }
+            
+            
+            // 20 is a least for an @ string
+            
+            
+            print("@ Value computed : \(preprocessElement) --- SCORED : \(elementScore)")
+            
+            if elementScore >= 20 {
+                potentialAddresses.append(NamedEntity(value: element, type: .unknown, score: elementScore))
+            }
+            
+                        
+        }
+        
+        
+        // now that i got an array of potental @ // lemme try to extract street , second etc. ..
+        // sort array first than proceed with each
+        for (index, element) in potentialAddresses.sorted(by: {$0.score > $1.score}).enumerated() {
+            // remove country , zip , state , city from string
+            var processed = processAdressString(potentialString: element.value)
+            
+            // lemme put dem in place
+            
+            
+            
+            // first CHECK IF THERE A PO BOX
+            
+            // now try to extract POBOX FROM POTENTIAL with PO BOX and if found , put IT in alterv
+            
+            var poBoxAddr = processed.getAdvancedPOBoxAddress()
+            if poBoxAddr.count > 0 {
+                poBoxAddr = poBoxAddr.filter({
+                    if $0.count > 2 && $0.containsNumbers() {
+                        if let dataIndex = poBoxAddr.firstIndex(of: $0 ) {
+                            poBoxAddr.remove(at: dataIndex)
+                            return true
+                        }
+                    }else{
+                        return false
+                    }
+                    return false
+                })
+            }
+            
+            
+            poBoxAddr.forEach { (poBoxElement) in
+//                if poBoxElement.count > 3 {
+                    self.pobox = poBoxElement
+                    
+                    // lets remove pobox from current string
+                    
+                // this better be in post process
+//                processed = processed.replacingOccurrences(of: self.pobox, with: "", options: .caseInsensitive)
+//                }
+            }
+            
+            if processed.count > 2 && processed.countWords() > 1 {
+                if self.street.isEmpty {
+                    self.street = processed
+                }else if self.adress_second.isEmpty {
+                    self.adress_second = processed
+                }
+            }else {
+                print("Ignorein the rest of string \(processed)")
+            }
+        }
+        
+        
     }
     
     
@@ -481,6 +794,8 @@ class AddressNamedEntity: NamedEntity {
             var bcDataArrayCopy = bcDataArray
             
             
+            // TODO : FOR CITY AND STATE , TAKE WHAT PREMADE RETURN , because city with ' ' space could lead to only first element return
+            
             dispatchGroup.enter()
             RecognitionTools.loadCitiesWithPrefix(prefix: countryCode) { (success) in
                 // cities loaded
@@ -494,18 +809,21 @@ class AddressNamedEntity: NamedEntity {
                             //if RecognitionTools.citiesWithPrefix.joined(separator: "\n").stringContains(container: element, preprocess: true) {
                             // TODO : CHANGES THIS , GRAB VALUES FROM PREMADE
                             if element.existInArray(array: RecognitionTools.citiesWithPrefix, preprocess: true, level: 0.9) { // level need to be high
-                                let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
-                                bcDataArrayCopy[index] = newLine
-                                self.city.append("\(element) ")
+                            //if element.stringExistsInArray(array: RecognitionTools.citiesWithPrefix) {
+//                                let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
+//                                bcDataArrayCopy[index] = newLine
+                                self.city = element
+                                self.cityPosition = index
                             }
                             
-                            
+                            // TODO : WHY THIS EXUST S TWICE ??
                             if let cityElement = RecognitionTools.citiesWithPrefix.filter({
                                 $0.existIn(container: element, preprocess: true)
                             }).first {
-                                let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
-                                bcDataArrayCopy[index] = newLine
+                                //let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
+                                //bcDataArrayCopy[index] = newLine
                                 self.city = element
+                                self.cityPosition = index
                             }
                         }
                         
@@ -528,9 +846,10 @@ class AddressNamedEntity: NamedEntity {
                         decompose.forEach { (element) in
                             //if RecognitionTools.citiesWithPrefix.joined(separator: "\n").stringContains(container: element, preprocess: true) {
                             if element.existInArray(array: RecognitionTools.statesWithPrefix, preprocess: true, level:  0.9) { // level need to be high
-                                let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
-                                bcDataArrayCopy[index] = newLine
+//                                let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
+//                                bcDataArrayCopy[index] = newLine
                                 self.state = element
+                                self.statePosition = index
                             }
                         }
                     }
@@ -541,7 +860,7 @@ class AddressNamedEntity: NamedEntity {
             _ = dispatchGroup.wait()
             
             dispatchGroup.notify(queue: .global()){
-                print ("Every tink done will not return")
+                //print ("Every tink done will not return")
                 completion(true)
             }
         } else {
@@ -770,8 +1089,14 @@ class NamedEntity : Equatable {
             }
             
             
-            if element.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.7) {
-                score -= 20
+            // more precise search
+            if element.stringExistsInArray(array: emails.map({$0.value.components(separatedBy: "@")[0]})) {
+                score += 20
+            }
+            
+            
+            if element.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.8) {
+                score -= 5
             }
             
             
@@ -911,7 +1236,6 @@ class NamedEntity : Equatable {
         
         return self
     }
-    
     
     func computeCompanyFromWebsiteOrEmail(namedEntityHolder : [ NamedEntity ]) -> [NamedEntity] {
         
@@ -1110,6 +1434,35 @@ class NamedEntity : Equatable {
         return self
     }
     
+    
+    private func processPhoneStringForCountryCodeOrTryValidateFormat(phoneString : inout String) -> String? {
+        
+        // begin with STRIPPP STRING and let only numbers
+        
+        let cleanedPhone = phoneString.stripAllNonNumbers
+        
+        // now that i got a phone number with prefix --- phone lets look for prefix in CountryPrefixes
+        
+        if let foundCountry = RecognitionTools.countryPhonePrefix.filter({cleanedPhone.starts(with: $0.phonePrefix)}).first {
+            print("Founc country code \(foundCountry.countryPrefix)")
+            return foundCountry.countryPrefix
+        }else {
+            // lets try to fix phoneString
+            // TODO : ANOTHER CASE : IF BEGIN WITH 00 / REPLACE WITH +
+            // GO EVEN FURTHER // IF IT DOESNT CONTAIN + , then EYE CLOSED ADD " + "
+            if !phoneString.starts(with: "+") && !phoneString.starts(with: "(") && phoneString.preprocess.count > 8
+            {
+                // it doent start with + nor ( -> force insert +
+                phoneString.insert(string: "+", ind: 0)
+            }
+            
+            
+            // THIS EMPTY RETURN IS THIS BECAUSE , THIS FUNCTION RETUN COUNTRY CODE AND NOT PHONE , BUT DOES TRY TO FIX PHONE INOUT
+            return nil
+        }
+        
+    }
+    
     /// AT THIS Stage : Title, Company , FullName, Email, Website, should have been removed from RAW and not process again
     func computePhoneNumber(namedEntityHolder : [ NamedEntity] , prefixes : [PrefixHolder] , phoneNumberKit : PhoneNumberKit) -> [PhoneNumberNamedEntity] {
         
@@ -1182,21 +1535,35 @@ class NamedEntity : Equatable {
             
             var firstPhoneNumber = arrayOfString[0]
             
-            if firstPhoneNumber.count > 2 {
+            if firstPhoneNumber.count > 6 {
                 do {
                     
-                    // GO EVEN FURTHER // IF IT DOESNT CONTAIN + , then EYE CLOSED ADD " + "
-                    if !firstPhoneNumber.trimmed.starts(with: "+") && !firstPhoneNumber.trimmed.starts(with: "(") && firstPhoneNumber.preprocess.count > 8
-                    {
-                        // it doent start with + nor ( -> force insert +
-                        firstPhoneNumber.insert(string: "+", ind: 0)
+//                    // GO EVEN FURTHER // IF IT DOESNT CONTAIN + , then EYE CLOSED ADD " + "
+//                    if !firstPhoneNumber.trimmed.starts(with: "+") && !firstPhoneNumber.trimmed.starts(with: "(") && firstPhoneNumber.preprocess.count > 8
+//                    {
+//                        // it doent start with + nor ( -> force insert +
+//                        firstPhoneNumber.insert(string: "+", ind: 0)
+//                    }
+                    
+                    var phoneNumber : PhoneNumber
+                    
+                    if let countryCode = processPhoneStringForCountryCodeOrTryValidateFormat(phoneString: &firstPhoneNumber) {
+                        // PHONE KIT ITH COUNTRY CODE
+                        /*
+                         WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
+                         */
+                        print("Validating  \(firstPhoneNumber.preprocessPhoneKit)  WITH COUNTRY CODE : \(countryCode)")
+                        phoneNumber = try phoneNumberKit.parse(firstPhoneNumber.preprocessPhoneKit, withRegion: countryCode)
+                    }else{
+                        // PHONE KIT WITHOUT COUNTRY COED
+                        /*
+                         WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
+                         */
+                        print("Validating \(firstPhoneNumber.preprocessPhoneKit) without country code")
+                        phoneNumber = try phoneNumberKit.parse(firstPhoneNumber.preprocessPhoneKit)
                     }
                     
-                    /*
-                     WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
-                     */
-                    print("Validating \(firstPhoneNumber.preprocessPhoneKit)")
-                    let phoneNumber = try phoneNumberKit.parse(firstPhoneNumber.preprocessPhoneKit)
+                    
                     
                     if phoneNumber.notParsed() {
                         inValidatedPhones.append(PhoneNumber(numberString: arrayOfString[0], countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
@@ -1219,12 +1586,35 @@ class NamedEntity : Equatable {
                     phoneNumber.numberString == item
                 }) {
                     
-                    if item.count > 2 {
+                    if item.count > 6 {
                         do {
-                            print("Second Validating \(item.preprocessPhoneKit)")
-                            let phoneNumber = try phoneNumberKit.parse(item.preprocessPhoneKit)
+                            
+                            
+                            var phoneNumber : PhoneNumber
+                            var phoneString = item
+                            if let countryCode = processPhoneStringForCountryCodeOrTryValidateFormat(phoneString: &phoneString) {
+                                // PHONE KIT ITH COUNTRY CODE
+                                /*
+                                 WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
+                                 */
+                                print("Validating  \(phoneString.preprocessPhoneKit)  WITH COUNTRY CODE : \(countryCode)")
+                                phoneNumber = try phoneNumberKit.parse(phoneString.preprocessPhoneKit, withRegion: countryCode)
+                            }else{
+                                // PHONE KIT WITHOUT COUNTRY COED
+                                /*
+                                 WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
+                                 */
+                                print("Validating \(phoneString.preprocessPhoneKit) without country code")
+                                phoneNumber = try phoneNumberKit.parse(phoneString.preprocessPhoneKit)
+                            }
+                            
+                            
+//                            print("Second Validating \(item.preprocessPhoneKit)")
+//                            let phoneNumber = try phoneNumberKit.parse(item.preprocessPhoneKit)
+
                             validatedPhones.append(phoneNumber)
                         } catch {
+                            
                             inValidatedPhones.append(PhoneNumber(numberString: item, countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
                         }
                     }
@@ -1343,24 +1733,48 @@ class NamedEntity : Equatable {
             if !resultHolder.contains(where: {$0.value == invalidatedPhone.element.numberString}){
                 
                 if var foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
-                    invalidatedPhone.element.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0.5 )
+                    if prefixHolder.type != .unknownPhone {
+                        return invalidatedPhone.element.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0.5 )
+                    } else {
+                        return false
+                    }
                 }).first{ // TODO  GRABBING THE FIRST WITH PREFIX , COULD LEAD TO AN ERROR EXTRACTING TYPE ..
-                    
-                    
                     
                     // POTENTIAL INVALID PHONES , CAN BE VALIDATED HERE , BUT WE ARE NOT RUNNING PHONE KIT TO EXTRACT COUNTRY FROM SO ..
                     // we found the phone in prefix
                     
                     do {
-                        // TODO : ANOTHER CASE : IF BEGIN WITH 00 / REPLACE WITH +
-                        // GO EVEN FURTHER // IF IT DOESNT CONTAIN + , then EYE CLOSED ADD " + "
-                        if !foundInPrefix.value.starts(with: "+") && !foundInPrefix.value.starts(with: "(") && foundInPrefix.value.preprocess.count > 8
-                        {
-                            // it doent start with + nor ( -> force insert +
-                            foundInPrefix.value.insert(string: "+", ind: 0)
+                        
+                        
+                        var phoneNumber : PhoneNumber
+                        
+                        if let countryCode = processPhoneStringForCountryCodeOrTryValidateFormat(phoneString: &foundInPrefix.value) {
+                            // PHONE KIT ITH COUNTRY CODE
+                            /*
+                             WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
+                             */
+                            print("Validating  \(foundInPrefix.value.preprocessPhoneKit)  WITH COUNTRY CODE\(countryCode)")
+                            phoneNumber = try phoneNumberKit.parse(foundInPrefix.value.preprocessPhoneKit)
+                        }else{
+                            // PHONE KIT WITHOUT COUNTRY COED
+                            /*
+                             WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
+                             */
+                            print("Validating \(foundInPrefix.value.preprocessPhoneKit) without country code")
+                            phoneNumber = try phoneNumberKit.parse(foundInPrefix.value.preprocessPhoneKit)
                         }
                         
-                        let phoneNumber = try phoneNumberKit.parse(foundInPrefix.value.preprocessPhoneKit)
+                        
+                        
+//                        // TODO : ANOTHER CASE : IF BEGIN WITH 00 / REPLACE WITH +
+//                        // GO EVEN FURTHER // IF IT DOESNT CONTAIN + , then EYE CLOSED ADD " + "
+//                        if !foundInPrefix.value.starts(with: "+") && !foundInPrefix.value.starts(with: "(") && foundInPrefix.value.preprocess.count > 8
+//                        {
+//                            // it doent start with + nor ( -> force insert +
+//                            foundInPrefix.value.insert(string: "+", ind: 0)
+//                        }
+//
+//                        let phoneNumber = try phoneNumberKit.parse(foundInPrefix.value.preprocessPhoneKit)
                         phoneEntity = PhoneNumberNamedEntity(value: phoneNumber.numberString, type: .phone, position: self.position, phoneNumber: phoneNumber)
                     } catch {
                         // no need to do a think
@@ -1510,9 +1924,9 @@ extension StringProtocol {
 extension String {
     
     
-    func stringExistsInArray(array : [String]) -> Bool {
+    func stringExistsInArray(array : [String] ) -> Bool {
         
-        RecognitionTools.lowerCasejobTitles.filter { (element) -> Bool in
+        array.filter { (element) -> Bool in
             let pattern = #"\b\#(self)\b"#
             if element.range(of: pattern, options: [.regularExpression, .caseInsensitive]) != nil {
                 return true
@@ -1623,6 +2037,10 @@ extension String {
         }else{
             return false
         }
+    }
+    
+    func beginsWithNumber() -> Bool {
+        return self[startIndex].isNumber
     }
     
     func beginsWithUpperCase() -> Bool {
