@@ -19,7 +19,75 @@ var raw = "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCo
 
 raw = "Tel : 24608993 / 24 655 509"
 
+/*
+ "Tel : 24608993 / 24 655 509 Phone 24608993 Fax 24 655 509 Tel : 24608993/BO 24 655 509 T. 24608993 / 24 655 509",
+ 
+ "Phone 24608993 Fax 24 655 509",
+ 
+ "Tel : 24608993/BO 24 655 509",
+ 
+ "Tel 24608993 - 24 655 509",
+ 
+ "T. 24608993 / 24 655 509",
+ */
+
 var raws = [
+    
+    
+    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    
+    
+    
+    "Med Cheker Amdouni\nGraphic Designer\nPixartprinting SpA\nImmeuble Les 2 Lacs, Bloc 9,\nRue du Lac de Constance,\norinting\nLes Berges du Lac 1053,\nTunis\nmedcheker.amdouni@pixartprinting.com\n8\n",
+    
+    
+    "Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
+    
+    
+     "WILL\nr. Droit Creatif - Azan & Associes\nWilliam Azan\nAvocat Associé\n92, Avenue de Saint-Mandé - 75012 PARIS\nTel.: 33(0)1 42 56 08 20 - Port. : 06 86 86 32 50 william.azan@uwill.fr\n",
+     
+     
+    
+    
+    
+    
+    "ILY\ne\nA\nSearch\nBRYAN, GARNIER & Co\nFrancois Arpels\nManaging Director\nBryan, Garnier & Co\nCorporate Finance\n26, avenue des Champs-Elysees\n75008 Paris\nTel\n+33 (0)1 70 36 57 43\nFax\n+33 (011 56 66 75 21\nMobile: +33 (0)6 73 12 98 64\ne-mail - farpels@bryangarnier.com\n",
+    
+    
+    "Insurance\nTA\nHealth\nPensions\nLife\nBRITCAY\nErica Smith\nPersonal Insurance Representative\nBRITISH CAYMANIAN INSURANCE COMPANY LIMITED\nPersonal & Business Insurance\nBritCay House, 236 Eastern Avenue, George Town, Grand Cayman\nP.O. Box 74, Grand Cayman KY1-1102, Cayman Islands\ntel. (345) 949 8699 dir. (345) 914 9866 fax. (345) 949 8411\nErica.Smith@britcay.ky www.britcay.ky\n"
+
+    ,
+    
+    " Search\nJackie Beji\nOffice: 345-949-9838\nSales & Rental Agent\nFax: 345-949-9839\nProperty Manager\nCell: 345-925-5652\n1\nRITCH\nREALTY LTD.\nCIREBA MEMBER\nEmail: jackie@ritchrealty.ky Web: www.ritchrealty.ky\n32 Earth Close off West Bay Road, Tropic Centre II Building Suite #9\nPO Box 31223 Grand Cayman, Cayman Islands KYI-1205\n"
+
+    ,
+    
+    
+    
+    
+    
+    
+"CAYMAN ISLANDS\nHELICOPTERS\nA LIL HRS TE\nCLE SHINER\nJerome Begot\nP.O. Box 738, Grand Cayman, KYI-1103, Cayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR cihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n"
+
+,
+
+
+
+
+
+
+
+
+
+
+
+
+"01.0\nHONDA\nCAR CITY\nCHRYSLER\n$ SUZUKI\nSALES SERVICE PARTS REPAIR\nJeep\nCiana Hedge\nMITSUBISHI\nMOTORS\nService Advisor\nMart\n10 Durham Drive\nPh: 345.949.5525 ext: 4104\nPO Box 10440\nFax: 345.949.8615\nGrand Cayman, KY1-1104,\nciana.hedge@carcitycayman.com\nCAYMAN ISLANDS\n"
+
+,
+    
+    
+    "Maiborn\nWolff\nMenrl\"t\nSadok Chekir\nDiplom Ingenieur\nIT Architect\nsadok.chekir@maibornwolff.de\nMobil +49 151 544 22 153\nMaibornWolff GmbH\nTheresienhohe 13 - 80339 Munchen\nmaibornwolff.de\n",
     
     "~ Inceptio\nKarim BAHI\nCoach de groupes\n& organisations\n5, Rue 7214 - EI Menzah 9 A - 1013 Tunis - Tunisie\n+ 216 21 57 85 57• E-mail : kbahi@inceptio.tn",
     
@@ -37,7 +105,7 @@ var raws = [
     
     "CAYMAN ISLANDS HELICOPTERS\nPL GENOT\nHELICOPTERE\nJerome Begot\nP.O. Box 738, Grand Cayman, KY1-1103,\nCayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR\ncihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n",
     
-    "Med Cheker Amdouni\nGraphic Designer\nPixartprinting SpA\nImmeuble Les 2 Lacs, Bloc 9,\nRue du Lac de Constance,\norinting\nLes Berges du Lac 1053,\nTunis\nmedcheker.amdouni@pixartprinting.com\n8\n",
+    
     
     "alister\nAVOCATS\nProf. Dr. Jochen BAUERREIS\nAvocat & Rechtsanwalt\nAvocat spécialise en droit des relations internationales\nDirecteur du Magistere Juristes d'Affaires Franco-Allemands\n11, rue du Parc\n67205 Strasbourg. Oberhausbergen\nTel. : +33 (0)3 68 00 14 10\nFax : +33 (0)3 68 00 14 11\njochen.bauerreis@alister-avocats.com\n",
     
@@ -75,7 +143,7 @@ var raws = [
     "will be group\nBernard Attali\nPrésident/Conseil en investissement financier\nMembre de la CNCIF D012068\nExpert financier membre de la CNCEF\nGOUVEINANCL & VALEUES\nbernard.attali@willbegroup.com\n+33(0)7 86 76 69 74\n+33(0)1 42 33 13 33\nChargé d'enseignement\nEDHEC (Lille)\nESSEC\nPARIS 22 RUE DE LARCADE\nIAE (Aix-en-Provence)\n75008 - T. 33(0)1 42 33 13 33\nParis 2 Panthéon ASSAS\nGENEVA RUE DE LATHENEE 40\n1206 - T 41(0) 22 588 65 30\nBRUSSELS 209A, AVENUE LOUISE\n1050 - T. • 32 (0) 2 627 55 70\ngouval.com\n",
     
     
-    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    
     
     
     
@@ -91,18 +159,18 @@ var raws = [
     
     
     
-    "Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
     
     
     
-    "Maiborn\nWolff\nMenrl\"t\nSadok Chekir\nDiplom Ingenieur\nIT Architect\nsadok.chekir@maibornwolff.de\nMobil +49 151 544 22 153\nMaibornWolff GmbH\nTheresienhohe 13 - 80339 Munchen\nmaibornwolff.de\n",
+    
+    
     
     "levio\nAFFAIRES ET TECHNOLOGIES\nJonathan Chouinard\nConseiller stratégique\n1015, Av Wilfrid-Pelletier, local 530\nChargé de projet\nQuébec (Québec) G1W 0C4\njonathan.chouinard@levio.ca\nT 418 914-3623\nwww.levio.ca\nC 418 931-8789\n",
     
     
     
     
-    "WILL\nr. Droit Creatif - Azan & Associes\nWilliam Azan\nAvocat Associé\n92, Avenue de Saint-Mandé - 75012 PARIS\nTel.: 33(0)1 42 56 08 20 - Port. : 06 86 86 32 50 william.azan@uwill.fr\n",
+   
     
     
     
@@ -122,7 +190,7 @@ var raws = [
     
      
      
-      "ILY\ne\nA\nSearch\nBRYAN, GARNIER & Co\nFrancois Arpels\nManaging Director\nBryan, Garnier & Co\nCorporate Finance\n26, avenue des Champs-Elysees\n75008 Paris\nTel\n+33 (0)1 70 36 57 43\nFax\n+33 (011 56 66 75 21\nMobile: +33 (0)6 73 12 98 64\ne-mail - farpels@bryangarnier.com\n",
+      
      
      
      
@@ -259,10 +327,12 @@ RecognitionTools.loadTitles(completion: {
     success in
     if success {
         raws.forEach { (raw) in
-            var bcDataArray = raw.split(separator: "\n").map { String($0).stripped }
-            
+            var bcDataArray = raw.split(separator: "\n").map {String($0).stripped }
+            bcDataArray = bcDataArray.filter({ !$0.isEmpty })
             var namedEntityHolder : [NamedEntity] = []
             var prefixedEntities : [PrefixHolder] = []
+            
+            var extracted : [Int] = []
             var mutableRaw = raw
             //var namedEntityResult : [NamedEntity] = []
             
@@ -283,6 +353,9 @@ RecognitionTools.loadTitles(completion: {
             extractEmails(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
             extractWebsite(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
 
+            // we need this process remove without position bcz sometime email line and website , can contain otehr data
+            //RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+//            RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
 
             // make it third
 
@@ -292,72 +365,81 @@ RecognitionTools.loadTitles(completion: {
 
 
             // lets preprocess data before continue
-            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+            //RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+            
+            RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
 
+            testPrint(tag: "BC DATA AFTER", title: " :: ", content: bcDataArray)
             extractFullName(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
 
-            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+            RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+//            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+            
+            
+            
             extractCompany(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
 
             extractTitles(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
 
-            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+            
+//            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
+            RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
 
             testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
 
 
-            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
-            ///////////////////////////////// @ ZONE
-            // THIS IS MOVED HERE , BECASE WE NEED TO WORK ON ENTIRE BCDATA ARRAY
-            var addressNamedEntity : AddressNamedEntity = AddressNamedEntity(value: "")
-
-            // we have NamedEntityHolder which contains , Validated PHONES , so lets extract Country in those phones and put dem in add
-
-            addressNamedEntity.extractZipCode(bcDataArray: &bcDataArray, namedEntityHolder: &namedEntityHolder, prefixes: prefixedEntities)
-
-            let dispatchGroup = DispatchGroup()
-            dispatchGroup.enter()
-            addressNamedEntity.extractCityORNDState(bcDataArray : &bcDataArray , completion: {success in
-                print("City & states extraction done")
-                dispatchGroup.leave()
-            })
-            
-            // now lets compute @
-             
-            
-            addressNamedEntity.extractAddress(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities)
-            
-            
-            _ = dispatchGroup.wait()
-            dispatchGroup.notify(queue: .main){
-                print ("MAIN : Every tink done will not return")
-            }
-            
-            print("<HZHHZ")
-            print(addressNamedEntity.state)
-            print(addressNamedEntity.city)
-            print(addressNamedEntity.street)
-            print(addressNamedEntity.adress_second)
-            print(addressNamedEntity.country_code)
-            print(addressNamedEntity.country)
-            
-            
-           
-            
-            ///////////////////////////////// END @ ZONZ
-            testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
-            namedEntityHolder.forEach { (named) in
-                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
-            }
-            
-            
-            RecognitionTools.postProcessResult (bcDataArray : &bcDataArray, namedEntityHolder : &namedEntityHolder)
-            
-            
-            testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
-            namedEntityHolder.forEach { (named) in
-                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
-            }
+            //RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
+//            ///////////////////////////////// @ ZONE
+//            // THIS IS MOVED HERE , BECASE WE NEED TO WORK ON ENTIRE BCDATA ARRAY
+//            var addressNamedEntity : AddressNamedEntity = AddressNamedEntity(value: "")
+//
+//            // we have NamedEntityHolder which contains , Validated PHONES , so lets extract Country in those phones and put dem in add
+//
+//            addressNamedEntity.extractZipCode(bcDataArray: &bcDataArray, namedEntityHolder: &namedEntityHolder, prefixes: prefixedEntities)
+//
+//            let dispatchGroup = DispatchGroup()
+//            dispatchGroup.enter()
+//            addressNamedEntity.extractCityORNDState(bcDataArray : &bcDataArray , completion: {success in
+//                print("City & states extraction done")
+//                dispatchGroup.leave()
+//            })
+//
+//            // now lets compute @
+//
+//
+//            addressNamedEntity.extractAddress(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities)
+//
+//
+//            _ = dispatchGroup.wait()
+//            dispatchGroup.notify(queue: .main){
+//                print ("MAIN : Every tink done will not return")
+//            }
+//
+//            print("<HZHHZ")
+//            print(addressNamedEntity.state)
+//            print(addressNamedEntity.city)
+//            print(addressNamedEntity.street)
+//            print(addressNamedEntity.adress_second)
+//            print(addressNamedEntity.country_code)
+//            print(addressNamedEntity.country)
+//
+//
+//
+//
+//            ///////////////////////////////// END @ ZONZ
+//            testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
+//            namedEntityHolder.forEach { (named) in
+//                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
+//            }
+//
+//
+//            RecognitionTools.postProcessResult (bcDataArray : &bcDataArray, namedEntityHolder : &namedEntityHolder)
+//
+//
+//            testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
+//            namedEntityHolder.forEach { (named) in
+//                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
+//            }
             
             
             testPrint(tag: "", title: "OPERATION END", content: "")
@@ -377,8 +459,8 @@ RunLoop.main.run()
 
 func extractWebsite(raw : inout String, bcDataArray : [String] , namedEntityHolder : inout [NamedEntity], prefixedEntities : [PrefixHolder]) -> Void {
     var computeResultHolder : [NamedEntity] = []
-    bcDataArray.forEach { (line) in
-        let namedEntity = NamedEntity(value: line, type: .website)
+    bcDataArray.enumerated().forEach { (index) in
+        let namedEntity = NamedEntity(value: index.element, type: .website, position: index.offset)
         computeResultHolder.append(contentsOf: namedEntity.computeWebsite(namedEntityHolder: namedEntityHolder, prefixes : prefixedEntities))
     }
     
@@ -391,8 +473,8 @@ func extractWebsite(raw : inout String, bcDataArray : [String] , namedEntityHold
 
 func extractEmails(raw : inout String, bcDataArray : [String] , namedEntityHolder : inout [NamedEntity], prefixedEntities : [PrefixHolder]) -> Void {
     var computeResultHolder : [NamedEntity] = []
-    bcDataArray.forEach { (line) in
-        let namedEntity = NamedEntity(value: line)
+    bcDataArray.enumerated().forEach { (index) in
+        let namedEntity = NamedEntity(value: index.element, type: .email, position: index.offset)
         computeResultHolder.append(contentsOf: namedEntity.computeEmails(namedEntityHolder: namedEntityHolder, prefixes : prefixedEntities))
     }
     
@@ -475,7 +557,7 @@ func extractTitles( bcDataArray : [String] , namedEntityHolder : inout [NamedEnt
     //    }
     
     computeResultHolder.forEach { (item) in
-        print("TITLE Value : \(item.value)  -- Score : \(item.score)")
+        print("TITLE Value : \(item.value)  -- Score : \(item.score)  -- AT POSTION \(item.position)")
     }
     
     postProcessResult(type: .title , result: computeResultHolder, namedEntityHolder: &namedEntityHolder)
@@ -485,8 +567,8 @@ func extractTitles( bcDataArray : [String] , namedEntityHolder : inout [NamedEnt
 func extractCompany( bcDataArray : [String] , namedEntityHolder : inout [NamedEntity], prefixedEntities : [PrefixHolder]) -> Void {
     
     var computeResultHolder : [NamedEntity] = []
-    bcDataArray.forEach { (entity) in
-        let namedEntity = NamedEntity(value: entity.description, type: .company)
+    bcDataArray.enumerated().forEach { (entity) in
+        let namedEntity = NamedEntity(value: entity.element.description, type: .company, position: entity.offset )
         computeResultHolder.append(namedEntity.computeCompany(namedEntityHolder: namedEntityHolder))
     }
     
@@ -717,74 +799,120 @@ class RecognitionTools {
         }.resume()
     }
     
-    static func preProcessRemoveExtracted(bcDataArray : inout [String] , namedEntityHolder: [ NamedEntity], forceRemove : Bool = false ) -> Void {
-        // use namedEntityHolder remove from bcDataArra
-        var array : [String] = []
-        for (index,line) in bcDataArray.enumerated() {
-            
-            //            if namedEntityHolder.contains(where: {$0.value == line}) {
-            if line.existInArray(array: namedEntityHolder.map({$0.value}), preprocess: true, level : 0.9) || line.trimmedAndLowercased.count < 2 {
-                
-                //array.append("")
-                
-                
-                //            }
-                //
-                //
-                //            if (line.description.existInArray(array: namedEntityHolder.map({
-                //                $0.value
-                //            }))){
-                // need to remove
-                //print("Removing INDEX \(index)")
-                //bcDataArray.remove(at: index)
-            }else if forceRemove{
-                
-                // advanced remove
-                
-                //print("Removing WITH ITs POSITION : \()  FROM \(line)")
-                
-                if (namedEntityHolder.filter({$0.position == index}).first != nil) {
-                    
-                    
-                    if let foundInString = namedEntityHolder.filter({$0.value.stringEqualityDistance(container: line, preprocess: true, ratio: 0.6)}).first {
-                        array.append(
-                            line
-                                .replacingOccurrences(of: " ", with: "")
-                                .replacingOccurrences(of: "-", with: "")
-                                .replacingOccurrences(of: "+", with: "")
-                                .replacingOccurrences(of: foundInString.value
-                                    .replacingOccurrences(of: " ", with: "")
-                                    .replacingOccurrences(of: "-", with: "")
-                                    .replacingOccurrences(of: "+", with: "")
-                                    , with: "", options: .caseInsensitive))
-                        
-                        print("Force removing \(foundInString.value)  FROM \(line)  ---- RESULT : \(line.preprocess.replacingOccurrences(of: "+", with: "").replacingOccurrences(of: foundInString.value.preprocess.replacingOccurrences(of: "+", with: ""), with: ""))")
-                        
-                    }else {
-                        array.append(line)
-                    }
-                }else {
-                    array.append(line)
-                }
-            }else{
-                array.append(line)
+    static func preProcessRemoveExtractedWithPosition(bcDataArray : inout [String] , namedEntityHolder: [ NamedEntity], forceRemove : Bool = false ) -> Void {
+        var bcDataArrayCopy : [String] = []
+        
+        
+
+        var unique = namedEntityHolder
+        .enumerated()
+        .filter{ namedEntityHolder.firstIndex(of: $0.1) == $0.0 }
+        .map{ $0.1 }
+        
+        unique = namedEntityHolder.filter({!$0.removed})
+        
+        bcDataArray.enumerated().forEach { (indexElement) in
+            if unique.filter({$0.position == indexElement.offset && !$0.removed }).first == nil {
+                bcDataArrayCopy.append(indexElement.element)
             }
         }
         
-        bcDataArray = array
+        namedEntityHolder.forEach({$0.removed = true})
+        
+        bcDataArray = bcDataArrayCopy
+    }
+    
+    static func preProcessRemoveExtracted(bcDataArray : inout [String] , namedEntityHolder: [ NamedEntity], forceRemove : Bool = false ) -> Void {
+        // use namedEntityHolder remove from bcDataArra
+        var array : [String] = []
+        
+        
+        
+        
+        for (index,line) in bcDataArray.enumerated() {
+            
+            var newLine = line
+            namedEntityHolder.forEach { (namedEntity) in
+                if line.preprocess.contains(namedEntity.value.preprocess) {
+                    newLine = (line.replacingOccurrences(of: namedEntity.value.preprocess, with: "",options: .caseInsensitive))
+                }
+            }
+            
+            array.append(newLine)
+            //            if namedEntityHolder.contains(where: {$0.value == line}) {
+//            if line.existInArray(array: namedEntityHolder.map({$0.value}), preprocess: true, level : 0.9) || line.trimmedAndLowercased.count < 2 {
+//
+//                array.append("")
+//
+//
+//                //            }
+//                //
+//                //
+//                //            if (line.description.existInArray(array: namedEntityHolder.map({
+//                //                $0.value
+//                //            }))){
+//                // need to remove
+//                //print("Removing INDEX \(index)")
+//                //bcDataArray.remove(at: index)
+//            }else if forceRemove{
+//
+//                // advanced remove
+//
+//                //print("Removing WITH ITs POSITION : \()  FROM \(line)")
+//
+//                namedEntityHolder.forEach { (namedEntity) in
+//                    if line.contains(namedEntity.value) {
+//                        array.append(line.replacingOccurrences(of: namedEntity.value, with: "",options: .caseInsensitive))
+//                    }
+//                }
+//
+//                //namedEntityHolder.forEach({array.append(line.replacingOccurrences(of: $0.value, with: "",options: .caseInsensitive))})
+//
+////                if (namedEntityHolder.filter({$0.position == index}).first != nil) {
+////
+////
+////                    if let foundInString = namedEntityHolder.filter({$0.value.stringEqualityDistance(container: line, preprocess: true, ratio: 0.6)}).first {
+////                        array.append(
+////                            line
+////                                .replacingOccurrences(of: " ", with: "")
+////                                .replacingOccurrences(of: "-", with: "")
+////                                .replacingOccurrences(of: "+", with: "")
+////                                .replacingOccurrences(of: foundInString.value
+////                                    .replacingOccurrences(of: " ", with: "")
+////                                    .replacingOccurrences(of: "-", with: "")
+////                                    .replacingOccurrences(of: "+", with: "")
+////                                    , with: "", options: .caseInsensitive))
+////
+////                        print("Force removing \(foundInString.value)  FROM \(line)  ---- RESULT : \(line.preprocess.replacingOccurrences(of: "+", with: "").replacingOccurrences(of: foundInString.value.preprocess.replacingOccurrences(of: "+", with: ""), with: ""))")
+////
+////                        let cleaned = foundInString.value
+////
+////                    }else {
+////                        array.append(line)
+////                    }
+////                }
+////                else {
+////                    array.append(line)
+////                }
+//            }else{
+//                array.append(line)
+//            }
+        }
+        
+        bcDataArray = array.filter({!$0.isEmpty})
     }
     
     
     static func preProcessRaw(raw : inout String , prefixedEntities : inout [PrefixHolder] , bcDataArray : inout [String], remove : Bool = false) -> Void {
         
-        prefixedEntities = preProcessPrefixes(raw: raw, bcDataArray: &bcDataArray, removeKeys: remove)
+        prefixedEntities = preProcessPrefixes(raw: raw, bcDataArray: &bcDataArray)
         
         testPrint(tag: "Prerpcess ", title: "Extracted prefixedEntities", content: prefixedEntities)
         
     }
     
     ///This preprocess function only care about KEY : VALUE , where content of key value doesnt matter
-    private static func preProcessPrefixes(raw : String , bcDataArray : inout [String], removeKeys: Bool ) -> [PrefixHolder] {
+    private static func preProcessPrefixes(raw : String , bcDataArray : inout [String] ) -> [PrefixHolder] {
         var prefixesEntities : [PrefixHolder] = []
         for (index,line) in bcDataArray.enumerated() {
             // lets do the separation stuff BASED ON " : " Prefix
@@ -841,7 +969,7 @@ class RecognitionTools {
                     }
                 }
                 
-                bcDataArray[index] = line.replacingOccurrences(of: separatorOccurenceByPoint[0], with: " ")
+//                bcDataArray[index] = line.replacingOccurrences(of: separatorOccurenceByPoint[0], with: " ")
                 
                 break
                 }
@@ -896,14 +1024,14 @@ class RecognitionTools {
                             prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .phone))
                             //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
                             
-                            bcDataArray[index] = ""
-                            bcDataArray.append(String(bcDataArray[index+1]))
+                            //bcDataArray[index] = ""
+                            //bcDataArray.append(String(bcDataArray[index+1]))
                             
                         }else{
                             prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .phone))
                             
-                            bcDataArray[index] = ""
-                            bcDataArray.append(separatorOccurenceByPoint[1])
+                            //bcDataArray[index] = ""
+                            //bcDataArray.append(separatorOccurenceByPoint[1])
                             
                         }
                         
@@ -923,16 +1051,15 @@ class RecognitionTools {
                         if separatorOccurenceByPoint[1].count == 0 {
                             // we got empty VALUE so we grab it eye closes from next line
                             prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .phone))
-                            //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
                             
-                            bcDataArray[index] = ""
-                            bcDataArray.append(String(bcDataArray[index+1]))
+                            //bcDataArray[index] = ""
+                            //bcDataArray.append(String(bcDataArray[index+1]))
                             
                         }else{
                             prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .phone))
                             
-                            bcDataArray[index] = ""
-                            bcDataArray.append(separatorOccurenceByPoint[1])
+                            //bcDataArray[index] = ""
+                            //bcDataArray.append(separatorOccurenceByPoint[1])
                         }
                         
                         //    mutableLine = mutableLine.replacingOccurrences(of: prefixeBuilder, with: "/n")
@@ -989,7 +1116,7 @@ class RecognitionTools {
                                 // i think we are good to put the value as it is
                                 
                                 prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .phone))
-                                bcDataArray[index] = bcDataArray[index].replacingFirstOccurrenceOf(target: firstElement, withString: "")
+                                //bcDataArray[index] = bcDataArray[index].replacingFirstOccurrenceOf(target: firstElement, withString: "")
                             }
                             
                         }else if RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: firstElement, preprocess: true, ratio: 0.2)}) {
@@ -1018,15 +1145,6 @@ class RecognitionTools {
             }
             
         }
-        //        if removeKeys {
-        //            //bcDataArray = bcDataArray.filter(prefixesEntities.map({$0.value}). contains(where: {$0 == ""}))
-        //
-        //            bcDataArray = bcDataArray. filter({ (element) -> Bool in
-        //                prefixesEntities.contains { (prefiexItem) -> Bool in
-        //                    prefiexItem.value == element
-        //                }
-        //            })
-        //        }
         
         return prefixesEntities
         
@@ -1115,15 +1233,17 @@ class RecognitionTools {
         faxPrefixes
     ]
     
-    static var bcEntityPrefixes = [
-        emailPrefixes
-    ]
+//    static var bcEntityPrefixes = [
+//        emailPrefixes
+//    ]
     
     static var directPrefixes = [
         "d",
+        "dir.",
         "direct",
         "line",
-        "line."
+        "line.",
+        "office",
     ]
     
     static var phonePrefixes = [
@@ -1135,6 +1255,7 @@ class RecognitionTools {
         "tél.",
         "t.",
         "t",
+        "ph",
     ]
     
     static var mobilePrefixes = [
@@ -1143,8 +1264,12 @@ class RecognitionTools {
         "mobile.",
         "portable",
         "portable.",
+        "port",
         "c",
         "c.",
+        "cell",
+        "cell.",
+        "mob"
     ]
     
     static var faxPrefixes = [

@@ -39,6 +39,7 @@ enum EntityType : CaseIterable {
     case website
     
    case unknown
+    case unknownPhone
 //    static func processAsKey(value:String) -> EntityType {
 //        if value.existInArray(array: NamedEntity.businessCardPrefixes) {
 //            

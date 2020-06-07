@@ -22,6 +22,23 @@ extension StringProtocol {
 
 extension String {
     
+    var condenseWhitespace : String {
+        let components = self.components(separatedBy: .whitespacesAndNewlines)
+        return components.filter { !$0.isEmpty }.joined(separator: " ")
+    }
+   
+    
+    var stripAllNonLetterWithDash : String {
+        let okayChars =
+                    CharacterSet.uppercaseLetters
+//                    .union(CharacterSet.alphanumerics)
+//                    .union(CharacterSet.capitalizedLetters)
+                    .union(CharacterSet.whitespacesAndNewlines)
+                    .union(CharacterSet.lowercaseLetters)
+        //            .union(CharacterSet.punctuationCharacters)
+//                        .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@"))
+                return String(self.unicodeScalars.filter{okayChars.contains($0) })
+    }
     
     var stripped: String {
         let okayChars =
@@ -31,7 +48,7 @@ extension String {
             .union(CharacterSet.whitespacesAndNewlines)
             .union(CharacterSet.uppercaseLetters)
 //            .union(CharacterSet.punctuationCharacters)
-            .union(CharacterSet(charactersIn: ":/-_\\+,;()&\"."))
+                .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@"))
         return String(self.unicodeScalars.filter{okayChars.contains($0) })
         
         //rangeOfCharacter(from: CharacterSet.decimalDigits.inverted)
