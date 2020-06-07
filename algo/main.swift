@@ -33,15 +33,54 @@ raw = "Tel : 24608993 / 24 655 509"
 
 var raws = [
     
+    // FIRST VALUE IS DISAPPEARING
+    
+    "Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCoyman Islands KY1-9009",
+    
+    
+    "Sup PIOR AUTO\nBODY\nAUTO REPAIR\nSHOP\nMark Demercado\n14 Sherwood Drive P.O. Box 11389 KY1-1008\nTel: 949-9570 / Fax: 946-1300. Email: sa@candw.ky\nwww.superiorautocayman.com",
+    
+    
+    "Jean-Vincent FERRANDI\nE.S.C. -M.BA.H.E.C.- C.PA.-I.H.E.D.N. - STANFORD E.P.\nASSET MANAGEMENT\nP.C. Box 157\n233 Conch Pointe Road\nWEST BAY\nKY1 1401 GRAND CAYMAN\nTél. - Fax 1 345 949 68 38\nCAYMAN ISLANDS, B.W.I.\nE-mail jvetd@ferrandi.org",
+    
+    "DOCTEUR MIKE MARANGONE\nCHIRURGIEN-DENTISTE\nDIPLOMÉ DE LA FACULTÉ DE\nchiRuRGie DENTAIRE DE CLERmOnT-FERRAND\nTÉL. 04 50 42 63 60\nCENTRE D'AUMARD\nFAX\n04 50 28 01\n30\n45, AV. VOLTAIRE\n01210 FERNEY-VOLTAIRE\n",
+    
+    
+    "Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
+    
+    
+    
+    "alister\nAVOCATS\nProf. Dr. Jochen BAUERREIS\nAvocat & Rechtsanwalt\nAvocat spécialise en droit des relations internationales\nDirecteur du Magistere Juristes d'Affaires Franco-Allemands\n11, rue du Parc\n67205 Strasbourg. Oberhausbergen\nTel. : +33 (0)3 68 00 14 10\nFax : +33 (0)3 68 00 14 11\njochen.bauerreis@alister-avocats.com\n",
+    
+    "Med Cheker Amdouni\nGraphic Designer\nPixartprinting SpA\nImmeuble Les 2 Lacs, Bloc 9,\nRue du Lac de Constance,\norinting\nLes Berges du Lac 1053,\nTunis\nmedcheker.amdouni@pixartprinting.com\n8\n",
+    
+    "CAYMAN ISLANDS\nHELICOPTERS\nA LIL HRS TE\nCLE SHINER\nJerome Begot\nP.O. Box 738, Grand Cayman, KYI-1103, Cayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR cihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n",
+    
+    
+    "will be group\nBernard Attali\nPrésident/Conseil en investissement financier\nMembre de la CNCIF D012068\nExpert financier membre de la CNCEF\nGOUVEINANCL & VALEUES\nbernard.attali@willbegroup.com\n+33(0)7 86 76 69 74\n+33(0)1 42 33 13 33\nChargé d'enseignement\nEDHEC (Lille)\nESSEC\nPARIS 22 RUE DE LARCADE\nIAE (Aix-en-Provence)\n75008 - T. 33(0)1 42 33 13 33\nParis 2 Panthéon ASSAS\nGENEVA RUE DE LATHENEE 40\n1206 - T 41(0) 22 588 65 30\nBRUSSELS 209A, AVENUE LOUISE\n1050 - T. • 32 (0) 2 627 55 70\ngouval.com\n",
+    
+    
+    
+    
+    "Maiborn\nWolff\nMenrl\"t\nSadok Chekir\nDiplom Ingenieur\nIT Architect\nsadok.chekir@maibornwolff.de\nMobil +49 151 544 22 153\nMaibornWolff GmbH\nTheresienhohe 13 - 80339 Munchen\nmaibornwolff.de\n",
+    
+    
+    
+    
+    "01.0\nHONDA\nCAR CITY\nCHRYSLER\n$ SUZUKI\nSALES SERVICE PARTS REPAIR\nJeep\nCiana Hedge\nMITSUBISHI\nMOTORS\nService Advisor\nMart\n10 Durham Drive\nPh: 345.949.5525 ext: 4104\nPO Box 10440\nFax: 345.949.8615\nGrand Cayman, KY1-1104,\nciana.hedge@carcitycayman.com\nCAYMAN ISLANDS\n",
+    
+    
+    
+    
     
     "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
     
     
     
-    "Med Cheker Amdouni\nGraphic Designer\nPixartprinting SpA\nImmeuble Les 2 Lacs, Bloc 9,\nRue du Lac de Constance,\norinting\nLes Berges du Lac 1053,\nTunis\nmedcheker.amdouni@pixartprinting.com\n8\n",
     
     
-    "Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
+    
+    
     
     
      "WILL\nr. Droit Creatif - Azan & Associes\nWilliam Azan\nAvocat Associé\n92, Avenue de Saint-Mandé - 75012 PARIS\nTel.: 33(0)1 42 56 08 20 - Port. : 06 86 86 32 50 william.azan@uwill.fr\n",
@@ -67,27 +106,7 @@ var raws = [
     
     
     
-"CAYMAN ISLANDS\nHELICOPTERS\nA LIL HRS TE\nCLE SHINER\nJerome Begot\nP.O. Box 738, Grand Cayman, KYI-1103, Cayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR cihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n"
-
-,
-
-
-
-
-
-
-
-
-
-
-
-
-"01.0\nHONDA\nCAR CITY\nCHRYSLER\n$ SUZUKI\nSALES SERVICE PARTS REPAIR\nJeep\nCiana Hedge\nMITSUBISHI\nMOTORS\nService Advisor\nMart\n10 Durham Drive\nPh: 345.949.5525 ext: 4104\nPO Box 10440\nFax: 345.949.8615\nGrand Cayman, KY1-1104,\nciana.hedge@carcitycayman.com\nCAYMAN ISLANDS\n"
-
-,
-    
-    
-    "Maiborn\nWolff\nMenrl\"t\nSadok Chekir\nDiplom Ingenieur\nIT Architect\nsadok.chekir@maibornwolff.de\nMobil +49 151 544 22 153\nMaibornWolff GmbH\nTheresienhohe 13 - 80339 Munchen\nmaibornwolff.de\n",
+  
     
     "~ Inceptio\nKarim BAHI\nCoach de groupes\n& organisations\n5, Rue 7214 - EI Menzah 9 A - 1013 Tunis - Tunisie\n+ 216 21 57 85 57• E-mail : kbahi@inceptio.tn",
     
@@ -107,7 +126,7 @@ var raws = [
     
     
     
-    "alister\nAVOCATS\nProf. Dr. Jochen BAUERREIS\nAvocat & Rechtsanwalt\nAvocat spécialise en droit des relations internationales\nDirecteur du Magistere Juristes d'Affaires Franco-Allemands\n11, rue du Parc\n67205 Strasbourg. Oberhausbergen\nTel. : +33 (0)3 68 00 14 10\nFax : +33 (0)3 68 00 14 11\njochen.bauerreis@alister-avocats.com\n",
+    
     
     
     "DeM\nAsad Zahur\nChairman\naz@hnmglobal.co\n1603 Jumeirah Business Centre 4 ILT N cluster, PO BOX 454381 DUBAI, UAE\nTel: +9714-4304314, Fax: +9714-4304574\n",
@@ -140,7 +159,7 @@ var raws = [
     
     
     
-    "will be group\nBernard Attali\nPrésident/Conseil en investissement financier\nMembre de la CNCIF D012068\nExpert financier membre de la CNCEF\nGOUVEINANCL & VALEUES\nbernard.attali@willbegroup.com\n+33(0)7 86 76 69 74\n+33(0)1 42 33 13 33\nChargé d'enseignement\nEDHEC (Lille)\nESSEC\nPARIS 22 RUE DE LARCADE\nIAE (Aix-en-Provence)\n75008 - T. 33(0)1 42 33 13 33\nParis 2 Panthéon ASSAS\nGENEVA RUE DE LATHENEE 40\n1206 - T 41(0) 22 588 65 30\nBRUSSELS 209A, AVENUE LOUISE\n1050 - T. • 32 (0) 2 627 55 70\ngouval.com\n",
+    
     
     
     
@@ -339,16 +358,16 @@ RecognitionTools.loadTitles(completion: {
             
             // remove special remable chars
 
-            testPrint(tag: "BC DATA BEFORE", title: " :: ", content: bcDataArray)
-
-            testPrint(tag: "", title: "OPERATION BEGIN", content: "")
+//            testPrint(tag: "BC DATA BEFORE", title: " :: ", content: bcDataArray)
+//
+//            testPrint(tag: "", title: "OPERATION BEGIN", content: "")
 
             // TODO : MAKE SURE YOU SPLIT PREFIXES FROM VALUES , FOR BVETTER RESULT
             RecognitionTools.preProcessRaw(raw: &mutableRaw , prefixedEntities : &prefixedEntities , bcDataArray: &bcDataArray, remove : true)
 
-            testPrint(tag: "preProcessRaw", title: "RESULT", content: prefixedEntities)
-
-            testPrint(tag: "BC DATA AFTER", title: " :: ", content: bcDataArray)
+//            testPrint(tag: "preProcessRaw", title: "RESULT", content: prefixedEntities)
+//
+//            testPrint(tag: "BC DATA AFTER", title: " :: ", content: bcDataArray)
 
             extractEmails(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
             extractWebsite(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
@@ -369,7 +388,7 @@ RecognitionTools.loadTitles(completion: {
             
             RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
 
-            testPrint(tag: "BC DATA AFTER", title: " :: ", content: bcDataArray)
+//            testPrint(tag: "BC DATA AFTER", title: " :: ", content: bcDataArray)
             extractFullName(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
 
             RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
@@ -385,61 +404,78 @@ RecognitionTools.loadTitles(completion: {
 //            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
             RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
 
-            testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
+            
 
 
             //RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
 //            ///////////////////////////////// @ ZONE
 //            // THIS IS MOVED HERE , BECASE WE NEED TO WORK ON ENTIRE BCDATA ARRAY
-//            var addressNamedEntity : AddressNamedEntity = AddressNamedEntity(value: "")
-//
-//            // we have NamedEntityHolder which contains , Validated PHONES , so lets extract Country in those phones and put dem in add
-//
-//            addressNamedEntity.extractZipCode(bcDataArray: &bcDataArray, namedEntityHolder: &namedEntityHolder, prefixes: prefixedEntities)
-//
-//            let dispatchGroup = DispatchGroup()
-//            dispatchGroup.enter()
-//            addressNamedEntity.extractCityORNDState(bcDataArray : &bcDataArray , completion: {success in
-//                print("City & states extraction done")
-//                dispatchGroup.leave()
-//            })
+            
+            
+            RecognitionTools.removePrefixOccurence(bcDataArray: &bcDataArray)
+            testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
+            
+            
+            
+            
+            var addressNamedEntity : AddressNamedEntity = AddressNamedEntity(value: "")
+
+            // we have NamedEntityHolder which contains , Validated PHONES , so lets extract Country in those phones and put dem in add
+
+            addressNamedEntity.extractZipCode(bcDataArray: &bcDataArray, namedEntityHolder: &namedEntityHolder, prefixes: prefixedEntities)
+
+            let dispatchGroup = DispatchGroup()
+            dispatchGroup.enter()
+            addressNamedEntity.extractCityORNDState(bcDataArray : &bcDataArray , completion: {success in
+                //print("City & states extraction done")
+                dispatchGroup.leave()
+            })
+            
+            
+            testPrint(tag: "AFTER ZIP CITY STATE EXTRACTION", title: " REMOVED EXTRACT ", content: bcDataArray)
 //
 //            // now lets compute @
 //
 //
-//            addressNamedEntity.extractAddress(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities)
-//
-//
-//            _ = dispatchGroup.wait()
-//            dispatchGroup.notify(queue: .main){
-//                print ("MAIN : Every tink done will not return")
-//            }
-//
-//            print("<HZHHZ")
-//            print(addressNamedEntity.state)
-//            print(addressNamedEntity.city)
-//            print(addressNamedEntity.street)
-//            print(addressNamedEntity.adress_second)
-//            print(addressNamedEntity.country_code)
-//            print(addressNamedEntity.country)
-//
-//
-//
-//
-//            ///////////////////////////////// END @ ZONZ
-//            testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
-//            namedEntityHolder.forEach { (named) in
-//                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
-//            }
-//
-//
-//            RecognitionTools.postProcessResult (bcDataArray : &bcDataArray, namedEntityHolder : &namedEntityHolder)
-//
-//
-//            testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
-//            namedEntityHolder.forEach { (named) in
-//                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
-//            }
+            addressNamedEntity.computeAddress(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities)
+            
+            
+            
+            // PLEASE DONT FORGET TO POST PROCESS
+            addressNamedEntity.postProcessYourSelf()
+
+            _ = dispatchGroup.wait()
+            dispatchGroup.notify(queue: .main){
+                print ("MAIN : Every tink done will not return")
+            }
+
+            print("<HZHHZ")
+            print("STATE ; \(addressNamedEntity.state)")
+            print("CITY : \(addressNamedEntity.city)")
+            print("STREET : \(addressNamedEntity.street)")
+            print("SECONDADD @ : \(addressNamedEntity.adress_second)")
+            print("ZIP  = \(addressNamedEntity.zip)")
+            print("COUNTRY COED : \(addressNamedEntity.country_code)")
+            print("COUNTRY :  \(addressNamedEntity.country)")
+            print("POBOX :  \(addressNamedEntity.pobox)")
+
+            
+
+
+            /////////////////////////////// END @ ZONZ
+            testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
+            namedEntityHolder.forEach { (named) in
+                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
+            }
+
+
+            RecognitionTools.postProcessResult (bcDataArray : &bcDataArray, namedEntityHolder : &namedEntityHolder)
+
+
+            testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
+            namedEntityHolder.forEach { (named) in
+                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
+            }
             
             
             testPrint(tag: "", title: "OPERATION END", content: "")
@@ -673,7 +709,22 @@ func extractAdress(bcDataArray : inout [String] , namedEntityHolder : inout [Nam
 
 class RecognitionTools {
     
-    
+    static func removePrefixOccurence( bcDataArray : inout [String] ){
+        var array : [String] = []
+        for (_,line) in bcDataArray.enumerated() {
+            
+            var newLine = line
+            RecognitionTools.businessCardPrefixes.flatMap({$0}).forEach { (prefix) in
+                if line.preprocess == prefix {
+                    newLine = (line.replacingOccurrences(of: prefix, with: "",options: .caseInsensitive))
+                }
+            }
+            
+            array.append(newLine)
+        }
+        
+        bcDataArray = array.filter({!$0.isEmpty && $0.count > 2})
+    }
     
     static func postProcessResult (bcDataArray : inout [String] , namedEntityHolder: inout [ NamedEntity]){
         var resultEntityHolder : [ NamedEntity] = []
@@ -1012,14 +1063,14 @@ class RecognitionTools {
                     
                     // FOR PREFIX
                     var newSeparation = line.prefix(position - prefixeBuilder.count + 1)
-                    
+                    // todo : THIS DOES CRASH CARD
                     // reprocess using ":" Code duplication Warning
                     
                     var separatorOccurenceByPoint = newSeparation.components(separatedBy:":")
                     //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
                     if separatorOccurenceByPoint.count == 2 { // this time we should have only TWO
                         // this is our best bet Key : Val
-                        if separatorOccurenceByPoint[1].count == 0 {
+                        if separatorOccurenceByPoint[1].trimmed.count == 0 {
                             // we got empty VALUE so we grab it eye closes from next line
                             prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .phone))
                             //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
@@ -1038,25 +1089,38 @@ class RecognitionTools {
                     }
                     
                     
-                    // FOR SUFFIX
-                    if (position > prefixeBuilder.count - 1) {
-                        newSeparation = line.suffix(position - prefixeBuilder.count - 1)
-                    }else{
-                        newSeparation = line.suffix(prefixeBuilder.count - position)
-                    }
-                    separatorOccurenceByPoint = newSeparation.components(separatedBy:":")
+//                    // FOR SUFFIX
+//                    if (position > prefixeBuilder.count - 1) {
+//                        newSeparation = line.suffix(position - prefixeBuilder.count - 1)
+//                    }else{
+//                        newSeparation = line.suffix(prefixeBuilder.count - position)
+//                    }
+                    
+                    // juste remove occurence of NEW SEPARTION of first key : val compoenntnt
+                    
+                    let newLine = line.replacingOccurrences(of: newSeparation, with: "",options: .caseInsensitive)
+                    
+                    separatorOccurenceByPoint = newLine.components(separatedBy:":")
                     //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
                     if separatorOccurenceByPoint.count == 2 { // this time we should have only TWO
                         // this is our best bet Key : Val
                         if separatorOccurenceByPoint[1].count == 0 {
                             // we got empty VALUE so we grab it eye closes from next line
-                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .phone))
+                            
+                            let phone = bcDataArray[index+1]
+                            let testPhone = phone.count > 6 && phone.isPhoneNumber
+                            
+                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: testPhone ? .phone : .unknownPhone))
                             
                             //bcDataArray[index] = ""
                             //bcDataArray.append(String(bcDataArray[index+1]))
                             
                         }else{
-                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .phone))
+                            
+                            let phone = separatorOccurenceByPoint[1]
+                            let testPhone = phone.count > 6 && phone.isPhoneNumber
+                            
+                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: testPhone ? .phone : .unknownPhone))
                             
                             //bcDataArray[index] = ""
                             //bcDataArray.append(separatorOccurenceByPoint[1])
@@ -1102,20 +1166,25 @@ class RecognitionTools {
                         
                         if RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: firstElement, preprocess: true, ratio: 0.2)}) {
                             
+                            
+                            
+                            
                             if let foundAnotherPrefix = removedFirst.filter({ (element) -> Bool in
                                 element.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}))
                             }).first {
                              
                                 // split by that prefix
                                 let secondSeparation = removedFirst.joined(separator: " ").components(separatedBy: foundAnotherPrefix)
+                                let testPhone = secondSeparation[0].count > 6 && secondSeparation[0].isPhoneNumber && !firstElement.containsNumbers()
                                 
-                                prefixesEntities.append(PrefixHolder(key: firstElement, value: secondSeparation[0] , type: .phone))
+                                prefixesEntities.append(PrefixHolder(key: firstElement, value: secondSeparation[0] , type: testPhone ? .phone : .unknownPhone))
                                 prefixesEntities.append(PrefixHolder(key: foundAnotherPrefix, value: secondSeparation[1] , type: .phone))
                                 
                             } else {
                                 // i think we are good to put the value as it is
-                                
-                                prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .phone))
+                                let phone = removedFirst.joined(separator: " ")
+                                let testPhone = phone.count > 6 && phone.isPhoneNumber
+                                prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: testPhone ? .phone : .unknownPhone))
                                 //bcDataArray[index] = bcDataArray[index].replacingFirstOccurrenceOf(target: firstElement, withString: "")
                             }
                             
@@ -1251,6 +1320,12 @@ class RecognitionTools {
         "phone",
         "phone.",
         "p",
+        "tel",
+        "tél",
+        "téléphone",
+        "té",
+        "télép",
+        
         "tel.",
         "tél.",
         "t.",
@@ -1275,7 +1350,10 @@ class RecognitionTools {
     static var faxPrefixes = [
         "f",
         "fax",
-        "fax."
+        "fax.",
+        "téléc.",
+        "télécopie",
+        
     ]
     
     
@@ -1315,6 +1393,8 @@ class RecognitionTools {
     static var lowerCasejobTitles = ["diplom","it"]
     
     static var lowerCaseNamesPrefixes = [
+        "docteur",
+        "doc.",
         "mr.",
         "mrs.",
         "ms.",
