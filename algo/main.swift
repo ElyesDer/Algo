@@ -33,9 +33,13 @@ raw = "Tel : 24608993 / 24 655 509"
 
 var raws = [
     
-    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    "Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCoyman Islands KY1-9009",
     
     "Insurance\nTA\nHealth\nPensions\nLife\nBRITCAY\nErica Smith\nPersonal Insurance Representative\nBRITISH CAYMANIAN INSURANCE COMPANY LIMITED\nPersonal & Business Insurance\nBritCay House, 236 Eastern Avenue, George Town, Grand Cayman\nP.O. Box 74, Grand Cayman KY1-1102, Cayman Islands\ntel. (345) 949 8699 dir. (345) 914 9866 fax. (345) 949 8411\nErica.Smith@britcay.ky www.britcay.ky\n",
+    
+    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    
+    
     
     "CAYMAN ISLANDS\nHELICOPTERS\nA LIL HRS TE\nCLE SHINER\nJerome Begot\nP.O. Box 738, Grand Cayman, KYI-1103, Cayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR cihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n",
     
@@ -46,7 +50,7 @@ var raws = [
     "Jean-Vincent FERRANDI\nE.S.C. -M.BA.H.E.C.- C.PA.-I.H.E.D.N. - STANFORD E.P.\nASSET MANAGEMENT\nP.C. Box 157\n233 Conch Pointe Road\nWEST BAY\nKY1 1401 GRAND CAYMAN\nTél. - Fax 1 345 949 68 38\nCAYMAN ISLANDS, B.W.I.\nE-mail jvetd@ferrandi.org",
     
     
-    "Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCoyman Islands KY1-9009",
+    
     
     
     "B Atelier Beaumarchals\nMailre Arlison Bollier 9\nCordonnier . Bottier . Maroquinier\nRéparation en Maroquinerie\n30 rue de Turbigo\nOuvert du lundi au samedi\n75003 Paris\nde 10:00 a 19:30\nTel: 01 44 93 51 15\n",
@@ -664,9 +668,12 @@ func postProcessResult(type : EntityType, result : [NamedEntity], namedEntityHol
             .sorted(by: {$0.score > $1.score })
             .filter({$0.score > 50})
             .forEach { (proposedTitle) in
-                if namedEntityHolder.contains(where: {$0.type == .title}) {
+                if let firstTitle = namedEntityHolder.filter({$0.type == .title}).first { // contains(where: {$0.type == .title}) {
                     // we already have a title
-                    namedEntityHolder.append(NamedEntity(value: proposedTitle.value, type: .title2, position: proposedTitle.position))
+                    // check position
+                    if abs( firstTitle.position - proposedTitle.position ) == 1 {
+                        namedEntityHolder.append(NamedEntity(value: proposedTitle.value, type: .title2, position: proposedTitle.position))
+                    }
                 }else{
                     // we put it in title 2
                     namedEntityHolder.append(NamedEntity(value: proposedTitle.value, type: .title, position: proposedTitle.position))
@@ -780,7 +787,7 @@ class RecognitionTools {
     
     
     static func loadStatesWithPrefix(prefix : String, completion : @escaping (_ : Bool) -> ()) {
-        let url = URL(string: "http://api.abracardabra.test-360.net/states/\(prefix)")!
+        let url = URL(string: "http://api.abracardabra.pre-360.net/states/\(prefix)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -812,7 +819,7 @@ class RecognitionTools {
     }
     
     static func loadCitiesWithPrefix(prefix : String, completion : @escaping (_ : Bool) -> ()) {
-        let url = URL(string: "http://api.abracardabra.test-360.net/cities/\(prefix)")!
+        let url = URL(string: "http://api.abracardabra.pre-360.net/cities/\(prefix)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -846,7 +853,7 @@ class RecognitionTools {
     
     
     static func loadTitles(completion : @escaping (_ : Bool) -> ()) {
-        let url = URL(string: "http://api.abracardabra.test-360.net/titles")!
+        let url = URL(string: "http://api.abracardabra.pre-360.net/titles")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

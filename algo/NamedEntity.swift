@@ -861,6 +861,11 @@ class AddressNamedEntity: NamedEntity {
             
             dispatchGroup.notify(queue: .global()){
                 //print ("Every tink done will not return")
+                
+                if self.state == self.city {
+                    self.state = ""
+                }
+                
                 completion(true)
             }
         } else {
