@@ -33,17 +33,32 @@ raw = "Tel : 24608993 / 24 655 509"
 
 var raws = [
     
-    // FIRST VALUE IS DISAPPEARING
     
     "Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCoyman Islands KY1-9009",
+    
+    
+    "B Atelier Beaumarchals\nMailre Arlison Bollier 9\nCordonnier . Bottier . Maroquinier\nRéparation en Maroquinerie\n30 rue de Turbigo\nOuvert du lundi au samedi\n75003 Paris\nde 10:00 a 19:30\nTel: 01 44 93 51 15\n",
+    
+    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    
+    "will be group\nBernard Attali\nPrésident/Conseil en investissement financier\nMembre de la CNCIF D012068\nExpert financier membre de la CNCEF\nGOUVEINANCL & VALEUES\nbernard.attali@willbegroup.com\n+33(0)7 86 76 69 74\n+33(0)1 42 33 13 33\nChargé d'enseignement\nEDHEC (Lille)\nESSEC\nPARIS 22 RUE DE LARCADE\nIAE (Aix-en-Provence)\n75008 - T. 33(0)1 42 33 13 33\nParis 2 Panthéon ASSAS\nGENEVA RUE DE LATHENEE 40\n1206 - T 41(0) 22 588 65 30\nBRUSSELS 209A, AVENUE LOUISE\n1050 - T. • 32 (0) 2 627 55 70\ngouval.com\n",
+    
+    "DOCTEUR MIKE MARANGONE\nCHIRURGIEN-DENTISTE\nDIPLOMÉ DE LA FACULTÉ DE\nchiRuRGie DENTAIRE DE CLERmOnT-FERRAND\nTÉL. 04 50 42 63 60\nCENTRE D'AUMARD\nFAX\n04 50 28 01\n30\n45, AV. VOLTAIRE\n01210 FERNEY-VOLTAIRE\n",
+    
+    "Jean-Vincent FERRANDI\nE.S.C. -M.BA.H.E.C.- C.PA.-I.H.E.D.N. - STANFORD E.P.\nASSET MANAGEMENT\nP.C. Box 157\n233 Conch Pointe Road\nWEST BAY\nKY1 1401 GRAND CAYMAN\nTél. - Fax 1 345 949 68 38\nCAYMAN ISLANDS, B.W.I.\nE-mail jvetd@ferrandi.org",
+    
+    "Seifeddine Khelifi\nExpert Senior\nDéveloppement des Ventes\nboredoo\nImmeuble Zenith, Les Jardins du Lac\n1053, Les Berges du Lac, Tunis, Tunisie\nM : +216 22 126 4661T : +216 36 126 466\nseifeddine.khelifi@ooredoo.tn\n",
+    
+    
+    
     
     
     "Sup PIOR AUTO\nBODY\nAUTO REPAIR\nSHOP\nMark Demercado\n14 Sherwood Drive P.O. Box 11389 KY1-1008\nTel: 949-9570 / Fax: 946-1300. Email: sa@candw.ky\nwww.superiorautocayman.com",
     
     
-    "Jean-Vincent FERRANDI\nE.S.C. -M.BA.H.E.C.- C.PA.-I.H.E.D.N. - STANFORD E.P.\nASSET MANAGEMENT\nP.C. Box 157\n233 Conch Pointe Road\nWEST BAY\nKY1 1401 GRAND CAYMAN\nTél. - Fax 1 345 949 68 38\nCAYMAN ISLANDS, B.W.I.\nE-mail jvetd@ferrandi.org",
     
-    "DOCTEUR MIKE MARANGONE\nCHIRURGIEN-DENTISTE\nDIPLOMÉ DE LA FACULTÉ DE\nchiRuRGie DENTAIRE DE CLERmOnT-FERRAND\nTÉL. 04 50 42 63 60\nCENTRE D'AUMARD\nFAX\n04 50 28 01\n30\n45, AV. VOLTAIRE\n01210 FERNEY-VOLTAIRE\n",
+    
+    
     
     
     "Anis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n",
@@ -57,7 +72,7 @@ var raws = [
     "CAYMAN ISLANDS\nHELICOPTERS\nA LIL HRS TE\nCLE SHINER\nJerome Begot\nP.O. Box 738, Grand Cayman, KYI-1103, Cayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR cihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n",
     
     
-    "will be group\nBernard Attali\nPrésident/Conseil en investissement financier\nMembre de la CNCIF D012068\nExpert financier membre de la CNCEF\nGOUVEINANCL & VALEUES\nbernard.attali@willbegroup.com\n+33(0)7 86 76 69 74\n+33(0)1 42 33 13 33\nChargé d'enseignement\nEDHEC (Lille)\nESSEC\nPARIS 22 RUE DE LARCADE\nIAE (Aix-en-Provence)\n75008 - T. 33(0)1 42 33 13 33\nParis 2 Panthéon ASSAS\nGENEVA RUE DE LATHENEE 40\n1206 - T 41(0) 22 588 65 30\nBRUSSELS 209A, AVENUE LOUISE\n1050 - T. • 32 (0) 2 627 55 70\ngouval.com\n",
+    
     
     
     
@@ -73,7 +88,7 @@ var raws = [
     
     
     
-    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    
     
     
     
@@ -133,7 +148,7 @@ var raws = [
     
     
     
-    "Seifeddine Khelifi\nExpert Senior\nDéveloppement des Ventes\nboredoo\nImmeuble Zenith, Les Jardins du Lac\n1053, Les Berges du Lac, Tunis, Tunisie\nM : +216 22 126 4661T : +216 36 126 466\nseifeddine.khelifi@ooredoo.tn\n",
+    
     
     
     
@@ -204,7 +219,7 @@ var raws = [
     
     "A\nCREDIT AGRICOLE\nNORD DE FRANCE\nBALLE-DERLY Carine\nResponsable dunite Contentleux entreprises, professionnels et agriculteurs\nDGA/CTX - CONTENTIEUX\n62000 ARRAS\nTel\n03 21 07 59 38-Fax 03 21 07.76.84\ncarna balie dedyfca nordoofrance.f\n",
     
-    "B Atelier Beaumarchals\nMailre Arlison Bollier 9\nCordonnier . Bottier . Maroquinier\nRéparation en Maroquinerie\n30 rue de Turbigo\nOuvert du lundi au samedi\n75003 Paris\nde 10:00 a 19:30\nTel: 01 44 93 51 15\n",
+    
     
     
      
@@ -394,11 +409,11 @@ RecognitionTools.loadTitles(completion: {
             RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
 //            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
             
-            
+            extractTitles(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
             
             extractCompany(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
 
-            extractTitles(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
+            
 
             
 //            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
@@ -565,7 +580,7 @@ func extractFullName( bcDataArray : [String] , namedEntityHolder : inout [ Named
     
     for (index,entity) in bcDataArray.enumerated() {
         let namedEntity = NamedEntity(value: entity.description , type: .fullname, position: index)
-        computeResultHolder.append(namedEntity.computeFullName(namedEntityHolder: namedEntityHolder))
+        computeResultHolder.append(namedEntity.computeFullName(namedEntityHolder: namedEntityHolder, countDataArray: bcDataArray.count))
     }
     
     
@@ -605,12 +620,12 @@ func extractCompany( bcDataArray : [String] , namedEntityHolder : inout [NamedEn
     var computeResultHolder : [NamedEntity] = []
     bcDataArray.enumerated().forEach { (entity) in
         let namedEntity = NamedEntity(value: entity.element.description, type: .company, position: entity.offset )
-        computeResultHolder.append(namedEntity.computeCompany(namedEntityHolder: namedEntityHolder))
+        computeResultHolder.append(namedEntity.computeCompany(namedEntityHolder: namedEntityHolder, countDataArray: bcDataArray.count))
     }
     
     
     if computeResultHolder.filter({ (namedEntityCompany) -> Bool in
-        namedEntityCompany.score > 30
+        namedEntityCompany.score > 35
     }).count < 1 {
         // considered LoW
         // IF SCORE IS CONSIDERED LOW - / 30 , then maybe process email and website to get something from them
@@ -731,7 +746,10 @@ class RecognitionTools {
         // remove duplicate
         
         namedEntityHolder.forEach { (resultEntity) in
-            if resultEntity.score > -10 && !resultEntityHolder.contains(where: {$0.value == resultEntity.value}){
+            if resultEntity.score > -10 && !resultEntityHolder.contains(where: {
+                $0.value == resultEntity.value &&
+                $0.type == resultEntity.type
+            }){
                 
                 
                 resultEntity.value = resultEntity.value.trimmingCharacters(in: .punctuationCharacters)

@@ -958,7 +958,7 @@ class NamedEntity : Equatable {
         return holder
     }
     
-    func computeFullName( namedEntityHolder : [ NamedEntity ] ) -> NamedEntity {
+    func computeFullName( namedEntityHolder : [ NamedEntity ] , countDataArray : Int ) -> NamedEntity {
         //resultHolder[value] = score
         
         // extract email and website
@@ -1004,8 +1004,10 @@ class NamedEntity : Equatable {
              */
         }
         
-        if 0...5 ~= position {
-            score += 10
+        
+        
+        if 0...((countDataArray/2)-1) ~= position {
+            score += 15
         }
         
         // this needs prefix to be removed
@@ -1065,6 +1067,10 @@ class NamedEntity : Equatable {
                     score -= 20
                 }
             }else {
+                
+                if element.contains(".") || element.contains(",") || element.contains("-"){
+                    score -= 5
+                }
                 // rest of element
                 if element.isAllUpperCase(){
                     score += 5
@@ -1142,7 +1148,7 @@ class NamedEntity : Equatable {
         
     }
     
-    func computeCompany(namedEntityHolder : [ NamedEntity ] ) -> NamedEntity {
+    func computeCompany(namedEntityHolder : [ NamedEntity ] , countDataArray: Int) -> NamedEntity {
         
         // extract email and website
         let emails = namedEntityHolder.filter { (namedEntity) -> Bool in
@@ -1162,6 +1168,10 @@ class NamedEntity : Equatable {
         // remove white space so it detects correctly
         if  value.replacingOccurrences(of: " ", with: "").description.isAllNumber {
             return self
+        }
+        
+        if 0...((countDataArray/2)) ~= position {
+            score += 15
         }
         
         if value.existInArray(array: namedEntityHolder.map({$0.value}),preprocess: true) {
@@ -1199,8 +1209,12 @@ class NamedEntity : Equatable {
                 
                 
                 // website is hard to do "Contains" ; so adjust the level for the best results
-                if item.existInArray(array: websites.map({$0.value}), preprocess: false , level: 0.7) {
+                if item.existInArray(array: websites.map({$0.value}), preprocess: true , level: 0.7) {
                     score += 20
+                }
+                
+                if item.existInArray(array: RecognitionTools.businessCardPrefixes.flatMap({$0}),preprocess: true,level: 0.85){
+                    score -= 20
                 }
                 
             })
@@ -1258,7 +1272,7 @@ class NamedEntity : Equatable {
             if !partTwo.existInArray(array: RecognitionTools.emailsDomains,preprocess: true) {
                 // pretend its company website
                 entityFound = NamedEntity(value: partTwo.components(separatedBy: ".")[0], type: .company)
-                entityFound.score += 35
+                entityFound.score += 40
                 results.append( entityFound )
                 
             }
@@ -1269,17 +1283,41 @@ class NamedEntity : Equatable {
             
             // replace ALL OCCURENCE OF HTTP:// HTTPS:// WWW. FTP://, .com , .fr ,.be , ......
             
-            let urlString = webEntity.value
-            let url = URL(string: urlString)
-            if let host = url?.host {
-                if host.existInArray(array: results.map({$0.value})) {
-                    entityFound.score += 45
-                }else{
-                    entityFound = NamedEntity(value: host , type: .company , score: 45)
-                }
-                
-                results.append(entityFound)
+            var urlString = ""
+            
+            urlString = webEntity.value.replacingOccurrences(of: "www.", with: "")
+            
+            
+            let components = urlString.components(separatedBy: ".")
+            
+            if components[0].existInArray(array: results.map({$0.value})) {
+                entityFound.score += 45
+            }else{
+                //Blind eyes pick second part
+                entityFound = NamedEntity(value: components[0] , type: .company , score: 45)
             }
+            results.append(entityFound)
+            
+//                .forEach { (componentInUrl) in
+//                if componentInUrl.existInArray(array: results.map({$0.value})) {
+//                    entityFound.score += 45
+//                }else{
+//                    //Blind eyes pick second part
+//                    entityFound = NamedEntity(value:  , type: .company , score: 45)
+//                }
+//
+//
+//
+//            let url = URL(string: urlString)
+//            if let host = url?.host {
+//                if host.existInArray(array: results.map({$0.value})) {
+//                    entityFound.score += 45
+//                }else{
+//                    entityFound = NamedEntity(value: host , type: .company , score: 45)
+//                }
+//
+//                results.append(entityFound)
+//            }
         }
         // company name have vbeen extracted from email or website , so po them
         return results
@@ -1291,6 +1329,18 @@ class NamedEntity : Equatable {
         let fullNamePosition : Int = namedEntityHolder.first(where: {$0.type == .fullname})?.position ?? -1
         
         
+        let emails = namedEntityHolder.filter { (namedEntity) -> Bool in
+            namedEntity.type == .email
+        }
+        
+        let websites = namedEntityHolder.filter { (namedEntity) -> Bool in
+            namedEntity.type == .website
+        }
+        
+        // preprocess titles that contains non separable content before you separate
+        value = value.replacingOccurrences(of: "/", with: " ")
+        value = value.replacingOccurrences(of: "-", with: " ")
+        // and some other specials
         
         let tokensValue = value.components(separatedBy: " ")
         
@@ -1325,7 +1375,7 @@ class NamedEntity : Equatable {
             score -= 100
             return self // dealing with @ // not vali
         }else{
-            score -= 20
+            //score -= 20
         }
         
         
@@ -1394,6 +1444,22 @@ class NamedEntity : Equatable {
                 score -= 20
             }
             
+            if element.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[0] }), preprocess: true , level: 0.8) {
+                score -= 10
+            }
+            
+            // SECOND PART OF EMAIL WHERE WE GENERALLY FOUND COMPANY , SO HIGHER SCORE GOES HERE
+            if element.existInArray(array: emails.map({$0.value.components(separatedBy: "@")[1] }), preprocess: true , level: 0.8) {
+                score -= 10
+            }
+            
+            
+            // website is hard to do "Contains" ; so adjust the level for the best results
+            if element.existInArray(array: websites.map({$0.value}), preprocess: false , level: 0.7) {
+                score -= 10
+            }
+            
+            
             if element.isAllNumber {
                 score -= 10
             }
@@ -1412,6 +1478,12 @@ class NamedEntity : Equatable {
             
         }
         
+        if value.existInArray(array: RecognitionTools.businessCardPrefixes.flatMap({$0}),preprocess: true,level: 0.85){
+            score -= 40
+        }
+        
+        
+        // title should not exist in email
         
         // HEAVY PROCESSSS
         //        if value.existInArray(array: RecognitionTools.lowerCasejobTitles){
@@ -1422,13 +1494,17 @@ class NamedEntity : Equatable {
         // TODO , get position of last title , if this is next , than probablty a title
         let upperBound = score >= 30 ? 2 : 1
         
-        if fullNamePosition != -1 && 1...upperBound ~= abs(position-fullNamePosition)  {
+        if fullNamePosition != -1 && 0...upperBound ~= abs(position-fullNamePosition)  {
             score += 30
         }
         
         //        if abs(position-fullNamePosition) == 1 {
         //            score += 20
         //        }
+        
+        if 0...fullNamePosition ~= position {
+            score += 15
+        }
         
         
         return self
