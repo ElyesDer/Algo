@@ -804,25 +804,53 @@ class AddressNamedEntity: NamedEntity {
                     for(index, line) in bcDataArrayCopy.enumerated() {
                         let decompose = line.components(separatedBy: " ")
                         
-                        decompose.forEach { (element) in
+                        decompose.enumerated().forEach { (indexElement) in
                             
-                            //if RecognitionTools.citiesWithPrefix.joined(separator: "\n").stringContains(container: element, preprocess: true) {
-                            // TODO : CHANGES THIS , GRAB VALUES FROM PREMADE
-                            if element.existInArray(array: RecognitionTools.citiesWithPrefix, preprocess: true, level: 0.9) { // level need to be high
-                            //if element.stringExistsInArray(array: RecognitionTools.citiesWithPrefix) {
-//                                let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
-//                                bcDataArrayCopy[index] = newLine
-                                self.city = element
+                            
+                            // Bonjour grand cayman
+                            
+                            if decompose.count - 1 > indexElement.offset {
+                                let group = "\(indexElement.element) \(decompose[indexElement.offset+1])"
+                                if group.existInArray(array: RecognitionTools.citiesWithPrefix, preprocess: true, level: 0.9) {
+                                    self.city = group
+                                    self.cityPosition = index
+                                }
+                            }else if indexElement.element.existInArray(array: RecognitionTools.citiesWithPrefix, preprocess: true, level: 0.9) {
+                                self.city = indexElement.element
                                 self.cityPosition = index
                             }
                             
+                            
+                            //if RecognitionTools.citiesWithPrefix.joined(separator: "\n").stringContains(container: element, preprocess: true) {
+                            // TODO : CHANGES THIS , GRAB VALUES FROM PREMADE
+//                            if indexElement.element.existInArray(array: RecognitionTools.citiesWithPrefix, preprocess: true, level: 0.9) { // level need to be high
+//                                if decompose.count >= indexElement.offset+1 {
+//                                    if decompose[indexElement.offset+1].existInArray(array: RecognitionTools.citiesWithPrefix, preprocess: true, level: 0.9) {
+//                                        // than take 1 and 2
+//                                        self.city = indexElement.element .appending("\(decompose[indexElement.offset+1])")
+//                                        self.cityPosition = index
+//                                    }else{
+//                                        self.city = indexElement.element
+//                                        self.cityPosition = index
+//                                    }
+//                                }else{
+//                                    self.city = indexElement.element
+//                                    self.cityPosition = index
+//                                }
+//
+//                            //if element.stringExistsInArray(array: RecognitionTools.citiesWithPrefix) {
+////                                let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
+////                                bcDataArrayCopy[index] = newLine
+//
+//                            }
+                            
                             // TODO : WHY THIS EXUST S TWICE ??
                             if let cityElement = RecognitionTools.citiesWithPrefix.filter({
-                                $0.existIn(container: element, preprocess: true)
+                                $0.existIn(container: indexElement.element, preprocess: true)
                             }).first {
                                 //let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
                                 //bcDataArrayCopy[index] = newLine
-                                self.city = element
+                                self.city = indexElement.element
                                 self.cityPosition = index
                             }
                         }
