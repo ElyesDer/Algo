@@ -33,19 +33,31 @@ raw = "Tel : 24608993 / 24 655 509"
 
 var raws = [
     
+    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    
+    "Insurance\nTA\nHealth\nPensions\nLife\nBRITCAY\nErica Smith\nPersonal Insurance Representative\nBRITISH CAYMANIAN INSURANCE COMPANY LIMITED\nPersonal & Business Insurance\nBritCay House, 236 Eastern Avenue, George Town, Grand Cayman\nP.O. Box 74, Grand Cayman KY1-1102, Cayman Islands\ntel. (345) 949 8699 dir. (345) 914 9866 fax. (345) 949 8411\nErica.Smith@britcay.ky www.britcay.ky\n",
+    
+    "CAYMAN ISLANDS\nHELICOPTERS\nA LIL HRS TE\nCLE SHINER\nJerome Begot\nP.O. Box 738, Grand Cayman, KYI-1103, Cayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR cihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n",
+    
+    
+    "DOCTEUR MIKE MARANGONE\nCHIRURGIEN-DENTISTE\nDIPLOMÉ DE LA FACULTÉ DE\nchiRuRGie DENTAIRE DE CLERmOnT-FERRAND\nTÉL. 04 50 42 63 60\nCENTRE D'AUMARD\nFAX 04 50 28 01 30 45, AV. VOLTAIRE\n01210 FERNEY-VOLTAIRE\n",
+    
+    
+    "Jean-Vincent FERRANDI\nE.S.C. -M.BA.H.E.C.- C.PA.-I.H.E.D.N. - STANFORD E.P.\nASSET MANAGEMENT\nP.C. Box 157\n233 Conch Pointe Road\nWEST BAY\nKY1 1401 GRAND CAYMAN\nTél. - Fax 1 345 949 68 38\nCAYMAN ISLANDS, B.W.I.\nE-mail jvetd@ferrandi.org",
+    
     
     "Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCoyman Islands KY1-9009",
     
     
     "B Atelier Beaumarchals\nMailre Arlison Bollier 9\nCordonnier . Bottier . Maroquinier\nRéparation en Maroquinerie\n30 rue de Turbigo\nOuvert du lundi au samedi\n75003 Paris\nde 10:00 a 19:30\nTel: 01 44 93 51 15\n",
     
-    "Béchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n",
+    
     
     "will be group\nBernard Attali\nPrésident/Conseil en investissement financier\nMembre de la CNCIF D012068\nExpert financier membre de la CNCEF\nGOUVEINANCL & VALEUES\nbernard.attali@willbegroup.com\n+33(0)7 86 76 69 74\n+33(0)1 42 33 13 33\nChargé d'enseignement\nEDHEC (Lille)\nESSEC\nPARIS 22 RUE DE LARCADE\nIAE (Aix-en-Provence)\n75008 - T. 33(0)1 42 33 13 33\nParis 2 Panthéon ASSAS\nGENEVA RUE DE LATHENEE 40\n1206 - T 41(0) 22 588 65 30\nBRUSSELS 209A, AVENUE LOUISE\n1050 - T. • 32 (0) 2 627 55 70\ngouval.com\n",
     
-    "DOCTEUR MIKE MARANGONE\nCHIRURGIEN-DENTISTE\nDIPLOMÉ DE LA FACULTÉ DE\nchiRuRGie DENTAIRE DE CLERmOnT-FERRAND\nTÉL. 04 50 42 63 60\nCENTRE D'AUMARD\nFAX\n04 50 28 01\n30\n45, AV. VOLTAIRE\n01210 FERNEY-VOLTAIRE\n",
     
-    "Jean-Vincent FERRANDI\nE.S.C. -M.BA.H.E.C.- C.PA.-I.H.E.D.N. - STANFORD E.P.\nASSET MANAGEMENT\nP.C. Box 157\n233 Conch Pointe Road\nWEST BAY\nKY1 1401 GRAND CAYMAN\nTél. - Fax 1 345 949 68 38\nCAYMAN ISLANDS, B.W.I.\nE-mail jvetd@ferrandi.org",
+    
+    
     
     "Seifeddine Khelifi\nExpert Senior\nDéveloppement des Ventes\nboredoo\nImmeuble Zenith, Les Jardins du Lac\n1053, Les Berges du Lac, Tunis, Tunisie\nM : +216 22 126 4661T : +216 36 126 466\nseifeddine.khelifi@ooredoo.tn\n",
     
@@ -69,7 +81,7 @@ var raws = [
     
     "Med Cheker Amdouni\nGraphic Designer\nPixartprinting SpA\nImmeuble Les 2 Lacs, Bloc 9,\nRue du Lac de Constance,\norinting\nLes Berges du Lac 1053,\nTunis\nmedcheker.amdouni@pixartprinting.com\n8\n",
     
-    "CAYMAN ISLANDS\nHELICOPTERS\nA LIL HRS TE\nCLE SHINER\nJerome Begot\nP.O. Box 738, Grand Cayman, KYI-1103, Cayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR cihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n",
+    
     
     
     
@@ -108,9 +120,7 @@ var raws = [
     "ILY\ne\nA\nSearch\nBRYAN, GARNIER & Co\nFrancois Arpels\nManaging Director\nBryan, Garnier & Co\nCorporate Finance\n26, avenue des Champs-Elysees\n75008 Paris\nTel\n+33 (0)1 70 36 57 43\nFax\n+33 (011 56 66 75 21\nMobile: +33 (0)6 73 12 98 64\ne-mail - farpels@bryangarnier.com\n",
     
     
-    "Insurance\nTA\nHealth\nPensions\nLife\nBRITCAY\nErica Smith\nPersonal Insurance Representative\nBRITISH CAYMANIAN INSURANCE COMPANY LIMITED\nPersonal & Business Insurance\nBritCay House, 236 Eastern Avenue, George Town, Grand Cayman\nP.O. Box 74, Grand Cayman KY1-1102, Cayman Islands\ntel. (345) 949 8699 dir. (345) 914 9866 fax. (345) 949 8411\nErica.Smith@britcay.ky www.britcay.ky\n"
-
-    ,
+    
     
     " Search\nJackie Beji\nOffice: 345-949-9838\nSales & Rental Agent\nFax: 345-949-9839\nProperty Manager\nCell: 345-925-5652\n1\nRITCH\nREALTY LTD.\nCIREBA MEMBER\nEmail: jackie@ritchrealty.ky Web: www.ritchrealty.ky\n32 Earth Close off West Bay Road, Tropic Centre II Building Suite #9\nPO Box 31223 Grand Cayman, Cayman Islands KYI-1205\n"
 
@@ -672,6 +682,7 @@ func postProcessResult(type : EntityType, result : [NamedEntity], namedEntityHol
             
             let sortedTitle = result
                 .sorted(by: {$0.score > $1.score })
+                .filter({$0.score > -10})
                 .first
             
             namedEntityHolder.append(NamedEntity(value: sortedTitle?.value ?? "", type: .title))
@@ -1327,10 +1338,23 @@ class RecognitionTools {
     static var directPrefixes = [
         "d",
         "dir.",
+        "ld",
         "direct",
         "line",
         "line.",
-        "office",
+        
+        "tel (direct)",
+        "tél (direct)",
+        "direct line",
+        "ligne directe",
+        "linea dedicada",
+        "didww",
+        "did",
+        "ddi",
+        "pstn",
+        "dd",
+        "direction",
+        
     ]
     
     static var phonePrefixes = [
@@ -1338,21 +1362,34 @@ class RecognitionTools {
         "phone",
         "phone.",
         "p",
+        "p.",
         "tel",
         "tél",
         "téléphone",
         "té",
         "télép",
+        "telefon",
+        "stand.",
+        "standard",
         
         "tel.",
         "tél.",
         "t.",
         "t",
         "ph",
+        "tél.",
+        "tel. - fax.",
+        "tél. - fax.",
+        
+        "office",
+        "bureau",
+        "tf",
     ]
     
     static var mobilePrefixes = [
         "m",
+        "m.",
+        "gsm",
         "mobile",
         "mobile.",
         "portable",
@@ -1362,16 +1399,19 @@ class RecognitionTools {
         "c.",
         "cell",
         "cell.",
-        "mob"
+        "cellular",
+        "mob",
     ]
     
     static var faxPrefixes = [
         "f",
+        "f.",
         "fax",
         "fax.",
         "téléc.",
         "télécopie",
-        
+        "tel. - fax.",
+        "tél. - fax.",
     ]
     
     
@@ -2445,7 +2485,7 @@ class RecognitionTools {
         CountryPhonePrefix(countryPrefix:"CM", phonePrefix: "237", countryName: "Cameroon",zipREX: ""),
         CountryPhonePrefix(countryPrefix:"CA", phonePrefix: "1", countryName: "Canada",zipREX: "[ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z][ ]?\\d[ABCEGHJ-NPRSTV-Z]\\d"),
         CountryPhonePrefix(countryPrefix:"CV", phonePrefix: "238", countryName: "Cape Verde",zipREX: ""),
-        CountryPhonePrefix(countryPrefix:"KY", phonePrefix: "345", countryName: "Cayman Islands",zipREX: "KY[1-3]-\\d{4}"),
+        CountryPhonePrefix(countryPrefix:"KY", phonePrefix: "345", countryName: "Cayman Islands",zipREX: "KY[1-3, Ii][\\s\\S]\\d{4}"),
         CountryPhonePrefix(countryPrefix:"CF", phonePrefix: "236", countryName: "Central African Republic",zipREX: ""),
         CountryPhonePrefix(countryPrefix:"TD", phonePrefix: "235", countryName: "Chad",zipREX: ""),
         CountryPhonePrefix(countryPrefix:"CL", phonePrefix: "56", countryName: "Chile",zipREX: ""),
