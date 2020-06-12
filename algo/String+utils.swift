@@ -31,12 +31,6 @@ extension String {
     var stripAllNonNumbers : String {
             let okayChars =
                         CharacterSet.alphanumerics
-    //                    .union(CharacterSet.alphanumerics)
-    //                    .union(CharacterSet.capitalizedLetters)
-//                        .union(CharacterSet.whitespacesAndNewlines)
-//                        .union(CharacterSet.lowercaseLetters)
-            //            .union(CharacterSet.punctuationCharacters)
-    //                        .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@"))
                     return String(self.unicodeScalars.filter{okayChars.contains($0) })
         }
    
@@ -44,12 +38,8 @@ extension String {
     var stripAllNonLetterWithDash : String {
         let okayChars =
                     CharacterSet.uppercaseLetters
-//                    .union(CharacterSet.alphanumerics)
-//                    .union(CharacterSet.capitalizedLetters)
                     .union(CharacterSet.whitespacesAndNewlines)
                     .union(CharacterSet.lowercaseLetters)
-        //            .union(CharacterSet.punctuationCharacters)
-//                        .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@"))
                 return String(self.unicodeScalars.filter{okayChars.contains($0) })
     }
     
@@ -60,12 +50,9 @@ extension String {
             .union(CharacterSet.capitalizedLetters)
             .union(CharacterSet.whitespacesAndNewlines)
             .union(CharacterSet.uppercaseLetters)
-//            .union(CharacterSet.punctuationCharacters)
                 .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@'"))
         return String(self.unicodeScalars.filter{okayChars.contains($0) })
         
-        //rangeOfCharacter(from: CharacterSet.decimalDigits.inverted)
-//        return rangeOfCharacter(from: okayChars) == nil
     }
     
     
@@ -152,9 +139,6 @@ extension String {
     
     func isValidEmail() -> Bool
     {
-//        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-//        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-//        return emailTest.evaluate(with: self)
         
         let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
         return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
@@ -205,14 +189,6 @@ extension String {
     
     
     func getAdvancedPOBoxAddress() -> [String]  {
-        
-        /*
-         V1 : "(?i)^\\s*(.*((p|post)[-.\\s]*(o|off|office)[-.\\s]*(b|box|bin)[-.\\s]*)|.*((p|post)[-.\\s]*(o|off|office)[-.\\s]*)|.*((p|post)[-.\\s]*(b|box|bin)[-.\\s]*)|(box|bin)[-.\\s]*)(#|n|num|number)?\\s*\\d+"
-         
-         
-    V2 : Enhanced , remove string from stirng
-         (((p|post)[-.\s]*(o|off|office)[-.\s]*(b|box|bin)[-.\s]*)|.*((p|post)[-.\s]*(o|off|office)[-.\s]*)|.*((p|post)[-.\s]*(b|box|bin)[-.\s]*)|(box|bin)[-.\s]*)(#|n|num|number)?\s*\d+
-        */
         
         
         if let regex = try? NSRegularExpression(pattern: "(((p|post)[-.\\s]*(o|off|office)[-.\\s]*(b|box|bin)[-.\\s]*)|.*((p|post)[-.\\s]*(o|off|office)[-.\\s]*)|.*((p|post)[-.\\s]*(b|box|bin)[-.\\s]*)|(box|bin)[-.\\s]*)(#|n|num|number)?\\s*\\d+", options: .caseInsensitive)
