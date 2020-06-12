@@ -8,25 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		8A53A3036B70BB3F3C8ABD77 /* Pods_algo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFABA4D026904D90A7F2E4EB /* Pods_algo.framework */; };
+		985C20E42493BF9100B9A310 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20D12493BF9100B9A310 /* Constants.swift */; };
+		985C20E62493BF9100B9A310 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20D42493BF9100B9A310 /* PhoneNumber.swift */; };
+		985C20E72493BF9100B9A310 /* RegexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20D52493BF9100B9A310 /* RegexManager.swift */; };
+		985C20E82493BF9100B9A310 /* MetadataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20D62493BF9100B9A310 /* MetadataTypes.swift */; };
+		985C20E92493BF9100B9A310 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20D72493BF9100B9A310 /* ParseManager.swift */; };
+		985C20EA2493BF9100B9A310 /* NSRegularExpression+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20DD2493BF9100B9A310 /* NSRegularExpression+Swift.swift */; };
+		985C20EB2493BF9100B9A310 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20DE2493BF9100B9A310 /* Formatter.swift */; };
+		985C20EC2493BF9100B9A310 /* MetadataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20DF2493BF9100B9A310 /* MetadataManager.swift */; };
+		985C20ED2493BF9100B9A310 /* PartialFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20E02493BF9100B9A310 /* PartialFormatter.swift */; };
+		985C20EE2493BF9100B9A310 /* PhoneNumberKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20E12493BF9100B9A310 /* PhoneNumberKit.swift */; };
+		985C20EF2493BF9100B9A310 /* PhoneNumberParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20E32493BF9100B9A310 /* PhoneNumberParser.swift */; };
 		98B652E824802A7000BBE2BC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B652E724802A7000BBE2BC /* main.swift */; };
 		98B652EF24802ACE00BBE2BC /* NamedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B652EE24802ACE00BBE2BC /* NamedEntity.swift */; };
 		98B652F124802B3100BBE2BC /* EntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B652F024802B3100BBE2BC /* EntityType.swift */; };
 		98B652F324803CB300BBE2BC /* String+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B652F224803CB300BBE2BC /* String+utils.swift */; };
-		98DA267E24816380006761F8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA266624816380006761F8 /* Constants.swift */; };
-		98DA267F24816380006761F8 /* CountryCodePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA266824816380006761F8 /* CountryCodePickerViewController.swift */; };
-		98DA268024816380006761F8 /* PhoneNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA266924816380006761F8 /* PhoneNumberTextField.swift */; };
-		98DA268124816380006761F8 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA266A24816380006761F8 /* PhoneNumber.swift */; };
-		98DA268224816380006761F8 /* RegexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA266B24816380006761F8 /* RegexManager.swift */; };
-		98DA268324816380006761F8 /* MetadataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA266C24816380006761F8 /* MetadataTypes.swift */; };
-		98DA268424816380006761F8 /* MetadataParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA266D24816380006761F8 /* MetadataParsing.swift */; };
-		98DA268524816380006761F8 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA266E24816380006761F8 /* ParseManager.swift */; };
-		98DA268624816380006761F8 /* NSRegularExpression+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA267624816380006761F8 /* NSRegularExpression+Swift.swift */; };
-		98DA268724816380006761F8 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA267724816380006761F8 /* Formatter.swift */; };
-		98DA268824816380006761F8 /* MetadataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA267824816380006761F8 /* MetadataManager.swift */; };
-		98DA268924816380006761F8 /* PartialFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA267924816380006761F8 /* PartialFormatter.swift */; };
-		98DA268A24816380006761F8 /* PhoneNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA267A24816380006761F8 /* PhoneNumberFormatter.swift */; };
-		98DA268B24816380006761F8 /* PhoneNumberKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA267B24816380006761F8 /* PhoneNumberKit.swift */; };
-		98DA268C24816380006761F8 /* PhoneNumberParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA267D24816380006761F8 /* PhoneNumberParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +39,21 @@
 
 /* Begin PBXFileReference section */
 		91AF9A91D760BCF6A68C10FE /* Pods-algo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-algo.release.xcconfig"; path = "Target Support Files/Pods-algo/Pods-algo.release.xcconfig"; sourceTree = "<group>"; };
+		985C20D12493BF9100B9A310 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		985C20D42493BF9100B9A310 /* PhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
+		985C20D52493BF9100B9A310 /* RegexManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexManager.swift; sourceTree = "<group>"; };
+		985C20D62493BF9100B9A310 /* MetadataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataTypes.swift; sourceTree = "<group>"; };
+		985C20D72493BF9100B9A310 /* ParseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
+		985C20DA2493BF9100B9A310 /* PhoneNumberMetadata.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PhoneNumberMetadata.xml; sourceTree = "<group>"; };
+		985C20DB2493BF9100B9A310 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PhoneNumberMetadata.json; sourceTree = "<group>"; };
+		985C20DC2493BF9100B9A310 /* PhoneNumberKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumberKit.h; sourceTree = "<group>"; };
+		985C20DD2493BF9100B9A310 /* NSRegularExpression+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Swift.swift"; sourceTree = "<group>"; };
+		985C20DE2493BF9100B9A310 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		985C20DF2493BF9100B9A310 /* MetadataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataManager.swift; sourceTree = "<group>"; };
+		985C20E02493BF9100B9A310 /* PartialFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialFormatter.swift; sourceTree = "<group>"; };
+		985C20E12493BF9100B9A310 /* PhoneNumberKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberKit.swift; sourceTree = "<group>"; };
+		985C20E22493BF9100B9A310 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		985C20E32493BF9100B9A310 /* PhoneNumberParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberParser.swift; sourceTree = "<group>"; };
 		98B652E424802A7000BBE2BC /* algo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = algo; sourceTree = BUILT_PRODUCTS_DIR; };
 		98B652E724802A7000BBE2BC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		98B652EE24802ACE00BBE2BC /* NamedEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedEntity.swift; sourceTree = "<group>"; };
@@ -50,27 +61,7 @@
 		98B652F224803CB300BBE2BC /* String+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+utils.swift"; sourceTree = "<group>"; };
 		98DA25D024815C8A006761F8 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98DA25D424815CDC006761F8 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		98DA266624816380006761F8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		98DA266824816380006761F8 /* CountryCodePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodePickerViewController.swift; sourceTree = "<group>"; };
-		98DA266924816380006761F8 /* PhoneNumberTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberTextField.swift; sourceTree = "<group>"; };
-		98DA266A24816380006761F8 /* PhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
-		98DA266B24816380006761F8 /* RegexManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexManager.swift; sourceTree = "<group>"; };
-		98DA266C24816380006761F8 /* MetadataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataTypes.swift; sourceTree = "<group>"; };
-		98DA266D24816380006761F8 /* MetadataParsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataParsing.swift; sourceTree = "<group>"; };
-		98DA266E24816380006761F8 /* ParseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
-		98DA267124816380006761F8 /* PhoneNumberMetadata.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PhoneNumberMetadata.xml; sourceTree = "<group>"; };
 		98DA267224816380006761F8 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PhoneNumberMetadata.json; sourceTree = "<group>"; };
-		98DA267324816380006761F8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		98DA267424816380006761F8 /* update.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = update.sh; sourceTree = "<group>"; };
-		98DA267524816380006761F8 /* PhoneNumberKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumberKit.h; sourceTree = "<group>"; };
-		98DA267624816380006761F8 /* NSRegularExpression+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Swift.swift"; sourceTree = "<group>"; };
-		98DA267724816380006761F8 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		98DA267824816380006761F8 /* MetadataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataManager.swift; sourceTree = "<group>"; };
-		98DA267924816380006761F8 /* PartialFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialFormatter.swift; sourceTree = "<group>"; };
-		98DA267A24816380006761F8 /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
-		98DA267B24816380006761F8 /* PhoneNumberKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberKit.swift; sourceTree = "<group>"; };
-		98DA267C24816380006761F8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98DA267D24816380006761F8 /* PhoneNumberParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberParser.swift; sourceTree = "<group>"; };
 		BFABA4D026904D90A7F2E4EB /* Pods_algo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_algo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB19098D98D9A0C830EF434A /* Pods-algo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-algo.debug.xcconfig"; path = "Target Support Files/Pods-algo/Pods-algo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,9 +97,48 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		985C20D02493BF9100B9A310 /* PhoneNumberKit */ = {
+			isa = PBXGroup;
+			children = (
+				985C20D12493BF9100B9A310 /* Constants.swift */,
+				985C20D42493BF9100B9A310 /* PhoneNumber.swift */,
+				985C20D52493BF9100B9A310 /* RegexManager.swift */,
+				985C20D62493BF9100B9A310 /* MetadataTypes.swift */,
+				985C20D72493BF9100B9A310 /* ParseManager.swift */,
+				985C20D82493BF9100B9A310 /* Resources */,
+				985C20DC2493BF9100B9A310 /* PhoneNumberKit.h */,
+				985C20DD2493BF9100B9A310 /* NSRegularExpression+Swift.swift */,
+				985C20DE2493BF9100B9A310 /* Formatter.swift */,
+				985C20DF2493BF9100B9A310 /* MetadataManager.swift */,
+				985C20E02493BF9100B9A310 /* PartialFormatter.swift */,
+				985C20E12493BF9100B9A310 /* PhoneNumberKit.swift */,
+				985C20E22493BF9100B9A310 /* Info.plist */,
+				985C20E32493BF9100B9A310 /* PhoneNumberParser.swift */,
+			);
+			path = PhoneNumberKit;
+			sourceTree = "<group>";
+		};
+		985C20D82493BF9100B9A310 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				985C20D92493BF9100B9A310 /* Original */,
+				985C20DB2493BF9100B9A310 /* PhoneNumberMetadata.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		985C20D92493BF9100B9A310 /* Original */ = {
+			isa = PBXGroup;
+			children = (
+				985C20DA2493BF9100B9A310 /* PhoneNumberMetadata.xml */,
+			);
+			path = Original;
+			sourceTree = "<group>";
+		};
 		98B652DB24802A7000BBE2BC = {
 			isa = PBXGroup;
 			children = (
+				985C20D02493BF9100B9A310 /* PhoneNumberKit */,
 				98B652E624802A7000BBE2BC /* algo */,
 				98B652E524802A7000BBE2BC /* Products */,
 				6A5C9D38AA20BCD602A6ABB1 /* Pods */,
@@ -127,7 +157,6 @@
 		98B652E624802A7000BBE2BC /* algo */ = {
 			isa = PBXGroup;
 			children = (
-				98DA266524816380006761F8 /* PhoneNumberKit */,
 				98B652E724802A7000BBE2BC /* main.swift */,
 				98DA267224816380006761F8 /* PhoneNumberMetadata.json */,
 				98B652EE24802ACE00BBE2BC /* NamedEntity.swift */,
@@ -135,57 +164,6 @@
 				98B652F224803CB300BBE2BC /* String+utils.swift */,
 			);
 			path = algo;
-			sourceTree = "<group>";
-		};
-		98DA266524816380006761F8 /* PhoneNumberKit */ = {
-			isa = PBXGroup;
-			children = (
-				98DA266624816380006761F8 /* Constants.swift */,
-				98DA266724816380006761F8 /* UI */,
-				98DA266A24816380006761F8 /* PhoneNumber.swift */,
-				98DA266B24816380006761F8 /* RegexManager.swift */,
-				98DA266C24816380006761F8 /* MetadataTypes.swift */,
-				98DA266D24816380006761F8 /* MetadataParsing.swift */,
-				98DA266E24816380006761F8 /* ParseManager.swift */,
-				98DA266F24816380006761F8 /* Resources */,
-				98DA267524816380006761F8 /* PhoneNumberKit.h */,
-				98DA267624816380006761F8 /* NSRegularExpression+Swift.swift */,
-				98DA267724816380006761F8 /* Formatter.swift */,
-				98DA267824816380006761F8 /* MetadataManager.swift */,
-				98DA267924816380006761F8 /* PartialFormatter.swift */,
-				98DA267A24816380006761F8 /* PhoneNumberFormatter.swift */,
-				98DA267B24816380006761F8 /* PhoneNumberKit.swift */,
-				98DA267C24816380006761F8 /* Info.plist */,
-				98DA267D24816380006761F8 /* PhoneNumberParser.swift */,
-			);
-			path = PhoneNumberKit;
-			sourceTree = "<group>";
-		};
-		98DA266724816380006761F8 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				98DA266824816380006761F8 /* CountryCodePickerViewController.swift */,
-				98DA266924816380006761F8 /* PhoneNumberTextField.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		98DA266F24816380006761F8 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				98DA267024816380006761F8 /* Original */,
-				98DA267324816380006761F8 /* README.md */,
-				98DA267424816380006761F8 /* update.sh */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		98DA267024816380006761F8 /* Original */ = {
-			isa = PBXGroup;
-			children = (
-				98DA267124816380006761F8 /* PhoneNumberMetadata.xml */,
-			);
-			path = Original;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,25 +250,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98DA268624816380006761F8 /* NSRegularExpression+Swift.swift in Sources */,
-				98DA267E24816380006761F8 /* Constants.swift in Sources */,
-				98DA268924816380006761F8 /* PartialFormatter.swift in Sources */,
-				98DA268C24816380006761F8 /* PhoneNumberParser.swift in Sources */,
+				985C20E42493BF9100B9A310 /* Constants.swift in Sources */,
+				985C20E92493BF9100B9A310 /* ParseManager.swift in Sources */,
+				985C20EF2493BF9100B9A310 /* PhoneNumberParser.swift in Sources */,
+				985C20EC2493BF9100B9A310 /* MetadataManager.swift in Sources */,
+				985C20E62493BF9100B9A310 /* PhoneNumber.swift in Sources */,
 				98B652F324803CB300BBE2BC /* String+utils.swift in Sources */,
-				98DA268B24816380006761F8 /* PhoneNumberKit.swift in Sources */,
-				98DA267F24816380006761F8 /* CountryCodePickerViewController.swift in Sources */,
-				98DA268024816380006761F8 /* PhoneNumberTextField.swift in Sources */,
-				98DA268424816380006761F8 /* MetadataParsing.swift in Sources */,
-				98DA268A24816380006761F8 /* PhoneNumberFormatter.swift in Sources */,
+				985C20E72493BF9100B9A310 /* RegexManager.swift in Sources */,
+				985C20ED2493BF9100B9A310 /* PartialFormatter.swift in Sources */,
 				98B652F124802B3100BBE2BC /* EntityType.swift in Sources */,
+				985C20EB2493BF9100B9A310 /* Formatter.swift in Sources */,
+				985C20EA2493BF9100B9A310 /* NSRegularExpression+Swift.swift in Sources */,
+				985C20EE2493BF9100B9A310 /* PhoneNumberKit.swift in Sources */,
 				98B652E824802A7000BBE2BC /* main.swift in Sources */,
-				98DA268524816380006761F8 /* ParseManager.swift in Sources */,
-				98DA268324816380006761F8 /* MetadataTypes.swift in Sources */,
-				98DA268824816380006761F8 /* MetadataManager.swift in Sources */,
-				98DA268724816380006761F8 /* Formatter.swift in Sources */,
 				98B652EF24802ACE00BBE2BC /* NamedEntity.swift in Sources */,
-				98DA268224816380006761F8 /* RegexManager.swift in Sources */,
-				98DA268124816380006761F8 /* PhoneNumber.swift in Sources */,
+				985C20E82493BF9100B9A310 /* MetadataTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

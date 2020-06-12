@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import NaturalLanguage
 
 
 print("Hello, Algorithm")
@@ -551,10 +550,7 @@ func extractPhones( bcDataArray : [String] , namedEntityHolder : inout [NamedEnt
     var computeResultHolder : [NamedEntity] = []
     
     // lets instantiate from here so we can depass  memory usage problem
-    let phoneNumberKit = PhoneNumberKit { () -> Data? in
-        return try? PhoneNumberKit.defaultMetadataCallback()
-    }
-    
+    let phoneNumberKit = PhoneNumberKit()
     
     for (index,entity) in bcDataArray.enumerated() {
         let namedEntity = NamedEntity(value: entity.description, type: .phone, position: index)
