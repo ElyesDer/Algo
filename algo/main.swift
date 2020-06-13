@@ -505,6 +505,60 @@ RecognitionTools.loadTitles(completion: {
                 print("Extracted \(named.type) : \(named.value)  - \(named.score)")
             }
             
+            /*
+             tempBC?.city_name = addressNamedEntity.city
+             tempBC?.street = addressNamedEntity.street
+             tempBC?.country_name = addressNamedEntity.country
+             tempBC?.adress_second = addressNamedEntity.adress_second
+             tempBC?.site_zip = addressNamedEntity.zip
+             tempBC?.state_name = addressNamedEntity.state
+             tempBC?.country_prefix = addressNamedEntity.country_prefix.count > 0 ? addressNamedEntity.country_prefix[0] : ""
+             
+             
+             
+             tempBC?.company_name = namedEntityHolder.first(where: {$0.type == .company})?.value ?? ""
+             tempBC?.email = namedEntityHolder.first(where: {$0.type == .email})?.value ?? ""
+             
+             
+             
+             tempBC?.mobile = namedEntityHolder.first(where: {$0.type == .mobile})?.value ?? ""
+             tempBC?.phone = namedEntityHolder.first(where: {$0.type == .phone})?.value ?? ""
+             tempBC?.fax = namedEntityHolder.first(where: {$0.type == .fax})?.value ?? ""
+             tempBC?.direct = namedEntityHolder.first(where: {$0.type == .direct})?.value ?? ""
+             
+             
+             
+             tempBC?.company_website = namedEntityHolder.first(where: {$0.type == .website})?.value ?? ""
+             tempBC?.title_second = namedEntityHolder.first(where: {$0.type == .title2})?.value ?? ""
+             tempBC?.title = namedEntityHolder.first(where: {$0.type == .title})?.value ?? ""
+             
+             let fullName = splitFullName(fullName: namedEntityHolder.first(where: {$0.type == .fullname})?.value ?? "")
+             tempBC?.firstName = fullName[0]
+             tempBC?.lastName = fullName[1].capitalized
+             */
+            
+            
+            var result : RecognizedEntity = RecognizedEntity(
+                fullName: namedEntityHolder.first(where: {$0.type == .fullname})?.value ?? "",
+                                                             title: namedEntityHolder.first(where: {$0.type == .title})?.value ?? "",
+                                                             secondTitle: namedEntityHolder.first(where: {$0.type == .title2})?.value ?? "",
+                                                             companyName: namedEntityHolder.first(where: {$0.type == .company})?.value ?? "",
+                                                             companyWebsite: namedEntityHolder.first(where: {$0.type == .website})?.value ?? "",
+                                                             city: addressNamedEntity.city,
+                                                             state: addressNamedEntity.state,
+                                                             country: addressNamedEntity.country,
+                                                             countryPrefix: addressNamedEntity.country_prefix,
+                                                             email: namedEntityHolder.first(where: {$0.type == .email})?.value ?? "",
+                                                             fax: namedEntityHolder.first(where: {$0.type == .fax})?.value ?? "",
+                                                             phone: namedEntityHolder.first(where: {$0.type == .phone})?.value ?? "",
+                                                             direct: namedEntityHolder.first(where: {$0.type == .direct})?.value ?? "",
+                                                             mobile: namedEntityHolder.first(where: {$0.type == .mobile})?.value ?? "",
+                                                             zip: addressNamedEntity.zip,
+                                                             street: addressNamedEntity.street,
+                                                             secondAdress: addressNamedEntity.adress_second)
+            
+            
+            
             
             testPrint(tag: "", title: "OPERATION END", content: "")
         }
@@ -514,6 +568,46 @@ RecognitionTools.loadTitles(completion: {
 })
 
 RunLoop.main.run()
+
+
+
+func sendResult (result : RecognizedEntity , completion : @escaping (bool) -> ()) {
+    let url = URL(string: "LINK TO POST ENPOING")!
+    var request = URLRequest(url: url)
+    request.timeoutInterval = 15
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    
+    guard let encodedEntity = try? JSONEncoder().encode(result) else {
+        print("Error with Encoded data ")
+        return
+    }
+    
+    print (String(data: encodedEntity , encoding: .utf8))
+    
+    
+    URLSession.shared.uploadTask(with: request , from : encodedEntity) { (data, response, error) in
+        
+        if let error = error {
+            completion(false,error.localizedDescription)
+        }else if (response as? HTTPURLResponse) != nil {
+            do {
+                print (String(data : data! , encoding : .utf8)!)
+                let decoder = JSONDecoder()
+                do {
+                    completion(true)
+                } catch let error {
+                    print(error)
+                    completion(false)
+                }
+            } catch let error {
+                completion(false)
+            }
+        }
+    }.resume()
+}
+
 
 
 func extractWebsite(raw : inout String, bcDataArray : [String] , namedEntityHolder : inout [NamedEntity], prefixedEntities : [PrefixHolder]) -> Void {

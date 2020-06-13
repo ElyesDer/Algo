@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1824"
             endingLineNumber = "1824"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,8 +30,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "512"
-            endingLineNumber = "512"
+            startingLineNumber = "566"
+            endingLineNumber = "566"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "528"
-            endingLineNumber = "528"
+            startingLineNumber = "622"
+            endingLineNumber = "622"
             landmarkName = "extractWebsite(raw:bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "577"
-            endingLineNumber = "577"
+            startingLineNumber = "671"
+            endingLineNumber = "671"
             landmarkName = "extractPhones(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "509"
-            endingLineNumber = "509"
+            startingLineNumber = "563"
+            endingLineNumber = "563"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
+            startingLineNumber = "634"
+            endingLineNumber = "634"
             landmarkName = "extractEmails(raw:bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -112,8 +112,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "974"
             endingLineNumber = "974"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeEmails(namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -126,8 +126,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "596"
-            endingLineNumber = "596"
+            startingLineNumber = "690"
+            endingLineNumber = "690"
             landmarkName = "extractFullName(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -144,8 +144,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1075"
             endingLineNumber = "1075"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -160,8 +160,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1100"
             endingLineNumber = "1100"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -176,8 +176,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1113"
             endingLineNumber = "1113"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -192,8 +192,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1167"
             endingLineNumber = "1167"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -208,8 +208,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1156"
             endingLineNumber = "1156"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "A91AC5AC-F358-47DC-84A0-E67BA93E543E - 102bd3e34b5b9d0d"
@@ -256,8 +256,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1157"
             endingLineNumber = "1157"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -272,8 +272,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1180"
             endingLineNumber = "1180"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -288,8 +288,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1163"
             endingLineNumber = "1163"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -304,8 +304,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1127"
             endingLineNumber = "1127"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -320,8 +320,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1174"
             endingLineNumber = "1174"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -336,8 +336,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1246"
             endingLineNumber = "1246"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -352,8 +352,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1224"
             endingLineNumber = "1224"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -368,8 +368,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1223"
             endingLineNumber = "1223"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "6A1A6ED8-CA7E-4796-8F34-BA148D412983 - eee8700fa3d94dfb"
@@ -416,8 +416,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "961"
             endingLineNumber = "961"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeWebsite(namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -432,8 +432,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "956"
             endingLineNumber = "956"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeWebsite(namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -446,8 +446,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "646"
-            endingLineNumber = "646"
+            startingLineNumber = "740"
+            endingLineNumber = "740"
             landmarkName = "extractCompany(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -464,8 +464,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1234"
             endingLineNumber = "1234"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "7961A8B7-A4C9-4A1F-A69C-70D9029182C1 - 48c742af93fce9b9"
@@ -512,8 +512,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1227"
             endingLineNumber = "1227"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -528,8 +528,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1212"
             endingLineNumber = "1212"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -544,8 +544,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1210"
             endingLineNumber = "1210"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "EE93DE45-1D2C-4EC1-B903-0D5C68E2C52E - eee8700fa3d94dfb"
@@ -590,8 +590,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "619"
-            endingLineNumber = "619"
+            startingLineNumber = "713"
+            endingLineNumber = "713"
             landmarkName = "extractTitles(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -606,8 +606,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "702"
-            endingLineNumber = "702"
+            startingLineNumber = "796"
+            endingLineNumber = "796"
             landmarkName = "postProcessResult(type:result:namedEntityHolder:)"
             landmarkType = "9">
             <Locations>
@@ -654,8 +654,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "654"
-            endingLineNumber = "654"
+            startingLineNumber = "748"
+            endingLineNumber = "748"
             landmarkName = "postProcessResult(type:result:namedEntityHolder:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -670,8 +670,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "710"
-            endingLineNumber = "710"
+            startingLineNumber = "804"
+            endingLineNumber = "804"
             landmarkName = "postProcessResult(type:result:namedEntityHolder:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -688,8 +688,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1356"
             endingLineNumber = "1356"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompanyFromWebsiteOrEmail(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -704,8 +704,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1388"
             endingLineNumber = "1388"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -720,8 +720,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1395"
             endingLineNumber = "1395"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -736,8 +736,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1081"
             endingLineNumber = "1081"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -752,8 +752,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1084"
             endingLineNumber = "1084"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -768,8 +768,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1059"
             endingLineNumber = "1059"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -784,8 +784,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1051"
             endingLineNumber = "1051"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -800,8 +800,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1047"
             endingLineNumber = "1047"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -816,8 +816,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1195"
             endingLineNumber = "1195"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -832,8 +832,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1203"
             endingLineNumber = "1203"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -848,8 +848,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1240"
             endingLineNumber = "1240"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -864,8 +864,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1284"
             endingLineNumber = "1284"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -880,8 +880,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1378"
             endingLineNumber = "1378"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -894,8 +894,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "605"
-            endingLineNumber = "605"
+            startingLineNumber = "699"
+            endingLineNumber = "699"
             landmarkName = "extractTitles(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -910,8 +910,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "595"
-            endingLineNumber = "595"
+            startingLineNumber = "689"
+            endingLineNumber = "689"
             landmarkName = "extractFullName(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -926,8 +926,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "666"
-            endingLineNumber = "666"
+            startingLineNumber = "760"
+            endingLineNumber = "760"
             landmarkName = "postProcessResult(type:result:namedEntityHolder:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -942,8 +942,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "670"
-            endingLineNumber = "670"
+            startingLineNumber = "764"
+            endingLineNumber = "764"
             landmarkName = "postProcessResult(type:result:namedEntityHolder:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -960,8 +960,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1362"
             endingLineNumber = "1362"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "8D291E02-71B9-4AD4-9BFD-478DD7889A76 - 39447b4bd3e0fab1"
@@ -1008,8 +1008,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2189"
             endingLineNumber = "2189"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "existIn(container:preprocess:level:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1024,8 +1024,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2210"
             endingLineNumber = "2210"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "stringEqual(container:preprocess:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1040,8 +1040,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1591"
             endingLineNumber = "1591"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1056,8 +1056,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1586"
             endingLineNumber = "1586"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1070,8 +1070,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "560"
-            endingLineNumber = "560"
+            startingLineNumber = "654"
+            endingLineNumber = "654"
             landmarkName = "extractPhones(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1088,8 +1088,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1064"
             endingLineNumber = "1064"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1104,8 +1104,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1217"
             endingLineNumber = "1217"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "5D58742D-16E7-44B5-BBEA-8C584819891C - eee8700fa3d94dfb"
@@ -1152,8 +1152,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1262"
             endingLineNumber = "1262"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1166,8 +1166,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "686"
-            endingLineNumber = "686"
+            startingLineNumber = "780"
+            endingLineNumber = "780"
             landmarkName = "postProcessResult(type:result:namedEntityHolder:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1184,8 +1184,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1117"
             endingLineNumber = "1117"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1201,8 +1201,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1010"
             endingLineNumber = "1010"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1217,8 +1217,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1070"
             endingLineNumber = "1070"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1233,8 +1233,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1079"
             endingLineNumber = "1079"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1249,8 +1249,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1141"
             endingLineNumber = "1141"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "4A77539A-A36A-43E9-84C7-4FFD9AFBF6D0 - 102bd3e34b5b9d0d"
@@ -1298,8 +1298,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1092"
             endingLineNumber = "1092"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1314,8 +1314,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "295"
             endingLineNumber = "295"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1330,8 +1330,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "239"
             endingLineNumber = "239"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1346,8 +1346,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "879"
             endingLineNumber = "879"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1362,8 +1362,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "871"
             endingLineNumber = "871"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1378,8 +1378,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "870"
             endingLineNumber = "870"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1394,8 +1394,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "886"
             endingLineNumber = "886"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1410,8 +1410,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "891"
             endingLineNumber = "891"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1426,8 +1426,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "890"
             endingLineNumber = "890"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "B2577DB4-8AE5-430B-9D72-ECA152B41A09 - 4b6b4d010fca4380"
@@ -1474,8 +1474,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "253"
             endingLineNumber = "253"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1490,8 +1490,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "228"
             endingLineNumber = "228"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "7A67DC07-B812-4D28-9097-218F25C50FFA - 3fd8946cff1aa0da"
@@ -1538,8 +1538,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1745"
             endingLineNumber = "1745"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1554,8 +1554,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1701"
             endingLineNumber = "1701"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1570,8 +1570,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1845"
             endingLineNumber = "1845"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1586,8 +1586,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1731"
             endingLineNumber = "1731"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1602,8 +1602,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2235"
             endingLineNumber = "2235"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "stringEqualityDistance(container:preprocess:ratio:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1618,8 +1618,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2247"
             endingLineNumber = "2247"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "stringEqualityDistance(container:preprocess:ratio:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1634,8 +1634,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1808"
             endingLineNumber = "1808"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1650,8 +1650,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1688"
             endingLineNumber = "1688"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1666,8 +1666,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1726"
             endingLineNumber = "1726"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1682,8 +1682,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1006"
             endingLineNumber = "1006"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1698,8 +1698,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1012"
             endingLineNumber = "1012"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1714,8 +1714,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1017"
             endingLineNumber = "1017"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1730,8 +1730,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1027"
             endingLineNumber = "1027"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1744,8 +1744,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "553"
-            endingLineNumber = "553"
+            startingLineNumber = "647"
+            endingLineNumber = "647"
             landmarkName = "extractPhones(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1760,8 +1760,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "551"
-            endingLineNumber = "551"
+            startingLineNumber = "645"
+            endingLineNumber = "645"
             landmarkName = "extractPhones(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1776,10 +1776,10 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "523"
-            endingLineNumber = "523"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "617"
+            endingLineNumber = "617"
+            landmarkName = "extractWebsite(raw:bcDataArray:namedEntityHolder:prefixedEntities:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1794,8 +1794,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "955"
             endingLineNumber = "955"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeWebsite(namedEntityHolder:prefixes:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "E33F2612-7C55-4B45-9445-54DFB8612FE2 - 15c0db3d46a6ac9c"
@@ -1840,8 +1840,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "638"
-            endingLineNumber = "638"
+            startingLineNumber = "732"
+            endingLineNumber = "732"
             landmarkName = "extractCompany(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1858,8 +1858,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1308"
             endingLineNumber = "1308"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompanyFromWebsiteOrEmail(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1874,8 +1874,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1352"
             endingLineNumber = "1352"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompanyFromWebsiteOrEmail(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1890,8 +1890,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1345"
             endingLineNumber = "1345"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompanyFromWebsiteOrEmail(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1906,8 +1906,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "986"
             endingLineNumber = "986"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeEmails(namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1922,8 +1922,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1433"
             endingLineNumber = "1433"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1938,8 +1938,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1523"
             endingLineNumber = "1523"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1954,8 +1954,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1506"
             endingLineNumber = "1506"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1970,8 +1970,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1063"
             endingLineNumber = "1063"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1986,8 +1986,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1147"
             endingLineNumber = "1147"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2002,8 +2002,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "274"
             endingLineNumber = "274"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2018,8 +2018,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "275"
             endingLineNumber = "275"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2034,8 +2034,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "246"
             endingLineNumber = "246"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2098,8 +2098,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "737"
             endingLineNumber = "737"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2114,8 +2114,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "688"
             endingLineNumber = "688"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2130,8 +2130,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "642"
             endingLineNumber = "642"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2146,8 +2146,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "676"
             endingLineNumber = "676"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2162,8 +2162,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "243"
             endingLineNumber = "243"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2178,8 +2178,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "647"
             endingLineNumber = "647"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2194,8 +2194,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "698"
             endingLineNumber = "698"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2210,8 +2210,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "693"
             endingLineNumber = "693"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "332F53B9-0588-4A1C-A349-FC864B8B5BB5 - 19b11256005e3980"
@@ -2258,8 +2258,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "752"
             endingLineNumber = "752"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "90960EDD-8752-416C-93A4-CD7BC04EDB70 - 19b11256005e3980"
@@ -2306,8 +2306,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "760"
             endingLineNumber = "760"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2322,8 +2322,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "755"
             endingLineNumber = "755"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2338,8 +2338,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "776"
             endingLineNumber = "776"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2354,8 +2354,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "341"
             endingLineNumber = "341"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "processStreet()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2370,8 +2370,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "660"
             endingLineNumber = "660"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "2E8C91FA-271E-43CD-A608-01228C4ACB4E - 19b11256005e3980"
@@ -2418,8 +2418,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "667"
             endingLineNumber = "667"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2432,8 +2432,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1006"
-            endingLineNumber = "1006"
+            startingLineNumber = "1100"
+            endingLineNumber = "1100"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
             <Locations>
@@ -2480,8 +2480,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1035"
-            endingLineNumber = "1035"
+            startingLineNumber = "1129"
+            endingLineNumber = "1129"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2496,8 +2496,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1040"
-            endingLineNumber = "1040"
+            startingLineNumber = "1134"
+            endingLineNumber = "1134"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2512,8 +2512,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1185"
-            endingLineNumber = "1185"
+            startingLineNumber = "1279"
+            endingLineNumber = "1279"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2528,8 +2528,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1187"
-            endingLineNumber = "1187"
+            startingLineNumber = "1281"
+            endingLineNumber = "1281"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2544,8 +2544,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1190"
-            endingLineNumber = "1190"
+            startingLineNumber = "1284"
+            endingLineNumber = "1284"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2560,8 +2560,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1194"
-            endingLineNumber = "1194"
+            startingLineNumber = "1288"
+            endingLineNumber = "1288"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
             <Locations>
@@ -2625,8 +2625,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "719"
             endingLineNumber = "719"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2641,8 +2641,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "727"
             endingLineNumber = "727"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2657,8 +2657,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1728"
             endingLineNumber = "1728"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2673,8 +2673,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "710"
             endingLineNumber = "710"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "60F5D201-E174-4EC1-BF4F-3D3BA9CB9713 - 19b11256005e3980"
@@ -2721,8 +2721,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "732"
             endingLineNumber = "732"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2737,8 +2737,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1122"
             endingLineNumber = "1122"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2753,8 +2753,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1409"
             endingLineNumber = "1409"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2769,8 +2769,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1416"
             endingLineNumber = "1416"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2785,8 +2785,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1964"
             endingLineNumber = "1964"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "processPrefixPhoneNumber()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "25D70EC5-C10C-4B61-9F9A-867BC91A6E37 - 3cc351b03b4cbb10"
@@ -2833,8 +2833,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1985"
             endingLineNumber = "1985"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "processPrefixPhoneNumber()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2849,8 +2849,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1970"
             endingLineNumber = "1970"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "processPrefixPhoneNumber()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2865,8 +2865,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1764"
             endingLineNumber = "1764"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2881,8 +2881,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1839"
             endingLineNumber = "1839"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2897,8 +2897,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1765"
             endingLineNumber = "1765"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2911,8 +2911,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "563"
-            endingLineNumber = "563"
+            startingLineNumber = "657"
+            endingLineNumber = "657"
             landmarkName = "extractPhones(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
             <Locations>
@@ -2961,8 +2961,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1841"
             endingLineNumber = "1841"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2977,8 +2977,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1860"
             endingLineNumber = "1860"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2993,8 +2993,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1758"
             endingLineNumber = "1758"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "3C2C2C40-EFAF-4A6B-98B8-EF26F43AA0D3 - 60bd088301f9d844"
@@ -3041,8 +3041,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1901"
             endingLineNumber = "1901"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3057,8 +3057,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1944"
             endingLineNumber = "1944"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3073,8 +3073,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1942"
             endingLineNumber = "1942"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3087,8 +3087,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "900"
-            endingLineNumber = "900"
+            startingLineNumber = "994"
+            endingLineNumber = "994"
             landmarkName = "preProcessRemoveExtractedWithPosition(bcDataArray:namedEntityHolder:forceRemove:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3103,8 +3103,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "894"
-            endingLineNumber = "894"
+            startingLineNumber = "988"
+            endingLineNumber = "988"
             landmarkName = "preProcessRemoveExtractedWithPosition(bcDataArray:namedEntityHolder:forceRemove:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3119,8 +3119,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "885"
-            endingLineNumber = "885"
+            startingLineNumber = "979"
+            endingLineNumber = "979"
             landmarkName = "preProcessRemoveExtractedWithPosition(bcDataArray:namedEntityHolder:forceRemove:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3135,8 +3135,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "953"
-            endingLineNumber = "953"
+            startingLineNumber = "1047"
+            endingLineNumber = "1047"
             landmarkName = "preProcessRemoveExtracted(bcDataArray:namedEntityHolder:forceRemove:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3151,8 +3151,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "923"
-            endingLineNumber = "923"
+            startingLineNumber = "1017"
+            endingLineNumber = "1017"
             landmarkName = "preProcessRemoveExtracted(bcDataArray:namedEntityHolder:forceRemove:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3167,8 +3167,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "943"
-            endingLineNumber = "943"
+            startingLineNumber = "1037"
+            endingLineNumber = "1037"
             landmarkName = "preProcessRemoveExtracted(bcDataArray:namedEntityHolder:forceRemove:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3183,9 +3183,9 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "905"
-            endingLineNumber = "905"
-            landmarkName = "preProcessRemoveExtractedWithPosition(bcDataArray:namedEntityHolder:forceRemove:)"
+            startingLineNumber = "999"
+            endingLineNumber = "999"
+            landmarkName = "preProcessRemoveExtracted(bcDataArray:namedEntityHolder:forceRemove:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3199,8 +3199,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "915"
-            endingLineNumber = "915"
+            startingLineNumber = "1009"
+            endingLineNumber = "1009"
             landmarkName = "preProcessRemoveExtracted(bcDataArray:namedEntityHolder:forceRemove:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3215,8 +3215,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "893"
-            endingLineNumber = "893"
+            startingLineNumber = "987"
+            endingLineNumber = "987"
             landmarkName = "preProcessRemoveExtractedWithPosition(bcDataArray:namedEntityHolder:forceRemove:)"
             landmarkType = "7">
             <Locations>
@@ -3263,10 +3263,10 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "537"
-            endingLineNumber = "537"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "631"
+            endingLineNumber = "631"
+            landmarkName = "extractEmails(raw:bcDataArray:namedEntityHolder:prefixedEntities:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3279,8 +3279,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "892"
-            endingLineNumber = "892"
+            startingLineNumber = "986"
+            endingLineNumber = "986"
             landmarkName = "preProcessRemoveExtractedWithPosition(bcDataArray:namedEntityHolder:forceRemove:)"
             landmarkType = "7">
             <Locations>
@@ -3343,8 +3343,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "750"
-            endingLineNumber = "750"
+            startingLineNumber = "844"
+            endingLineNumber = "844"
             landmarkName = "removePrefixOccurence(bcDataArray:)"
             landmarkType = "7">
             <Locations>
@@ -3391,8 +3391,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "743"
-            endingLineNumber = "743"
+            startingLineNumber = "837"
+            endingLineNumber = "837"
             landmarkName = "removePrefixOccurence(bcDataArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3409,8 +3409,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3425,8 +3425,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
             endingLineNumber = "150"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3441,8 +3441,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3457,8 +3457,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
             endingLineNumber = "104"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "processInvalidPhone(invalidPhone:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3473,8 +3473,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
             endingLineNumber = "101"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "processInvalidPhone(invalidPhone:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3489,8 +3489,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1943"
             endingLineNumber = "1943"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3505,8 +3505,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1933"
             endingLineNumber = "1933"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3519,8 +3519,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1208"
-            endingLineNumber = "1208"
+            startingLineNumber = "1302"
+            endingLineNumber = "1302"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3535,8 +3535,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1214"
-            endingLineNumber = "1214"
+            startingLineNumber = "1308"
+            endingLineNumber = "1308"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3551,8 +3551,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1046"
-            endingLineNumber = "1046"
+            startingLineNumber = "1140"
+            endingLineNumber = "1140"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3567,8 +3567,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1011"
-            endingLineNumber = "1011"
+            startingLineNumber = "1105"
+            endingLineNumber = "1105"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3577,54 +3577,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "62B74BCA-6969-482B-9DE2-4478CE7027A3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "algo/main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1004"
-            endingLineNumber = "1004"
-            landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "88964EC6-273F-4AF8-92BA-441767FBE87B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "algo/main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1085"
-            endingLineNumber = "1085"
-            landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CF34F951-BF52-4A93-9CD4-8096527D9C98"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "algo/main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1130"
-            endingLineNumber = "1130"
-            landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "ABC0D864-C03B-4061-8EA7-81414EEE473B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -3640,6 +3592,54 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "88964EC6-273F-4AF8-92BA-441767FBE87B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "algo/main.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1179"
+            endingLineNumber = "1179"
+            landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF34F951-BF52-4A93-9CD4-8096527D9C98"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "algo/main.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1224"
+            endingLineNumber = "1224"
+            landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ABC0D864-C03B-4061-8EA7-81414EEE473B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "algo/main.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1192"
+            endingLineNumber = "1192"
+            landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "E645E595-7820-4837-BC34-5AB6ED061A8F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -3647,8 +3647,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1120"
-            endingLineNumber = "1120"
+            startingLineNumber = "1214"
+            endingLineNumber = "1214"
             landmarkName = "preProcessPrefixes(raw:bcDataArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3665,8 +3665,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1714"
             endingLineNumber = "1714"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3681,8 +3681,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1669"
             endingLineNumber = "1669"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3697,8 +3697,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
             endingLineNumber = "129"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "8CC209A4-A5AC-4335-84DC-AA3DD0D2BE99 - 3fd8946cff1aa0da"
@@ -3745,8 +3745,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "172"
             endingLineNumber = "172"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3761,8 +3761,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "400"
             endingLineNumber = "400"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "00E5B498-3E38-4B3E-9772-2ECC3308930B - 65e8119b13509986"
@@ -3809,8 +3809,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "418"
             endingLineNumber = "418"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "83AC6DE0-E5FB-4A90-89BF-FA01449F1AD5 - 65e8119b13509986"
@@ -3857,8 +3857,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "484"
             endingLineNumber = "484"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3873,8 +3873,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "495"
             endingLineNumber = "495"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3889,8 +3889,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "489"
             endingLineNumber = "489"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3905,8 +3905,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "540"
             endingLineNumber = "540"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3921,8 +3921,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "623"
             endingLineNumber = "623"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3937,8 +3937,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "577"
             endingLineNumber = "577"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "0B053315-8D6B-49FB-A932-2870966F9F09 - 65e8119b13509986"
@@ -3985,8 +3985,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "557"
             endingLineNumber = "557"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4001,8 +4001,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "591"
             endingLineNumber = "591"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "68CE709D-2863-447C-9B9E-D18CF2E66B76 - 65e8119b13509986"
@@ -4049,8 +4049,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "516"
             endingLineNumber = "516"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4065,8 +4065,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "607"
             endingLineNumber = "607"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeAddress(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4081,8 +4081,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "374"
             endingLineNumber = "374"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "processAdressString(potentialString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4097,8 +4097,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "378"
             endingLineNumber = "378"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "processAdressString(potentialString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4113,8 +4113,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "382"
             endingLineNumber = "382"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "processAdressString(potentialString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4129,8 +4129,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1042"
             endingLineNumber = "1042"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeFullName(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4145,8 +4145,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1530"
             endingLineNumber = "1530"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4161,8 +4161,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1515"
             endingLineNumber = "1515"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4177,8 +4177,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1514"
             endingLineNumber = "1514"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "90E1FED4-EA71-45DA-98EF-4D3A4FCF382B - 39447b4bd3e0fab1"
@@ -4225,8 +4225,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1429"
             endingLineNumber = "1429"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4241,8 +4241,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1266"
             endingLineNumber = "1266"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompany(namedEntityHolder:countDataArray:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4255,8 +4255,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "632"
-            endingLineNumber = "632"
+            startingLineNumber = "726"
+            endingLineNumber = "726"
             landmarkName = "extractCompany(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
             <Locations>
@@ -4305,8 +4305,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1305"
             endingLineNumber = "1305"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompanyFromWebsiteOrEmail(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4321,8 +4321,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1332"
             endingLineNumber = "1332"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeCompanyFromWebsiteOrEmail(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4337,8 +4337,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1647"
             endingLineNumber = "1647"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "6790B924-3117-4D66-9EBE-8B49DFCF1692 - 60bd088301f9d844"
@@ -4383,8 +4383,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "615"
-            endingLineNumber = "615"
+            startingLineNumber = "709"
+            endingLineNumber = "709"
             landmarkName = "extractTitles(bcDataArray:namedEntityHolder:prefixedEntities:)"
             landmarkType = "9">
             <Locations>
@@ -4433,8 +4433,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1531"
             endingLineNumber = "1531"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4449,8 +4449,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1543"
             endingLineNumber = "1543"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computeTitle(namedEntityHolder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4465,8 +4465,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1850"
             endingLineNumber = "1850"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4481,8 +4481,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1597"
             endingLineNumber = "1597"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4497,8 +4497,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1760"
             endingLineNumber = "1760"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4513,8 +4513,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1639"
             endingLineNumber = "1639"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "computePhoneNumber(namedEntityHolder:prefixes:phoneNumberKit:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4527,8 +4527,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "681"
-            endingLineNumber = "681"
+            startingLineNumber = "775"
+            endingLineNumber = "775"
             landmarkName = "postProcessResult(type:result:namedEntityHolder:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -4545,8 +4545,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "238"
             endingLineNumber = "238"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractZipCode(bcDataArray:namedEntityHolder:prefixes:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4559,8 +4559,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "665"
-            endingLineNumber = "665"
+            startingLineNumber = "759"
+            endingLineNumber = "759"
             landmarkName = "postProcessResult(type:result:namedEntityHolder:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -4575,8 +4575,8 @@
             filePath = "algo/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "662"
-            endingLineNumber = "662"
+            startingLineNumber = "756"
+            endingLineNumber = "756"
             landmarkName = "postProcessResult(type:result:namedEntityHolder:)"
             landmarkType = "9">
             <Locations>
@@ -4625,8 +4625,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "794"
             endingLineNumber = "794"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4641,8 +4641,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "826"
             endingLineNumber = "826"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4657,8 +4657,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "830"
             endingLineNumber = "830"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4673,8 +4673,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "828"
             endingLineNumber = "828"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4689,8 +4689,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "813"
             endingLineNumber = "813"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4705,8 +4705,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "897"
             endingLineNumber = "897"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCityORNDState(bcDataArray:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A53A3036B70BB3F3C8ABD77 /* Pods_algo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFABA4D026904D90A7F2E4EB /* Pods_algo.framework */; };
+		9858A8962495900A006150D3 /* RecognizedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858A8952495900A006150D3 /* RecognizedEntity.swift */; };
 		985C20E42493BF9100B9A310 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20D12493BF9100B9A310 /* Constants.swift */; };
 		985C20E62493BF9100B9A310 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20D42493BF9100B9A310 /* PhoneNumber.swift */; };
 		985C20E72493BF9100B9A310 /* RegexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C20D52493BF9100B9A310 /* RegexManager.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		91AF9A91D760BCF6A68C10FE /* Pods-algo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-algo.release.xcconfig"; path = "Target Support Files/Pods-algo/Pods-algo.release.xcconfig"; sourceTree = "<group>"; };
+		9858A8952495900A006150D3 /* RecognizedEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedEntity.swift; sourceTree = "<group>"; };
 		985C20D12493BF9100B9A310 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		985C20D42493BF9100B9A310 /* PhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
 		985C20D52493BF9100B9A310 /* RegexManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexManager.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				98B652EE24802ACE00BBE2BC /* NamedEntity.swift */,
 				98B652F024802B3100BBE2BC /* EntityType.swift */,
 				98B652F224803CB300BBE2BC /* String+utils.swift */,
+				9858A8952495900A006150D3 /* RecognizedEntity.swift */,
 			);
 			path = algo;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				98B652F324803CB300BBE2BC /* String+utils.swift in Sources */,
 				985C20E72493BF9100B9A310 /* RegexManager.swift in Sources */,
 				985C20ED2493BF9100B9A310 /* PartialFormatter.swift in Sources */,
+				9858A8962495900A006150D3 /* RecognizedEntity.swift in Sources */,
 				98B652F124802B3100BBE2BC /* EntityType.swift in Sources */,
 				985C20EB2493BF9100B9A310 /* Formatter.swift in Sources */,
 				985C20EA2493BF9100B9A310 /* NSRegularExpression+Swift.swift in Sources */,
