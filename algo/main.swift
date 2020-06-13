@@ -557,7 +557,11 @@ RecognitionTools.loadTitles(completion: {
                                                              street: addressNamedEntity.street,
                                                              secondAdress: addressNamedEntity.adress_second)
             
-            
+            self.sendResult(result){ success in
+                if success {
+                    // posting done correctly
+                }
+            }
             
             
             testPrint(tag: "", title: "OPERATION END", content: "")
