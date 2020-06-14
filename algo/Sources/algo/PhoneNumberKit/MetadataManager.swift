@@ -46,14 +46,33 @@ final class MetadataManager {
     fileprivate func populateTerritories() -> [MetadataTerritory] {
         var territoryArray = [MetadataTerritory]()
         do {
-            let jsonPath = "/tmp/PhoneNumberMetadata.json"
+            
+            /*
+            TRY THIS ON SERVFER
+            let directory = DirectoryConfig.detect()
+            let configDir = "Sources/App/Configuration"
+
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: directory.workDir)
+                    .appendingPathComponent(configDir, isDirectory: true)
+                    .appendingPathComponent("myFile.json", isDirectory: false))
+
+                // continue processing
+
+            } catch {
+                print(error)
+            }
+            
+            */
+            
+            
+            let jsonPath = "/Users/360medlink/Documents/xcode/AlgoLinux/Algo/algo/Sources/algo/PhoneNumberMetadata.json"
             let jsonData = try Data(contentsOf: URL(fileURLWithPath: jsonPath))
             let dictionary = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments)
             if let dictionary = dictionary as? [AnyHashable: Any] {
                 let jsonObjects = NSDictionary(dictionary: dictionary)
-                print("hier")
                 if let metadataDict = jsonObjects["phoneNumberMetadata"] as? [AnyHashable: Any], let metadataTerritories = metadataDict["territories"] as? [AnyHashable: Any], let metadataTerritoryArray = metadataTerritories["territory"] as? [Any] {
-                    print("hier 2")
+                    print("PhoneKit Initialized successfully")
                     let metadataTerritoryArray = NSArray(array: metadataTerritoryArray)
                     metadataTerritoryArray.forEach({
                         if let td = $0 as? [AnyHashable: Any] {

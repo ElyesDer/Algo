@@ -132,8 +132,8 @@ class AddressNamedEntity: NamedEntity {
                 if !phoneNumberKit.notParsed() {
                     // we got a parsed value , lets get phone prefix
                     //countryCode.append(phoneNumberKit.countryCode)
-                    if phoneNumberKit.countryCode != 0 {
-                        countryCodes.append(String(phoneNumberKit.countryCode))
+                    if let regionID = phoneNumberKit.regionID {
+                        countryCodes.append(regionID)
                     }else {
                         prefixCodes.append(String(phoneNumberKit.countryCode))
                     }
@@ -416,7 +416,7 @@ class AddressNamedEntity: NamedEntity {
                         dispatchGroup.enter()
                         var immutableArrayElement = [element]
                         self.extractCityORNDState(bcDataArray : &immutableArrayElement, completion: {success in
-                            // print("City & states extraction done")
+                            print("City & states extraction done")
                             dispatchGroup.leave()
                         })
                         break;
@@ -431,7 +431,7 @@ class AddressNamedEntity: NamedEntity {
             
             
         }else{
-            // print("I GOT COUNTRY, NO NEED TO SEARCH FOR , LETS WAIT FOR INSTRUCTION")
+            print("I GOT COUNTRY, NO NEED TO SEARCH FOR , LETS WAIT FOR INSTRUCTION")
         }
         
         
@@ -1040,9 +1040,9 @@ class NamedEntity : Equatable {
         
         var data_count = (countDataArray/2)-1;
         if(data_count>=0){
-        if 0...((countDataArray/2)-1) ~= position {
-            score += 15
-        }
+            if 0...((countDataArray/2)-1) ~= position {
+                score += 15
+            }
         }
         
         // this needs prefix to be removed
@@ -1681,14 +1681,14 @@ class NamedEntity : Equatable {
                     
                     
                     if phoneNumber.notParsed() {
-                        inValidatedPhones.append(PhoneNumber(numberString: arrayOfString[0], countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed))
+                        inValidatedPhones.append(PhoneNumber(numberString: arrayOfString[0], countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
                     }else{
                         validatedPhones.append(phoneNumber)
                     }
                 } catch {
                     
-                    inValidatedPhones.append(PhoneNumber(numberString: arrayOfString[0], countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed))
-                    }
+                    inValidatedPhones.append(PhoneNumber(numberString: arrayOfString[0], countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
+                }
             }
         }
         
@@ -1730,8 +1730,7 @@ class NamedEntity : Equatable {
                             validatedPhones.append(phoneNumber)
                         } catch {
                             
-                            inValidatedPhones.append(PhoneNumber(numberString: item, countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed))
-                            
+                            inValidatedPhones.append(PhoneNumber(numberString: item, countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
                         }
                     }
                 }
@@ -1748,7 +1747,7 @@ class NamedEntity : Equatable {
                 let phoneNumber = try phoneNumberKit.parse(value.preprocessPhoneKit)
                 validatedPhones.append(phoneNumber)
             } catch {
-                inValidatedPhones.append(PhoneNumber(numberString: value, countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed))
+                inValidatedPhones.append(PhoneNumber(numberString: value, countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
             }
         }
         
