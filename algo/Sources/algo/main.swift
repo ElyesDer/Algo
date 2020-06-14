@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import FoundationNetworking
+//import FoundationNetworking
 import ArgumentParser
 
 
@@ -3142,9 +3142,11 @@ struct DataParser: ParsableCommand {
     var data: String
 
     mutating func run() throws {
-       // print("this is the data")
-       // print(data)
-       process_text(text:data)
+        // print("this is the data")
+        
+        data = data.replacingOccurrences(of: "\\n", with: "\n")
+        
+        process_text(text:data)
     }
 }
 DataParser.main()
