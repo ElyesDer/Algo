@@ -139,14 +139,14 @@ class AddressNamedEntity: NamedEntity {
                     }
                 }else{
                     //nothing can be extrate from phonenumber
-                    print("Invalid Phone number for zip\(phoneNumber?.value)")
+                    // print("Invalid Phone number for zip\(phoneNumber?.value)")
                     if let foundInInvalidatedPhone = processInvalidPhone(invalidPhone: phoneNumber?.value ?? ""){
                         countries.append(CountryNamedEntity(value: foundInInvalidatedPhone.countryName, type: .country, position: -1, countryPhonePrefix: foundInInvalidatedPhone))
                     }
                 }
             }else{
                 //nothing can be extrate from phonenumber
-                print("Invalid Phone number for zip\(phoneNumber?.value)")
+                // print("Invalid Phone number for zip\(phoneNumber?.value)")
                 if let foundInInvalidatedPhone = processInvalidPhone(invalidPhone: phoneNumber?.value ?? ""){
                     countries.append(CountryNamedEntity(value: foundInInvalidatedPhone.countryName, type: .country, position: -1, countryPhonePrefix: foundInInvalidatedPhone))
                 }
@@ -416,7 +416,7 @@ class AddressNamedEntity: NamedEntity {
                         dispatchGroup.enter()
                         var immutableArrayElement = [element]
                         self.extractCityORNDState(bcDataArray : &immutableArrayElement, completion: {success in
-                            print("City & states extraction done")
+                            // print("City & states extraction done")
                             dispatchGroup.leave()
                         })
                         break;
@@ -431,7 +431,7 @@ class AddressNamedEntity: NamedEntity {
             
             
         }else{
-            print("I GOT COUNTRY, NO NEED TO SEARCH FOR , LETS WAIT FOR INSTRUCTION")
+            // print("I GOT COUNTRY, NO NEED TO SEARCH FOR , LETS WAIT FOR INSTRUCTION")
         }
         
         
@@ -480,18 +480,18 @@ class AddressNamedEntity: NamedEntity {
             let preprocessElement = element.trimmedAndLowercased
             
             if preprocessElement.count < 4 {
-                print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(score)")
+                // print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(score)")
                 continue
             }
             
             if preprocessElement.countWords() < 2 {
-                print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(score)")
+                // print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(score)")
                 continue
             }
             
             
             if preprocessElement.isAllNumber || preprocessElement.matchingStrings(regex: RecognitionTools.emailRegex).count > 0 && preprocessElement.matchingStrings(regex: RecognitionTools.websiteRegex).count > 0 {
-                print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(score)")
+                // print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(score)")
                 continue
             }
             
@@ -508,7 +508,7 @@ class AddressNamedEntity: NamedEntity {
             
             {
                 
-                print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(elementScore)")
+                // print("VALUE : \(preprocessElement)   NOT VALID ADDRESS  --- SCORED \(elementScore)")
                 continue
             
             }
@@ -562,7 +562,7 @@ class AddressNamedEntity: NamedEntity {
             // 20 is a least for an @ string
             
             
-            print("@ Value computed : \(preprocessElement) --- SCORED : \(elementScore)")
+            // print("@ Value computed : \(preprocessElement) --- SCORED : \(elementScore)")
             
             if elementScore >= 20 {
                 potentialAddresses.append(NamedEntity(value: element, type: .unknown, score: elementScore))
@@ -620,7 +620,7 @@ class AddressNamedEntity: NamedEntity {
                     self.adress_second = processed
                 }
             }else {
-                print("Ignorein the rest of string \(processed)")
+                // print("Ignorein the rest of string \(processed)")
             }
         }
         
@@ -658,7 +658,7 @@ class AddressNamedEntity: NamedEntity {
                         dispatchGroup.enter()
                         var immutableArrayElement = [element]
                         self.extractCityORNDState(bcDataArray : &immutableArrayElement, completion: {success in
-                            print("City & states extraction done")
+                            // print("City & states extraction done")
                             dispatchGroup.leave()
                         })
                         break;
@@ -724,12 +724,12 @@ class AddressNamedEntity: NamedEntity {
             
             {
                 
-                print("VALUE : \(potentialAddress)   NOT VALID ADDRESS")
+                // print("VALUE : \(potentialAddress)   NOT VALID ADDRESS")
             
             }else{
                 
                 
-                print("\(fetchAddressPrefixes)")
+                // print("\(fetchAddressPrefixes)")
                 
                 // now try to extract POBOX FROM POTENTIAL with PO BOX and if found , put IT in alterv
                 if fetchAddressPrefixes.count > 0 || potentialAddress.contains(self.country) || potentialAddress.contains(self.city) || potentialAddress.contains(self.state) || potentialAddress.contains(self.zip) {
@@ -785,7 +785,7 @@ class AddressNamedEntity: NamedEntity {
         
         if let countryCode = self.country_code {
             
-            print("Requestin with Country code : \(countryCode)")
+            // print("Requestin with Country code : \(countryCode)")
             let dispatchGroup = DispatchGroup()
             
             RecognitionTools.citiesWithPrefix = []
@@ -1038,9 +1038,11 @@ class NamedEntity : Equatable {
         }
         
         
-        
+        var data_count = (countDataArray/2)-1;
+        if(data_count>=0){
         if 0...((countDataArray/2)-1) ~= position {
             score += 15
+        }
         }
         
         // this needs prefix to be removed
@@ -1553,7 +1555,7 @@ class NamedEntity : Equatable {
         // now that i got a phone number with prefix --- phone lets look for prefix in CountryPrefixes
         
         if let foundCountry = RecognitionTools.countryPhonePrefix.filter({cleanedPhone.starts(with: $0.phonePrefix)}).first {
-            print("Founc country code \(foundCountry.countryPrefix)")
+            // print("Founc country code \(foundCountry.countryPrefix)")
             return foundCountry.countryPrefix
         }else {
             // lets try to fix phoneString
@@ -1665,14 +1667,14 @@ class NamedEntity : Equatable {
                         /*
                          WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
                          */
-                        print("Validating  \(firstPhoneNumber.preprocessPhoneKit)  WITH COUNTRY CODE : \(countryCode)")
+                        // print("Validating  \(firstPhoneNumber.preprocessPhoneKit)  WITH COUNTRY CODE : \(countryCode)")
                         phoneNumber = try phoneNumberKit.parse(firstPhoneNumber.preprocessPhoneKit, withRegion: countryCode)
                     }else{
                         // PHONE KIT WITHOUT COUNTRY COED
                         /*
                          WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
                          */
-                        print("Validating \(firstPhoneNumber.preprocessPhoneKit) without country code")
+                        // print("Validating \(firstPhoneNumber.preprocessPhoneKit) without country code")
                         phoneNumber = try phoneNumberKit.parse(firstPhoneNumber.preprocessPhoneKit)
                     }
                     
@@ -1710,14 +1712,14 @@ class NamedEntity : Equatable {
                                 /*
                                  WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
                                  */
-                                print("Validating  \(phoneString.preprocessPhoneKit)  WITH COUNTRY CODE : \(countryCode)")
+                                // print("Validating  \(phoneString.preprocessPhoneKit)  WITH COUNTRY CODE : \(countryCode)")
                                 phoneNumber = try phoneNumberKit.parse(phoneString.preprocessPhoneKit, withRegion: countryCode)
                             }else{
                                 // PHONE KIT WITHOUT COUNTRY COED
                                 /*
                                  WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
                                  */
-                                print("Validating \(phoneString.preprocessPhoneKit) without country code")
+                                // print("Validating \(phoneString.preprocessPhoneKit) without country code")
                                 phoneNumber = try phoneNumberKit.parse(phoneString.preprocessPhoneKit)
                             }
                             
@@ -1867,14 +1869,14 @@ class NamedEntity : Equatable {
                             /*
                              WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
                              */
-                            print("Validating  \(foundInPrefix.value.preprocessPhoneKit)  WITH COUNTRY CODE\(countryCode)")
+                            // print("Validating  \(foundInPrefix.value.preprocessPhoneKit)  WITH COUNTRY CODE\(countryCode)")
                             phoneNumber = try phoneNumberKit.parse(foundInPrefix.value.preprocessPhoneKit)
                         }else{
                             // PHONE KIT WITHOUT COUNTRY COED
                             /*
                              WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
                              */
-                            print("Validating \(foundInPrefix.value.preprocessPhoneKit) without country code")
+                            // print("Validating \(foundInPrefix.value.preprocessPhoneKit) without country code")
                             phoneNumber = try phoneNumberKit.parse(foundInPrefix.value.preprocessPhoneKit)
                         }
                         
@@ -1978,7 +1980,7 @@ class NamedEntity : Equatable {
                 prefixResult[index].entityType = .fax
             } else {
                 
-                print("ALERT : Unknow phone entity \(element.value) should be added to premade")
+                // print("ALERT : Unknow phone entity \(element.value) should be added to premade")
             }
         }
         

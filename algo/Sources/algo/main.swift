@@ -12,7 +12,7 @@ import ArgumentParser
 
 
 
-print("Hello, Algorithm")
+// print("Hello, Algorithm")
 
 var raw = ""
 var raw_bak = "ASSOCIAT\nBIZERTE\n2050\nBorhéne DHAOUADI\nPrésident\nFondateur\nCoworking Business Center - CBC\nAvenue de I'Environnement Zarzouna\n(+216) 23 40 41 79\n7021 - Bizerte - Tunisie\n2\nborhene@bizertesmartcity.com\ncontact@bizerte2050.com\n------------------------ detectFields - Raw data ---------------------------\nlevio\nAFFAIRES ET TECHNOLOGIES\nJonathan Chouinard\nConseiller stratégique\n1015, Av Wilfrid-Pelletier, local 530\nChargé de projet\nQuébec (Québec) G1W 0C4\njonathan.chouinard@levio.ca\nT 418 914-3623\nwww.levio.ca\nC 418 931-8789\n------------------------ detectFields - Raw data ---------------------------\nMed Cheker Amdouni\nGraphic Designer\nPixartprinting SpA\nImmeuble Les 2 Lacs, Bloc 9,\nRue du Lac de Constance,\norinting\nLes Berges du Lac 1053,\nTunis\nmedcheker.amdouni@pixartprinting.com\n8\n------------------------ detectFields - Raw data ---------------------------\nCrea\nCUISINE\n...et vos envies prennent vie\nHichem HARBAOUI\nGérant\nN'1 Rue Bechir Bachrouch, Khaznadar 2017\n-\n(+2161 71 515 470\n(+216) 23 559 990\nhichem.harbaoui@live.fr fl Créa Cuisine\n11216 52 490 435\n------------------------ detectFields - Raw data ---------------------------\nAhmed Ayed\nConsultant\nProfessional Services\naxefinance\n+216 71 963 229\nFocus • Expertise • Value\nE ahmed.ayed@axefinance.com\n------------------------ detectFields - Raw data ---------------------------\nRyosuke Nagao\nCEO\nnagao@impetus.jp\nLead Translator\nIMPETUS\nLinguistic Consultation\nImpetus Co.\n5-31-5-1004 Honkomagome,\nBunkyo-ku, Tokyo, JAPAN\n------------------------ detectFields - Raw data ---------------------------\nSeifeddine Khelifi\nExpert Senior\nDéveloppement des Ventes\nboredoo\nImmeuble Zenith, Les Jardins du Lac\n1053, Les Berges du Lac, Tunis, Tunisie\nM : +216 22 126 4661T : +216 36 126 466\nseifeddine.khelifi@ooredoo.tn\n------------------------ detectFields - Raw data ---------------------------\n6 Leb:\n961 9 213 414\nLeb:\n961 3 075791\nKSA: + 966556450046\nD Beirut - Lebanon & Riyadh - KSA\nS dkiame\nwww.intech-mena.com\ndkiame@intech-mena.com\n------------------------ detectFields - Raw data ---------------------------\nLAZHAR NSIRI\nSUBSIDIARY DIRECTOR\nWYPLAY TUNISIA\nInsiri@wyplay.com\nFrench Mobile +33 6 19 43 30 48\nTunisia +216 97 07 06 42\nwwpoy\n------------------------ detectFields - Raw data ---------------------------\n360\\nWael Mallek\nMEDLINK\nGeneral Manager of\nTunisian operations\nHealthcare\nMobile Applications\nwaelm@360medlink.com\nmobile. +216 98 70 92 14\noffice. +1 514 448 2175\nwww.360medlink.com\nMontreal - New York I Paris I Barcelona\nTunis\n------------------------ detectFields - Raw data ---------------------------\nAnis ADDALA\n00\nDirecteur Commercial Afrique\nHead Of Sales and Business Dev. Africa\nva\nTel Fax : +216 71 267 090/ +216 71 267 091\nMobile : +216 22 111 000 /+213 56 167 27 31\n~\nanis.addala@novatel-it.com\nwww.novatel-it.com\nNOVATEL\nIn\nFarah Lake building, Rue de la Feuille d'Erable,\nBureau B2.2, 1053 les Berges du Lac2, Tunis, Tunisie\n------------------------ detectFields - Raw data ---------------------------\nJOE CHAHOUD\nGENERAL MANAGER/CTO\nmobile:\n+961 70 294 835\nSkype ID: joechahoud\nemail:\njchahoud@intech-mena.com\nTel/Fax:\n+961 213 414\nWebiste:\nwww.intech-mena.com\n------------------------ detectFields - Raw data ---------------------------\nBéchir BOUFADEN\nDirecteur Commercial\n(+216) 98 358 956\n(+216) 28 546 460\nctfec@ctfexpo.com\nbechir.boufaden@ctfexpo.com\nwww.ctfexpo.com\nLes Jardins d'El Menzah\n2094 El Mnihla Ariana\n(+216) 70 734 290\n(+216) 70 734 291\n------------------------ detectFields - Raw data ---------------------------\n62A\nAdel Ghouma\nMENA Manager\n+48 791 046 584\nG2A.com\naghouma@g2a.com\nG2A.co\n------------------------ detectFields - Raw data ---------------------------\nréinventez votre vie\nIlyes KHEMIRI\nDirecteur Commercial\nDéco-pierre\n23 Rue Feyrouz Cite El Fawz\nEnnasr 3 - Tunis\nFb: Déco-pierre\nTel.: 29 403 488\nE-mail:decopierre2013@gmail.com\n21 031 700\n------------------------ detectFields - Raw data ---------------------------\nN\nSage\nIntégrateur\nNOVASOFT\nde Solutions\nElyes TALMOUDI\nGérant\nPortable: 20 279 500\nTél.: +(216) 71 860 636\nFax: +(216) 71 862 627\nAdresse: Bur B1,\nRésidence El Mouna\nRue du lac Malaren, les berges du lac, Tunis\nE-mail: elytal.bmda@topnet.tn\n------------------------ END Raw data ---------------------------\n------------------------ detectFields - Raw data ---------------------------\nMaiborn\nWolff\nMenrl\"t PROF. Sadok Chekir\nDiplom Ingenieur\nIT Architect\nsadok.chekir@maibornwolff.de\nMobil +49 151 544 22 153\nMaibornWolff GmbH\nTheresienhohe 13 - 80339 Munchen\nmaibornwolff.de\n------------------------ detectFields - Raw data ---------------------------\nTechlimed\nINFORMATION LINGUISTICS TECHNOLOGY\nDr. Ramzi ABBES\nPresident & C.E.O.\n42, rue de 1'Université - 69007 Lyon France\nPhone : +33 (0)4 78 58 32 35\nMobile : +33 (0)6 22 47 28 74\nSkype : ramziabbes\nEmail: ramzi.abbes@techlimed.com\ntechlimed.com"
@@ -446,7 +446,7 @@ RecognitionTools.loadTitles(completion: {
             
             
             RecognitionTools.removePrefixOccurence(bcDataArray: &bcDataArray)
-            testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
+          // testprint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
             
             
             
@@ -465,7 +465,7 @@ RecognitionTools.loadTitles(completion: {
             })
             
             
-            testPrint(tag: "AFTER ZIP CITY STATE EXTRACTION", title: " REMOVED EXTRACT ", content: bcDataArray)
+//            testPrint(tag: "AFTER ZIP CITY STATE EXTRACTION", title: " REMOVED EXTRACT ", content: bcDataArray)
 //
 //            // now lets compute @
 //
@@ -482,7 +482,7 @@ RecognitionTools.loadTitles(completion: {
                 print ("MAIN : Every tink done will not return")
             }
 
-            print("<HZHHZ")
+      /*       print("<HZHHZ")
             print("STATE ; \(addressNamedEntity.state)")
             print("CITY : \(addressNamedEntity.city)")
             print("STREET : \(addressNamedEntity.street)")
@@ -490,13 +490,13 @@ RecognitionTools.loadTitles(completion: {
             print("ZIP  = \(addressNamedEntity.zip)")
             print("COUNTRY COED : \(addressNamedEntity.country_code)")
             print("COUNTRY :  \(addressNamedEntity.country)")
-            print("POBOX :  \(addressNamedEntity.pobox)")
+            print("POBOX :  \(addressNamedEntity.pobox)") */
 
             
 
 
             /////////////////////////////// END @ ZONZ
-            testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
+            // testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
             namedEntityHolder.forEach { (named) in
                 print("Extracted \(named.type) : \(named.value)  - \(named.score)")
             }
@@ -505,13 +505,32 @@ RecognitionTools.loadTitles(completion: {
             RecognitionTools.postProcessResult (bcDataArray : &bcDataArray, namedEntityHolder : &namedEntityHolder)
 
 
-            testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
+            // testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
             namedEntityHolder.forEach { (named) in
-                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
+              //  print("Extracted \(named.type) : \(named.value)  - \(named.score)")
             }
-            
-            
-            testPrint(tag: "", title: "OPERATION END", content: "")
+
+             var result : RecognizedEntity = RecognizedEntity(
+                            fullName: namedEntityHolder.first(where: {$0.type == .fullname})?.value ?? "",
+                                                                         title: namedEntityHolder.first(where: {$0.type == .title})?.value ?? "",
+                                                                         secondTitle: namedEntityHolder.first(where: {$0.type == .title2})?.value ?? "",
+                                                                         companyName: namedEntityHolder.first(where: {$0.type == .company})?.value ?? "",
+                                                                         companyWebsite: namedEntityHolder.first(where: {$0.type == .website})?.value ?? "",
+                                                                         city: addressNamedEntity.city,
+                                                                         state: addressNamedEntity.state,
+                                                                         country: addressNamedEntity.country,
+                                                                          countryPrefix: "", //addressNamedEntity.country_prefix[0],
+                                                                         email: namedEntityHolder.first(where: {$0.type == .email})?.value ?? "",
+                                                                         fax: namedEntityHolder.first(where: {$0.type == .fax})?.value ?? "",
+                                                                         phone: namedEntityHolder.first(where: {$0.type == .phone})?.value ?? "",
+                                                                         direct: namedEntityHolder.first(where: {$0.type == .direct})?.value ?? "",
+                                                                         mobile: namedEntityHolder.first(where: {$0.type == .mobile})?.value ?? "",
+                                                                         zip: addressNamedEntity.zip,
+                                                                         street: addressNamedEntity.street,
+                                                                         secondAdress: addressNamedEntity.adress_second)
+            var finalResult =  sendResult(result: result)
+           // print("final")
+            // testPrint(tag: "", title: "OPERATION END", content: finalResult)
         }
         
         exit(EXIT_SUCCESS)
@@ -519,7 +538,15 @@ RecognitionTools.loadTitles(completion: {
 })
 
 // RunLoop.main.run()
+func sendResult (result : RecognizedEntity ) -> String? {
 
+    guard let encodedEntity = try? JSONEncoder().encode(result) else {
+       // print("Error with Encoded data ")
+        return ""
+    }
+    return String(data: encodedEntity , encoding: .utf8)
+
+}
 
 func extractWebsite(raw : inout String, bcDataArray : [String] , namedEntityHolder : inout [NamedEntity], prefixedEntities : [PrefixHolder]) -> Void {
     var computeResultHolder : [NamedEntity] = []
@@ -574,7 +601,7 @@ func extractPhones( bcDataArray : [String] , namedEntityHolder : inout [NamedEnt
     }
     
     computeResultHolder.forEach { (named) in
-        print("Extracted PHONES \(named.value)  -- : \(named.score)    -- : \(named.type)  --  AT POSITION : \(named.position)")
+       // print("Extracted PHONES \(named.value)  -- : \(named.score)    -- : \(named.type)  --  AT POSITION : \(named.position)")
     }
     
     
@@ -597,7 +624,7 @@ func extractFullName( bcDataArray : [String] , namedEntityHolder : inout [ Named
     postProcessResult(type: .fullname , result: computeResultHolder , namedEntityHolder: &namedEntityHolder)
     
     computeResultHolder.forEach { (named) in
-        print("Extracted \(named.value)  --   : \(named.score)    --   : \(named.type)  -- AT POSITION : \(named.position) ")
+       // print("Extracted \(named.value)  --   : \(named.score)    --   : \(named.type)  -- AT POSITION : \(named.position) ")
     }
     // TODO : POST PROCESS Result,  * remove found fields from raw values etc..
 }
@@ -618,7 +645,7 @@ func extractTitles( bcDataArray : [String] , namedEntityHolder : inout [NamedEnt
     //    }
     
     computeResultHolder.forEach { (item) in
-        print("TITLE Value : \(item.value)  -- Score : \(item.score)  -- AT POSTION \(item.position)")
+       // print("TITLE Value : \(item.value)  -- Score : \(item.score)  -- AT POSTION \(item.position)")
     }
     
     postProcessResult(type: .title , result: computeResultHolder, namedEntityHolder: &namedEntityHolder)
@@ -644,7 +671,7 @@ func extractCompany( bcDataArray : [String] , namedEntityHolder : inout [NamedEn
     }
     
     computeResultHolder.forEach { (item) in
-        print("COMPANY Value : \(item.value)  -- Score : \(item.score)")
+       // print("COMPANY Value : \(item.value)  -- Score : \(item.score)")
     }
     
     // TODO : POST PROCESS Result,  * remove found fields from raw values etc..
@@ -727,7 +754,7 @@ func extractAdress(bcDataArray : inout [String] , namedEntityHolder : inout [Nam
     //RecognitionTools.detectFullAddress(dataArray: &bcDataArray, addressEntityHolder: &<#AddressNamedEntity#>)
     
     computeResultHolder.forEach { (item) in
-        print("Address Value : \(item.value)  -- Score : \(item.score)")
+     //   print("Address Value : \(item.value)  -- Score : \(item.score)")
     }
     
     // TODO : POST PROCESS Result,  * remove found fields from raw values etc..
@@ -823,7 +850,7 @@ class RecognitionTools {
             if let _ = error {
                  completion(false)
             }else if let response = response as? HTTPURLResponse {
-                print("WA DA HECK")
+          //      print("WA DA HECK")
                 // todo : make it check for status code or data before continiuing
                 if response.statusCode == 200 {
                     do {
@@ -990,7 +1017,7 @@ class RecognitionTools {
         
         prefixedEntities = preProcessPrefixes(raw: raw, bcDataArray: &bcDataArray)
         
-        testPrint(tag: "Prerpcess ", title: "Extracted prefixedEntities", content: prefixedEntities)
+        // testPrint(tag: "Prerpcess ", title: "Extracted prefixedEntities", content: prefixedEntities)
         
     }
     
@@ -2883,7 +2910,7 @@ struct PrefixHolder {
 func testPrint<T>(tag : String, title : String, content : T){
     //print("------------------------ \(tag) - \(title) ---------------------------\n")
     
-    print("\n\(tag) - \(title)  : > \(content) \n")
+    // print("\n\(tag) - \(title)  : > \(content) \n")
     
     //print("\n------------------------ END \(title) --------------------------- \n\n")
 }
@@ -2993,64 +3020,34 @@ var bcDataArray = raw.split(separator: "\n").map {String($0).stripped }
 
             var extracted : [Int] = []
             var mutableRaw = raw
-            //var namedEntityResult : [NamedEntity] = []
 
-
-            // remove special remable chars
-
-//            testPrint(tag: "BC DATA BEFORE", title: " :: ", content: bcDataArray)
-//
-//            testPrint(tag: "", title: "OPERATION BEGIN", content: "")
-
-            // TODO : MAKE SURE YOU SPLIT PREFIXES FROM VALUES , FOR BVETTER RESULT
+         //   // print("preprocessing")
             RecognitionTools.preProcessRaw(raw: &mutableRaw , prefixedEntities : &prefixedEntities , bcDataArray: &bcDataArray, remove : true)
 
-//            testPrint(tag: "preProcessRaw", title: "RESULT", content: prefixedEntities)
-//
-//            testPrint(tag: "BC DATA AFTER", title: " :: ", content: bcDataArray)
-
+            // print("extracting emails")
             extractEmails(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
+
+            // print("extracting websites")
             extractWebsite(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
 
-            // we need this process remove without position bcz sometime email line and website , can contain otehr data
-            //RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
-//            RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
-
-            // make it third
-
-            // TODO : DONE - MAKE SURE YOU SPLIT PREFIXES FROM VALUES , FOR BVETTER RESULT
-            // TODO : MAYBBEE REMOVE PHONES FROM DATA ARRAY
+            // print("extracting phones")
             extractPhones(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
 
 
-            // lets preprocess data before continue
-            //RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
-
+            // print("extracting preProcessRemoveExtractedWithPosition")
             RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
-
-//            testPrint(tag: "BC DATA AFTER", title: " :: ", content: bcDataArray)
+            // print("extracting full name")
             extractFullName(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
 
+            // print("extracting preProcessRemoveExtractedWithPosition")
             RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
-//            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
 
+            // print("extracting titles")
             extractTitles(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
 
             extractCompany(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
 
-
-
-
-//            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
             RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
-
-
-
-
-            //RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
-//            ///////////////////////////////// @ ZONE
-//            // THIS IS MOVED HERE , BECASE WE NEED TO WORK ON ENTIRE BCDATA ARRAY
-
 
             RecognitionTools.removePrefixOccurence(bcDataArray: &bcDataArray)
             testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
@@ -3060,44 +3057,38 @@ var bcDataArray = raw.split(separator: "\n").map {String($0).stripped }
 
             var addressNamedEntity : AddressNamedEntity = AddressNamedEntity(value: "")
 
-            // we have NamedEntityHolder which contains , Validated PHONES , so lets extract Country in those phones and put dem in add
 
             addressNamedEntity.extractZipCode(bcDataArray: &bcDataArray, namedEntityHolder: &namedEntityHolder, prefixes: prefixedEntities)
 
             let dispatchGroup = DispatchGroup()
             dispatchGroup.enter()
             addressNamedEntity.extractCityORNDState(bcDataArray : &bcDataArray , completion: {success in
-                //print("City & states extraction done")
                 dispatchGroup.leave()
             })
 
 
             testPrint(tag: "AFTER ZIP CITY STATE EXTRACTION", title: " REMOVED EXTRACT ", content: bcDataArray)
-//
-//            // now lets compute @
-//
-//
+
             addressNamedEntity.computeAddress(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities)
 
 
 
-            // PLEASE DONT FORGET TO POST PROCESS
             addressNamedEntity.postProcessYourSelf()
 
             _ = dispatchGroup.wait()
             dispatchGroup.notify(queue: .main){
-                print ("MAIN : Every tink done will not return")
+                // print ("MAIN : Every tink done will not return")
             }
 
-            print("<HZHHZ")
-            print("STATE ; \(addressNamedEntity.state)")
-            print("CITY : \(addressNamedEntity.city)")
-            print("STREET : \(addressNamedEntity.street)")
-            print("SECONDADD @ : \(addressNamedEntity.adress_second)")
-            print("ZIP  = \(addressNamedEntity.zip)")
-            print("COUNTRY COED : \(addressNamedEntity.country_code)")
-            print("COUNTRY :  \(addressNamedEntity.country)")
-            print("POBOX :  \(addressNamedEntity.pobox)")
+            // print("<HZHHZ")
+            // print("STATE ; \(addressNamedEntity.state)")
+            // print("CITY : \(addressNamedEntity.city)")
+            // print("STREET : \(addressNamedEntity.street)")
+            // print("SECONDADD @ : \(addressNamedEntity.adress_second)")
+            // print("ZIP  = \(addressNamedEntity.zip)")
+            // print("COUNTRY COED : \(addressNamedEntity.country_code)")
+            // print("COUNTRY :  \(addressNamedEntity.country)")
+            // print("POBOX :  \(addressNamedEntity.pobox)")
 
 
 
@@ -3105,7 +3096,7 @@ var bcDataArray = raw.split(separator: "\n").map {String($0).stripped }
             /////////////////////////////// END @ ZONZ
             testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
             namedEntityHolder.forEach { (named) in
-                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
+                // print("Extracted \(named.type) : \(named.value)  - \(named.score)")
             }
 
 
@@ -3114,11 +3105,32 @@ var bcDataArray = raw.split(separator: "\n").map {String($0).stripped }
 
             testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
             namedEntityHolder.forEach { (named) in
-                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
+                // print("Extracted \(named.type) : \(named.value)  - \(named.score)")
             }
 
 
-            testPrint(tag: "", title: "OPERATION END", content: "")
+            var result : RecognizedEntity = RecognizedEntity(
+                                       fullName: namedEntityHolder.first(where: {$0.type == .fullname})?.value ?? "",
+                                                                                    title: namedEntityHolder.first(where: {$0.type == .title})?.value ?? "",
+                                                                                    secondTitle: namedEntityHolder.first(where: {$0.type == .title2})?.value ?? "",
+                                                                                    companyName: namedEntityHolder.first(where: {$0.type == .company})?.value ?? "",
+                                                                                    companyWebsite: namedEntityHolder.first(where: {$0.type == .website})?.value ?? "",
+                                                                                    city: addressNamedEntity.city,
+                                                                                    state: addressNamedEntity.state,
+                                                                                    country: addressNamedEntity.country,
+                                                                                     countryPrefix: "", //addressNamedEntity.country_prefix[0],
+                                                                                    email: namedEntityHolder.first(where: {$0.type == .email})?.value ?? "",
+                                                                                    fax: namedEntityHolder.first(where: {$0.type == .fax})?.value ?? "",
+                                                                                    phone: namedEntityHolder.first(where: {$0.type == .phone})?.value ?? "",
+                                                                                    direct: namedEntityHolder.first(where: {$0.type == .direct})?.value ?? "",
+                                                                                    mobile: namedEntityHolder.first(where: {$0.type == .mobile})?.value ?? "",
+                                                                                    zip: addressNamedEntity.zip,
+                                                                                    street: addressNamedEntity.street,
+                                                                                    secondAdress: addressNamedEntity.adress_second)
+                       var finalResult =  sendResult(result: result)!
+                       // print("final")
+                       testPrint(tag: "", title: "OPERATION END", content: finalResult)
+                       print(finalResult)
 
 }
 
@@ -3130,8 +3142,8 @@ struct DataParser: ParsableCommand {
     var data: String
 
     mutating func run() throws {
-       print("this is the data")
-       print(data)
+       // print("this is the data")
+       // print(data)
        process_text(text:data)
     }
 }
