@@ -66,7 +66,7 @@ final class MetadataManager {
             */
             
             
-            let jsonPath = "/Users/360medlink/Documents/xcode/AlgoLinux/Algo/algo/Sources/algo/PhoneNumberMetadata.json"
+            let jsonPath = "/home/ubuntu/Algo/algo/Sources/algo/PhoneNumberKit/Resources/PhoneNumberMetadata.json"
             let jsonData = try Data(contentsOf: URL(fileURLWithPath: jsonPath))
             let dictionary = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments)
             if let dictionary = dictionary as? [AnyHashable: Any] {
