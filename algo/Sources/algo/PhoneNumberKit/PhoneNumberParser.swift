@@ -297,12 +297,14 @@ final class PhoneNumberParser {
         guard let possibleNationalPrefix = metadata.nationalPrefixForParsing else {
             return
         }
-#if os(Linux)
-        // temporary fix until https://bugs.swift.org/browse/SR-957 is available
-        let prefixPattern = String(format: "^(?:%@)", possibleNationalPrefix as! CVarArg)
-#else
-        let prefixPattern = String(format: "^(?:%@)", possibleNationalPrefix)
-#endif
+// #if os(Linux)
+//         // temporary fix until https://bugs.swift.org/browse/SR-957 is available
+//         let prefixPattern = String(format: "^(?:%@)", possibleNationalPrefix as! CVarArg)
+// #else
+//         let prefixPattern = String(format: "^(?:%@)", possibleNationalPrefix)
+// #endif
+
+let prefixPattern = "^(?:\(possibleNationalPrefix))"
         do {
             let matches = try regex.regexMatches(prefixPattern, string: number)
             if let firstMatch = matches.first {
