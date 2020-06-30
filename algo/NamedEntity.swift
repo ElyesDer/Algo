@@ -8,6 +8,14 @@
 
 import Foundation
 
+enum SupportedLangage : String {
+    case fra = "Frensh"
+    case eng = "English"
+    case spanish = "Spanish"
+    case portugese = "Portugese"
+    case arabic = "Arabic"
+    case italian = "Italian"
+}
 
 class CountryNamedEntity: NamedEntity {
     var countryEntity : CountryPhonePrefix?
