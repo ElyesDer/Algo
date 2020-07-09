@@ -63,7 +63,7 @@ class RecognitionTools {
     
     
     static func loadStatesWithPrefix(prefix : String, completion : @escaping (_ : Bool) -> ()) {
-        let url = URL(string: "http://api.abracardabra.pre-360.net/states/\(prefix)")!
+        let url = URL(string: "http://api.abracardabra.pre-360.net/states/\(prefix)/\(RecognitionTools.languageSession)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -95,7 +95,7 @@ class RecognitionTools {
     }
     
     static func loadCitiesWithPrefix(prefix : String, completion : @escaping (_ : Bool) -> ()) {
-        let url = URL(string: "http://api.abracardabra.pre-360.net/cities/\(prefix)")!
+        let url = URL(string: "http://api.abracardabra.pre-360.net/cities/\(prefix)/\(RecognitionTools.languageSession)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -157,9 +157,6 @@ class RecognitionTools {
     
     static func loadTitles(completion : @escaping (_ : Bool) -> ()) {
         
-        loadArrayContentOfTypeFromFile(type: titlesPM(), language: .eng) { (success, contentLength) in
-            
-        }
         
         let url = URL(string: "http://api.abracardabra.pre-360.net/titles/\(RecognitionTools.languageSession)")!
         
