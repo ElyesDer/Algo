@@ -59,6 +59,7 @@ class AddressNamedEntity: NamedEntity {
     var latitude : String = ""
     var longitude : String = ""
     var pobox : String = ""
+    var cedex : String = ""
     
     var country_code : String?
     var site_zip : String = ""
@@ -87,7 +88,13 @@ class AddressNamedEntity: NamedEntity {
         
         if !self.pobox.isEmpty{
             self.adress_second = self.pobox
-            
+        }else{
+            self.adress_second = processAdressString(potentialString: self.adress_second)
+        }
+        
+        
+        if !self.cedex.isEmpty{
+            self.adress_second = self.cedex
         }else{
             self.adress_second = processAdressString(potentialString: self.adress_second)
         }
@@ -521,6 +528,13 @@ class AddressNamedEntity: NamedEntity {
             
             }
             
+            if preprocessElement.count>1{ // already tested but we never now
+                if preprocessElement.beginWithTwoNumbers(){
+                    elementScore += 20
+                }
+                
+            }
+            
             if preprocessElement.beginsWithNumber(){
                 elementScore += 10
             }
@@ -545,8 +559,10 @@ class AddressNamedEntity: NamedEntity {
 //                score += 20
 //            }
             
+            
+            // sometimes phone numbers , or wrong chain of numbers can be extracted as zip , so a zip need other format confirmation to be validated
             if preprocessElement.stringContains(container: self.zip, preprocess: true) {
-                elementScore += 20
+                elementScore += 15
             }
             
             // if element.stringExistsInArray(array: RecognitionTools.lowerCasejobTitles) {
@@ -556,13 +572,19 @@ class AddressNamedEntity: NamedEntity {
 //                elementScore += 30
 //            }
             
-            if element.stringContains(container: "PO", preprocess: true) || element.stringContains(container: "BOX", preprocess: true) {
-                elementScore += 20
+//            if element.stringContains(container: "PO", preprocess: true) || element.stringContains(container: "BOX", preprocess: true) {
+//                elementScore += 20
+//            }
+            
+            element.components(separatedBy: " ").forEach { (component) in
+                if component.count > 1 && component.trimmedAndUppercased.stringExistsInArray(array: RecognitionTools.secondAdress) {
+                    elementScore += 25
+                }
             }
             
             element.components(separatedBy: " ").forEach { (component) in
                 if component.count > 1 && component.trimmedAndUppercased.stringExistsInArray(array: RecognitionTools.addressNamesSuffix) {
-                    elementScore += 15
+                    elementScore += 25
                 }
             }
             
@@ -582,7 +604,10 @@ class AddressNamedEntity: NamedEntity {
         
         // now that i got an array of potental @ // lemme try to extract street , second etc. ..
         // sort array first than proceed with each
-        for (index, element) in potentialAddresses.sorted(by: {$0.score > $1.score}).enumerated() {
+        for (index, element) in potentialAddresses
+            .sorted(by: {$0.score > $1.score})
+            .filter({$0.score >= 20})
+            .enumerated() {
             // remove country , zip , state , city from string
             var processed = processAdressString(potentialString: element.value)
             
@@ -610,16 +635,20 @@ class AddressNamedEntity: NamedEntity {
             }
             
             
-            poBoxAddr.forEach { (poBoxElement) in
-//                if poBoxElement.count > 3 {
+                poBoxAddr.forEach { (poBoxElement) in
+                    //                if poBoxElement.count > 3 {
                     self.pobox = poBoxElement
-                    
+                    processed = processAdressString(potentialString: processed) // this will help eliminate pobox extracted from loriginal value
                     // lets remove pobox from current string
                     
-                // this better be in post process
-//                processed = processed.replacingOccurrences(of: self.pobox, with: "", options: .caseInsensitive)
-//                }
-            }
+                    // this better be in post process
+                    //                processed = processed.replacingOccurrences(of: self.pobox, with: "", options: .caseInsensitive)
+                    //                }
+                }
+                
+                if processed.stringContains(container: "cedex", preprocess: true){
+                    self.cedex = element.value
+                }
             
             if processed.count > 2 && processed.countWords() > 1 {
                 if self.street.isEmpty {
@@ -854,7 +883,7 @@ class AddressNamedEntity: NamedEntity {
                             
                             // TODO : WHY THIS EXUST S TWICE ??
                             if let cityElement = RecognitionTools.citiesWithPrefix.filter({
-                                $0.existIn(container: indexElement.element, preprocess: true)
+                                $0.existIn(container: indexElement.element.stripSeparators, preprocess: true, level: 0.95)
                             }).first {
                                 //let newLine = line.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
                                 //bcDataArrayCopy[index] = newLine
@@ -2209,6 +2238,10 @@ extension String {
         }else{
             return false
         }
+    }
+    
+    func beginWithTwoNumbers() -> Bool {
+        return self[startIndex].isNumber && self[1].isNumber
     }
     
     func beginsWithNumber() -> Bool {

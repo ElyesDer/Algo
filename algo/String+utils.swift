@@ -69,6 +69,22 @@ extension String {
     }
     
     
+    var stripSeparators: String {
+            let okayChars =
+                CharacterSet(charactersIn: ":/_\\+,;()&\".@'")
+//                .union(CharacterSet.alphanumerics)
+//                .union(CharacterSet.capitalizedLetters)
+//                .union(CharacterSet.whitespacesAndNewlines)
+//                .union(CharacterSet.uppercaseLetters)
+//    //            .union(CharacterSet.punctuationCharacters)
+//                    .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@'"))
+            return String(self.unicodeScalars.filter{!okayChars.contains($0) })
+            
+            //rangeOfCharacter(from: CharacterSet.decimalDigits.inverted)
+    //        return rangeOfCharacter(from: okayChars) == nil
+        }
+    
+    
     var withoutSpecialCharacters: String {
         return self.components(separatedBy: CharacterSet.symbols).joined(separator: "")
     }

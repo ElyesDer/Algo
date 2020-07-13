@@ -582,8 +582,10 @@ class RecognitionTools {
     ]
     
     static var secondAdress = [
+        "po",
+        "box",
     "pobox",
-    "cedex"
+    "cedex",
     ]
     
     static var emailsDomains = [
@@ -865,6 +867,7 @@ class RecognitionTools {
         "_"
     ]
     static var addressNamesSuffix = [
+        "floor",
         "CENTRE",
         "ALLEE",
         "ALLEY",
