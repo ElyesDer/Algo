@@ -81,6 +81,14 @@ extension String {
         .replacingOccurrences(of: "+ ", with: "+")
     }
     
+    var cleanInvalidatedPhone : String {
+        return self.trimmedAndLowercased
+        .replacingOccurrences(of: ":", with: " ")
+        .replacingOccurrences(of: "-", with: " ")
+        .replacingOccurrences(of: ",", with: " ")
+        .replacingOccurrences(of: ".", with: " ")
+    }
+    
     func replacingFirstOccurrenceOf(
             target: String, withString replaceString: String) -> String
     {

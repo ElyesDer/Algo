@@ -1699,8 +1699,55 @@ class NamedEntity : Equatable {
         }
         
         
-        matches = value.matchingStrings(regex: RecognitionTools.numberPhoneRegexFromStringComplex)
+        matches = value.cleanInvalidatedPhone.matchingStrings(regex: RecognitionTools.numberPhoneRegexFromString)
+        matches.forEach { (arrayOfString) in
+            
+            var firstPhoneNumber = arrayOfString[0]
+            
+            if firstPhoneNumber.count > 6 {
+                do {
+                    
+                    //                    // GO EVEN FURTHER // IF IT DOESNT CONTAIN + , then EYE CLOSED ADD " + "
+                    //                    if !firstPhoneNumber.trimmed.starts(with: "+") && !firstPhoneNumber.trimmed.starts(with: "(") && firstPhoneNumber.preprocess.count > 8
+                    //                    {
+                    //                        // it doent start with + nor ( -> force insert +
+                    //                        firstPhoneNumber.insert(string: "+", ind: 0)
+                    //                    }
+                    
+                    var phoneNumber : PhoneNumber
+                    
+                    if let countryCode = processPhoneStringForCountryCodeOrTryValidateFormat(phoneString: &firstPhoneNumber) {
+                        // PHONE KIT ITH COUNTRY CODE
+                        /*
+                         WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
+                         */
+                        print("Validating  \(firstPhoneNumber.preprocessPhoneKit)  WITH COUNTRY CODE : \(countryCode)")
+                        phoneNumber = try phoneNumberKit.parse(firstPhoneNumber.preprocessPhoneKit, withRegion: countryCode)
+                    }else{
+                        // PHONE KIT WITHOUT COUNTRY COED
+                        /*
+                         WARNING : PHONE KIT PREFER REMOVE ANY LEADING TRAILING SPACES
+                         */
+                        print("Validating \(firstPhoneNumber.preprocessPhoneKit) without country code")
+                        phoneNumber = try phoneNumberKit.parse(firstPhoneNumber.preprocessPhoneKit)
+                    }
+                    
+                    
+                    
+                    if phoneNumber.notParsed() {
+                        inValidatedPhones.append(PhoneNumber(numberString: arrayOfString[0], countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
+                    }else{
+                        validatedPhones.append(phoneNumber)
+                    }
+                } catch {
+                    
+                    inValidatedPhones.append(PhoneNumber(numberString: arrayOfString[0], countryCode: 0, leadingZero: false, nationalNumber: 0, numberExtension: nil, type: .notParsed, regionID: nil))
+                }
+            }
+        }
         
+        
+        matches = value.matchingStrings(regex: RecognitionTools.numberPhoneRegexFromStringComplex)
         matches.forEach { (arrayOfString) in
             arrayOfString.forEach { (item) in
                 if !validatedPhones.contains(where: { (phoneNumber) -> Bool in
@@ -1848,14 +1895,18 @@ class NamedEntity : Equatable {
             resultHolder.append(phoneEntity)
         }
         
+        print ("content")
+        
         inValidatedPhones.enumerated().forEach { (invalidatedPhone) in
             var phoneEntity : PhoneNumberNamedEntity = PhoneNumberNamedEntity(value: invalidatedPhone.element.numberString, type: .unknown, position: self.position)
             
+
             if !resultHolder.contains(where: {$0.value == invalidatedPhone.element.numberString}){
                 
                 if var foundInPrefix = prefixes.filter({ (prefixHolder) -> Bool in
-                    if prefixHolder.type != .unknownPhone {
-                        return invalidatedPhone.element.numberString.stringEqualityDistance(container: prefixHolder.value, preprocess: true, ratio: 0.5 )
+                    if prefixHolder.type != .unknown {
+                        //stringEqualityDistance
+                        return invalidatedPhone.element.numberString.stringContains(container: prefixHolder.value, preprocess: true )
                     } else {
                         return false
                     }

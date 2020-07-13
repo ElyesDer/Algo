@@ -557,7 +557,9 @@ class RecognitionTools {
             
         }
         
-        return prefixesEntities
+        return prefixesEntities.map { (prefixEntity) -> PrefixHolder in
+            return PrefixHolder(key: prefixEntity.key.trimmedAndLowercased, value: prefixEntity.value.trimmedAndLowercased, type: prefixEntity.type)
+        }
         
     }
     
@@ -577,6 +579,11 @@ class RecognitionTools {
         ".da",
         "."
         
+    ]
+    
+    static var secondAdress = [
+    "pobox",
+    "cedex"
     ]
     
     static var emailsDomains = [
@@ -858,6 +865,7 @@ class RecognitionTools {
         "_"
     ]
     static var addressNamesSuffix = [
+        "CENTRE",
         "ALLEE",
         "ALLEY",
         "ALLY",
