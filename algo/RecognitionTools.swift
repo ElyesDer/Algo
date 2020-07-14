@@ -35,7 +35,7 @@ class RecognitionTools {
         bcDataArray = array.filter({!$0.isEmpty && $0.count > 2})
     }
     
-    static func postProcessResult (bcDataArray : inout [String] , namedEntityHolder: inout [ NamedEntity]){
+    static func postProcessResult (bcDataArray : inout [String] , namedEntityHolder: inout [NamedEntity]){
         var resultEntityHolder : [ NamedEntity] = []
         // remove duplicate
         
@@ -46,7 +46,7 @@ class RecognitionTools {
             }){
                 
                 
-                resultEntity.value = resultEntity.value.trimmingCharacters(in: .punctuationCharacters)
+//                resultEntity.value = resultEntity.value.trimmingCharacters(in: .punctuationCharacters)
                 resultEntity.value = resultEntity.value.trimmed
                 
                 
