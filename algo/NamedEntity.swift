@@ -94,13 +94,44 @@ class AddressNamedEntity: NamedEntity {
         
         
         if !self.cedex.isEmpty{
-            self.adress_second = self.cedex
+            self.adress_second = processCedexString(cedex : self.cedex) ?? processAdressString(potentialString: self.adress_second)
         }else{
             self.adress_second = processAdressString(potentialString: self.adress_second)
         }
         
 //        self.street = processAdressString(potentialString: self.street)
         
+        
+    }
+    
+    private func processCedexString(cedex : String) -> String?{
+        var buildResultString : String? = nil
+        if cedex.countWords(separtedBy: " ") < 2 {
+            return nil
+        }else if 3...4 ~= cedex.countWords(separtedBy: " "){
+            // i guess its valid lets return it as it is ; 123123 CityName Cedex or BP 123123 CityName Cedex
+            return cedex
+        }else{
+            // look for cedex position in string and take the 2 previous words
+            let components = cedex.components(separatedBy: " ")
+            
+            
+            
+            for (index,element) in components.enumerated() {
+                if element.caseInsensitiveCompare("cedex") == .orderedSame {
+                    if components.count > 2 {
+                        buildResultString = "\(components[index-2]) \(components[index-1]) Cedex"
+                    }else if components.count > 1{
+                        buildResultString = "\(components[index-1]) Cedex"
+                    }
+                }else if !(buildResultString?.isEmpty ?? true) {
+                    buildResultString?.append(" \(element)")
+                }
+            }
+        }
+        //return "\(components[elemntHolder.offset-2]) \(components[elemntHolder.offset-1]) Cedex"
+        
+        return buildResultString
         
     }
     
@@ -325,6 +356,16 @@ class AddressNamedEntity: NamedEntity {
             }
         }
         
+        if !self.cedex.isEmpty{
+            self.cedex.components(separatedBy: " ").forEach { (element) in
+                self.street = self.street.replacingOccurrences(of: element, with: "", options: .caseInsensitive)
+            }
+        }
+        
+//        if !self.street.stringContains(container: self.cedex, preprocess: true) {
+//            self.street = self.street.replacingOccurrences(of: self.cedex, with: "", options: .caseInsensitive)
+//        }
+        
         
         if self.street.stringContains(container:self.city, preprocess: true){
             self.street = self.street.replacingOccurrences(of: self.city, with: "", options: .caseInsensitive)
@@ -400,6 +441,14 @@ class AddressNamedEntity: NamedEntity {
         preprocessed = preprocessed.replacingOccurrences(of: self.country, with: "",options: .caseInsensitive)
         
         preprocessed = preprocessed.replacingOccurrences(of: self.pobox, with: "",options: .caseInsensitive)
+        
+        if !self.cedex.isEmpty{
+            self.cedex.components(separatedBy: " ").forEach { (element) in
+                preprocessed = preprocessed.replacingOccurrences(of: element, with: "",options: .caseInsensitive)
+            }
+        }
+        
+        
         
         return preprocessed.trimmed.trimmingCharacters(in: CharacterSet.punctuationCharacters)
         
@@ -647,7 +696,7 @@ class AddressNamedEntity: NamedEntity {
                 }
                 
                 if processed.stringContains(container: "cedex", preprocess: true){
-                    self.cedex = element.value
+                    self.cedex = processCedexString(cedex : element.value) ?? ""
                 }
             
             if processed.count > 2 && processed.countWords() > 1 {
@@ -1287,6 +1336,10 @@ class NamedEntity : Equatable {
                     score -= 20
                 }
                 
+                if item.existInArray(array: RecognitionTools.organisationSuffix.compactMap({$0}),preprocess: true,level: 0.85){
+                    score += 40
+                }
+                
             })
         }
         
@@ -1499,7 +1552,7 @@ class NamedEntity : Equatable {
                 if element.stringExistsInArray(array: RecognitionTools.lowerCasejobTitles) {
                     score += 40
                 }else{
-                    score -= 20
+//                    score -= 20
                 }
             }
             

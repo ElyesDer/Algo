@@ -347,18 +347,18 @@ class RecognitionTools {
                         let prefixedSeparatedByPoints = line.prefix(separatorPosition).components(separatedBy: ":")
                         // PREFIX , CONTAIN FOR SUUUUURE THE SEPARTOR ":"
                         
-                        prefixesEntities.append(PrefixHolder(key: prefixedSeparatedByPoints.first?.trimmed ?? "", value: prefixedSeparatedByPoints[1].trimmed , type: .phone))
+                        prefixesEntities.append(PrefixHolder(key: prefixedSeparatedByPoints.first?.trimmed ?? "", value: prefixedSeparatedByPoints[1].trimmed , type: .unknown))
                         
                         // suffix , begin counting from end of the string
                         // PREFIX , CONTAIN FOR SUUUUURE THE SEPARTOR ":"
                         
-                        prefixesEntities.append(PrefixHolder(key: prefixedSeparatedByPoints.first?.trimmed ?? "", value: String(line.suffix(line.count - separatorPosition - 1)).trimmed , type: .phone))
+                        prefixesEntities.append(PrefixHolder(key: prefixedSeparatedByPoints.first?.trimmed ?? "", value: String(line.suffix(line.count - separatorPosition - 1)).trimmed , type: .unknown))
                         
                         
                         
                     }else {
                         
-                        prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .phone))
+                        prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .unknown))
                     }
                 }
                 
@@ -414,14 +414,14 @@ class RecognitionTools {
                         // this is our best bet Key : Val
                         if separatorOccurenceByPoint[1].trimmed.count == 0 {
                             // we got empty VALUE so we grab it eye closes from next line
-                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .phone))
+                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .unknown))
                             //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
                             
                             //bcDataArray[index] = ""
                             //bcDataArray.append(String(bcDataArray[index+1]))
                             
                         }else{
-                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .phone))
+                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .unknown))
                             
                             //bcDataArray[index] = ""
                             //bcDataArray.append(separatorOccurenceByPoint[1])
@@ -508,9 +508,6 @@ class RecognitionTools {
                         
                         if RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: firstElement, preprocess: true, ratio: 0.2)}) {
                             
-                            
-                            
-                            
                             if let foundAnotherPrefix = removedFirst.filter({ (element) -> Bool in
                                 element.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}))
                             }).first {
@@ -557,11 +554,31 @@ class RecognitionTools {
             
         }
         
+        
+        prefixesEntities.enumerated().forEach { (index,prefixHolder) in
+            if RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: prefixHolder.key, preprocess: true, ratio: 0.7)}) {
+                prefixesEntities[index].type = .phone
+            }else{
+                prefixesEntities[index].type = .unknown
+            }
+        }
+        
+        
         return prefixesEntities.map { (prefixEntity) -> PrefixHolder in
             return PrefixHolder(key: prefixEntity.key.trimmedAndLowercased, value: prefixEntity.value.trimmedAndLowercased, type: prefixEntity.type)
         }
         
     }
+    
+    static var organisationSuffix = [
+        //https://en.wikipedia.org/wiki/List_of_legal_entity_types_by_country
+        "inc.",
+        "co.",
+        "corp.",
+        "ltd.",
+        "B-corp",
+        
+    ]
     
     static var removeableChars : [Character] = [
         "!", "#", "$", "%", "&" , "*" , "/" , "<", ">" , "?" , "|" , "_" , ":" , "-" , "."

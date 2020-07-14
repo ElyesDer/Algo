@@ -34,6 +34,34 @@ raw = "Tel : 24608993 / 24 655 509"
 var raws = [
     
     
+    "ODDO & CIE\nJerome CHIGARI\nDirecteur de F'Ingenierie Patrimoniale\nOddo Banque Prive\n12, boulevard de la Madeleine - 75440 Paris Cedex 09\nTel. : 33(0)1 44 51 81 73 - Fax: 33(0)1 40 17 52 26\njchigard@oddo.fr - w\nv.oddo.fr\n",
+    
+    
+    
+    "CREDIT AGRICOLE CORPORATE & INVESTEMENT BANK\nSilvia F. CALVELLO\nHead of Consumer Goods and Retail\nManaging Director\nAccueil : 12 Place des Etats-Unis - 92120 Montrouge\nAdresse postale : 12 Place des Etats-Unis - CS 70052 - 92547 Montrouge Cedex\nTel.:\n+33 (0)1 57 87 03 43\nMob. : +33 (0)6 80 75 99 60\nsilvia.calvello@ca-cib.com\n www.ca-cib.com\n",
+    
+    "Murinich & Coo\nSophie Catala\nA\nAssociate - Private Debt France\nMuzinich & Co. Ltd.\nSuccursale de Paris\n33 avenue de Wagram\nOffice: +33 (0)1 70 91 69 90\n75017 Paris\nDirect: +33 (0)1 70 91 69 87\nwww.muzinich.com\nscatala@muzinich.com\nAuthorised and regulated by the Financial Conduct Authority\n",
+    
+    "XOFIVALMO\nGérard BOURRET\n1, rue Vernier\nPresident du Directoire\n75017 Paris - France\nTel. : +33 (0)1 40 68 17 01\nFax. : +33 (O)1 40 68 17 57\ngbourret@ofi-am.fr\nwww.ofi-am.fr\n",
+    
+    
+    "CREDIT AGRICOLE CORPORATE & INVESTEMENT BANK\nSilvia F. CALVELLO\nHead of Consumer Goods and Retail\nManaging Director\nAccueil : 12 Place des Etats-Unis - 92120 Montrouge\nAdresse postale : 12 Place des Etats-Unis - CS 70052 - 92547 Montrouge Cedex\nTel.:\n+33 (0)1 57 87 03 43\nMob. : +33 (0)6 80 75 99 60\nsilvia.calvello@ca-cib.com\n www.ca-cib.com\n",
+    
+    
+    
+    
+    
+    
+    "CIC Quest\nMichel Guignard\nDirecteur des risques\n2, avenue Jean-Claude Bonduelle - BP 84001 - 44040 Nantes cedex\ntel. 02 40 12 92 83 - fax 02 40 12 97 26 - e-mail : michel guignard@cic.fr\n",
+    
+    
+    
+    
+    "h Aircalin\nCédric BONTEMPS\nDirecteur de projets\nProject Director\nDIRECTION DES PROJETS\n8, rue F. Surleau\nBP. 3736 - 98846 Nouméa CEDEX - Nouvelle Calédonie\nTel : (687) 26 55 43\ncedric.bontemps@aircalin.nc\n",
+    
+    
+    "bratschi\nwiederkehr\n& buob\nRolf H. Weber\nProf. Dr. iur., Rechtsanwalt\nProfessor an der Universitat Zurich\nBahnhofstrasse 46\nPostfach 1130\nCH-8021 Zurich\nTelefon +41 58 258 10 00\nFax +41 58 258 10 99\nrolf .weber@bratschi-law.ch\nwww.bratschi-law.ch\n",
+    
     "ELECTRIFY\nHaythem Chedid\nNETWORK\nCOO\n+33 7 58 17 16 53\n+216 25 99 66 93\nwww.electrify.network\nhaythem.chedid@electrify.network\n65 Boulevard Vaugirard, PARIS, FRANCE",
     
     
