@@ -730,27 +730,53 @@ func process_text(text : String){
     
     var extracted : [Int] = []
     var mutableRaw = raw
+    //var namedEntityResult : [NamedEntity] = []
     
-    //   // print("preprocessing")
+    
+    // remove special remable chars
+    
+    //            testPrint(tag: "BC DATA BEFORE", title: " :: ", content: bcDataArray)
+    //
+    //            testPrint(tag: "", title: "OPERATION BEGIN", content: "")
+    
+//    testPrint(tag: "RAW", title: "bcDaraArray", content: mutableRaw)
+    
+    // TODO : MAKE SURE YOU SPLIT PREFIXES FROM VALUES , FOR BVETTER RESULT
     RecognitionTools.preProcessRaw(raw: &mutableRaw , prefixedEntities : &prefixedEntities , bcDataArray: &bcDataArray, remove : true)
     
-    // print("extracting emails")
-    extractEmails(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
+    bcDataArray = bcDataArray.joined(separator: "\n").split(separator: "\n").map {String($0).stripped }
+    bcDataArray = bcDataArray.filter({ !$0.isEmpty && $0.count > 2 })
     
-    // print("extracting websites")
+    
+//    testPrint(tag: "preProcessRaw", title: "RESULT", content: prefixedEntities)
+//    testPrint(tag: "NEW RAW", title: "NEW bcDaraArray", content: bcDataArray)
+    //
+    //            testPrint(tag: "BC DATA AFTER", title: " :: ", content: bcDataArray)
+    
+    extractEmails(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
     extractWebsite(raw : &mutableRaw, bcDataArray: bcDataArray, namedEntityHolder : &namedEntityHolder, prefixedEntities: prefixedEntities)
     
-    // print("extracting phones")
+    forceAddPotentialMiddleContentVectorIntoBCDataArray ( bcDataArray: &bcDataArray, namedEntityHolder : namedEntityHolder)
+    
+    // we need this process remove without position bcz sometime email line and website , can contain otehr data
+    //RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+    //            RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+    
+    // make it third
+    
+    // TODO : DONE - MAKE SURE YOU SPLIT PREFIXES FROM VALUES , FOR BVETTER RESULT
+    // TODO : MAYBBEE REMOVE PHONES FROM DATA ARRAY
     extractPhones(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
     
     
-    // print("extracting preProcessRemoveExtractedWithPosition")
+    // lets preprocess data before continue
+    //RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
+    
     RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
     
     //            testPrint(tag: "BC DATA AFTER", title: " :: ", content: bcDataArray)
     extractFullName(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
     
-    // print("extracting preProcessRemoveExtractedWithPosition")
     RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
     //            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
     
@@ -758,67 +784,125 @@ func process_text(text : String){
     
     extractCompany(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
     
+    extractTitles(bcDataArray : bcDataArray , namedEntityHolder : &namedEntityHolder, prefixedEntities : prefixedEntities)
+    
+    //                    if namedEntityHolder.filter({ namedEntity in
+    //                        return namedEntity.type == .title || namedEntity.type == .title2
+    //                    }).filter({ (filteredTitles) in
+    //                        if let company = namedEntityHolder.filter({$0.type == .company}).first {
+    //                            return company.value.elementsEqual(filteredTitles.value)
+    //                        }
+    //                        return false
+    //                    }).first == nil {
+    //
+    //                    }
+    
+    
+    
+    
+    //            RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
     RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
     
+    
+    
+    
+    //RecognitionTools.preProcessRemoveExtracted(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder, forceRemove : true)
+    //            ///////////////////////////////// @ ZONE
+    //            // THIS IS MOVED HERE , BECASE WE NEED TO WORK ON ENTIRE BCDATA ARRAY
+    
+    
     RecognitionTools.removePrefixOccurence(bcDataArray: &bcDataArray)
-    testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
+//    testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
     
     
-    
-    
-    var addressNamedEntity : AddressNamedEntity = AddressNamedEntity(value: "")
-    
-    
-    addressNamedEntity.extractZipCode(bcDataArray: &bcDataArray, namedEntityHolder: &namedEntityHolder, prefixes: prefixedEntities)
     
     let dispatchGroup = DispatchGroup()
-    dispatchGroup.enter()
-    addressNamedEntity.extractCityORNDState(bcDataArray : &bcDataArray , completion: {success in
-        dispatchGroup.leave()
-    })
     
+    var countries = RecognitionTools.extractMaximumCities(bcDataArray: &bcDataArray, namedEntityHolder: &namedEntityHolder, prefixes: prefixedEntities)
     
-    testPrint(tag: "AFTER ZIP CITY STATE EXTRACTION", title: " REMOVED EXTRACT ", content: bcDataArray)
-    
-    addressNamedEntity.computeAddress(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities)
-    
-    
-    
-    addressNamedEntity.postProcessYourSelf()
-    
-    _ = dispatchGroup.wait()
-    dispatchGroup.notify(queue: .main){
-        // print ("MAIN : Every tink done will not return")
+    if countries.isEmpty{
+        countries.append(CountryNamedEntity(value: "", type: .country, position: -1))
+    }else{
+        // remove doubles
+        countries = countries.filterDuplicate{ $1.value }
     }
     
-    // print("<HZHHZ")
-    // print("STATE ; \(addressNamedEntity.state)")
-    // print("CITY : \(addressNamedEntity.city)")
-    // print("STREET : \(addressNamedEntity.street)")
-    // print("SECONDADD @ : \(addressNamedEntity.adress_second)")
-    // print("ZIP  = \(addressNamedEntity.zip)")
-    // print("COUNTRY COED : \(addressNamedEntity.country_code)")
-    // print("COUNTRY :  \(addressNamedEntity.country)")
-    // print("POBOX :  \(addressNamedEntity.pobox)")
+    var computedAddresses : [AddressNamedEntity] = []
     
+    countries.forEach { (countryNamedEntity) in
+        let addressNamedEntity : AddressNamedEntity = AddressNamedEntity(value: "")
+        
+        
+        
+        // we have NamedEntityHolder which contains , Validated PHONES , so lets extract Country in those phones and put dem in add
+        
+        _ = addressNamedEntity.extractZipCode(bcDataArray: &bcDataArray, namedEntityHolder: &namedEntityHolder, prefixes: prefixedEntities, countryNamedEntity: countryNamedEntity)
+        
+        
+        dispatchGroup.enter()
+        addressNamedEntity.extractCityORNDState(bcDataArray : &bcDataArray , completion: {success in
+            //print("City & states extraction done")
+            dispatchGroup.leave()
+        })
+        
+        
+//        testPrint(tag: "AFTER ZIP CITY STATE EXTRACTION", title: " REMOVED EXTRACT ", content: bcDataArray)
+        //
+        //            // now lets compute @
+        //
+        //
+        addressNamedEntity.computeAddress(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities)
+        
+        
+        
+        // PLEASE DONT FORGET TO POST PROCESS
+        addressNamedEntity.postProcessYourSelf()
+        
+        dispatchGroup.wait()
+        dispatchGroup.notify(queue: .main){
+//            print ("MAIN : Every tink done will not return")
+        }
+        
+//        print("<HZHHZ")
+//        print("STATE ; \(addressNamedEntity.state)")
+//        print("CITY : \(addressNamedEntity.city)")
+//        print("STREET : \(addressNamedEntity.street)")
+//        print("SECONDADD @ : \(addressNamedEntity.adress_second)")
+//        print("ZIP  = \(addressNamedEntity.zip)")
+//        print("COUNTRY COED : \(addressNamedEntity.country_code)")
+//        print("COUNTRY :  \(addressNamedEntity.country)")
+//        print("POBOX :  \(addressNamedEntity.pobox)")
+        
+        addressNamedEntity.processAScore()
+        
+//        print("SCORED  :  \(addressNamedEntity.score)")
+        computedAddresses.append(addressNamedEntity)
+    }
     
+    let addressNamedEntity = computedAddresses.sorted { (a1, a2) -> Bool in
+        return a1.score > a2.score
+    }.first ?? AddressNamedEntity(value: "")
     
+//    print("Picked country : \(addressNamedEntity.country)")
     
     /////////////////////////////// END @ ZONZ
-    testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
+//    testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
     namedEntityHolder.forEach { (named) in
-        //                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
+//        print("Extracted \(named.type) : \(named.value)  - \(named.score)")
     }
     
     
     RecognitionTools.postProcessResult (bcDataArray : &bcDataArray, namedEntityHolder : &namedEntityHolder)
     
     
-    testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
+    
+//    testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
     namedEntityHolder.forEach { (named) in
-        //                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
+//        print("Extracted \(named.type) : \(named.value)  - \(named.score)")
     }
     
+    
+//    testPrint(tag: "", title: "OPERATION END", content: "")
 }
 
 

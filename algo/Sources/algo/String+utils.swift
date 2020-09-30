@@ -1,10 +1,3 @@
-//
-//  String+utils.swift
-//  algo
-//
-//  Created by 360medlink Tunisia on 5/28/20.
-//  Copyright © 2020 360medlink Tunisia. All rights reserved.
-//
 import Foundation
 
 extension URL {
@@ -17,15 +10,27 @@ extension StringProtocol {
     subscript(offset: Int) -> Character {
         self[index(startIndex, offsetBy: offset)]
     }
+    
+    subscript(optional: Int) -> Character? {
+        return startIndex.utf16Offset(in: self) ... endIndex.utf16Offset(in: self)-1 ~= optional ? self[index(startIndex, offsetBy: optional)] : nil
+    }
 }
 
 extension String {
+    
+    var trimLeadingAndTrailingSpecials : String {
+        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines
+            .union(CharacterSet.punctuationCharacters))
+    }
     
     var condenseWhitespace : String {
         let components = self.components(separatedBy: .whitespacesAndNewlines)
         return components.filter { !$0.isEmpty }.joined(separator: " ")
     }
     
+    var stripNonNumbers2 : String {
+        self.trimmingCharacters(in: CharacterSet(charactersIn: "+0123456789.").inverted)
+    }
     
     var stripAllNonNumbers : String {
             let okayChars =
@@ -63,6 +68,8 @@ extension String {
                 .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@'"))
         return String(self.unicodeScalars.filter{okayChars.contains($0) })
         
+        //rangeOfCharacter(from: CharacterSet.decimalDigits.inverted)
+//        return rangeOfCharacter(from: okayChars) == nil
     }
     
     
@@ -81,6 +88,12 @@ extension String {
     //        return rangeOfCharacter(from: okayChars) == nil
         }
     
+    var containsSeparators : Bool {
+        let okayChars =
+            CharacterSet(charactersIn: ":/_-\\+,;()&\".@'")
+        
+        return String(self.unicodeScalars.filter{!okayChars.contains($0) }).count != self.count
+    }
     
     var withoutSpecialCharacters: String {
         return self.components(separatedBy: CharacterSet.symbols).joined(separator: "")
@@ -151,6 +164,15 @@ extension String {
         .replacingOccurrences(of: "-", with: "")
     }
     
+    var isNaOrLetter : Bool {
+        let okayChars =
+            CharacterSet.decimalDigits
+            .union(CharacterSet.letters)
+        
+        return String(self.unicodeScalars.filter{okayChars.contains($0)}).count == self.count
+    }
+    
+    
     
     
     //validate PhoneNumber
@@ -173,10 +195,9 @@ extension String {
     
     func isValidEmail() -> Bool
     {
-        
-        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
-        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
-        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: self)
     }
     
     func capitalizingFirstLetter() -> String {
@@ -223,6 +244,14 @@ extension String {
     
     
     func getAdvancedPOBoxAddress() -> [String]  {
+        
+        /*
+         V1 : "(?i)^\\s*(.*((p|post)[-.\\s]*(o|off|office)[-.\\s]*(b|box|bin)[-.\\s]*)|.*((p|post)[-.\\s]*(o|off|office)[-.\\s]*)|.*((p|post)[-.\\s]*(b|box|bin)[-.\\s]*)|(box|bin)[-.\\s]*)(#|n|num|number)?\\s*\\d+"
+         
+         
+    V2 : Enhanced , remove string from stirng
+         (((p|post)[-.\s]*(o|off|office)[-.\s]*(b|box|bin)[-.\s]*)|.*((p|post)[-.\s]*(o|off|office)[-.\s]*)|.*((p|post)[-.\s]*(b|box|bin)[-.\s]*)|(box|bin)[-.\s]*)(#|n|num|number)?\s*\d+
+        */
         
         
         if let regex = try? NSRegularExpression(pattern: "(((p|post)[-.\\s]*(o|off|office)[-.\\s]*(b|box|bin)[-.\\s]*)|.*((p|post)[-.\\s]*(o|off|office)[-.\\s]*)|.*((p|post)[-.\\s]*(b|box|bin)[-.\\s]*)|(box|bin)[-.\\s]*)(#|n|num|number)?\\s*\\d+", options: .caseInsensitive)
@@ -441,6 +470,52 @@ extension String {
         return jaroSimilarity + commonPrefixCount * commonPrefixScalingFactor * (1 - jaroSimilarity)
     }
     
+    func processFirstPartPhoneNumber() -> String{
+        
+        let phoneSeparators : [Character] = [" ","(",")",".","-",")",]
+        
+        var result = self.trimmed
+        
+        if result.trimmed.starts(with: "+ ") {
+            result = String(self.condenseWhitespace.dropFirst(2)) // remove double spaces
+//            if result.starts(with: "0")
+        }
+        
+        for separator in phoneSeparators {
+            if self.firstIndexInt(of: separator) != 0 {
+                let firstPartPhone = result.components(separatedBy: separator.description)
+                
+                //                print("FIRST \(firstPartPhone.first) ----- \(firstPartPhone.first?.stripAllNonNumbers)")
+                
+                result = firstPartPhone.first?.stripAllNonNumbers as! String
+                
+                for separator2 in phoneSeparators.filter({$0 != separator}) {
+                    
+                    guard let index = firstPartPhone.first?.firstIndexInt(of: separator2) else {
+                        continue
+                    }
+                    
+                    if index != 0 {
+                        let secondPhone = firstPartPhone.first?.components(separatedBy: separator2.description)
+                        //                        print("SECOND \(secondPhone?.first) ---  \(secondPhone?.first?.stripAllNonNumbers) from \(firstPartPhone.first)")
+                        
+                        result = secondPhone?.first?.stripAllNonNumbers as! String
+                        break
+                    }
+                }
+                
+                break
+            }
+        }
+        
+        if result.starts(with: "0") {
+            result = String(result.dropFirst())
+        }
+        
+        return result
+        
+    }
+    
 }
 
 extension String {
@@ -450,7 +525,4 @@ extension String {
             return NSLocalizedString(self, comment: "")
         }
     }
-    
-    
-    
 }

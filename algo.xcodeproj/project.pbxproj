@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8A53A3036B70BB3F3C8ABD77 /* Pods_algo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFABA4D026904D90A7F2E4EB /* Pods_algo.framework */; };
+		98F5CD7C2524DBB600E3151B /* Algo+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F5CD7B2524DBB600E3151B /* Algo+extension.swift */; };
 		98F6E2852496134E003463A7 /* RecognizedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6E26E2496134E003463A7 /* RecognizedEntity.swift */; };
-		98F6E2862496134E003463A7 /* EntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6E26F2496134E003463A7 /* EntityType.swift */; };
+		98F6E2862496134E003463A7 /* AlgoStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6E26F2496134E003463A7 /* AlgoStructs.swift */; };
 		98F6E2872496134E003463A7 /* NamedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6E2702496134E003463A7 /* NamedEntity.swift */; };
 		98F6E2882496134E003463A7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6E2712496134E003463A7 /* main.swift */; };
 		98F6E2892496134E003463A7 /* String+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6E2722496134E003463A7 /* String+utils.swift */; };
@@ -45,9 +46,10 @@
 		98B652E424802A7000BBE2BC /* algo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = algo; sourceTree = BUILT_PRODUCTS_DIR; };
 		98DA25D024815C8A006761F8 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98DA25D424815CDC006761F8 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98F5CD7B2524DBB600E3151B /* Algo+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Algo+extension.swift"; sourceTree = "<group>"; };
 		98F6E26D2496134E003463A7 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PhoneNumberMetadata.json; sourceTree = "<group>"; };
 		98F6E26E2496134E003463A7 /* RecognizedEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizedEntity.swift; sourceTree = "<group>"; };
-		98F6E26F2496134E003463A7 /* EntityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityType.swift; sourceTree = "<group>"; };
+		98F6E26F2496134E003463A7 /* AlgoStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgoStructs.swift; sourceTree = "<group>"; };
 		98F6E2702496134E003463A7 /* NamedEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamedEntity.swift; sourceTree = "<group>"; };
 		98F6E2712496134E003463A7 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		98F6E2722496134E003463A7 /* String+utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+utils.swift"; sourceTree = "<group>"; };
@@ -124,11 +126,12 @@
 			children = (
 				98F6E26D2496134E003463A7 /* PhoneNumberMetadata.json */,
 				98F6E26E2496134E003463A7 /* RecognizedEntity.swift */,
-				98F6E26F2496134E003463A7 /* EntityType.swift */,
+				98F6E26F2496134E003463A7 /* AlgoStructs.swift */,
 				98F6E2702496134E003463A7 /* NamedEntity.swift */,
 				98F6E2712496134E003463A7 /* main.swift */,
 				98F6E2722496134E003463A7 /* String+utils.swift */,
 				98F6E2732496134E003463A7 /* PhoneNumberKit */,
+				98F5CD7B2524DBB600E3151B /* Algo+extension.swift */,
 			);
 			name = algo;
 			path = algo/Sources/algo;
@@ -258,11 +261,12 @@
 			files = (
 				98F6E2892496134E003463A7 /* String+utils.swift in Sources */,
 				98F6E28A2496134E003463A7 /* Constants.swift in Sources */,
-				98F6E2862496134E003463A7 /* EntityType.swift in Sources */,
+				98F6E2862496134E003463A7 /* AlgoStructs.swift in Sources */,
 				98F6E2912496134E003463A7 /* MetadataManager.swift in Sources */,
 				98F6E28E2496134E003463A7 /* ParseManager.swift in Sources */,
 				98F6E2902496134E003463A7 /* Formatter.swift in Sources */,
 				98F6E28C2496134E003463A7 /* RegexManager.swift in Sources */,
+				98F5CD7C2524DBB600E3151B /* Algo+extension.swift in Sources */,
 				98F6E28B2496134E003463A7 /* PhoneNumber.swift in Sources */,
 				98F6E2852496134E003463A7 /* RecognizedEntity.swift in Sources */,
 				98F6E2882496134E003463A7 /* main.swift in Sources */,
