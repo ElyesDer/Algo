@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum PremadeEntities : String, CaseIterable {
-    case titles = "titles"
-    case cities = "cities"
-    case states = "states"
-}
-
 class RecognitionTools {
     
     static var languageSession : SupportedLangage = .eng
@@ -42,11 +36,11 @@ class RecognitionTools {
         namedEntityHolder.forEach { (resultEntity) in
             if resultEntity.score > -10 && !resultEntityHolder.contains(where: {
                 $0.value == resultEntity.value &&
-                $0.type == resultEntity.type
+                    $0.type == resultEntity.type
             }){
                 
                 
-//                resultEntity.value = resultEntity.value.trimmingCharacters(in: .punctuationCharacters)
+                //                resultEntity.value = resultEntity.value.trimmingCharacters(in: .punctuationCharacters)
                 resultEntity.value = resultEntity.value.trimmed
                 
                 
@@ -60,6 +54,44 @@ class RecognitionTools {
         
     }
     
+    static func loadCountriesMeta(completion : @escaping (_ : Bool) -> ()) {
+        
+        
+        let url = URL(string: "http://api.abracardabra.pre-360.net/countries/\(RecognitionTools.languageSession)")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let _ = error {
+                completion(false)
+            }else if let response = response as? HTTPURLResponse {
+                
+                // todo : make it check for status code or data before continiuing
+                if response.statusCode == 200 {
+                    do {
+                        let decoder = JSONDecoder()
+                        let countryMeta = try decoder.decode(Response<[CountryPhonePrefix]>.self, from: data!)
+                        
+                        countryPhonePrefix = countryMeta.success.data ?? []
+                        
+                        //                        countryPhonePrefix = RecognitionTools.backUpCountryPrefix
+                        DispatchQueue.main.async() {
+                            completion( true)
+                        }
+                        
+                    } catch _ {
+                        DispatchQueue.main.async() {
+                            completion(false)
+                        }
+                    }
+                }else{
+                    completion(false)
+                }
+                
+            }
+        }.resume()
+    }
     
     
     static func loadStatesWithPrefix(prefix : String, completion : @escaping (_ : Bool) -> ()) {
@@ -78,16 +110,16 @@ class RecognitionTools {
                         let decoder = JSONDecoder()
                         let citiesResponse = try decoder.decode(StatesWithPrefixSuccess.self, from: data!)
                         
-                        statesWithPrefix.append(contentsOf: citiesResponse.success.data.map({$0.name.trimmedAndLowercased}))
-                            completion(true)
+                        statesWithPrefix = citiesResponse.success.data.map({$0.name.trimmedAndLowercased})
+                        completion(true)
                         
                         
                     } catch _ {
-                          completion(false)
-                       
+                        completion(false)
+                        
                     }
                 }else{
-                     completion(false)
+                    completion(false)
                 }
                 
             }
@@ -101,7 +133,7 @@ class RecognitionTools {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         URLSession.shared.dataTask(with: request) {(data, response, error) in
             if let _ = error {
-                 completion(false)
+                completion(false)
             }else if let response = response as? HTTPURLResponse {
                 print("WA DA HECK")
                 // todo : make it check for status code or data before continiuing
@@ -110,18 +142,18 @@ class RecognitionTools {
                         let decoder = JSONDecoder()
                         let citiesResponse = try decoder.decode(CitiesWithPrefixSuccess.self, from: data!)
                         
-                        citiesWithPrefix.append(contentsOf: citiesResponse.success.data.map({$0.name.trimmedAndLowercased}))
+                        citiesWithPrefix = citiesResponse.success.data.map({$0.name.trimmedAndLowercased})
                         
-                       
-                            completion(true)
-                       
+                        
+                        completion(true)
+                        
                         
                     } catch _ {
-                             completion(false)
+                        completion(false)
                         
                     }
                 }else{
-                     completion(false)
+                    completion(false)
                 }
             }
         }.resume()
@@ -174,7 +206,7 @@ class RecognitionTools {
                         let decoder = JSONDecoder()
                         let citiesResponse = try decoder.decode(titlesPMSuccess.self, from: data!)
                         
-                        lowerCasejobTitles.append(contentsOf: citiesResponse.success.data.map({$0.title_name.trimmedAndLowercased}))
+                        lowerCasejobTitles = citiesResponse.success.data.map({$0.title_name.trimmedAndLowercased})
                         DispatchQueue.main.async() {
                             completion( true)
                         }
@@ -185,28 +217,50 @@ class RecognitionTools {
                         }
                     }
                 }else{
-                     completion(false)
+                    completion(false)
                 }
                 
             }
         }.resume()
     }
     
+    
+    static func preprocessRemoveExtractedKeyNValues ( bcDataArray : inout [String] , prefixedEntities : [PrefixHolder] ) -> Void {
+        
+        print ("BEFORE \(bcDataArray)")
+        
+        prefixedEntities.filter({$0.type == .phone || $0.type == .email }).forEach { (entity) in
+            bcDataArray.enumerated().forEach { (indexElement) in
+                if bcDataArray[indexElement.offset].contains(entity.key){
+                    bcDataArray[indexElement.offset] = bcDataArray[indexElement.offset]
+                        .replacingOccurrences(of: entity.key, with: "", options: [.caseInsensitive])
+                }else if bcDataArray[indexElement.offset].contains(entity.value){
+                    bcDataArray[indexElement.offset] = bcDataArray[indexElement.offset]
+                        .replacingOccurrences(of: entity.value, with: "", options: [.caseInsensitive, .widthInsensitive])
+                }
+            }
+        }
+        print ("AFTER CLEAN \(bcDataArray)")
+    }
+    
     static func preProcessRemoveExtractedWithPosition(bcDataArray : inout [String] , namedEntityHolder: [ NamedEntity], forceRemove : Bool = false ) -> Void {
         var bcDataArrayCopy : [String] = []
         
         
-
+        
         var unique = namedEntityHolder
-        .enumerated()
-        .filter{ namedEntityHolder.firstIndex(of: $0.1) == $0.0 }
-        .map{ $0.1 }
+            .enumerated()
+            .filter{ namedEntityHolder.firstIndex(of: $0.1) == $0.0 }
+            .map{ $0.1 }
         
         unique = namedEntityHolder.filter({!$0.removed})
         
         bcDataArray.enumerated().forEach { (indexElement) in
-            if unique.filter({$0.position == indexElement.offset && !$0.removed }).first == nil {
+            let found = unique.filter({$0.position == indexElement.offset && !$0.removed }).first
+            if found == nil {
                 bcDataArrayCopy.append(indexElement.element)
+            }else if found?.type == .email || found?.type == .website  { // those can be found entirely , so replace we do the job
+                bcDataArrayCopy.append(indexElement.element.replacingOccurrences(of: found?.value ?? "", with: ""))
             }
         }
         
@@ -233,63 +287,63 @@ class RecognitionTools {
             
             array.append(newLine)
             //            if namedEntityHolder.contains(where: {$0.value == line}) {
-//            if line.existInArray(array: namedEntityHolder.map({$0.value}), preprocess: true, level : 0.9) || line.trimmedAndLowercased.count < 2 {
-//
-//                array.append("")
-//
-//
-//                //            }
-//                //
-//                //
-//                //            if (line.description.existInArray(array: namedEntityHolder.map({
-//                //                $0.value
-//                //            }))){
-//                // need to remove
-//                //print("Removing INDEX \(index)")
-//                //bcDataArray.remove(at: index)
-//            }else if forceRemove{
-//
-//                // advanced remove
-//
-//                //print("Removing WITH ITs POSITION : \()  FROM \(line)")
-//
-//                namedEntityHolder.forEach { (namedEntity) in
-//                    if line.contains(namedEntity.value) {
-//                        array.append(line.replacingOccurrences(of: namedEntity.value, with: "",options: .caseInsensitive))
-//                    }
-//                }
-//
-//                //namedEntityHolder.forEach({array.append(line.replacingOccurrences(of: $0.value, with: "",options: .caseInsensitive))})
-//
-////                if (namedEntityHolder.filter({$0.position == index}).first != nil) {
-////
-////
-////                    if let foundInString = namedEntityHolder.filter({$0.value.stringEqualityDistance(container: line, preprocess: true, ratio: 0.6)}).first {
-////                        array.append(
-////                            line
-////                                .replacingOccurrences(of: " ", with: "")
-////                                .replacingOccurrences(of: "-", with: "")
-////                                .replacingOccurrences(of: "+", with: "")
-////                                .replacingOccurrences(of: foundInString.value
-////                                    .replacingOccurrences(of: " ", with: "")
-////                                    .replacingOccurrences(of: "-", with: "")
-////                                    .replacingOccurrences(of: "+", with: "")
-////                                    , with: "", options: .caseInsensitive))
-////
-////                        print("Force removing \(foundInString.value)  FROM \(line)  ---- RESULT : \(line.preprocess.replacingOccurrences(of: "+", with: "").replacingOccurrences(of: foundInString.value.preprocess.replacingOccurrences(of: "+", with: ""), with: ""))")
-////
-////                        let cleaned = foundInString.value
-////
-////                    }else {
-////                        array.append(line)
-////                    }
-////                }
-////                else {
-////                    array.append(line)
-////                }
-//            }else{
-//                array.append(line)
-//            }
+            //            if line.existInArray(array: namedEntityHolder.map({$0.value}), preprocess: true, level : 0.9) || line.trimmedAndLowercased.count < 2 {
+            //
+            //                array.append("")
+            //
+            //
+            //                //            }
+            //                //
+            //                //
+            //                //            if (line.description.existInArray(array: namedEntityHolder.map({
+            //                //                $0.value
+            //                //            }))){
+            //                // need to remove
+            //                //print("Removing INDEX \(index)")
+            //                //bcDataArray.remove(at: index)
+            //            }else if forceRemove{
+            //
+            //                // advanced remove
+            //
+            //                //print("Removing WITH ITs POSITION : \()  FROM \(line)")
+            //
+            //                namedEntityHolder.forEach { (namedEntity) in
+            //                    if line.contains(namedEntity.value) {
+            //                        array.append(line.replacingOccurrences(of: namedEntity.value, with: "",options: .caseInsensitive))
+            //                    }
+            //                }
+            //
+            //                //namedEntityHolder.forEach({array.append(line.replacingOccurrences(of: $0.value, with: "",options: .caseInsensitive))})
+            //
+            ////                if (namedEntityHolder.filter({$0.position == index}).first != nil) {
+            ////
+            ////
+            ////                    if let foundInString = namedEntityHolder.filter({$0.value.stringEqualityDistance(container: line, preprocess: true, ratio: 0.6)}).first {
+            ////                        array.append(
+            ////                            line
+            ////                                .replacingOccurrences(of: " ", with: "")
+            ////                                .replacingOccurrences(of: "-", with: "")
+            ////                                .replacingOccurrences(of: "+", with: "")
+            ////                                .replacingOccurrences(of: foundInString.value
+            ////                                    .replacingOccurrences(of: " ", with: "")
+            ////                                    .replacingOccurrences(of: "-", with: "")
+            ////                                    .replacingOccurrences(of: "+", with: "")
+            ////                                    , with: "", options: .caseInsensitive))
+            ////
+            ////                        print("Force removing \(foundInString.value)  FROM \(line)  ---- RESULT : \(line.preprocess.replacingOccurrences(of: "+", with: "").replacingOccurrences(of: foundInString.value.preprocess.replacingOccurrences(of: "+", with: ""), with: ""))")
+            ////
+            ////                        let cleaned = foundInString.value
+            ////
+            ////                    }else {
+            ////                        array.append(line)
+            ////                    }
+            ////                }
+            ////                else {
+            ////                    array.append(line)
+            ////                }
+            //            }else{
+            //                array.append(line)
+            //            }
         }
         
         bcDataArray = array.filter({!$0.isEmpty})
@@ -304,263 +358,485 @@ class RecognitionTools {
         
     }
     
+    
+    static func extractMaximumCities (bcDataArray : inout [String], namedEntityHolder : inout [ NamedEntity ] , prefixes : [PrefixHolder] ) -> [CountryNamedEntity] {
+        // lets Grab PHONES from namedEntity
+        let phones = namedEntityHolder
+            .filter({$0.type == .phone || $0.type == .mobile || $0.type == .fax || $0.type == .direct })
+            .map({$0 as? PhoneNumberNamedEntity}) // TODO hope this does not CRASH // FIXED
+        // this should be of type [PhoneNamedEntity]
+        
+        // as precaution : lets search for prefix , in PrefixHolder // IGNORE THIS 4 NOW
+        
+        
+        // run through Phones and try to extract Countries
+        
+        var countryCodes : [String] = []
+        var prefixCodes : [String] = []
+        var countries : [CountryNamedEntity] = []
+        
+        phones.forEach { (phoneNumber) in
+            
+            if let phoneNumberKit = phoneNumber?.phoneNumber {
+                if !phoneNumberKit.notParsed() {
+                    // we got a parsed value , lets get phone prefix
+                    //countryCode.append(phoneNumberKit.countryCode)
+                    if let regionID = phoneNumberKit.regionID {
+                        countryCodes.append(regionID)
+                    }else {
+                        prefixCodes.append(String(phoneNumberKit.countryCode))
+                    }
+                }else{
+                    //                    nothing can be extrate from phonenumber
+//                    print("Invalid Phone number for zip\(phoneNumber?.value)")
+                    if let foundInInvalidatedPhone = AddressNamedEntity.processInvalidPhone(invalidPhone: phoneNumber?.value ?? ""){
+                        countries.append(CountryNamedEntity(value: foundInInvalidatedPhone.countryName, type: .country, position: -1, countryPhonePrefix: foundInInvalidatedPhone))
+                    }
+                }
+            }else{
+                //nothing can be extrate from phonenumber
+//                print("Invalid Phone number for zip\(phoneNumber?.value)")
+                if let foundInInvalidatedPhone = AddressNamedEntity.processInvalidPhone(invalidPhone: phoneNumber?.value ?? ""){
+                    countries.append(CountryNamedEntity(value: foundInInvalidatedPhone.countryName, type: .country, position: -1, countryPhonePrefix: foundInInvalidatedPhone))
+                }
+            }
+            // else we go nil
+        }
+        // lets post process the upper loop // country and prefixs
+        
+        if countryCodes.count < 1 {
+            // no country code , lets process the prefix code with premade
+            if prefixCodes.count > 0 {
+                // wee goot some prefix code , lets premade
+                prefixCodes.forEach { (prefixCode) in
+                    if let foundCountryInPremade = RecognitionTools.countryPhonePrefix.filter({$0.phonePrefix == prefixCode}).first?.countryName {
+                        countryCodes.append(foundCountryInPremade)
+                    } // else sorry not FOUND
+                }
+            }
+        }
+        
+        // THIS IS HERE , BECAUSE IF // POTENTIALLY NO DATA FOUND FROM PHONE NUMBERS , lets GRAB EMAIL & Website & watever we have in hand ( DATA ARRAY STRINGS ) and try
+        // process any way website & email IF COUNTRY CODE STILL EMPTY
+        if countryCodes.count < 1 {
+            // still empty , so let do it with email , website , and phone
+            
+            
+            // EMAIL & WEB SITE SUFFIX COUNTRY EXTRACTION TESTED AND WORKING AS EXPECTED
+            let emails = namedEntityHolder.filter { (namedEntity) -> Bool in
+                namedEntity.type == .email
+            }
+            
+            // begin with email : grab last index of "."
+            emails.forEach { (email) in
+                if let lastDotIndex = email.value.lastIndex(of: ".") {
+                    let webPref = email.value[lastDotIndex...].replacingOccurrences(of: ".", with: "")
+                    if let foundCountry = RecognitionTools.countryPhonePrefix.filter({ $0.countryPrefix.trimmedAndLowercased == webPref.trimmedAndLowercased}).first {
+                        countryCodes.append(foundCountry.countryPrefix)
+                        countries.append(CountryNamedEntity(value: foundCountry.countryName, type: .country, position: -1, countryPhonePrefix: foundCountry))
+                    }// else not found
+                }// no "." found , strange for email
+            }
+            
+            
+            let websites = namedEntityHolder.filter { (namedEntity) -> Bool in
+                namedEntity.type == .website
+            }
+            
+            websites.forEach { (website) in
+                if let lastDotIndex = website.value.lastIndex(of: ".") {
+                    let webPref = website.value[lastDotIndex...].replacingOccurrences(of: ".", with: "")
+                    if let foundCountry = RecognitionTools.countryPhonePrefix.filter({ $0.countryPrefix.trimmedAndLowercased == webPref.trimmedAndLowercased}).first {
+                        countryCodes.append(foundCountry.countryPrefix)
+                        countries.append(CountryNamedEntity(value: foundCountry.countryName, type: .country, position: -1, countryPhonePrefix: foundCountry))
+                    }// else not found
+                }// no "." found , strange for email
+            }
+        }
+        
+        // AT THIS STAGE : WE GOT A MIX OF , COUNTRIES [CountryNamedEntity ] --- and CountryCodes , so wee need to process countryCode , so we move content to COUNTRIES
+        
+        // process countryCode , with CountrPhonePrefix
+        countryCodes.forEach { (countryCode) in
+            // lets look for this country in premade
+            if let foundCountry = RecognitionTools.countryPhonePrefix.filter({ $0.countryPrefix.trimmedAndLowercased == countryCode.trimmedAndLowercased}).first {
+                if !countries.contains(where: { (countryNamedEntity) -> Bool in
+                    return countryNamedEntity.countryEntity?.countryPrefix == countryCode
+                }) {
+                    // element not found in countries -- lets manually add it
+                    countries.append(CountryNamedEntity(value: foundCountry.countryName, type: .country, position: -1, countryPhonePrefix: foundCountry))
+                    
+                }
+            }
+        }
+        
+        
+        
+        let duplicates = countries.filter({ RecognitionTools.duplicateCountries.contains($0.countryEntity!.phonePrefix)})
+        duplicates.forEach { (countryNamePrefix) in
+            RecognitionTools.countryPhonePrefix.filter({$0.phonePrefix == countryNamePrefix.countryEntity?.phonePrefix}).forEach { (duplicateCountry) in
+                if !countries.contains(where: { return ($0.countryEntity?.countryName == duplicateCountry.countryName)}){
+                    countries.append(CountryNamedEntity(value: duplicateCountry.countryName, type: .country, position: -1, countryPhonePrefix: duplicateCountry))
+                }
+            }
+        }
+        
+        
+        return countries
+    }
+    
+    
+    
     ///This preprocess function only care about KEY : VALUE , where content of key value doesnt matter
     private static func preProcessPrefixes(raw : String , bcDataArray : inout [String] ) -> [PrefixHolder] {
+        
         var prefixesEntities : [PrefixHolder] = []
-        for (index,line) in bcDataArray.enumerated() {
+        var indexes : [Int : [Int]] = [:]
+        for (index,lineToProcess) in bcDataArray.enumerated() {
             // lets do the separation stuff BASED ON " : " Prefix
             
             
             // TODO : DONE  ANOTHER CASE HERE : -->>  M : +216 22 126 466 (/ , | , separtor) +216 36 126 466
             // DOOOOO NOT SEPARATE WITH PHONE SEPARATORS  : - , () , ..
             
+            //            print ("will run though this line ")
+            //            testPrint(tag: "for (index,line) in bcDataArray.enumerated() ", title: "line", content: lineToProcess)
             
-            // if prefix KEY found with empty VALUE , supress Take the next line as VALUE
-            let separatorOccurenceByPoint = line.components(separatedBy:":")
-            //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
-            switch separatorOccurenceByPoint.count {
-            case 2 : do {
-                // this is our best bet Key : Val
-                if separatorOccurenceByPoint[1].count == 0 {
-                    // we got empty VALUE so we grab it eye closes from next line
-                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .unknown))
-                    //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
+            
+            
+            
+            let prefixIndexes = RecognitionTools.indexOfPrefixStringIn(stringContent: lineToProcess, in: RecognitionTools.businessCardPrefixes.flatMap({$0}),processInterval: true)
+            
+            print(prefixIndexes)
+            prefixIndexes.enumerated().forEach { (indexElement) in
+                //                let start = str.index(str.startIndex, offsetBy: 7)
+                //                let end = str.index(str.endIndex, offsetBy: -6)
+                //                let range = start..<end
+                //
+                //                let mySubstring = str[range]  // play
+                indexes[index] = prefixIndexes
+                
+                var line = ""
+                //                if prefixIndexes.count >=  indexElement.offset + 1{
+                //
+                //                }
+                if (prefixIndexes.count > indexElement.offset + 1) {
+                    // 2 elemnt range
+                    let start = lineToProcess.index(lineToProcess.startIndex, offsetBy: prefixIndexes[indexElement.offset])
+                    let end = lineToProcess.index(lineToProcess.startIndex, offsetBy: prefixIndexes[indexElement.offset + 1])
+                    //                    let range =
+                    
+                    line = String(lineToProcess[start..<end])
                 }else{
+                    // str.suffix or prefix or str[index....]
                     
-                    // here its not the end , we need to processs string , if it contains , some special phone separtors like : "/" , " | "  "," maybe
-                    
-                    var separatorPosition = -1
-                    
-                    
-                    RecognitionTools.bcPhoneSeparators.forEach { (separator) in
-                        if line.contains(separator){
-                            // its important to get the last index , and not first index ( prefix can contain / )
-                            separatorPosition = line.lastIndexInt(of: Character(separator)) ?? -1
-                        }
-                    }
-                    
-                    if separatorPosition > -1 {
-                        // we found some content with separtor
-                        // lets loop and add them one by one
-                        // suppose line can contain ONLY ONE VALUE / SEPARATOR
-                        
-                        let prefixedSeparatedByPoints = line.prefix(separatorPosition).components(separatedBy: ":")
-                        // PREFIX , CONTAIN FOR SUUUUURE THE SEPARTOR ":"
-                        
-                        prefixesEntities.append(PrefixHolder(key: prefixedSeparatedByPoints.first?.trimmed ?? "", value: prefixedSeparatedByPoints[1].trimmed , type: .unknown))
-                        
-                        // suffix , begin counting from end of the string
-                        // PREFIX , CONTAIN FOR SUUUUURE THE SEPARTOR ":"
-                        
-                        prefixesEntities.append(PrefixHolder(key: prefixedSeparatedByPoints.first?.trimmed ?? "", value: String(line.suffix(line.count - separatorPosition - 1)).trimmed , type: .unknown))
-                        
-                        
-                        
-                    }else {
-                        
-                        prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .unknown))
-                    }
+                    let index = lineToProcess.index(lineToProcess.startIndex, offsetBy: prefixIndexes[indexElement.offset])
+                    line = String(lineToProcess[index...])
                 }
                 
-//                bcDataArray[index] = line.replacingOccurrences(of: separatorOccurenceByPoint[0], with: " ")
                 
-                break
-                }
+                print("proccessing this : \(line)")
                 
-            case let val where val > 2 : do {
-                // this is strange case , contains more than 2 separtor
-                
-                // exemple : TEL : 2323232 ABC : 232323232 or T : 2323233X: 232322
-                
-                // remove prefix from string , try to obtain separator from the long string
-                
-                // lets look for another separation between THE ORGINAL STRING which can be : (PREFIX : ), / , \ , | , ....
-                // we got more than 1 prefixes ..
-                
-                // separator " : " , means theres a string prefix , so , lets separate them by space , and look for it's position
-                
-                // lets grabs the : position , and back off until we found the prefix
-                
-                let position : Int = line.lastIndexInt(of: ":") ?? 0 // this should not create index out of range
-                var prefixeBuilder = ""
-                
-                for index in stride(from: position, through: 0, by: -1)  {
-                    
-                    if !line[index].isNumber {
-                        // build the prefix until not a number
-                        prefixeBuilder.append(line[index])
-                    }else {
-                        // maybe stop the looping , no neeeed to continue alll the way back
-                        break
-                    }
-                    
-                }
-                // once stopped , ( we found a new prefix
-                
-                prefixeBuilder = String(prefixeBuilder.reversed())
-                
-                // separate the original by founded prefix
-                if prefixeBuilder.count > 0 {
-                    
-                    
-                    // FOR PREFIX
-                    var newSeparation = line.prefix(position - prefixeBuilder.count + 1)
-                    // todo : THIS DOES CRASH CARD
-                    // reprocess using ":" Code duplication Warning
-                    
-                    var separatorOccurenceByPoint = newSeparation.components(separatedBy:":")
-                    //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
-                    if separatorOccurenceByPoint.count == 2 { // this time we should have only TWO
-                        // this is our best bet Key : Val
-                        if separatorOccurenceByPoint[1].trimmed.count == 0 {
-                            // we got empty VALUE so we grab it eye closes from next line
-                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .unknown))
-                            //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
-                            
-                            //bcDataArray[index] = ""
-                            //bcDataArray.append(String(bcDataArray[index+1]))
-                            
+                // if prefix KEY found with empty VALUE , supress Take the next line as VALUE
+                let separatorOccurenceByPoint = line.components(separatedBy:":")
+                //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
+                switch separatorOccurenceByPoint.count {
+                case 2 : do {
+                    // this is our best bet Key : Val
+                    if separatorOccurenceByPoint[1].count == 0 {
+                        // we got empty VALUE so we grab it eye closes from next line
+                        if index+1 < bcDataArray.count {
+                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index + 1]) , type: .unknown))
                         }else{
-                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .unknown))
-                            
-                            //bcDataArray[index] = ""
-                            //bcDataArray.append(separatorOccurenceByPoint[1])
-                            
+                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index]) , type: .unknown))
                         }
-                        
-                    }
-                    
-                    
-//                    // FOR SUFFIX
-//                    if (position > prefixeBuilder.count - 1) {
-//                        newSeparation = line.suffix(position - prefixeBuilder.count - 1)
-//                    }else{
-//                        newSeparation = line.suffix(prefixeBuilder.count - position)
-//                    }
-                    
-                    // juste remove occurence of NEW SEPARTION of first key : val compoenntnt
-                    
-                    let newLine = line.replacingOccurrences(of: newSeparation, with: "",options: .caseInsensitive)
-                    
-                    separatorOccurenceByPoint = newLine.components(separatedBy:":")
-                    //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
-                    if separatorOccurenceByPoint.count == 2 { // this time we should have only TWO
-                        // this is our best bet Key : Val
-                        if separatorOccurenceByPoint[1].count == 0 {
-                            // we got empty VALUE so we grab it eye closes from next line
-                            
-                            let phone = bcDataArray[index+1]
-                            let testPhone = phone.count > 6 && phone.isPhoneNumber
-                            
-                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: testPhone ? .phone : .unknownPhone))
-                            
-                            //bcDataArray[index] = ""
-                            //bcDataArray.append(String(bcDataArray[index+1]))
-                            
-                        }else{
-                            
-                            let phone = separatorOccurenceByPoint[1]
-                            let testPhone = phone.count > 6 && phone.isPhoneNumber
-                            
-                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: testPhone ? .phone : .unknownPhone))
-                            
-                            //bcDataArray[index] = ""
-                            //bcDataArray.append(separatorOccurenceByPoint[1])
-                        }
-                        
-                        //    mutableLine = mutableLine.replacingOccurrences(of: prefixeBuilder, with: "/n")
-                        
+                        //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
                     }else{
-                        // strange case , not processing anymore
-                    }
-                    
-                    
-                    
-                }// else sorry i tried every think
-                
-                }
-                
-                
-            default:
-                // just ignore those because they dont contain any separtor
-                break
-            }
-            
-            // AT THIS STAGE : We extracted lines with ":"
-            
-            // PROCESS STUFF BASED ON Word espace Content of known type
-            // TODOO : Process those who begins with PREFIX ( in the known prefix tbale ) / espace / CONTENT OF TYPE : NUMBER
-            
-            //lets do more with char
-            
-            // if prefix KEY found with empty VALUE , supress Take the next line as VALUE
-            let separatorOccurenceBySpace = line.components(separatedBy:" ")
-            //testPrint(tag: "Prefix ", title: "separation BY SPACE", content: separatorOccurenceBySpace)
-            
-            if separatorOccurenceBySpace.count > 1 {
-                
-                if let firstElement = separatorOccurenceBySpace.first {
-                    let removedFirst = separatorOccurenceBySpace.dropFirst()
-                    
-                    if firstElement.lengthBetween(l1: 1, l2: 8)
-                        && !firstElement.existInArray(array: prefixesEntities.map({$0.key}))
-                    {
                         
-                        if RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: firstElement, preprocess: true, ratio: 0.2)}) {
-                            
-                            if let foundAnotherPrefix = removedFirst.filter({ (element) -> Bool in
-                                element.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}))
-                            }).first {
-                             
-                                // split by that prefix
-                                let secondSeparation = removedFirst.joined(separator: " ").components(separatedBy: foundAnotherPrefix)
-                                let testPhone = secondSeparation[0].count > 6 && secondSeparation[0].isPhoneNumber && !firstElement.containsNumbers()
-                                
-                                prefixesEntities.append(PrefixHolder(key: firstElement, value: secondSeparation[0] , type: testPhone ? .phone : .unknownPhone))
-                                prefixesEntities.append(PrefixHolder(key: foundAnotherPrefix, value: secondSeparation[1] , type: .phone))
-                                
-                            } else {
-                                // i think we are good to put the value as it is
-                                let phone = removedFirst.joined(separator: " ")
-                                let testPhone = phone.count > 6 && phone.isPhoneNumber
-                                prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: testPhone ? .phone : .unknownPhone))
-                                //bcDataArray[index] = bcDataArray[index].replacingFirstOccurrenceOf(target: firstElement, withString: "")
+                        // here its not the end , we need to processs string , if it contains , some special phone separtors like : "/" , " | "  "," maybe
+                        
+                        var separatorPosition = -1
+                        
+                        
+                        RecognitionTools.bcPhoneSeparators.forEach { (separator) in
+                            if line.contains(separator){
+                                // its important to get the last index , and not first index ( prefix can contain / )
+                                separatorPosition = line.lastIndexInt(of: Character(separator)) ?? -1
                             }
+                        }
+                        
+                        if separatorPosition > -1 {
+                            // we found some content with separtor
+                            // lets loop and add them one by one
+                            // suppose line can contain ONLY ONE VALUE / SEPARATOR
                             
-                        }else if RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: firstElement, preprocess: true, ratio: 0.2)}) {
+                            let prefixedSeparatedByPoints = line.prefix(separatorPosition).components(separatedBy: ":")
+                            // PREFIX , CONTAIN FOR SUUUUURE THE SEPARTOR ":"
                             
-                            if let foundAnotherPrefix = removedFirst.filter({ (element) -> Bool in
-                                element.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}))
-                            }).first {
-                             
-                                // split by that prefix
-                                let secondSeparation = removedFirst.joined(separator: " ").components(separatedBy: foundAnotherPrefix)
-                                
-                                prefixesEntities.append(PrefixHolder(key: firstElement, value: secondSeparation[0] , type: .unknown))
-                                prefixesEntities.append(PrefixHolder(key: foundAnotherPrefix, value: secondSeparation[1] , type: .unknown))
-                                
-                            }else {
-                                // i guess wee found some prefix so lets pretend
-                                prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .unknown))
-                                //bcDataArray[index] = bcDataArray[index].replacingFirstOccurrenceOf(target: firstElement, withString: "")
-                            }
+                            prefixesEntities.append(PrefixHolder(key: prefixedSeparatedByPoints.first?.trimmed ?? "", value: prefixedSeparatedByPoints[1].trimmed , type: .unknown))
+                            
+                            // suffix , begin counting from end of the string
+                            // PREFIX , CONTAIN FOR SUUUUURE THE SEPARTOR ":"
+                            
+                            prefixesEntities.append(PrefixHolder(key: prefixedSeparatedByPoints.first?.trimmed ?? "", value: String(line.suffix(line.count - separatorPosition - 1)).trimmed , type: .unknown))
                             
                             
+                            
+                        }else {
+                            
+                            prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .unknown))
                         }
                     }
-                    // else ignore
+                    
+                    //                bcDataArray[index] = line.replacingOccurrences(of: separatorOccurenceByPoint[0], with: " ")
+                    
+                    break
                 }
+                
+                case let val where val > 2 : do {
+                    // this is strange case , contains more than 2 separtor
+                    
+                    // exemple : TEL : 2323232 ABC : 232323232 or T : 2323233X: 232322
+                    
+                    // remove prefix from string , try to obtain separator from the long string
+                    
+                    // lets look for another separation between THE ORGINAL STRING which can be : (PREFIX : ), / , \ , | , ....
+                    // we got more than 1 prefixes ..
+                    
+                    // separator " : " , means theres a string prefix , so , lets separate them by space , and look for it's position
+                    
+                    // lets grabs the : position , and back off until we found the prefix
+                    
+                    let position : Int = line.lastIndexInt(of: ":") ?? 0 // this should not create index out of range
+                    var prefixeBuilder = ""
+                    
+                    for index in stride(from: position, through: 0, by: -1)  {
+                        
+                        if !line[index].isNumber {
+                            // build the prefix until not a number
+                            prefixeBuilder.append(line[index])
+                        }else {
+                            // maybe stop the looping , no neeeed to continue alll the way back
+                            break
+                        }
+                        
+                    }
+                    // once stopped , ( we found a new prefix
+                    
+                    prefixeBuilder = String(prefixeBuilder.reversed())
+                    
+                    // separate the original by founded prefix
+                    if prefixeBuilder.count > 0 {
+                        
+                        
+                        // FOR PREFIX
+                        var newSeparation = line.prefix(position - prefixeBuilder.count + 1)
+                        // todo : THIS DOES CRASH CARD
+                        // reprocess using ":" Code duplication Warning
+                        
+                        var separatorOccurenceByPoint = newSeparation.components(separatedBy:":")
+                        //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
+                        if separatorOccurenceByPoint.count == 2 { // this time we should have only TWO
+                            // this is our best bet Key : Val
+                            if separatorOccurenceByPoint[1].trimmed.count == 0 {
+                                // we got empty VALUE so we grab it eye closes from next line
+                                if index+1 < bcDataArray.count {
+                                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: .unknown))
+                                }else{
+                                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index]) , type: .unknown))
+                                }
+                                //bcDataArray[index] = line.replacingOccurrences(of: bcDataArray[index], with: "")
+                                
+                                //bcDataArray[index] = ""
+                                //bcDataArray.append(String(bcDataArray[index+1]))
+                                
+                            }else{
+                                prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: .unknown))
+                                
+                                //bcDataArray[index] = ""
+                                //bcDataArray.append(separatorOccurenceByPoint[1])
+                                
+                            }
+                            
+                        }
+                        
+                        
+                        //                    // FOR SUFFIX
+                        //                    if (position > prefixeBuilder.count - 1) {
+                        //                        newSeparation = line.suffix(position - prefixeBuilder.count - 1)
+                        //                    }else{
+                        //                        newSeparation = line.suffix(prefixeBuilder.count - position)
+                        //                    }
+                        
+                        // juste remove occurence of NEW SEPARTION of first key : val compoenntnt
+                        
+                        
+                        // this should beee done wen adding to prefix entities
+                        let newLine = line.replacingOccurrences(of: newSeparation, with: "",options: .caseInsensitive)
+                        
+                        separatorOccurenceByPoint = newLine.components(separatedBy:":")
+                        //testPrint(tag: "Prefix ", title: "separation BY 2POINT", content: separatorOccurenceByPoint)
+                        if separatorOccurenceByPoint.count == 2 { // this time we should have only TWO
+                            // this is our best bet Key : Val
+                            if separatorOccurenceByPoint[1].count == 0 {
+                                // we got empty VALUE so we grab it eye closes from next line
+                                if index+1 < bcDataArray.count {
+                                    let phone = bcDataArray[index+1]
+                                    let testPhone = phone.count > 6 && phone.isPhoneNumber
+                                    
+                                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index+1]) , type: testPhone ? .phone : .unknownPhone))
+                                }else{
+                                    let phone = bcDataArray[index]
+                                    let testPhone = phone.count > 6 && phone.isPhoneNumber
+                                    
+                                    prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: String(bcDataArray[index]) , type: testPhone ? .phone : .unknownPhone))
+                                }
+                                //bcDataArray[index] = ""
+                                //bcDataArray.append(String(bcDataArray[index+1]))
+                                
+                            }else{
+                                
+                                let phone = separatorOccurenceByPoint[1]
+                                let testPhone = phone.count > 6 && phone.isPhoneNumber
+                                
+                                prefixesEntities.append(PrefixHolder(key: separatorOccurenceByPoint.first?.trimmed ?? "", value: separatorOccurenceByPoint[1] , type: testPhone ? .phone : .unknownPhone))
+                                
+                                //bcDataArray[index] = ""
+                                //bcDataArray.append(separatorOccurenceByPoint[1])
+                            }
+                            
+                            //    mutableLine = mutableLine.replacingOccurrences(of: prefixeBuilder, with: "/n")
+                            
+                        }else{
+                            // strange case , not processing anymore
+                        }
+                        
+                        
+                        
+                    }// else sorry i tried every think
+                    
+                }
+                
+                
+                default:
+                    // just ignore those because they dont contain any separtor
+                    break
+                }
+                
+                // AT THIS STAGE : We extracted lines with ":"
+                
+                // PROCESS STUFF BASED ON Word espace Content of known type
+                // TODOO : Process those who begins with PREFIX ( in the known prefix tbale ) / espace / CONTENT OF TYPE : NUMBER
+                
+                //lets do more with char
+                
+                // if prefix KEY found with empty VALUE , supress Take the next line as VALUE
+                let separatorOccurenceBySpace = line.components(separatedBy:" ")
+                //testPrint(tag: "Prefix ", title: "separation BY SPACE", content: separatorOccurenceBySpace)
+                
+                if separatorOccurenceBySpace.count > 1 {
+                    
+                    if let firstElement = separatorOccurenceBySpace.first {
+                        let removedFirst = separatorOccurenceBySpace.dropFirst()
+                        
+                        if firstElement.lengthBetween(l1: 1, l2: 8)
+                            && !firstElement.existInArray(array: prefixesEntities.map({$0.key}))
+                        {
+                            
+                            if RecognitionTools.businessCardPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: firstElement, preprocess: true, ratio: 0.2)}) {
+                                
+                                if let foundAnotherPrefix = removedFirst.filter({ (element) -> Bool in
+                                    element.existInArray(array: RecognitionTools.businessCardPrefixes.flatMap({$0}))
+                                }).first {
+                                    
+                                    // split by that prefix
+                                    let secondSeparation = removedFirst.joined(separator: " ").components(separatedBy: foundAnotherPrefix)
+                                    //                                    let testPhone = secondSeparation[0].count > 6 && secondSeparation[0].isPhoneNumber && !firstElement.containsNumbers()
+                                    
+                                    prefixesEntities.append(PrefixHolder(key: firstElement, value: secondSeparation[0] , type: .unknown))
+                                    prefixesEntities.append(PrefixHolder(key: foundAnotherPrefix, value: secondSeparation[1] , type: .unknown))
+                                    
+                                } else {
+                                    // i think we are good to put the value as it is
+                                    let phone = removedFirst.joined(separator: " ")
+                                    //                                    let testPhone = phone.count > 6 && phone.isPhoneNumber
+                                    prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .unknown))
+                                    //bcDataArray[index] = bcDataArray[index].replacingFirstOccurrenceOf(target: firstElement, withString: "")
+                                }
+                                
+                            }else{
+                                print ("wat shud we do")
+                            }
+                            //                            else if RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: firstElement, preprocess: true, ratio: 0.2)}) {
+                            //
+                            //                                if let foundAnotherPrefix = removedFirst.filter({ (element) -> Bool in
+                            //                                    element.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0}))
+                            //                                }).first {
+                            //
+                            //                                    // split by that prefix
+                            //                                    let secondSeparation = removedFirst.joined(separator: " ").components(separatedBy: foundAnotherPrefix)
+                            //
+                            //                                    prefixesEntities.append(PrefixHolder(key: firstElement, value: secondSeparation[0] , type: .unknown))
+                            //                                    prefixesEntities.append(PrefixHolder(key: foundAnotherPrefix, value: secondSeparation[1] , type: .unknown))
+                            //
+                            //                                }else {
+                            //                                    // i guess wee found some prefix so lets pretend
+                            //                                    prefixesEntities.append(PrefixHolder(key: firstElement, value: removedFirst.joined(separator: " ") , type: .unknown))
+                            //                                    //bcDataArray[index] = bcDataArray[index].replacingFirstOccurrenceOf(target: firstElement, withString: "")
+                            //                                }
+                            //
+                            //
+                            //                            }
+                        }
+                        // else ignore
+                    }
+                }
+                
             }
+            
             
         }
         
+        indexes.forEach { (key,prefixIndexes) in
+            prefixIndexes.forEach { (element) in
+                var newString = bcDataArray[key]
+                if element > 0 {
+                    newString.insert(string: "\n", ind: element )
+                    
+                    bcDataArray[key] = newString
+                    print ("shud we do it here")
+                }
+            }
+        }
+        
+        
+        
         
         prefixesEntities.enumerated().forEach { (index,prefixHolder) in
-            if RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: prefixHolder.key, preprocess: true, ratio: 0.7)}) {
-                prefixesEntities[index].type = .phone
-            }else{
+            //            if RecognitionTools.bcPhonesPrefixes.flatMap({$0}).contains(where: {$0.stringEqualityDistance(container: prefixHolder.key, preprocess: true, ratio: 0.7)}) {
+            //                prefixesEntities[index].type = .phone
+            //            }else{
+            //                prefixesEntities[index].type = .unknown
+            //            }
+            
+            if prefixHolder.key.existInArray(array: RecognitionTools.bcPhonesPrefixes.flatMap({$0})) {
+                // we are talking .phone
+                
+                if prefixHolder.value.stripNonNumbers2.preprocessPhoneKit.isPhoneNumber {
+                    prefixesEntities[index].type = .phone
+                }else{
+                    print("Maybe -> \(prefixHolder.key) <- should be added to premade")
+                    prefixesEntities[index].type = .unknownPhone
+                }
+            }else if prefixHolder.key.existInArray(array: RecognitionTools.addressPrefix) {
+                prefixesEntities[index].type = .adress1
+            }else if prefixHolder.key.existInArray(array: RecognitionTools.emailPrefixes) {
+                prefixesEntities[index].type = .email
+            }else {
                 prefixesEntities[index].type = .unknown
             }
+            
+            
         }
         
         
@@ -570,13 +846,119 @@ class RecognitionTools {
         
     }
     
+    static func indexOfPrefixStringIn <T : Hashable> (stringContent : String, in array : [T], processInterval : Bool = false) -> [Int]{
+        
+        var resultContainer : [Int] = []
+        let content = stringContent.lowercased()
+        array.forEach { (prefix) in
+            
+            if let indexPosition =  content.lowercased().index(of: prefix as! String) {
+                
+                var prefixVerified = false
+                var suffixVerified = false
+                var indexOut = 0
+                //                print("Found \(prefix) in content \(content)")
+                
+                
+                while true { // original was -1
+                    if let prefix = content.condenseWhitespace[indexPosition.utf16Offset(in: content) - indexOut - 1] {
+                        if !String(prefix).isNaOrLetter {
+                            if String(prefix).existInArray(array: RecognitionTools.prefixSeparator) {
+                                //
+                                //                        resultContainer.append(indexPosition.utf16Offset(in: stringContent))
+                                prefixVerified.toggle()
+                                break
+                            }else{
+                                indexOut += 1
+                            }
+                            
+                        }else{
+                            break
+                        }
+                    }else{
+                        prefixVerified.toggle()
+                        break
+                    }
+                }
+                
+                //                while String(suffix).isNaNorLetter {
+                //                    <#code#>
+                //                }
+                
+                
+                while true {
+                    
+                    if let suffix = content.condenseWhitespace[indexPosition.utf16Offset(in: content) + (prefix as! String).count + indexOut] {
+                        if !String(suffix).isNaOrLetter {
+                            if String(suffix).existInArray(array: RecognitionTools.prefixSeparator) {
+                                //                        print("Found \(prefix) in content \(stringContent)")
+                                
+                                
+                                suffixVerified.toggle()
+                                break
+                            }else{
+                                indexOut += 1
+                            }
+                        }else{
+                            break
+                        }
+                    }else{
+                        suffixVerified.toggle()
+                        break
+                    }
+                }
+                
+                //                else{
+                //                    suffixVerified.toggle()
+                //                }
+                
+                
+                if prefixVerified && suffixVerified {
+                    //                    print("\(prefix) Verified")
+                    resultContainer.append(indexPosition.utf16Offset(in: content))
+                }
+                
+                
+            }
+        }
+        
+        resultContainer = Array(Set(resultContainer)).sorted()
+        
+        
+        return resultContainer
+        
+    }
+    
+    static func firstIndexOfStringArrayIn <T : Hashable> (stringContent : [String], in array : [T], processInterval : Bool = false) -> [Int]{
+        
+        var resultContainer : [Int] = []
+        
+        for (index,item) in stringContent.enumerated() {
+            if item.stringExistInArray(array: array as! [String]) {
+                if processInterval && resultContainer.count < 2 {
+                    resultContainer.append(index)
+                }else{
+                    return [index]
+                }
+            }
+        }
+        return [-1]
+    }
+    
     static var organisationSuffix = [
         //https://en.wikipedia.org/wiki/List_of_legal_entity_types_by_country
         "inc.",
         "co.",
         "corp.",
         "ltd.",
-        "B-corp",
+        "corp",
+        "b-corp",
+        "sa",
+        "sarl",
+        "surl",
+        "eurl",
+        "ltd",
+        "gmbh"
         
     ]
     
@@ -601,8 +983,10 @@ class RecognitionTools {
     static var secondAdress = [
         "po",
         "box",
-    "pobox",
-    "cedex",
+        "pobox",
+        "cedex",
+        "bp",
+        "postal",
     ]
     
     static var emailsDomains = [
@@ -670,87 +1054,86 @@ class RecognitionTools {
         faxPrefixes
     ]
     
-//    static var bcEntityPrefixes = [
-//        emailPrefixes
-//    ]
-    
+    //    static var bcEntityPrefixes = [
+    //        emailPrefixes
+    //    ]
+    static var supportedZeros = ["FR","BE", "DE", "GB","GR","UK","IT","ES"]
+    static var duplicateCountries = ["1","44","47","61","64","212","242","246","500"]
+    // longer definition to be at top
     static var directPrefixes = [
-        "d",
-        "dir.",
-        "ld",
+        "direction",
+        "tel (direct)",
+        "tél (direct)",
+        "ligne directe",
+        "linea dedicada",
+        "direct line",
         "direct",
         "line",
         "line.",
         
-        "tel (direct)",
-        "tél (direct)",
-        "direct line",
-        "ligne directe",
-        "linea dedicada",
+        "d",
+        "dir.",
+        "ld",
         "didww",
         "did",
         "ddi",
         "pstn",
         "dd",
-        "direction",
         
     ]
     
     static var phonePrefixes = [
-        "p",
-        "phone",
-        "phone.",
-        "p",
-        "p.",
-        "tel",
-        "tél",
         "téléphone",
-        "té",
         "télép",
-        "telefon",
-        "stand.",
-        "standard",
-        
-        "tel.",
         "tél.",
+        "tél.",
+        "tél. - fax.",
+        "tél",
+        "té",
+        "tf",
+        "telefon",
+        "tel.",
+        "tel. - fax.",
+        "tel",
         "t.",
         "t",
+        "standard",
+        "stand.",
+        "phone.",
+        "phone",
         "ph",
-        "tél.",
-        "tel. - fax.",
-        "tél. - fax.",
-        
+        "p.",
+        "p",
+        "p",
         "office",
         "bureau",
-        "tf",
     ]
     
     static var mobilePrefixes = [
-        "m",
-        "m.",
-        "gsm",
-        "mobile",
-        "mobile.",
-        "portable",
         "portable.",
+        "portable",
         "port",
-        "c",
-        "c.",
-        "cell",
-        "cell.",
-        "cellular",
+        "mobile.",
+        "mobile",
         "mob",
+        "m.",
+        "m",
+        "gsm",
+        "cellular",
+        "cell.",
+        "cell",
+        "c.",
+        "c",
     ]
     
     static var faxPrefixes = [
-        "f",
-        "f.",
-        "fax",
-        "fax.",
-        "téléc.",
         "télécopie",
-        "tel. - fax.",
-        "tél. - fax.",
+        "téléc.",
+        "fax.",
+        "fax.",
+        "fax",
+        "f.",
+        "f",
     ]
     
     
@@ -772,17 +1155,27 @@ class RecognitionTools {
         faxPrefixes,
         mobilePrefixes,
         phonePrefixes,
-        directPrefixes
+        directPrefixes,
+        addressPrefix
+    ]
+    
+    static var addressPrefix = [
+        "adresse postale",
+        "accueil",
+        "adresse",
+        "postale",
+        "siege",
+        "siege sociale",
     ]
     
     static var bcEmailPrefixes = [
+        "contact",
         "e",
-        "email",
         "e-mail",
-        "mail",
         "e:",
+        "email",
         "m:",
-        "contact"
+        "mail",
     ]
     
     static var removableNamesSpecial = [",","@","&"]
@@ -790,93 +1183,103 @@ class RecognitionTools {
     static var lowerCasejobTitles = ["diplom","it"]
     
     static var lowerCaseNamesPrefixes = [
-        "docteur",
-        "doc.",
-        "mr.",
-        "mrs.",
-        "ms.",
-        "miss",
-        "dr.",
-        "dr",
-        "a.v.m",
-        "adm.",
-        "amb",
-        "amn",
-        "archbishop",
-        "baron",
-        "baroness",
-        "bishop",
-        "brig. gen.",
-        "bigadier",
-        "bro.",
-        "cantor",
-        "capt.",
-        "cardinal",
-        "chaplain",
-        "cmdr.",
-        "cmsgt",
-        "col.",
-        "consul",
-        "count",
-        "countess",
-        "cpl.",
-        "cpo",
-        "cwo",
-        "dean",
-        "duchess",
-        "duke",
-        "earl",
-        "ens.",
-        "eur eng",
-        "father",
-        "fr.",
-        "gen.",
-        "gov.",
-        "h. e.",
-        "herr",
-        "hon",
-        "hrh",
-        "lady",
-        "lord",
-        "lt.",
-        "lt. cmdr.",
-        "lt. col.",
-        "lt. gen.",
-        "m.",
-        "maj.",
-        "maj. gen",
-        "master",
-        "mile.",
-        "mme.",
-        "mother",
-        "msgt",
-        "pastor",
-        "pfc",
-        "pres.",
-        "prince",
-        "princess",
-        "prof.",
-        "rabbi",
-        "radm",
-        "rev.",
-        "rt. hon.",
-        "senator",
+        "swami",
+        "stsgt",
+        "ssgt",
+        "srta",
+        "sra",
+        "sra",
+        "sr.",
+        "squad. ldr.",
+        "speaker",
+        "smsgt",
+        "sister",
+        "sir",
         "sgt.",
         "sgt. maj.",
-        "sir",
-        "sister",
-        "smsgt",
-        "speaker",
-        "squad. ldr.",
-        "sr.",
-        "sra",
-        "sra",
-        "srta",
-        "ssgt",
-        "swami",
-        "stsgt"
+        "senator",
+        "rt. hon.",
+        "rev.",
+        "radm",
+        "rabbi",
+        "prof.",
+        "princess",
+        "prince",
+        "pres.",
+        "pfc",
+        "pastor",
+        "msgt",
+        "ms.",
+        "mrs.",
+        "mr.",
+        "mother",
+        "mme.",
+        "miss",
+        "mile.",
+        "master",
+        "maj.",
+        "maj. gen",
+        "m.",
+        "lt.",
+        "lt. gen.",
+        "lt. col.",
+        "lt. cmdr.",
+        "lord",
+        "lady",
+        "hrh",
+        "hon",
+        "herr",
+        "h. e.",
+        "gov.",
+        "gen.",
+        "fr.",
+        "father",
+        "eur eng",
+        "ens.",
+        "earl",
+        "duke",
+        "duchess",
+        "dr.",
+        "dr",
+        "docteur",
+        "doc.",
+        "dean",
+        "cwo",
+        "cpo",
+        "cpl.",
+        "countess",
+        "count",
+        "consul",
+        "col.",
+        "cmsgt",
+        "cmdr.",
+        "chaplain",
+        "cardinal",
+        "capt.",
+        "cantor",
+        "bro.",
+        "brig. gen.",
+        "bishop",
+        "bigadier",
+        "baroness",
+        "baron",
+        "archbishop",
+        "amn",
+        "amb",
+        "adm.",
+        "a.v.m",
     ]
     
+    
+    static var prefixSeparator = [
+        " ",
+        
+        ":",
+        ">",
+        
+        " :",
+        " >",
+    ]
     
     static var emailPrefixSeparator = [
         ".",
@@ -885,519 +1288,518 @@ class RecognitionTools {
     ]
     static var addressNamesSuffix = [
         "floor",
+        "XING",
+        "WY",
+        "WLS",
+        "WELLS",
+        "WELL",
+        "WAYS",
+        "WAY",
+        "WALL",
+        "WALKS",
+        "WALK",
+        "VWS",
+        "VW",
+        "VSTA",
+        "VST",
+        "VLYS",
+        "VLY",
+        "VLLY",
+        "VLGS",
+        "VLG",
+        "VL",
+        "VISTA",
+        "VIST",
+        "VIS",
+        "VILLIAGE",
+        "VILLG",
+        "VILLE",
+        "VILLAGES",
+        "VILLAGE",
+        "VILLAG",
+        "VILL",
+        "VIEWS",
+        "VIEW",
+        "VIADUCT",
+        "VIADCT",
+        "VIA",
+        "VDCT",
+        "VALLY",
+        "VALLEYS",
+        "VALLEY",
+        "UNIONS",
+        "UNION",
+        "UNDERPASS",
+        "UN",
+        "TURNPK",
+        "TURNPIKE",
+        "TUNNL",
+        "TUNNELS",
+        "TUNNEL",
+        "TUNLS",
+        "TUNL",
+        "TUNEL",
+        "TRNPK",
+        "TRLS",
+        "TRLRS",
+        "TRLR",
+        "TRL",
+        "TRKS",
+        "TRK",
+        "TRCE",
+        "TRAK",
+        "TRAILS",
+        "TRAILER",
+        "TRAIL",
+        "TRAFFICWAY",
+        "TRACKS",
+        "TRACK",
+        "TRACES",
+        "TRACE",
+        "THROUGHWAY",
+        "TERRACE",
+        "TERR",
+        "TER",
+        "SUMMIT",
+        "SUMITT",
+        "SUMIT",
+        "STRVNUE",
+        "STRVN",
+        "STRT",
+        "STRM",
+        "STREME",
+        "STREETS",
+        "STREET",
+        "STREAM",
+        "STRAVN",
+        "STRAVENUE",
+        "STRAVEN",
+        "STRAV",
+        "STRA",
+        "STR",
+        "STN",
+        "STATN",
+        "STATION",
+        "STA",
+        "ST",
+        "SQUARES",
+        "SQUARE",
+        "SQU",
+        "SQRS",
+        "SQRE",
+        "SQR",
+        "SQ",
+        "SPURS",
+        "SPUR",
+        "SPRNGS",
+        "SPRNG",
+        "SPRINGS",
+        "SPRING",
+        "SPNGS",
+        "SPNG",
+        "SPGS",
+        "SPG",
+        "SMT",
+        "SKYWAY",
+        "SHRS",
+        "SHR",
+        "SHORES",
+        "SHORE",
+        "SHOARS",
+        "SHOAR",
+        "SHOALS",
+        "SHOAL",
+        "SHLS",
+        "SHL",
+        "RVR",
+        "RUN",
+        "RUE",
+        "RST",
+        "RPDS",
+        "RPD",
+        "ROW",
+        "ROUTE",
+        "ROADS",
+        "ROAD",
+        "RNCHS",
+        "RNCH",
+        "RIVR",
+        "RIVER",
+        "RIV",
+        "RIDGES",
+        "RIDGE",
+        "REST",
+        "RDS",
+        "RDGS",
+        "RDGE",
+        "RDG",
+        "RD",
+        "RAPIDS",
+        "RAPID",
+        "RANCHES",
+        "RANCH",
+        "RAMP",
+        "RADL",
+        "RADIEL",
+        "RADIAL",
+        "RAD",
+        "PTS",
+        "PT",
+        "PRTS",
+        "PRT",
+        "PRR",
+        "PRK",
+        "PRAIRIE",
+        "PR",
+        "PORTS",
+        "PORT",
+        "POINTS",
+        "POINT",
+        "PNES",
+        "PLZA",
+        "PLZ",
+        "PLNS",
+        "PLN",
+        "PLAZA",
+        "PLAINS",
+        "PLAIN",
+        "PLACE",
+        "PL",
+        "PKY",
+        "PKWYS",
+        "PKWY",
+        "PKWAY",
+        "PINES",
+        "PINE",
+        "PIKES",
+        "PIKE",
+        "PATHS",
+        "PATH",
+        "PASSAGE",
+        "PASS",
+        "PARKWY",
+        "PARKWAYS",
+        "PARKWAY",
+        "PARKS",
+        "PARK",
+        "OVL",
+        "OVERPASS",
+        "OVAL",
+        "ORCHRD",
+        "ORCHARD",
+        "ORCH",
+        "NECK",
+        "NCK",
+        "MTN",
+        "MTIN",
+        "MT",
+        "MSSN",
+        "MOUNTIN",
+        "MOUNTAINS",
+        "MOUNTAIN",
+        "MOUNT",
+        "MOTORWAY",
+        "MNTNS",
+        "MNTN",
+        "MNTAIN",
+        "MNT",
+        "MNRS",
+        "MNR",
+        "MISSN",
+        "MILLS",
+        "MILL",
+        "MEWS",
+        "MEDOWS",
+        "MEADOWS",
+        "MEADOW",
+        "MDWS",
+        "MDW",
+        "MANORS",
+        "MANOR",
+        "MALL",
+        "LOOPS",
+        "LOOP",
+        "LODGE",
+        "LODG",
+        "LOCKS",
+        "LOCK",
+        "LOAF",
+        "LNDNG",
+        "LNDG",
+        "LN",
+        "LKS",
+        "LK",
+        "LIGHTS",
+        "LIGHT",
+        "LGT",
+        "LF",
+        "LDGE",
+        "LDG",
+        "LCKS",
+        "LCK",
+        "LANE",
+        "LANDING",
+        "LAND",
+        "LAKES",
+        "LAKE",
+        "KYS",
+        "KY",
+        "KNOLLS",
+        "KNOLL",
+        "KNOL",
+        "KNLS",
+        "KNL",
+        "KM",
+        "KEYS",
+        "KEY",
+        "JUNCTON",
+        "JUNCTN",
+        "JUNCTIONS",
+        "JUNCTION",
+        "JCTS",
+        "JCTNS",
+        "JCTN",
+        "JCTION",
+        "JCT",
+        "ISS",
+        "ISLNDS",
+        "ISLND",
+        "ISLES",
+        "ISLE",
+        "ISLANDS",
+        "ISLAND",
+        "IS",
+        "INLT",
+        "IMMEUBLE",
+        "IMM.",
+        "IMM",
+        "HWY",
+        "HWAY",
+        "HVN",
+        "HTS",
+        "HT",
+        "HRBOR",
+        "HOLWS",
+        "HOLW",
+        "HOLLOWS",
+        "HOLLOW",
+        "HLS",
+        "HLLW",
+        "HL",
+        "HIWY",
+        "HIWAY",
+        "HILLS",
+        "HILL",
+        "HIGHWY",
+        "HIGHWAY",
+        "HBR",
+        "HAVEN",
+        "HARBR",
+        "HARBORS",
+        "HARBOR",
+        "HARB",
+        "GTWY",
+        "GTWAY",
+        "GRV",
+        "GROVES",
+        "GROVE",
+        "GROV",
+        "GRN",
+        "GREENS",
+        "GREEN",
+        "GRDNS",
+        "GRDN",
+        "GRDEN",
+        "GLN",
+        "GLENS",
+        "GLEN",
+        "GDNS",
+        "GATWAY",
+        "GATEWY",
+        "GATEWAY",
+        "GARDN",
+        "GARDENS",
+        "GARDEN",
+        "FWY",
+        "FT",
+        "FRY",
+        "FRWY",
+        "FRWAY",
+        "FRT",
+        "FRST",
+        "FRRY",
+        "FRKS",
+        "FRK",
+        "FRG",
+        "FREEWY",
+        "FREEWAY",
+        "FRD",
+        "FORT",
+        "FORKS",
+        "FORK",
+        "FORGES",
+        "FORGE",
+        "FORG",
+        "FORESTS",
+        "FOREST",
+        "FORDS",
+        "FORD",
+        "FLTS",
+        "FLT",
+        "FLS",
+        "FLDS",
+        "FLD",
+        "FLATS",
+        "FLAT",
+        "FIELDS",
+        "FIELD",
+        "FERRY",
+        "FALLS",
+        "FALL",
+        "EXTS",
+        "EXTNSN",
+        "EXTN",
+        "EXTENSION",
+        "EXT",
+        "EXPY",
+        "EXPW",
+        "EXPRESSWAY",
+        "EXPRESS",
+        "EXPR",
+        "EXP",
+        "ESTS",
+        "ESTATES",
+        "ESTATE",
+        "EST",
+        "DVD",
+        "DV",
+        "DRV",
+        "DRIVES",
+        "DRIVE",
+        "DRIV",
+        "DR",
+        "DM",
+        "DL",
+        "DIVIDE",
+        "DIV",
+        "DAM",
+        "DALE",
+        "CV",
+        "CURVE",
+        "CTS",
+        "CTR",
+        "CT",
+        "CSWY",
+        "CRSSNG",
+        "CRSNT",
+        "CRSENT",
+        "CRSE",
+        "CROSSROADS",
+        "CROSSROAD",
+        "CROSSING",
+        "CRK",
+        "CREST",
+        "CRESCENT",
+        "CRES",
+        "CREEK",
+        "CRCLE",
+        "CRCL",
+        "CPE",
+        "CP",
+        "COVES",
+        "COVE",
+        "COURTS",
+        "COURT",
+        "COURSE",
+        "CORS",
+        "CORNERS",
+        "CORNER",
+        "COR",
+        "COMMONS",
+        "COMMON",
+        "CNYN",
+        "CNTR",
+        "CNTER",
+        "CMP",
+        "CLIFFS",
+        "CLIFF",
+        "CLFS",
+        "CLF",
+        "CLB",
+        "CIRCLES",
+        "CIRCLE",
+        "CIRCL",
+        "CIRC",
+        "CIR",
         "CENTRE",
-        "ALLEE",
-        "ALLEY",
-        "ALLY",
-        "ALY",
-        "ANEX",
-        "ANNEX",
-        "ANNX",
-        "ANX",
-        "ARC",
-        "ARCADE",
+        "CENTR",
+        "CENTERS",
+        "CENTER",
+        "CENT",
+        "CEN",
+        "CEDEX",
+        "CAUSWA",
+        "CAUSEWAY",
+        "CAPE",
+        "CANYON",
+        "CANYN",
+        "CAMP",
+        "BYPS",
+        "BYPASS",
+        "BYPAS",
+        "BYPA",
+        "BYP",
+        "BURGS",
+        "BURG",
+        "BTM",
+        "BROOKS",
+        "BROOK",
+        "BRNCH",
+        "BRK",
+        "BRIDGE",
+        "BRG",
+        "BRDGE",
+        "BRANCH",
+        "BR",
+        "BOULV",
+        "BOULEVARD",
+        "BOUL",
+        "BOTTOM",
+        "BOTTM",
+        "BOT",
+        "BND",
+        "BLVD",
+        "BLUFFS",
+        "BLUFF",
+        "BLUF",
+        "BLF",
+        "BLDG.",
+        "BEND",
+        "BEACH",
+        "BCH",
+        "BAYOU",
+        "BAYOO",
+        "AVNUE",
+        "AVN",
+        "AVENUE,",
+        "AVENUE",
+        "AVENU",
+        "AVEN",
+        "AVE,",
+        "AVE",
         "AV.",
         "AV,",
         "AV",
-        "AVE,",
-        "AVE",
-        "AVEN",
-        "AVENU",
-        "AVENUE",
-        "AVENUE,",
-        "AVN",
-        "AVNUE",
-        "BAYOO",
-        "BAYOU",
-        "BCH",
-        "BEACH",
-        "BEND",
-        "BND",
-        "BLDG.",
-        "BLF",
-        "BLUF",
-        "BLUFF",
-        "BLUFFS",
-        "BOT",
-        "BTM",
-        "BOTTM",
-        "BOTTOM",
-        "BLVD",
-        "BOUL",
-        "BOULEVARD",
-        "BOULV",
-        "BR",
-        "BRNCH",
-        "BRANCH",
-        "BRDGE",
-        "BRG",
-        "BRIDGE",
-        "BRK",
-        "BROOK",
-        "BROOKS",
-        "BURG",
-        "BURGS",
-        "BYP",
-        "BYPA",
-        "BYPAS",
-        "BYPASS",
-        "BYPS",
-        "CAMP",
-        "CEDEX",
-        "CP",
-        "CMP",
-        "CANYN",
-        "CANYON",
-        "CNYN",
-        "CAPE",
-        "CPE",
-        "CAUSEWAY",
-        "CAUSWA",
-        "CSWY",
-        "CEN",
-        "CENT",
-        "CENTER",
-        "CENTR",
-        "CENTRE",
-        "CNTER",
-        "CNTR",
-        "CTR",
-        "CENTERS",
-        "CIR",
-        "CIRC",
-        "CIRCL",
-        "CIRCLE",
-        "CRCL",
-        "CRCLE",
-        "CIRCLES",
-        "CLF",
-        "CLIFF",
-        "CLFS",
-        "CLIFFS",
-        "CLB",
-        "COMMON",
-        "COMMONS",
-        "COR",
-        "CORNER",
-        "CORNERS",
-        "CORS",
-        "COURSE",
-        "CRSE",
-        "COURT",
-        "CT",
-        "COURTS",
-        "CTS",
-        "COVE",
-        "CV",
-        "COVES",
-        "CREEK",
-        "CRK",
-        "CRESCENT",
-        "CRES",
-        "CRSENT",
-        "CRSNT",
-        "CREST",
-        "CROSSING",
-        "CRSSNG",
-        "XING",
-        "CROSSROAD",
-        "CROSSROADS",
-        "CURVE",
-        "DALE",
-        "DL",
-        "DAM",
-        "DM",
-        "DIV",
-        "DIVIDE",
-        "DV",
-        "DVD",
-        "DR",
-        "DRIV",
-        "DRIVE",
-        "DRV",
-        "DRIVES",
-        "EST",
-        "ESTATE",
-        "ESTATES",
-        "ESTS",
-        "EXP",
-        "EXPR",
-        "EXPRESS",
-        "EXPRESSWAY",
-        "EXPW",
-        "EXPY",
-        "EXT",
-        "EXTENSION",
-        "EXTN",
-        "EXTNSN",
-        "EXTS",
-        "FALL",
-        "FALLS",
-        "FLS",
-        "FERRY",
-        "FRRY",
-        "FRY",
-        "FIELD",
-        "FLD",
-        "FIELDS",
-        "FLDS",
-        "FLAT",
-        "FLT",
-        "FLATS",
-        "FLTS",
-        "FORD",
-        "FRD",
-        "FORDS",
-        "FOREST",
-        "FORESTS",
-        "FRST",
-        "FORG",
-        "FORGE",
-        "FRG",
-        "FORGES",
-        "FORK",
-        "FRK",
-        "FORKS",
-        "FRKS",
-        "FORT",
-        "FRT",
-        "FT",
-        "FREEWAY",
-        "FREEWY",
-        "FRWAY",
-        "FRWY",
-        "FWY",
-        "GARDEN",
-        "GARDN",
-        "GRDEN",
-        "GRDN",
-        "GARDENS",
-        "GDNS",
-        "GRDNS",
-        "GATEWAY",
-        "GATEWY",
-        "GATWAY",
-        "GTWAY",
-        "GTWY",
-        "GLEN",
-        "GLN",
-        "GLENS",
-        "GREEN",
-        "GRN",
-        "GREENS",
-        "GROV",
-        "GROVE",
-        "GRV",
-        "GROVES",
-        "HARB",
-        "HARBOR",
-        "HARBR",
-        "HBR",
-        "HRBOR",
-        "HARBORS",
-        "HAVEN",
-        "HVN",
-        "HT",
-        "HTS",
-        "HIGHWAY",
-        "HIGHWY",
-        "HIWAY",
-        "HIWY",
-        "HWAY",
-        "HWY",
-        "HILL",
-        "HL",
-        "HILLS",
-        "HLS",
-        "HLLW",
-        "HOLLOW",
-        "HOLLOWS",
-        "HOLW",
-        "HOLWS",
-        "IMM",
-        "IMM.",
-        "IMMEUBLE",
-        "INLT",
-        "IS",
-        "ISLAND",
-        "ISLND",
-        "ISLANDS",
-        "ISLNDS",
-        "ISS",
-        "ISLE",
-        "ISLES",
-        "JCT",
-        "JCTION",
-        "JCTN",
-        "JUNCTION",
-        "JUNCTN",
-        "JUNCTON",
-        "JCTNS",
-        "JCTS",
-        "JUNCTIONS",
-        "KEY",
-        "KY",
-        "KEYS",
-        "KYS",
-        "KM",
-        "KNL",
-        "KNOL",
-        "KNOLL",
-        "KNLS",
-        "KNOLLS",
-        "LK",
-        "LAKE",
-        "LKS",
-        "LAKES",
-        "LAND",
-        "LANDING",
-        "LNDG",
-        "LNDNG",
-        "LANE",
-        "LN",
-        "LGT",
-        "LIGHT",
-        "LIGHTS",
-        "LF",
-        "LOAF",
-        "LCK",
-        "LOCK",
-        "LCKS",
-        "LOCKS",
-        "LDG",
-        "LDGE",
-        "LODG",
-        "LODGE",
-        "LOOP",
-        "LOOPS",
-        "MALL",
-        "MNR",
-        "MANOR",
-        "MANORS",
-        "MNRS",
-        "MEADOW",
-        "MDW",
-        "MDWS",
-        "MEADOWS",
-        "MEDOWS",
-        "MEWS",
-        "MILL",
-        "MILLS",
-        "MISSN",
-        "MSSN",
-        "MOTORWAY",
-        "MNT",
-        "MT",
-        "MOUNT",
-        "MNTAIN",
-        "MNTN",
-        "MOUNTAIN",
-        "MOUNTIN",
-        "MTIN",
-        "MTN",
-        "MNTNS",
-        "MOUNTAINS",
-        "NCK",
-        "NECK",
-        "ORCH",
-        "ORCHARD",
-        "ORCHRD",
-        "OVAL",
-        "OVL",
-        "OVERPASS",
-        "PARK",
-        "PRK",
-        "PARKS",
-        "PARKWAY",
-        "PARKWY",
-        "PKWAY",
-        "PKWY",
-        "PKY",
-        "PARKWAYS",
-        "PKWYS",
-        "PASS",
-        "PASSAGE",
-        "PATH",
-        "PATHS",
-        "PIKE",
-        "PIKES",
-        "PINE",
-        "PINES",
-        "PNES",
-        "PL",
-        "PLACE",
-        "PLAIN",
-        "PLN",
-        "PLAINS",
-        "PLNS",
-        "PLAZA",
-        "PLZ",
-        "PLZA",
-        "POINT",
-        "PT",
-        "POINTS",
-        "PTS",
-        "PORT",
-        "PRT",
-        "PORTS",
-        "PRTS",
-        "PR",
-        "PRAIRIE",
-        "PRR",
-        "RAD",
-        "RADIAL",
-        "RADIEL",
-        "RADL",
-        "RAMP",
-        "RANCH",
-        "RANCHES",
-        "RNCH",
-        "RNCHS",
-        "RAPID",
-        "RPD",
-        "RAPIDS",
-        "RPDS",
-        "REST",
-        "RST",
-        "RDG",
-        "RDGE",
-        "RIDGE",
-        "RDGS",
-        "RIDGES",
-        "RIV",
-        "RIVER",
-        "RVR",
-        "RIVR",
-        "RD",
-        "ROAD",
-        "ROADS",
-        "RDS",
-        "ROUTE",
-        "ROW",
-        "RUE",
-        "RUN",
-        "SHL",
-        "SHOAL",
-        "SHLS",
-        "SHOALS",
-        "SHOAR",
-        "SHORE",
-        "SHR",
-        "SHOARS",
-        "SHORES",
-        "SHRS",
-        "SKYWAY",
-        "SPG",
-        "SPNG",
-        "SPRING",
-        "SPRNG",
-        "SPGS",
-        "SPNGS",
-        "SPRINGS",
-        "SPRNGS",
-        "SPUR",
-        "SPURS",
-        "SQ",
-        "SQR",
-        "SQRE",
-        "SQU",
-        "SQUARE",
-        "SQRS",
-        "SQUARES",
-        "STA",
-        "STATION",
-        "STATN",
-        "STN",
-        "STRA",
-        "STRAV",
-        "STRAVEN",
-        "STRAVENUE",
-        "STRAVN",
-        "STRVN",
-        "STRVNUE",
-        "STREAM",
-        "STREME",
-        "STRM",
-        "STREET",
-        "STRT",
-        "ST",
-        "STR",
-        "STREETS",
-        "SMT",
-        "SUMIT",
-        "SUMITT",
-        "SUMMIT",
-        "TER",
-        "TERR",
-        "TERRACE",
-        "THROUGHWAY",
-        "TRACE",
-        "TRACES",
-        "TRCE",
-        "TRACK",
-        "TRACKS",
-        "TRAK",
-        "TRK",
-        "TRKS",
-        "TRAFFICWAY",
-        "TRAIL",
-        "TRAILS",
-        "TRL",
-        "TRLS",
-        "TRAILER",
-        "TRLR",
-        "TRLRS",
-        "TUNEL",
-        "TUNL",
-        "TUNLS",
-        "TUNNEL",
-        "TUNNELS",
-        "TUNNL",
-        "TRNPK",
-        "TURNPIKE",
-        "TURNPK",
-        "UNDERPASS",
-        "UN",
-        "UNION",
-        "UNIONS",
-        "VALLEY",
-        "VALLY",
-        "VLLY",
-        "VLY",
-        "VALLEYS",
-        "VLYS",
-        "VDCT",
-        "VIA",
-        "VIADCT",
-        "VIADUCT",
-        "VIEW",
-        "VW",
-        "VIEWS",
-        "VWS",
-        "VILL",
-        "VILLAG",
-        "VILLAGE",
-        "VILLG",
-        "VILLIAGE",
-        "VLG",
-        "VILLAGES",
-        "VLGS",
-        "VILLE",
-        "VL",
-        "VIS",
-        "VIST",
-        "VISTA",
-        "VST",
-        "VSTA",
-        "WALK",
-        "WALKS",
-        "WALL",
-        "WY",
-        "WAY",
-        "WAYS",
-        "WELL",
-        "WELLS",
-        "WLS",
+        "ARCADE",
+        "ARC",
+        "ANX",
+        "ANNX",
+        "ANNEX",
+        "ANEX",
+        "ALY",
+        "ALLY",
+        "ALLEY",
+        "ALLEE",
     ]
     
     static var emailPrefixes = [
