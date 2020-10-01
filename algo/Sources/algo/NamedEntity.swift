@@ -416,7 +416,7 @@ class AddressNamedEntity: NamedEntity {
                         dispatchGroup.enter()
                         var immutableArrayElement = [element]
                         self.extractCityORNDState(bcDataArray : &immutableArrayElement, completion: {success in
-                            print("City & states extraction done")
+                        //    print("City & states extraction done")
                             dispatchGroup.leave()
                         })
                         break;
@@ -431,7 +431,7 @@ class AddressNamedEntity: NamedEntity {
             
             
         }else{
-            print("I GOT COUNTRY, NO NEED TO SEARCH FOR , LETS WAIT FOR INSTRUCTION")
+         //   print("I GOT COUNTRY, NO NEED TO SEARCH FOR , LETS WAIT FOR INSTRUCTION")
         }
         
         

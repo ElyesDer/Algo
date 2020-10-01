@@ -72,7 +72,7 @@ final class MetadataManager {
             if let dictionary = dictionary as? [AnyHashable: Any] {
                 let jsonObjects = NSDictionary(dictionary: dictionary)
                 if let metadataDict = jsonObjects["phoneNumberMetadata"] as? [AnyHashable: Any], let metadataTerritories = metadataDict["territories"] as? [AnyHashable: Any], let metadataTerritoryArray = metadataTerritories["territory"] as? [Any] {
-                    print("PhoneKit Initialized successfully")
+                 //   print("PhoneKit Initialized successfully")
                     let metadataTerritoryArray = NSArray(array: metadataTerritoryArray)
                     metadataTerritoryArray.forEach({
                         if let td = $0 as? [AnyHashable: Any] {

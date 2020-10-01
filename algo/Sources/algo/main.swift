@@ -479,7 +479,7 @@ RecognitionTools.loadTitles(completion: {
 
             _ = dispatchGroup.wait()
             dispatchGroup.notify(queue: .main){
-                print ("MAIN : Every tink done will not return")
+               // print ("MAIN : Every tink done will not return")
             }
 
       /*       print("<HZHHZ")
@@ -498,7 +498,7 @@ RecognitionTools.loadTitles(completion: {
             /////////////////////////////// END @ ZONZ
             // testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
             namedEntityHolder.forEach { (named) in
-                print("Extracted \(named.type) : \(named.value)  - \(named.score)")
+                //print("Extracted \(named.type) : \(named.value)  - \(named.score)")
             }
 
 
@@ -3050,7 +3050,7 @@ var bcDataArray = raw.split(separator: "\n").map {String($0).stripped }
             RecognitionTools.preProcessRemoveExtractedWithPosition(bcDataArray : &bcDataArray, namedEntityHolder : namedEntityHolder)
 
             RecognitionTools.removePrefixOccurence(bcDataArray: &bcDataArray)
-            testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
+          //  testPrint(tag: "BC DATA TO PROCESS ADDRESS", title: " REMOVED EXTRACT ", content: bcDataArray)
 
 
 
@@ -3067,7 +3067,7 @@ var bcDataArray = raw.split(separator: "\n").map {String($0).stripped }
             })
 
 
-            testPrint(tag: "AFTER ZIP CITY STATE EXTRACTION", title: " REMOVED EXTRACT ", content: bcDataArray)
+            //testPrint(tag: "AFTER ZIP CITY STATE EXTRACTION", title: " REMOVED EXTRACT ", content: bcDataArray)
 
             addressNamedEntity.computeAddress(bcDataArray : &bcDataArray , namedEntityHolder : &namedEntityHolder, prefixes : prefixedEntities)
 
@@ -3094,7 +3094,7 @@ var bcDataArray = raw.split(separator: "\n").map {String($0).stripped }
 
 
             /////////////////////////////// END @ ZONZ
-            testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
+          //  testPrint(tag: "BEFORE RESULT PROCESS", title: "CLEANING", content: "")
             namedEntityHolder.forEach { (named) in
                 // print("Extracted \(named.type) : \(named.value)  - \(named.score)")
             }
@@ -3103,7 +3103,7 @@ var bcDataArray = raw.split(separator: "\n").map {String($0).stripped }
             RecognitionTools.postProcessResult (bcDataArray : &bcDataArray, namedEntityHolder : &namedEntityHolder)
 
 
-            testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
+           // testPrint(tag: "AFTER RESULT PROCESS", title: "CLEANING", content: "")
             namedEntityHolder.forEach { (named) in
                 // print("Extracted \(named.type) : \(named.value)  - \(named.score)")
             }
@@ -3129,7 +3129,7 @@ var bcDataArray = raw.split(separator: "\n").map {String($0).stripped }
                                                                                     secondAdress: addressNamedEntity.adress_second)
                        var finalResult =  sendResult(result: result)!
                        // print("final")
-                       testPrint(tag: "", title: "OPERATION END", content: finalResult)
+                      // testPrint(tag: "", title: "OPERATION END", content: finalResult)
                        print(finalResult)
 
 }
