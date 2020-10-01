@@ -1,0 +1,930 @@
+    1  sudo su -
+    2  wget https://swift.org/builds/swift-5.2.4-release/ubuntu1804/swift-5.2.4-RELEASE/swift-5.2.4-RELEASE-ubuntu18.04.tar.gz
+    3  tar xzvf swift-5.2.4-RELEASE-ubuntu18.04.tar.gz 
+    4  sudo mv swift-5.2.4-RELEASE-ubuntu18.04 /usr/share/swift 
+    5  echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.bashrc
+    6  source  ~/.bashrc
+    7  swift -v
+    8  source  ~/.bashrcsudo apt install tesseract-ocr
+    9  sudo apt install tesseract-ocr
+   10  git clone https://github.com/WiildchiilD/Algo
+   11  cd Algo/
+   12  ll
+   13  cd algo
+   14  swift build
+   15  apt install libcurl3 libcurl-openssl1.0-dev
+   16  sudo apt install libcurl3 libcurl-openssl1.0-dev
+   17  swift build
+   18  sudo apt install libcurl4 libcurl4-openssl-dev 
+   19  swift buil
+   20  cd ..
+   21  swift build
+   22  cd algo.xcodeproj/
+   23  swift build
+   24  ll
+   25  cd project.xcworkspace/
+   26  ll
+   27  swift build
+   28  cd ..
+   29  cd algo
+   30  ll
+   31  swift build
+   32  swift package init --type executable
+   33  swift build
+   34  ll
+   35  cd .build/
+   36  ll
+   37  cd debug
+   38  ll
+   39  ./algo
+   40  cd ..
+   41  cd .
+   42  cd ..
+   43  ll
+   44  cd algo
+   45  swift build
+   46  git status
+   47  cd ..
+   48  git checkout swiftylinux 
+   49  ll
+   50  cd algo
+   51  git log
+   52  swift build
+   53  cd Algo/
+   54  ll
+   55  git pull
+   56  cd algo
+   57  ll
+   58  git status
+   59  cd ..
+   60  swift build
+   61  ll
+   62  cd algo
+   63  swift build
+   64  git status
+   65  git log
+   66  git status
+   67  ll
+   68  swift build
+   69  cd .build/
+   70  ll
+   71  cd debug
+   72  ll
+   73  ./algo
+   74  ll
+   75  cd Algo/
+   76  cd algo
+   77  ll
+   78  swift build
+   79  .build/debug/algol
+   80  .build/debug/algo
+   81  swift build
+   82  .build/debug/algo
+   83  swift build
+   84  .build/debug/algo
+   85  swift build
+   86  .build/debug/algo
+   87  .build/debug/algo random
+   88  swift build
+   89  .build/debug/algo random
+   90  swift build
+   91  .build/debug/algo rando
+   92  .build/debug/algo
+   93  swift build
+   94  .build/debug/algo
+   95  rm -rf .build/
+   96  swift build
+   97  .build/debug/algo
+   98  swift build
+   99  .build/debug/algo
+  100  swift build
+  101  .build/debug/algo
+  102  .build/debug/algo "abc"
+  103  swift build
+  104  .build/debug/algo "abc"
+  105  swift build
+  106  .build/debug/algo "abc"
+  107  swift build
+  108  swift build | grep error
+  109  swift build
+  110  .build/debug/algo "abc"
+  111  swift build
+  112  .build/debug/algo "abc"
+  113  cd..
+  114  cd ..
+  115  git status
+  116  git add algo/
+  117  git commit -m "fixed project structure + added command line package"
+  118  git status
+  119  git push
+  120  .build/debug/algo "abc\nefg"
+  121  algo/.build/debug/algo "abc\nefg"
+  122  .build/debug/algo "abc\\nefg"
+  123  algo .build/debug/algo "abc\\nefg"
+  124  algo/.build/debug/algo "abc\\nefg"
+  125  cd algo
+  126  swift build
+  127  .build/debug/algo "abc\\nefg"
+  128  swift build
+  129  .build/debug/algo "abc\\nefg"
+  130  lldb .build/debug/algo
+  131  lldb .build/debug/algo "abc\\nefg"
+  132  lldb .build/debug/algo
+  133  ll
+  134  swift buil
+  135  swift build
+  136  .build/debug/algo "abc\\nefg"
+  137  .build/debug/algo abc\nefg
+  138  .build/debug/algo abc\\nefg
+  139  tesseract 
+  140  --list-langs
+  141  tesseract --list-langs
+  142  cd ..
+  143  mkdir py
+  144  mkdirocr-python
+  145  mkdir ocr-python
+  146  cd ocr-python/
+  147  git clone https://mohamedsalahyahyaoui@bitbucket.org/360devsteam/ocr.abracardabra.git
+  148  cd ocr.abracardabra
+  149  git checkout development 
+  150  pip install < requirements.txt 
+  151  py install -r requirements.txt 
+  152  pythong -v
+  153  python -v
+  154  python --version
+  155  python3
+  156  sudo apt install python3-pip
+  157  pip"
+  158  pip
+  159  pip3 install -r requirements.txt 
+  160  apt-get update -y &&     apt-get install -y     tesseract-ocr     libtesseract-dev     python-opencv     tree     libmagic1
+  161  sudo apt-get update -y &&     apt-get install -y     tesseract-ocr     libtesseract-dev     python-opencv     tree     libmagic1
+  162  sudo apt-get update -y &&   sudo   apt-get install -y     tesseract-ocr     libtesseract-dev     python-opencv     tree     libmagic1
+  163  ll
+  164  python3 app.py 
+  165  pip3 install -r requirements.txt 
+  166  sudo apt-get install libpcap-dev libpq-dev
+  167  pip3 install -r requirements.txt 
+  168  sudo apt install python-wheel-common
+  169  pip3 install -r requirements.txt 
+  170  pip3 install scikit-image
+  171  pip3 install -r requirements.txt 
+  172  [Asudo apt-get install build-essential python3-dev cython3 python3-setuptools python3-pip python3-wheel python3-numpy libz-dev libblosc-dev liblzma-dev liblz4-dev libzstd-dev libpng-dev libwebp-dev libbz2-dev libopenjp2-7-dev libjpeg62-turbo-dev libjxr-dev liblcms2-dev libtiff-dev
+  173  sudo apt-get install build-essential python3-dev cython3 python3-setuptools python3-pip python3-wheel python3-numpy libz-dev libblosc-dev liblzma-dev liblz4-dev libzstd-dev libpng-dev libwebp-dev libbz2-dev libopenjp2-7-dev libjpeg62-turbo-dev libjxr-dev liblcms2-dev libtiff-dev
+  174  sudo apt update
+  175  sudo apt-get install build-essential python3-dev cython3 python3-setuptools python3-pip python3-wheel python3-numpy libz-dev libblosc-dev liblzma-dev liblz4-dev libzstd-dev libpng-dev libwebp-dev libbz2-dev libopenjp2-7-dev libjpeg62-turbo-dev libjxr-dev liblcms2-dev libtiff-dev
+  176  do apt-get install build-essential python3-dev cython3 python3-setuptools python3-pip python3-wheel python3-numpy python3-pytest python3-blosc python3-brotli python3-snappy python3-lz4 libz-dev libblosc-dev liblzma-dev liblz4-dev libzstd-dev libpng-dev libwebp-dev libbz2-dev libopenjp2-7-dev libjpeg-dev libjxr-dev liblcms2-dev libcharls-dev libaec-dev libbrotli-dev libsnappy-dev libzopfli-dev libgif-dev libtiff-dev
+  177  sudo apt-get install build-essential python3-dev cython3 python3-setuptools python3-pip python3-wheel python3-numpy python3-pytest python3-blosc python3-brotli python3-snappy python3-lz4 libz-dev libblosc-dev liblzma-dev liblz4-dev libzstd-dev libpng-dev libwebp-dev libbz2-dev libopenjp2-7-dev libjpeg-dev libjxr-dev liblcms2-dev libcharls-dev libaec-dev libbrotli-dev libsnappy-dev libzopfli-dev libgif-dev libtiff-dev
+  178  pip3 install -r requirements.txt 
+  179  python3 --version
+  180  python3 -m pip install --upgrade pip setuptools
+  181  pip3 install -r requirements.txt 
+  182  python3 app.py 
+  183  cd ..
+  184  cd ../Algo/
+  185  git status
+  186  git stash
+  187  git pull
+  188  cd algo
+  189  swift build
+  190  .build/debug/algo abc\n123
+  191  git stash pop
+  192  git checkout .
+  193  git stash pop
+  194  git status
+  195  .build/debug/algo abc\n123
+  196  swift build
+  197  .build/debug/algo abc\n123
+  198  swift build
+  199  .build/debug/algo abc\n123
+  200  swift build
+  201  .build/debug/algo abc\n123
+  202  swift build
+  203  .build/debug/algo abc\n123
+  204  swift build
+  205  .build/debug/algo abc\n123
+  206  swift build
+  207  .build/debug/algo abc\n123
+  208  swift build
+  209  .build/debug/algo abc\n123
+  210  swift build
+  211  .build/debug/algo abc\n123
+  212  swift build
+  213  .build/debug/algo abc\n123
+  214  swift build
+  215  .build/debug/algo abc\n123
+  216  swift build
+  217  .build/debug/algo abc\n123
+  218  swift build
+  219  .build/debug/algo abc\n123
+  220  git status
+  221  add Sources/ main.swift 
+  222  git status
+  223  git 
+  224  git status
+  225  git add Sources/ main.swift 
+  226  git status
+  227  git commit -m "bug fixes  + code cleanup"
+  228  git push
+  229  git status
+  230  git add .
+  231  git commit -m "-updated project structure"
+  232  git status
+  233  git push
+  234  lldb .build/debug/algo  "Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCayman Islands KY1-9009"
+  235  lldb .build/debug/algo
+  236  swift build
+  237  .build/debug/algo 
+  238  .build/debug/algo  Giorgio Subiotto
+  239  .build/debug/algo " Giorgio Subiotto
+  240   Partner
+  241   Ogier
+  242   D +1 345 815 1872
+  243   T +1 345 949 9876
+  244   M +1 345 516 9071
+  245   89 Nexus Way
+  246   E giorgio.subiotto@ogier.com
+  247   Comano Bay
+  248   Grand Cayman
+  249   Regulatory information con be found at ogier.com
+  250   Cayman Islands KY1-9009"
+  251  swift build
+  252  .build/debug/algo  Giorgio Subiotto
+  253  .build/debug/algo  GiorgioSubiotto
+  254  lldb .build/debug/algo
+  255  swift build
+  256  .build/debug/algo  GiorgioSubiotto
+  257  swift build
+  258  .build/debug/algo  GiorgioSubiotto
+  259  swift build
+  260  lldb .build/debug/algo
+  261  sudo su -
+  262  ll
+  263  cd 
+  264  ll
+  265  cd Algo/
+  266  git status
+  267  git diff algo/Sources/algo/main.swift
+  268  git stash
+  269  git pull
+  270  cd algo
+  271  swift build
+  272  swift build --verbose
+  273  .build/debug/algo
+  274  .build/debug/algo Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCayman Islands KY1-9009
+  275  .build/debug/algo "Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCayman Islands KY1-9009"
+  276  swift build --verbose
+  277  .build/debug/algo "Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCayman Islands KY1-9009"
+  278  swift build --verbose
+  279  lldb .build/debug/algo
+  280  ls
+  281  cd Algo
+  282  ls
+  283  cd algo
+  284  ls
+  285  cd Sources
+  286  ls
+  287  cd algo
+  288  ls
+  289  cd ..
+  290  cd..
+  291  cd ..
+  292  ls
+  293  cd algo
+  294  ls
+  295  swift build
+  296  ls
+  297  swift build
+  298  .build/debug/algo
+  299  .build/debug/algo "Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCayman Islands KY1-9009"
+  300  lldb .build/debug/algo
+  301  ls
+  302  cd Algo/
+  303  sl
+  304  cd Alg
+  305  cd Algo
+  306  ls
+  307  cd algo
+  308  ls
+  309  clear
+  310  lldb .build/debug/algo
+  311  swift build
+  312  .build/debug/algo
+  313  .build/debug/algo ""
+  314  .build/debug/algo abc
+  315  lldb .build/debug/algo
+  316  swift build
+  317  .build/debug/algo "CAYMAN ISLANDS\nHELICOPTERS\nA LIL HRS TE\nCLE SHINER\nJerome Begot\nP.O. Box 738, Grand Cayman, KYI-1103, Cayman Islands\nPhone: 345 943-4354\nCell: (345) 926-6967\nE-mail jbhelicopters@candw.ky OR cihelicopters@yahoo.com\nwww.caymanislandshelicopters.com\n"
+  318  .build/debug/algo
+  319  .build/debug/algo "Insurance\nTA\nHealth\nPensions\nLife\nBRITCAY\nErica Smith\nPersonal Insurance Representative\nBRITISH CAYMANIAN INSURANCE COMPANY LIMITED\nPersonal & Business Insurance\nBritCay House, 236 Eastern Avenue, George Town, Grand Cayman\nP.O. Box 74, Grand Cayman KY1-1102, Cayman Islands\ntel. (345) 949 8699 dir. (345) 914 9866 fax. (345) 949 8411\nErica.Smith@britcay.ky www.britcay.ky\n"
+  320  swift build
+  321  .build/debug/algo "Insurance\nTA\nHealth\nPensions\nLife\nBRITCAY\nErica Smith\nPersonal Insurance Representative\nBRITISH CAYMANIAN INSURANCE COMPANY LIMITED\nPersonal & Business Insurance\nBritCay House, 236 Eastern Avenue, George Town, Grand Cayman\nP.O. Box 74, Grand Cayman KY1-1102, Cayman Islands\ntel. (345) 949 8699 dir. (345) 914 9866 fax. (345) 949 8411\nErica.Smith@britcay.ky www.britcay.ky\n"
+  322  cd /Users/360medlink/Documents/xcode/AlgoLinux/Algo/algo/Sources/algo
+  323  ls
+  324  cd Sources
+  325  ls
+  326  cd algo
+  327  ls
+  328  cd PhoneNumberKit/
+  329  ls
+  330  cd Resources/
+  331  pwd
+  332  cd ..
+  333  swift build
+  334  .build/debug/algo "Insurance\nTA\nHealth\nPensions\nLife\nBRITCAY\nErica Smith\nPersonal Insurance Representative\nBRITISH CAYMANIAN INSURANCE COMPANY LIMITED\nPersonal & Business Insurance\nBritCay House, 236 Eastern Avenue, George Town, Grand Cayman\nP.O. Box 74, Grand Cayman KY1-1102, Cayman Islands\ntel. (345) 949 8699 dir. (345) 914 9866 fax. (345) 949 8411\nErica.Smith@britcay.ky www.britcay.ky\n"
+  335  .build/debug/algo "Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCayman Islands KY1-9009"
+  336  ls
+  337  cd Algo/
+  338  ls
+  339  cd algo
+  340  ls
+  341  cd Sources
+  342  ls
+  343  cd algo
+  344  ls
+  345  gedit String+utils.swift 
+  346  nano
+  347  nano String+utils.swift 
+  348  cd ..
+  349  ls
+  350  cd algo
+  351  swift build
+  352  ls
+  353  cd Sources
+  354  cd Algo
+  355  cd algo
+  356  nano String+utils.swift 
+  357  cd /
+  358  ls
+  359  cd Users
+  360  cd /
+  361  ls
+  362  cd home
+  363  ls
+  364  cd /
+  365  greps users
+  366  cd //
+  367  cd ..
+  368  ls
+  369  cd home
+  370  ls
+  371  cd ubuntu/
+  372  ls
+  373  pwd
+  374  cd /
+  375  cd etc
+  376  ls
+  377  grep swift
+  378  cd ..
+  379  ls
+  380  grep lib/swift
+  381  cd lib
+  382  ls
+  383  cd ..
+  384  cd opt
+  385  ls
+  386  cd ..
+  387  cd usr
+  388  ls
+  389  cd lib
+  390  ls
+  391  cd ..
+  392  hich swift
+  393  which swift
+  394  cd /usr/share/swift/usr/bin/swift
+  395  cd ./usr/share/swift/usr/bin/swift
+  396  cd /
+  397  cd usr/share/swift
+  398  ls
+  399  cd usr/bin/
+  400  ls
+  401  cd sourcekit-lsp
+  402  cd sdk-module-lists/
+  403  ls
+  404  cd //
+  405  cd /usr/share/swift/usr/bin/
+  406  ls
+  407  which foundation
+  408  cd clang
+  409  cd Algo/
+  410  ll
+  411  git status
+  412  git stash
+  413  git pull
+  414  git feetch
+  415  git fetch
+  416  cd ..
+  417  cd ocr-python/
+  418  cd ocr.abracardabra/
+  419  python app.py 
+  420  pip3 install python-magic
+  421  python3 app.py 
+  422  cd Algo/
+  423  ll
+  424  cd algo
+  425  ll
+  426  swift build
+  427  htop
+  428  sudo apt install uwsgi
+  429  pip3 freeze
+  430  pip3 freeze > req.txt
+  431  cat req.txt 
+  432  source myenv/bin/activate
+  433  cd ocr-python/ocr.abracardabra/
+  434  source myenv/bin/activate
+  435  uwsgi --http-socket :5000 --plugin python3 --module wsgi:app
+  436  htop
+  437  python3 -m pip install -r requirements.txt
+  438  python3 -m pip3 install --upgrade pip3 setuptools
+  439  python3 -m pip install -r requirements.txt
+  440  pip install wheel
+  441  pip3 install wheel
+  442  python setup.py bdist_wheel 
+  443  python3 setup.py bdist_wheel 
+  444  python3 -m pip install -r requirements.txt
+  445  sudo apt install libssl-dev libffi-dev      libxml2-dev libxslt1-dev zlib1g-dev 
+  446  python3 -m pip install -r requirements.txt
+  447  htop
+  448  cd ocr-python/ocr.abracardabra/
+  449  uwsgi --http-socket :5000 --plugin python3 --module wsgi:app
+  450  uwsgi --http-socket :5000 --plugin python3 --module wsgi:app --processes 2 --threads 4
+  451  vim uwsgi.ini
+  452  sudo apt install nginx
+  453  wsgi uwsgi.ini 
+  454  uwsgi uwsgi.ini 
+  455  vim uwsgi.ini
+  456  sudo vim /etc/nginx/sites-available/ocr.conf
+  457  ln -s /etc/nginx/sites-available/ocr.conf /etc/nginx/sites-enabled/ocr.conf
+  458  sudo ln -s /etc/nginx/sites-available/ocr.conf /etc/nginx/sites-enabled/ocr.conf
+  459  sudo service nginx restart
+  460  ll
+  461  vim uwsgi.ini
+  462  uwsgi uwsgi.ini 
+  463  htop
+  464  sudo cp uwsgi.ini /etc/uwsgi/apps-available/ocr.ini
+  465  sudo ln -s /etc/uwsgi/apps-available/ocr.ini  /etc/uwsgi/apps-enabled/ocr.ini
+  466  sudo uwsgi --emperor /etc/uwsgi/apps-enabled/
+  467  sudo nano /etc/uwsgi/apps-available/ocr.ini
+  468  sudo uwsgi --emperor /etc/uwsgi/apps-enabled/
+  469  sudo nano /etc/uwsgi/apps-available/ocr.ini
+  470  sudo uwsgi --emperor /etc/uwsgi/apps-enabled/
+  471  /usr/bin/uwsgi --emperor /etc/uwsgi/sites-enabled --daemonize /var/log/uwsgi-emperor.log
+  472  which uwsgi
+  473  nano uwsgi.sh
+  474  sudo nano /etc/systemd/system/ocr.service
+  475  sudo systemctl daemon-reload
+  476  sudo systemctl enable ocr.service
+  477  sudo systemctl start ocr.service
+  478  sudo systemctl status ocr.service
+  479  ls
+  480  htop
+  481  ./uwsgi.sh 
+  482  sudo nano /etc/uwsgi/apps-available/ocr.ini
+  483  nano uwsgi.sh 
+  484  cd ../../
+  485  mkdir log
+  486  sudo systemctl start ocr.service
+  487  sudo systemctl status ocr.service
+  488  htop
+  489  ls 
+  490  cd Algo/
+  491  ls 
+  492  cd ..
+  493  ls 
+  494  cd py/
+  495  ls
+  496  cd ..
+  497  cd ocr-python/
+  498  ls
+  499  cdd ocr.abracardabra/
+  500  ls
+  501  cd ocr.abracardabra/
+  502  ls
+  503  py app.py 
+  504  python app.py 
+  505  python parse.py 
+  506  history
+  507  python3 app.py 
+  508  npm install pm2@latest -g
+  509  sudo npm install pm2@latest -g
+  510  sudo apt install nodejs
+  511  sudo npm install pm2@latest -g
+  512  sudo apt install npm
+  513  sudo apt-get install npm
+  514  npm --version
+  515  sudo apt install npm
+  516  sudo apt install libssl1.0-dev
+  517  sudo apt install nodejs-dev
+  518  sudo apt install node-gyp
+  519  sudo apt install npm
+  520  sudo npm install pm2@latest -g
+  521  ls
+  522  cd py/
+  523  cd ..
+  524  cd ocr-python/
+  525  ls
+  526  cd ocr.abracardabra/
+  527  ls
+  528  python3 app.py
+  529  pm2 start app.py --name abra-ocr --interpreter=python3 -- --port:5000
+  530  pm2 startup
+  531  sudo env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
+  532  pm2 startup
+  533  pm2 log abra-ocr
+  534  docker ps
+  535  which nginx
+  536  nginx -t
+  537  sudo nginx -t
+  538  cd /etc/nginx/
+  539  ll
+  540  cat nginx.conf 
+  541  ll
+  542  ls sites-available/
+  543  cat sites-available/ocr.conf 
+  544  cat sites-available/default 
+  545  cat nginx.conf 
+  546  cd sites-available/
+  547  touch ocr.abracardabra.dev-360.net
+  548  sudo touch ocr.abracardabra.dev-360.net
+  549  sudo vim ocr.abracardabra.dev-360.net 
+  550  sudo nginx -s reload
+  551  sudo service nginx reload
+  552  sudo nginx -t
+  553  sudo service nginx restart
+  554  cd ..
+  555  sudo ln -s sites-available/ocr.abracardabra.dev-360.net sites-enabled/
+  556  sudo service nginx reload
+  557  sudo nginx -t
+  558  ls sites-enabled/
+  559  sudo rm sites-enabled/ocr.abracardabra.dev-360.net 
+  560  sudo ln -s /etc/nginx/sites-available/ocr.abracardabra.dev-360.net /etc/nginx/sites-enabled/
+  561  sudo service nginx reload
+  562  sudo nginx -t
+  563  sudo service nginx restart
+  564  curl localhost:5000
+  565  sudo apt install curl
+  566  curl localhost:5000
+  567  sudo vim sites-available/ocr.abracardabra.dev-360.net 
+  568  cat sites-available/ocr.abracardabra.dev-360.net | grep skin
+  569  ls sites-enabled/
+  570  sudo nginx -t
+  571  ll sites-enabled/
+  572  ll
+  573  cat nginx.conf 
+  574  ll sites-enabled/
+  575  clear
+  576  cat sites-available/ocr.conf 
+  577  sudo vim sites-available/ocr.conf 
+  578  sudo service nginx reload
+  579  sudo nginx -t
+  580  sudo vim sites-available/ocr.conf 
+  581  sudo service nginx reload
+  582  sudo nginx -t
+  583  curl localhost:5000
+  584  sudo vim sites-available/ocr.abracardabra.dev-360.net 
+  585  cat sites-available/ocr.conf 
+  586  cat sites-available/ocr.abracardabra.dev-360.net 
+  587  sudo cp sites-available/ocr.abracardabra.dev-360.net sites-available/ocr.abracardabra.dev-360.net.bak
+  588  sudo vim sites-available/ocr.abracardabra.dev-360.net 
+  589  sudo service nginx reload
+  590  sudo nginx -t
+  591  cd
+  592  ll
+  593  cd ocr-python/ocr.abracardabra/
+  594  ll
+  595  ls -la
+  596  cd /etc/nginx/
+  597  ll
+  598  cd sites-available/
+  599  ll
+  600  sudo rm ocr.abracardabra.dev-360.net
+  601  sudo rm ocr.abracardabra.dev-360.net.bak 
+  602  cd ../sites-enabled/
+  603  ll
+  604  sudo rm ocr.abracardabra.dev-360.net
+  605  ll
+  606  history
+  607  cd ocr-python/ocr.abracardabra/
+  608  ll
+  609  cd myenv/
+  610  ll
+  611  cd ..
+  612  cat uwsgi.ini
+  613  exit
+  614  cd /etc/nginx/
+  615  cat sites-available/ocr.conf 
+  616  cd sites-available/
+  617  sudo cp ocr.conf ocr.abracardabra.dev-360.net
+  618  sudo vim ocr.abracardabra.dev-360.net 
+  619  ln -s /etc/nginx/sites-available/ocr.abracardabra.dev-360.net /etc/nginx/sites-enabled/
+  620  sudo ln -s /etc/nginx/sites-available/ocr.abracardabra.dev-360.net /etc/nginx/sites-enabled/
+  621  sudo service nginx restart
+  622  sudo nginx -t
+  623  lsvirtualenv -l
+  624  cd
+  625  cd ocr-python/ocr.abracardabra/
+  626  ls -la
+  627  history  | grep env
+  628  history
+  629  ll
+  630  cat app.py 
+  631  cat wsgi.py 
+  632  history  | grep 5000
+  633  cat /etc/systemd/system/ocr.service
+  634  netstat -antu
+  635  lsof -i tcp:5000
+  636  netstat -lp
+  637  netstat -lp | grep 5000
+  638  sudo systemctl status ocr.service
+  639  sudo systemctl stop ocr.service
+  640  lsof -i tcp:5000
+  641  sudo systemctl status ocr.service
+  642  sudo systemctl start ocr.service
+  643  sudo systemctl status ocr.service
+  644  source myenv/bin/activate
+  645  history 
+  646  exit
+  647  history 
+  648  pm2 list
+  649  pm2 stop 1
+  650  pm2 delete 1
+  651  exit
+  652  history | grep 0.0.0
+  653  history | grep 5000
+  654  sudo systemctl status ocr.service
+  655  cat /etc/systemd/system/ocr.service
+  656  sudo vim /etc/systemd/system/ocr.service
+  657  cd ocr-python/ocr.abracardabra/
+  658  cat uwsgi.sh 
+  659  history | grep myenv
+  660  history 
+  661  pm2 list
+  662  pm2 log abra-ocr
+  663  lsof -i tcp:5000
+  664  pm2 stop 0
+  665  pm2 start app.py --name abra-ocr --interpreter=python3 -- --port:5000
+  666  pm2 list
+  667  pm2 start app.py --name abra-ocr-80 --interpreter=python3 -- --port:80
+  668  pm2 list
+  669  cd /etc/nginx/
+  670  ll
+  671  cd sites-available/
+  672  sudo touch ocr.abracardabra.dev-360.net
+  673  sudo vim ocr.abracardabra.dev-360.net 
+  674  sudo ln -s /etc/nginx/sites-available/ocr.abracardabra.dev-360.net /etc/nginx/sites-enabled/
+  675  sudo service nginx reload
+  676  sudo nginx -t
+  677  exit
+  678  ll
+  679  pm2 logs
+  680  pm2 logs abra-ocr
+  681  pm2 logs abra-ocr --lines 10000
+  682  pm logs
+  683  pm2 logs
+  684  pm2 logs abra-ocr --lines 10000
+  685  cd /etc/nginx/
+  686  ll
+  687  sudo vim nginx.conf 
+  688  sudo vim sites-available/ocr.abracardabra.dev-360.net 
+  689  sudo service nginx reload
+  690  pm2 logs abra-ocr --lines 10000
+  691  sudo nginx -t
+  692  cd /etc/nginx/
+  693  ll
+  694  cd sites-available/
+  695  ll
+  696  cat ocr.abracardabra.dev-360.net
+  697  sudo vim ocr.abracardabra.dev-360.net
+  698  sudo service nginx reload
+  699  sudo vim ocr.abracardabra.dev-360.net
+  700  sudo service nginx reload
+  701  lsb_release -a
+  702  sudo apt-get update
+  703  sudo apt-get install software-properties-common
+  704  sudo add-apt-repository universe
+  705  sudo add-apt-repository ppa:certbot/certbot
+  706  sudo apt-get update
+  707  sudo apt-get install certbot python3-certbot-nginx
+  708  sudo certbot --nginx
+  709  cat ocr.abracardabra.dev-360.net 
+  710  sudo vim ocr.abracardabra.dev-360.net 
+  711  sudo service nginx reload
+  712  sudo vim ocr.abracardabra.dev-360.net 
+  713  sudo service nginx reload
+  714  sudo vim ocr.abracardabra.dev-360.net 
+  715  sudo service nginx reload
+  716  sudo service nginx restart
+  717  sudo vim ocr.abracardabra.dev-360.net 
+  718  sudo certbot --nginx
+  719  sudo vim ocr.abracardabra.dev-360.net 
+  720  sudo service nginx reload
+  721  sudo vim ocr.abracardabra.dev-360.net 
+  722  sudo service nginx reload
+  723  sudo service nginx restart
+  724  sudo certbot --nginx
+  725  sudo vim ocr.abracardabra.dev-360.net 
+  726  sudo service nginx reload
+  727  sudo service nginx restart
+  728  sudo nginx -t
+  729  sudo vim ocr.abracardabra.dev-360.net 
+  730  sudo certbot --nginx
+  731  sudo service nginx reload
+  732  sudo vim ocr.abracardabra.dev-360.net 
+  733  sudo service nginx reload
+  734  ping localhost:5000
+  735  curl localhost:5000
+  736  curl https://localhost:5000
+  737  sudo certbot delete
+  738  curl https://localhost:5000
+  739  cd /etc/nginx/sites-available/
+  740  ll
+  741  sudo vim ocr.abracardabra.dev-360.net 
+  742  sudo certbot --nginx
+  743  curl https://localhost:5000
+  744  sudo service nginx reload
+  745  curl https://localhost:5000
+  746  pm2 list
+  747  sudo service nginx restart 
+  748  sudo vim ocr.abracardabra.dev-360.net 
+  749  sudo service nginx restart 
+  750  sudo vim ocr.abracardabra.dev-360.net 
+  751  cat ocr.abracardabra.dev-360.net 
+  752  sudo vim ocr.abracardabra.dev-360.net 
+  753  sudo service nginx reload
+  754  sudo vim ocr.abracardabra.dev-360.net 
+  755  sudo service nginx reload
+  756  sudo ufw allow https
+  757  cd ocr-python/ocr.abracardabra/
+  758  ll
+  759  git status
+  760  git add *wsg*
+  761  git status
+  762  git commit -m "-added config files for uwsgi"
+  763  git status
+  764  git add app.py 
+  765  git commit -m "-updated endpoints"
+  766  git add image_processing.py text_manipulation.py requirements.txt 
+  767  git commit -m "-updated image and text processing logic"
+  768  git status
+  769  git pull
+  770  git push
+  771  git status
+  772  git fetch
+  773  cd ocr-python/ocr.abracardabra/
+  774  git fetch
+  775  cd /etc/nginx/sites-available/
+  776  ll
+  777  docker ps
+  778  ll
+  779  exit
+  780  docker ps
+  781  ll
+  782  history
+  783  pm2 list
+  784  pm2 logs abra-ocr
+  785  exit
+  786  ll
+  787  cd Algo/
+  788  ll
+  789  cd algo
+  790  ll
+  791  cd ..
+  792  git status
+  793  cd
+  794  ll
+  795  cd ocr-python/
+  796  ll
+  797  cd 
+  798  exit
+  799  ls
+  800  cd Algo
+  801  ls
+  802  git status
+  803  git log
+  804  git status
+  805  git commit -m "Commit Changes from server"
+  806  git add algo/Sources/algo/NamedEntity.swift
+  807  git add algo/Sources/algo/PhoneNumberKit/MetadataManager.swift
+  808  gitt add algo/Sources/algo/main.swift
+  809  git add algo/Sources/algo/main.swift
+  810  git commit -m "Commit Changes from server"
+  811  git push origin swiftylinux
+  812  git remote
+  813  git remote add medlink https://bitbucket.org/360devsteam/algo.abracardabra
+  814  git remote
+  815  git fetch medlink
+  816  git push origin master
+  817  git push origin swiftylinux
+  818  git pull origin swiftylinux
+  819  git push origin swiftylinux
+  820  git statis
+  821  git status
+  822  git add algo/Sources/algo/main.swift
+  823  git commit -m "merge"
+  824  git pull origin swiftylinux
+  825  git push origin swiftylinux
+  826  ls
+  827  swift build
+  828  .build/debug/algo
+  829  history
+  830  git history > historycommandes.txt
+  831  history > historycommandes.txt
+  832  ls
+  833  .build/debug/algo
+  834  cd algo
+  835  .build/debug/algo
+  836  .build/debug/algo ""
+  837  .build/debug/algo "Insurance\nTA\nHealth\nPensions\nLife\nBRITCAY\nErica Smith\nPersonal Insurance Representative\nBRITISH CAYMANIAN INSURANCE COMPANY LIMITED\nPersonal & Business Insurance\nBritCay House, 236 Eastern Avenue, George Town, Grand Cayman\nP.O. Box 74, Grand Cayman KY1-1102, Cayman Islands\ntel. (345) 949 8699 dir. (345) 914 9866 fax. (345) 949 8411\nErica.Smith@britcay.ky www.britcay.ky\n""
+  335  .build/debug/algo "Giorgio Subiotto\nPartner\nOgier\nD +1 345 815 1872\nT +1 345 949 9876\nM +1 345 516 9071\n89 Nexus Way\nE giorgio.subiotto@ogier.com\nComano Bay\nGrand Cayman\nRegulatory information con be found at ogier.com\nCayman Islands KY1-9009"
+
+cd
+:q
+exit
+  838  .build/debug/algo "Insurance\nTA\nHealth\nPensions\nLife\nBRITCAY\nErica Smith\nPersonal Insurance Representative\nBRITISH CAYMANIAN INSURANCE COMPANY LIMITED\nPersonal & Business Insurance\nBritCay House, 236 Eastern Avenue, George Town, Grand Cayman\nP.O. Box 74, Grand Cayman KY1-1102, Cayman Islands\ntel. (345) 949 8699 dir. (345) 914 9866 fax. (345) 949 8411\nErica.Smith@britcay.ky www.britcay.ky\n""
+
+  839  .build/debug/algo "Insurance\nTA\nHealth\nPensions\nLife\nBRITCAY\nErica Smith\nPersonal Insurance Representative\nBRITISH CAYMANIAN INSURANCE COMPANY LIMITED\nPersonal & Business Insurance\nBritCay House, 236 Eastern Avenue, George Town, Grand Cayman\nP.O. Box 74, Grand Cayman KY1-1102, Cayman Islands\ntel. (345) 949 8699 dir. (345) 914 9866 fax. (345) 949 8411\nErica.Smith@britcay.ky www.britcay.ky\n"
+  840  gitt status
+  841  git status
+  842  cd ''
+  843  cd ""
+  844  cd ..
+  845  ls
+  846  git add historycommandes.txt 
+  847  git commit -m "all working good with last gen algorithm" 
+  848  git push origin swiftylinuux
+  849  git push origin swiftylinux
+  850  git fetch medlink
+  851  git config user.name "lyesderouiche"
+  852  git config user.email "lyesd@360medlink.com"
+  853  git fetch medlink
+  854  git status
+  855  git pull medlink swiftylinux
+  856  diff algo/Sources/algo/main.swift
+  857  git diff algo/Sources/algo/main.swift
+  858  git commit -m "mergin github and bitbuck (latest)"
+  859  git status
+  860  git commit
+  861  git mergetool
+  862  git statis
+  863  git status
+  864  git commit -m "merged 2 branches"
+  865  git clean
+  866  ls
+  867  git algo
+  868  ls
+  869  cd algo
+  870  ls
+  871  cd Sources/
+  872  ls
+  873  cd algo
+  874  ls
+  875  git clean -
+  876  git clean -n
+  877  git clean -f
+  878  ls
+  879  cd ""
+  880  cd ..
+  881  ls
+  882  git status
+  883  git algo
+  884  cd algo
+  885  .build/debug/algo "Insurance\nTA\nHealth\nPensions\nLife\nBRITCAY\nErica Smith\nPersonal Insurance Representative\nBRITISH CAYMANIAN INSURANCE COMPANY LIMITED\nPersonal & Business Insurance\nBritCay House, 236 Eastern Avenue, George Town, Grand Cayman\nP.O. Box 74, Grand Cayman KY1-1102, Cayman Islands\ntel. (345) 949 8699 dir. (345) 914 9866 fax. (345) 949 8411\nErica.Smith@britcay.ky www.britcay.ky\n"
+  886  swift build
+  887  cd ..
+  888  ls
+  889  git revert HEAD~2
+  890  git log
+  891  got checkout 2a903fc1e0c31d6cbe3eed2c4c0169f366c3d5f9
+  892  git checkout 2a903fc1e0c31d6cbe3eed2c4c0169f366c3d5f9
+  893  git status
+  894  git reset --hard 2a903fc1e0c31d6cbe3eed2c4c0169f366c3d5f9
+  895  git push
+  896  git push origin swiftylinux
+  897  git status
+  898  git log
+  899  git commit
+  900  git reset 2a903fc
+  901  git reset --soft HEAD@{1}
+  902  git commit -m "Revert to 2a903fc"
+  903  git reset --hard
+  904  git status
+  905  git commit
+  906  git log
+  907  cd algo
+  908  ls
+  909  cd Sources/
+  910  ls
+  911  cd algo
+  912  ls
+  913  swift build
+  914  git commit -m
+  915  git commit -m "Old building right"
+  916  git push origin swiftylinux
+  917  history
+  918  history > historycommands.tx
+  919  ls
+  920  rm historycommands.tx 
+  921  ls
+  922  cd ..
+  923  rm historycommands.tx 
+  924  history > historycommands.tx
