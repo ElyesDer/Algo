@@ -5,7 +5,6 @@
 //  Created by 360medlink Tunisia on 5/28/20.
 //  Copyright © 2020 360medlink Tunisia. All rights reserved.
 //
-
 import Foundation
 
 extension URL {
@@ -31,6 +30,12 @@ extension String {
     var stripAllNonNumbers : String {
             let okayChars =
                         CharacterSet.alphanumerics
+    //                    .union(CharacterSet.alphanumerics)
+    //                    .union(CharacterSet.capitalizedLetters)
+//                        .union(CharacterSet.whitespacesAndNewlines)
+//                        .union(CharacterSet.lowercaseLetters)
+            //            .union(CharacterSet.punctuationCharacters)
+    //                        .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@"))
                     return String(self.unicodeScalars.filter{okayChars.contains($0) })
         }
    
@@ -38,8 +43,12 @@ extension String {
     var stripAllNonLetterWithDash : String {
         let okayChars =
                     CharacterSet.uppercaseLetters
+//                    .union(CharacterSet.alphanumerics)
+//                    .union(CharacterSet.capitalizedLetters)
                     .union(CharacterSet.whitespacesAndNewlines)
                     .union(CharacterSet.lowercaseLetters)
+        //            .union(CharacterSet.punctuationCharacters)
+//                        .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@"))
                 return String(self.unicodeScalars.filter{okayChars.contains($0) })
     }
     
@@ -50,10 +59,27 @@ extension String {
             .union(CharacterSet.capitalizedLetters)
             .union(CharacterSet.whitespacesAndNewlines)
             .union(CharacterSet.uppercaseLetters)
+//            .union(CharacterSet.punctuationCharacters)
                 .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@'"))
         return String(self.unicodeScalars.filter{okayChars.contains($0) })
         
     }
+    
+    
+    var stripSeparators: String {
+            let okayChars =
+                CharacterSet(charactersIn: ":/_\\+,;()&\".@'")
+//                .union(CharacterSet.alphanumerics)
+//                .union(CharacterSet.capitalizedLetters)
+//                .union(CharacterSet.whitespacesAndNewlines)
+//                .union(CharacterSet.uppercaseLetters)
+//    //            .union(CharacterSet.punctuationCharacters)
+//                    .union(CharacterSet(charactersIn: ":/-_\\+,;()&\".@'"))
+            return String(self.unicodeScalars.filter{!okayChars.contains($0) })
+            
+            //rangeOfCharacter(from: CharacterSet.decimalDigits.inverted)
+    //        return rangeOfCharacter(from: okayChars) == nil
+        }
     
     
     var withoutSpecialCharacters: String {
@@ -66,6 +92,14 @@ extension String {
         .replacingOccurrences(of: ":", with: "")
         .replacingOccurrences(of: "-", with: "")
         .replacingOccurrences(of: "+ ", with: "+")
+    }
+    
+    var cleanInvalidatedPhone : String {
+        return self.trimmedAndLowercased
+        .replacingOccurrences(of: ":", with: " ")
+        .replacingOccurrences(of: "-", with: " ")
+        .replacingOccurrences(of: ",", with: " ")
+        .replacingOccurrences(of: ".", with: " ")
     }
     
     func replacingFirstOccurrenceOf(
